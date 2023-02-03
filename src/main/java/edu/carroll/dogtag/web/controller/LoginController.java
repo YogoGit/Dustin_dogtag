@@ -38,13 +38,13 @@ public class LoginController {
             result.addError(new ObjectError("globalError", "Username and password do not match known users"));
             return "login";
         }
-        attrs.addAttribute("username", loginForm.getUsername());
+        attrs.addAttribute("user", loginForm.getUser());
         return "redirect:/loginSuccess";
     }
 
     @GetMapping("/loginSuccess")
-    public String loginSuccess(String username, Model model) {
-        model.addAttribute("username", username);
+    public String loginSuccess(String user, Model model) {
+        model.addAttribute("user", user);
         return "loginSuccess";
     }
 

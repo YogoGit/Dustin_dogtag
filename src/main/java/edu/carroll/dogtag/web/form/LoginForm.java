@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class LoginForm {
     @NotNull
     @Size(min = 6, message = "Username must be at least 6 characters long")
-    private String username;
+    private String user;
 
     @NotNull
     @Size(min = 8, message = "Password must be at least 8 characters long")
@@ -19,25 +19,17 @@ public class LoginForm {
     public LoginForm() {
     }
 
-    public LoginForm(String username, String password) {
-        this.username = username;
+    public LoginForm(String user, String password) {
+        this.user = user;
         this.password = password;
     }
-    @PostMapping("/login")
-    public String loginPost(@Valid @ModelAttribute LoginForm loginForm, BindingResult result) {
-        System.out.println("User '" + loginForm.getUsername() + "' attempted login");
-        if (result.hasErrors()) {
-            return "login";
-        }
-        return "redirect:/loginSuccess";
+
+    public String getUser() {
+        return user;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public String getPassword() {

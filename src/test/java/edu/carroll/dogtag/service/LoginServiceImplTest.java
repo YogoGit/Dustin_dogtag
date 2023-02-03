@@ -1,6 +1,12 @@
 package edu.carroll.dogtag.service;
 
-import edu.carroll.dogtag.jpa.model.Login;
+import static org.springframework.test.util.AssertionErrors.assertFalse;
+import static org.springframework.test.util.AssertionErrors.assertNotNull;
+import static org.springframework.test.util.AssertionErrors.assertTrue;
+
+import java.util.List;
+
+import edu.carroll.dogtag.jpa.model.database.Auth;
 import edu.carroll.dogtag.jpa.repo.LoginRepository;
 import edu.carroll.dogtag.web.form.LoginForm;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,13 +14,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.List;
-
-import static org.springframework.test.util.AssertionErrors.*;
-
 @SpringBootTest
 public class LoginServiceImplTest {
-    private static final String username = "testuser";
+    private static final String user = "testuser";
     private static final String password = "testpass";
 
     @Autowired
@@ -23,7 +25,7 @@ public class LoginServiceImplTest {
     @Autowired
     private LoginRepository loginRepo;
 
-    private Login fakeUser = new Login(username, password);
+    private final Auth fakeUser = new Auth(user, password);
 
     @BeforeEach
     public void beforeTest() {
@@ -31,33 +33,33 @@ public class LoginServiceImplTest {
         assertNotNull("loginService must be injected", loginService);
 
         // Ensure dummy record is in the DB
-        final List<Login> users =
-                loginRepo.findByUsernameIgnoreCase(username);
-        if (users.isEmpty())
+        final List<Auth> user =
+                loginRepo.findByUserIgnoreCase(user);
+        if (user.isEmpty())
             loginRepo.save(fakeUser);
     }
 
     @Test
     public void validateUserSuccessTest() {
-        final LoginForm form = new LoginForm(username, password);
+        final LoginForm form = new LoginForm(user, password);
         assertTrue("validateUserSuccessTest: should succeed using the same user/pass info", loginService.validateUser(form));
     }
 
     @Test
     public void validateUserExistingUserInvalidPasswordTest() {
-        final LoginForm form = new LoginForm(username, password + "extra");
+        final LoginForm form = new LoginForm(user, password + "extra");
         assertFalse("validateUserExistingUserInvalidPasswordTest: should fail using a valid user, invalid pass", loginService.validateUser(form));
     }
 
     @Test
     public void validateUserInvalidUserValidPasswordTest() {
-        final LoginForm form = new LoginForm(username + "not", password);
+        final LoginForm form = new LoginForm(user + "not", password);
         assertFalse("validateUserInvalidUserValidPasswordTest: should fail using an invalid user, valid pass", loginService.validateUser(form));
     }
 
     @Test
     public void validateUserInvalidUserInvalidPasswordTest() {
-        final LoginForm form = new LoginForm(username + "not", password + "extra");
+        final LoginForm form = new LoginForm(user + "not", password + "extra");
         assertFalse("validateUserInvalidUserInvalidPasswordTest: should fail using an invalid user, valid pass", loginService.validateUser(form));
     }
 }
