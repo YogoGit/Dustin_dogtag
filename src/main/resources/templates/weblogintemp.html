@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="English">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -124,6 +124,7 @@ span.psw {
   }
 }
 </style>
+  <title></title>
 </head>
 <body>
 
@@ -136,7 +137,7 @@ span.psw {
   <form class="modal-content animate" action="/action_page.php" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="/pictures/logo.png" alt="Avatar" class="avatar">
+      <img src="/image/logo.webp" class="avatar" alt="Avatar">
     </div>
 
     <div class="container">
@@ -165,7 +166,7 @@ var modal = document.getElementById('id01');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
+    if (event.target === modal) {d
         modal.style.display = "none";
     }
 }
