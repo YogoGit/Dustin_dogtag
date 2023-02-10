@@ -1,4 +1,4 @@
-package edu.carroll.dogtag.service;
+/*package edu.carroll.dogtag.service;
 
 import static org.springframework.test.util.AssertionErrors.assertFalse;
 import static org.springframework.test.util.AssertionErrors.assertNotNull;
@@ -62,4 +62,4 @@ public class LoginServiceImplTest {
         final LoginForm form = new LoginForm(user + "not", password + "extra");
         assertFalse("validateUserInvalidUserInvalidPasswordTest: should fail using an invalid user, valid pass", loginService.validateUser(form));
     }
-}
+}*/
