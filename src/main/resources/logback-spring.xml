@@ -33,9 +33,9 @@
       This configures the log level to log at for a package and its
       children p    ackages.
     -->
-    <!-- Overwrite level for a internal code - Commented out for now
+    <!-- Overwrite level for a internal code - Commented out for now  -->
     <logger name="edu.carroll.cs389" level="DEBUG"/>
-    -->
+
 
     <!-- Reduce DB startup chatter -->
     <logger name="org.hibernate" level="INFO" />

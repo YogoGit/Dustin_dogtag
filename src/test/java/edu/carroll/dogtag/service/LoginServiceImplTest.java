@@ -6,7 +6,7 @@ import static org.springframework.test.util.AssertionErrors.assertTrue;
 
 import java.util.List;
 
-import edu.carroll.dogtag.jpa.model.database.Auth;
+import edu.carroll.dogtag.jpa.model.database.Login;
 import edu.carroll.dogtag.jpa.repo.LoginRepository;
 import edu.carroll.dogtag.web.form.LoginForm;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,7 +25,7 @@ public class LoginServiceImplTest {
     @Autowired
     private LoginRepository loginRepo;
 
-    private final Auth fakeUser = new Auth(user, password);
+    private final Login fakeUser = new Login(user, password);
 
     @BeforeEach
     public void beforeTest() {
@@ -33,7 +33,7 @@ public class LoginServiceImplTest {
         assertNotNull("loginService must be injected", loginService);
 
         // Ensure dummy record is in the DB
-        final List<Auth> user =
+        final List<Login> user =
                 loginRepo.findByUserIgnoreCase(user);
         if (user.isEmpty())
             loginRepo.save(fakeUser);

@@ -2,7 +2,7 @@ package edu.carroll.dogtag.service;
 
 import java.util.List;
 
-import edu.carroll.dogtag.jpa.model.database.Auth;
+import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.repo.LoginRepository;
 import edu.carroll.dogtag.web.form.LoginForm;
 import org.slf4j.Logger;
@@ -28,14 +28,14 @@ public class LoginServiceImpl implements LoginService {
     public boolean validateUser(LoginForm loginForm) {
         log.info("validateUser: user '{}' attempted login", loginForm.getUser());
         // Always do the lookup in a case-insensitive manner (lower-casing the data).
-        List<Auth> user = loginRepo.findByUserIgnoreCase(loginForm.getUser());
+        List<Login> user = loginRepo.findByUserIgnoreCase(loginForm.getUser());
 
         // We expect 0 or 1, so if we get more than 1, bail out as this is an error we don't deal with properly.
         if (user.size() != 1) {
             log.debug("validateUser: found {} users", user.size());
             return false;
         }
-        Auth u = user.get(0);
+        Login u = user.get(0);
         // XXX - Using Java's hashCode is wrong on SO many levels, but is good enough for demonstration purposes.
         // NEVER EVER do this in production code!
         final String userProvided = loginForm.getPassword();
@@ -47,5 +47,10 @@ public class LoginServiceImpl implements LoginService {
         // User exists, and the provided password matches the hashed password in the database.
         log.debug("validateUser: successful login");
         return true;
+    }
+
+    @Override
+    public Login save(Login login) {
+        return null;
     }
 }

@@ -1,4 +1,4 @@
-package edu.carroll.dogtag.jpa.model.database;
+package edu.carroll.dogtag.jpa.model;
 
 
 import jakarta.persistence.*;

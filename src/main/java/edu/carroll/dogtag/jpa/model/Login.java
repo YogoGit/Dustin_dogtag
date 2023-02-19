@@ -1,17 +1,19 @@
-package edu.carroll.dogtag.jpa.model.database;
+package edu.carroll.dogtag.jpa.model;
 
 import jakarta.persistence.*;
 
 import java.util.Objects;
 
+
 @Entity
-@Table(name = "auth")
-public class Auth {
+@Table(name = "login")
+public class Login {
+
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id; //switch to long
 
     @Column(name = "user", nullable = false, unique = true)
     private String user;
@@ -19,11 +21,11 @@ public class Auth {
     @Column(name = "password", nullable = false)
     private String password;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -62,7 +64,7 @@ public class Auth {
         if (o == null || getClass() != o.getClass())
             return false;
 
-        final Auth login = (Auth)o;
+        final Login login = (Login)o;
         return user.equals(login.user) && password.equals(login.password);
     }
 
@@ -70,4 +72,6 @@ public class Auth {
     public int hashCode() {
         return Objects.hash(user, password);
     }
+
+
 }
