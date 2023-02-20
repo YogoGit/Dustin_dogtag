@@ -49,8 +49,4 @@ public class LoginServiceImpl implements LoginService {
         return true;
     }
 
-    @Override
-    public Login save(Login login) {
-        return null;
-    }
 }

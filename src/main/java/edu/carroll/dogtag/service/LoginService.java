@@ -12,6 +12,4 @@ public interface LoginService {
      * @return true if data exists and matches what's on record, false otherwise
      */
     boolean validateUser(LoginForm loginForm);
-
-    Login save(Login login);
 }

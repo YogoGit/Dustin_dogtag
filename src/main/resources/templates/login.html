@@ -4,23 +4,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Login page</title>
 
-    <!-- Bootstrap 5 css-->
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-
-    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
-
 </head>
-<body class="bg-dark">
 
-<div class="container mw-75 bg-white vh-100 justify-content-center">
 
-    <div class="mb-3">
-      <h1>
-          "Login"
-      </h1>
-    </div>
-
-    <form>
         <form action="#" th:action="@{/login}" th:object="${loginForm}" method="post">
             <span th:if="${#fields.hasGlobalErrors()}" th:errors="*{global}">Global error</span><br/>  <!-- Add this line -->
             <input type="text" th:field="*{user}" placeholder="User"/>
@@ -28,10 +14,10 @@
             <input type="password" th:field="*{password}" placeholder="Password"/>
             <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</span><br/>
             <button type="submit">Login</button>
-            <button type="submit" th:attr="register">Register</button>
+            <p><a href="/register">Register</a></p>
         </form>
-    </form>
 
-</div>
+
+
 </body>
 </html>
