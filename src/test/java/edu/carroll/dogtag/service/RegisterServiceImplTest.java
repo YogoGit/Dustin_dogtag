@@ -26,6 +26,10 @@ class RegisterServiceImplTest {
 
     private static final String password = "passwordtest";
 
+    private static final String userDelete = "userdeletetest";
+
+    private static final String passwordDelete = "passworddeletetest";
+
     @Autowired
     private RegisterService registerService;
 
@@ -54,6 +58,16 @@ class RegisterServiceImplTest {
                 registerRepository.findByUserIgnoreCase(userRegister.getUser());
         assertTrue("userExistSuccessTest: should succeed", registerService.userExists(userRegister.getUser()));
 
+    }
+
+    @Test
+    public void deleteCreatedUserTest(){
+        Login userRegisterDelete = new Login();
+        userRegisterDelete.setPassword(passwordDelete);
+        userRegister.setUser(userDelete);
+        registerService.register(userRegister);
+        registerService.deleteUser(userRegister);
+        assertFalse("userExistSuccessTest: should succeed", registerService.userExists(userRegister.getUser()));
     }
 
 }

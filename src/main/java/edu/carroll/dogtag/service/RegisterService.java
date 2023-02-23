@@ -12,4 +12,6 @@ public interface RegisterService {
     boolean userExists(String user);
 
     void register(Login register);
+
+    void deleteUser(Login userRegister);
 }

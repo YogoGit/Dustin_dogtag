@@ -37,6 +37,11 @@ public class RegisterServiceImpl implements RegisterService{
     public void register(Login register) {
         registerRepo.save(register);
     }
+
+    @Override
+    public void deleteUser(Login userRegister) {
+        registerRepo.delete(userRegister);
+    }
 }
 
 
