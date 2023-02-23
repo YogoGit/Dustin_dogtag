@@ -26275,3 +26275,618 @@ B
 2023-02-20 16:11:07,317-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-7 
 User could not be registered
 
+2023-02-20 16:15:03,185-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-20 16:15:03,187-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown initiated...
+
+2023-02-20 16:15:03,193-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown completed.
+
+2023-02-20 16:15:17,942-[INFO]-from org.hibernate.validator.internal.util.Version in background-preinit 
+HV000001: Hibernate Validator 8.0.0.Final
+
+2023-02-20 16:15:17,970-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Starting DogtagAppApplication using Java 17.0.6 with PID 21432 (C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main started by dusti in C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app)
+
+2023-02-20 16:15:17,971-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2023-02-20 16:15:18,002-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2023-02-20 16:15:18,002-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2023-02-20 16:15:18,456-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2023-02-20 16:15:18,503-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 43 ms. Found 4 JPA repository interfaces.
+
+2023-02-20 16:15:18,850-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port(s): 8080 (http)
+
+2023-02-20 16:15:18,855-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2023-02-20 16:15:18,856-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2023-02-20 16:15:18,856-[INFO]-from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+
+2023-02-20 16:15:18,898-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2023-02-20 16:15:18,899-[INFO]-from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 896 ms
+
+2023-02-20 16:15:18,985-[INFO]-from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2023-02-20 16:15:19,014-[INFO]-from org.hibernate.Version in restartedMain 
+HHH000412: Hibernate ORM core version 6.1.6.Final
+
+2023-02-20 16:15:19,119-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+
+2023-02-20 16:15:19,198-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Starting...
+
+2023-02-20 16:15:19,235-[INFO]-from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection org.mariadb.jdbc.Connection@7359961c
+
+2023-02-20 16:15:19,236-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Start completed.
+
+2023-02-20 16:15:19,248-[INFO]-from SQL dialect in restartedMain 
+HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+
+2023-02-20 16:15:19,248-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MariaDB103Dialect has been deprecated; use org.hibernate.dialect.MariaDBDialect instead
+
+2023-02-20 16:15:19,770-[INFO]-from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+2023-02-20 16:15:19,775-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-20 16:15:20,005-[WARN]-from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2023-02-20 16:15:20,104-[INFO]-from org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping in restartedMain 
+Adding welcome page template: index
+
+2023-02-20 16:15:20,281-[INFO]-from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2023-02-20 16:15:20,295-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2023-02-20 16:15:20,308-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port(s): 8080 (http) with context path ''
+
+2023-02-20 16:15:20,315-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Started DogtagAppApplication in 2.681 seconds (process running for 3.107)
+
+2023-02-20 16:15:31,182-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2023-02-20 16:15:31,182-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2023-02-20 16:15:31,183-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2023-02-20 16:15:31,232-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+B
+
+2023-02-20 16:15:31,233-[INFO]-from edu.carroll.dogtag.service.RegisterServiceImpl in http-nio-8080-exec-1 
+userExists: 'qqqqqqqqqq' exists already
+
+2023-02-20 16:15:31,300-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+User failed validation
+
+2023-02-20 16:15:48,758-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-2 
+B
+
+2023-02-20 16:15:48,758-[INFO]-from edu.carroll.dogtag.service.RegisterServiceImpl in http-nio-8080-exec-2 
+userExists: 'ggggggggggggg' exists already
+
+2023-02-20 16:15:48,761-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-2 
+User failed validation
+
+2023-02-20 16:18:22,369-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-20 16:18:22,371-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown initiated...
+
+2023-02-20 16:18:22,376-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown completed.
+
+2023-02-20 16:20:55,330-[INFO]-from org.hibernate.validator.internal.util.Version in background-preinit 
+HV000001: Hibernate Validator 8.0.0.Final
+
+2023-02-20 16:20:55,362-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Starting DogtagAppApplication using Java 17.0.6 with PID 2612 (C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main started by dusti in C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app)
+
+2023-02-20 16:20:55,363-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2023-02-20 16:20:55,394-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2023-02-20 16:20:55,394-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2023-02-20 16:20:55,854-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2023-02-20 16:20:55,904-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 44 ms. Found 4 JPA repository interfaces.
+
+2023-02-20 16:20:56,255-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port(s): 8080 (http)
+
+2023-02-20 16:20:56,261-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2023-02-20 16:20:56,262-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2023-02-20 16:20:56,262-[INFO]-from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+
+2023-02-20 16:20:56,302-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2023-02-20 16:20:56,302-[INFO]-from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 908 ms
+
+2023-02-20 16:20:56,400-[INFO]-from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2023-02-20 16:20:56,430-[INFO]-from org.hibernate.Version in restartedMain 
+HHH000412: Hibernate ORM core version 6.1.6.Final
+
+2023-02-20 16:20:56,541-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+
+2023-02-20 16:20:56,625-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Starting...
+
+2023-02-20 16:20:56,663-[INFO]-from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection org.mariadb.jdbc.Connection@7458002b
+
+2023-02-20 16:20:56,663-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Start completed.
+
+2023-02-20 16:20:56,677-[INFO]-from SQL dialect in restartedMain 
+HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+
+2023-02-20 16:20:56,677-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MariaDB103Dialect has been deprecated; use org.hibernate.dialect.MariaDBDialect instead
+
+2023-02-20 16:20:57,207-[INFO]-from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+2023-02-20 16:20:57,212-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-20 16:20:57,457-[WARN]-from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2023-02-20 16:20:57,550-[INFO]-from org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping in restartedMain 
+Adding welcome page template: index
+
+2023-02-20 16:20:57,723-[INFO]-from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2023-02-20 16:20:57,737-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2023-02-20 16:20:57,751-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port(s): 8080 (http) with context path ''
+
+2023-02-20 16:20:57,758-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Started DogtagAppApplication in 2.743 seconds (process running for 3.168)
+
+2023-02-20 16:21:03,432-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2023-02-20 16:21:03,432-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2023-02-20 16:21:03,433-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2023-02-20 16:21:03,488-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+B
+
+2023-02-20 16:21:03,599-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+Registration post was successful
+
+2023-02-20 16:21:10,291-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-3 
+Successfully Mapped Register page
+
+2023-02-20 16:21:19,140-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-4 
+B
+
+2023-02-20 16:21:19,145-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-4 
+Registration post was successful
+
+2023-02-20 16:21:36,075-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-6 
+Successfully Mapped Register page
+
+2023-02-20 16:21:39,614-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-8 
+B
+
+2023-02-20 16:21:39,621-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-8 
+User failed validation
+
+2023-02-20 16:21:48,731-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-7 
+B
+
+2023-02-20 16:21:48,731-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-7 
+User could not be registered
+
+2023-02-20 16:21:52,708-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-9 
+B
+
+2023-02-20 16:21:52,711-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-9 
+User failed validation
+
+2023-02-20 16:22:08,574-[INFO]-from edu.carroll.dogtag.service.LoginServiceImpl in http-nio-8080-exec-3 
+validateUser: user 'llllll' attempted login
+
+2023-02-20 16:22:11,304-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-4 
+Successfully Mapped Register page
+
+2023-02-20 16:22:12,677-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-5 
+B
+
+2023-02-20 16:22:12,680-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-5 
+User failed validation
+
+2023-02-20 16:25:19,393-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-20 16:25:19,398-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown initiated...
+
+2023-02-20 16:25:19,409-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown completed.
+
+2023-02-22 16:17:06,928-[INFO]-from org.hibernate.validator.internal.util.Version in background-preinit 
+HV000001: Hibernate Validator 8.0.0.Final
+
+2023-02-22 16:17:06,956-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Starting DogtagAppApplication using Java 17.0.6 with PID 32956 (C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main started by dusti in C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app)
+
+2023-02-22 16:17:06,958-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2023-02-22 16:17:06,988-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2023-02-22 16:17:06,989-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2023-02-22 16:17:07,434-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2023-02-22 16:17:07,478-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 39 ms. Found 4 JPA repository interfaces.
+
+2023-02-22 16:17:07,856-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port(s): 8080 (http)
+
+2023-02-22 16:17:07,862-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2023-02-22 16:17:07,863-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2023-02-22 16:17:07,864-[INFO]-from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+
+2023-02-22 16:17:07,905-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2023-02-22 16:17:07,905-[INFO]-from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 916 ms
+
+2023-02-22 16:17:07,997-[INFO]-from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2023-02-22 16:17:08,027-[INFO]-from org.hibernate.Version in restartedMain 
+HHH000412: Hibernate ORM core version 6.1.6.Final
+
+2023-02-22 16:17:08,134-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+
+2023-02-22 16:17:08,215-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Starting...
+
+2023-02-22 16:17:08,256-[INFO]-from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection org.mariadb.jdbc.Connection@7cbddba1
+
+2023-02-22 16:17:08,256-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Start completed.
+
+2023-02-22 16:17:08,270-[INFO]-from SQL dialect in restartedMain 
+HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+
+2023-02-22 16:17:08,271-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MariaDB103Dialect has been deprecated; use org.hibernate.dialect.MariaDBDialect instead
+
+2023-02-22 16:17:08,826-[INFO]-from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+2023-02-22 16:17:08,832-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-22 16:17:09,102-[WARN]-from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2023-02-22 16:17:09,221-[INFO]-from org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping in restartedMain 
+Adding welcome page template: index
+
+2023-02-22 16:17:09,427-[INFO]-from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2023-02-22 16:17:09,441-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2023-02-22 16:17:09,456-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port(s): 8080 (http) with context path ''
+
+2023-02-22 16:17:09,465-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Started DogtagAppApplication in 2.875 seconds (process running for 3.34)
+
+2023-02-22 16:17:14,814-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2023-02-22 16:17:14,814-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2023-02-22 16:17:14,815-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2023-02-22 16:17:19,602-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-2 
+Successfully Mapped Register page
+
+2023-02-22 16:17:28,207-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-4 
+B
+
+2023-02-22 16:17:28,384-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-4 
+User failed validation
+
+2023-02-22 16:22:09,825-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-22 16:22:09,839-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown initiated...
+
+2023-02-22 16:22:09,843-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown completed.
+
+2023-02-22 16:22:46,739-[INFO]-from org.hibernate.validator.internal.util.Version in background-preinit 
+HV000001: Hibernate Validator 8.0.0.Final
+
+2023-02-22 16:22:46,771-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Starting DogtagAppApplication using Java 17.0.6 with PID 10876 (C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main started by dusti in C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app)
+
+2023-02-22 16:22:46,772-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2023-02-22 16:22:46,802-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2023-02-22 16:22:46,802-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2023-02-22 16:22:47,264-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2023-02-22 16:22:47,311-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 41 ms. Found 4 JPA repository interfaces.
+
+2023-02-22 16:22:47,655-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port(s): 8080 (http)
+
+2023-02-22 16:22:47,661-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2023-02-22 16:22:47,662-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2023-02-22 16:22:47,662-[INFO]-from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+
+2023-02-22 16:22:47,702-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2023-02-22 16:22:47,703-[INFO]-from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 900 ms
+
+2023-02-22 16:22:47,802-[INFO]-from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2023-02-22 16:22:47,830-[INFO]-from org.hibernate.Version in restartedMain 
+HHH000412: Hibernate ORM core version 6.1.6.Final
+
+2023-02-22 16:22:47,937-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+
+2023-02-22 16:22:48,020-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Starting...
+
+2023-02-22 16:22:48,057-[INFO]-from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection org.mariadb.jdbc.Connection@57613e5e
+
+2023-02-22 16:22:48,058-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Start completed.
+
+2023-02-22 16:22:48,072-[INFO]-from SQL dialect in restartedMain 
+HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+
+2023-02-22 16:22:48,072-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MariaDB103Dialect has been deprecated; use org.hibernate.dialect.MariaDBDialect instead
+
+2023-02-22 16:22:48,658-[INFO]-from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+2023-02-22 16:22:48,665-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-22 16:22:48,949-[WARN]-from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2023-02-22 16:22:49,067-[INFO]-from org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping in restartedMain 
+Adding welcome page template: index
+
+2023-02-22 16:22:49,281-[INFO]-from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2023-02-22 16:22:49,294-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2023-02-22 16:22:49,310-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port(s): 8080 (http) with context path ''
+
+2023-02-22 16:22:49,318-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Started DogtagAppApplication in 2.871 seconds (process running for 3.418)
+
+2023-02-22 16:24:02,916-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-22 16:24:02,919-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown initiated...
+
+2023-02-22 16:24:02,923-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown completed.
+
+2023-02-22 16:36:35,193-[INFO]-from org.hibernate.validator.internal.util.Version in background-preinit 
+HV000001: Hibernate Validator 8.0.0.Final
+
+2023-02-22 16:36:35,223-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Starting DogtagAppApplication using Java 17.0.6 with PID 28540 (C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main started by dusti in C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app)
+
+2023-02-22 16:36:35,224-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2023-02-22 16:36:35,255-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2023-02-22 16:36:35,255-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2023-02-22 16:36:35,729-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2023-02-22 16:36:35,781-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 46 ms. Found 4 JPA repository interfaces.
+
+2023-02-22 16:36:36,148-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port(s): 8080 (http)
+
+2023-02-22 16:36:36,154-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2023-02-22 16:36:36,155-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2023-02-22 16:36:36,156-[INFO]-from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+
+2023-02-22 16:36:36,196-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2023-02-22 16:36:36,197-[INFO]-from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 941 ms
+
+2023-02-22 16:36:36,293-[INFO]-from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2023-02-22 16:36:36,323-[INFO]-from org.hibernate.Version in restartedMain 
+HHH000412: Hibernate ORM core version 6.1.6.Final
+
+2023-02-22 16:36:36,432-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+
+2023-02-22 16:36:36,513-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Starting...
+
+2023-02-22 16:36:36,550-[INFO]-from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection org.mariadb.jdbc.Connection@17e26e0
+
+2023-02-22 16:36:36,551-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Start completed.
+
+2023-02-22 16:36:36,565-[INFO]-from SQL dialect in restartedMain 
+HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+
+2023-02-22 16:36:36,566-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MariaDB103Dialect has been deprecated; use org.hibernate.dialect.MariaDBDialect instead
+
+2023-02-22 16:36:37,121-[INFO]-from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+2023-02-22 16:36:37,128-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-22 16:36:37,365-[WARN]-from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2023-02-22 16:36:37,465-[INFO]-from org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping in restartedMain 
+Adding welcome page template: index
+
+2023-02-22 16:36:37,657-[INFO]-from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2023-02-22 16:36:37,672-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2023-02-22 16:36:37,687-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port(s): 8080 (http) with context path ''
+
+2023-02-22 16:36:37,696-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Started DogtagAppApplication in 2.805 seconds (process running for 3.239)
+
+2023-02-22 16:36:43,548-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2023-02-22 16:36:43,548-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2023-02-22 16:36:43,549-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2023-02-22 16:36:43,599-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+B
+
+2023-02-22 16:36:43,668-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+User failed validation
+
+2023-02-22 16:36:47,533-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-2 
+Successfully Mapped Register page
+
+2023-02-22 16:37:01,094-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-3 
+B
+
+2023-02-22 16:37:01,124-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-3 
+Registration post was successful
+
+2023-02-22 16:38:18,752-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-22 16:38:18,754-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown initiated...
+
+2023-02-22 16:38:18,759-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown completed.
+

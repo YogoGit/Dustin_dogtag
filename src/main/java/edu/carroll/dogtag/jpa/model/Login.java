@@ -1,6 +1,7 @@
 package edu.carroll.dogtag.jpa.model;
 
 import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Objects;
 
@@ -20,6 +21,8 @@ public class Login {
 
     @Column(name = "password", nullable = false)
     private String password;
+
+
 
     public Long getId() {
         return id;

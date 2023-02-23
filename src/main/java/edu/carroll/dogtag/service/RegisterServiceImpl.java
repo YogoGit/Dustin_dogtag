@@ -27,7 +27,6 @@ public class RegisterServiceImpl implements RegisterService{
      */
     @Override
     public boolean userExists(String user) {
-        log.info("userExists: '{}' exists already", user);
         // Always do the lookup in a case-insensitive manner (lower-casing the data).
         List<Login> users = registerRepo.findByUserIgnoreCase(user);
         return !users.isEmpty();

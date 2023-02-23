@@ -38,14 +38,13 @@ public class RegisterController {
             log.info("User could not be registered");
             return "register";
         }
-//        if(!registerService.validateUser(register)){
-//            result.addError(new ObjectError("globalError", "User already exists"));
-//            log.info("User failed validation");
-//            return "register";
-//        }
+        if(registerService.userExists(registerForm.getUser())){
+            result.addError(new ObjectError("globalError", "User already exists"));
+            log.info("User failed validation");
+            return "register";
+        }
 
         Login userRegister = new Login();
-        userRegister.setPassword(registerForm.getPassword());
         userRegister.setUser(registerForm.getUser());
         registerService.register(userRegister);
         attrs.addAttribute("user", registerForm.getUser());
