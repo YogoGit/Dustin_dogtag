@@ -16,7 +16,7 @@ public class Login {
     @GeneratedValue
     private Long id; //switch to long
 
-    @Column(name = "user", nullable = false, unique = true)
+    @Column(name = "username", nullable = false, unique = true)
     private String user;
 
     @Column(name = "password", nullable = false)

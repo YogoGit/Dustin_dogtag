@@ -32,36 +32,35 @@ class RegisterServiceImplTest {
     @Autowired
     private RegisterRepository registerRepository;
 
-    private Login userRegister;
-    @BeforeEach
-    public void beforeTest() {
-        assertNotNull("registerRepository must be injected", registerRepository);
-        assertNotNull("registerService must be injected", registerService);
 
-    }
+//    @BeforeEach
+//    public void creatUserTest(){
+//        userRegister = new Login();
+//        userRegister.setPassword(password);
+//        userRegister.setUser(user);
+//        userRegister.setEmail(email);
+//        registerService.register(userRegister);
+//    }
 
-    @BeforeEach
-    public void creatUserTest(){
-        userRegister = new Login();
+    @Test
+    public void userExistsTest() {
+        Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(user);
         userRegister.setEmail(email);
         registerService.register(userRegister);
-    }
-
-    @Test
-    public void userExistsTest() {
-        assertTrue("userExistSuccessTest: should succeed", registerService.userExists(userRegister.getUser()));
-        assertTrue("emailExistSuccessTest: should succeed", registerService.emailExists(userRegister.getEmail()));
+        assertTrue("userExistsTest: should succeed", registerService.userExists(userRegister.getUser()));
+        assertTrue("emailExistsTest: should succeed", registerService.emailExists(userRegister.getEmail()));
     }
     @Test
     public void deleteCreatedUserTest(){
         Login userRegisterDelete = new Login();
         userRegisterDelete.setPassword(passwordDelete);
-        userRegister.setEmail(emailDelete);
-        userRegister.setUser(userDelete);
-        registerService.register(userRegister);
-        registerService.deleteUser(userRegister);
-        assertFalse("userExistSuccessTest: should succeed", registerService.userExists(userRegister.getUser()));
+        userRegisterDelete.setEmail(emailDelete);
+        userRegisterDelete.setUser(userDelete);
+        registerService.register(userRegisterDelete);
+        assertTrue("deleteCreatedUserTest: should succeed", registerService.userExists(userRegisterDelete.getUser()));
+        registerService.deleteUser(userRegisterDelete);
+        assertFalse("deleteCreatedUserTest: should succeed", registerService.userExists(userRegisterDelete.getUser()));
     }
 }

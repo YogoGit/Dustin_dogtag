@@ -41,7 +41,7 @@
     <logger name="com.zaxxer.hikari" level="INFO" />
 
     <!-- Default level is INFO -->
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="Console"/>
         <appender-ref ref="Logfile"/>
     </root>
