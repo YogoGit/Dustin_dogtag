@@ -26890,3 +26890,1919 @@ HikariPool-1 - Shutdown initiated...
 2023-02-22 16:38:18,759-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
 HikariPool-1 - Shutdown completed.
 
+2023-02-23 14:07:54,912-[INFO]-from org.hibernate.validator.internal.util.Version in background-preinit 
+HV000001: Hibernate Validator 8.0.0.Final
+
+2023-02-23 14:07:54,959-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Starting DogtagAppApplication using Java 17.0.6 with PID 15076 (C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main started by dusti in C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app)
+
+2023-02-23 14:07:54,960-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2023-02-23 14:07:55,007-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2023-02-23 14:07:55,007-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2023-02-23 14:07:55,752-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2023-02-23 14:07:55,833-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 74 ms. Found 4 JPA repository interfaces.
+
+2023-02-23 14:07:56,338-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port(s): 8080 (http)
+
+2023-02-23 14:07:56,346-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:07:56,347-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2023-02-23 14:07:56,347-[INFO]-from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+
+2023-02-23 14:07:56,405-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2023-02-23 14:07:56,406-[INFO]-from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 1398 ms
+
+2023-02-23 14:07:56,535-[INFO]-from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2023-02-23 14:07:56,594-[INFO]-from org.hibernate.Version in restartedMain 
+HHH000412: Hibernate ORM core version 6.1.6.Final
+
+2023-02-23 14:07:56,755-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+
+2023-02-23 14:07:56,880-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Starting...
+
+2023-02-23 14:07:56,932-[INFO]-from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection org.mariadb.jdbc.Connection@3124237e
+
+2023-02-23 14:07:56,934-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Start completed.
+
+2023-02-23 14:07:56,952-[INFO]-from SQL dialect in restartedMain 
+HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+
+2023-02-23 14:07:56,952-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MariaDB103Dialect has been deprecated; use org.hibernate.dialect.MariaDBDialect instead
+
+2023-02-23 14:07:57,697-[INFO]-from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+2023-02-23 14:07:57,705-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:07:58,011-[WARN]-from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2023-02-23 14:07:58,129-[INFO]-from org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping in restartedMain 
+Adding welcome page template: index
+
+2023-02-23 14:07:58,333-[INFO]-from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2023-02-23 14:07:58,353-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:07:58,370-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port(s): 8080 (http) with context path ''
+
+2023-02-23 14:07:58,378-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Started DogtagAppApplication in 3.904 seconds (process running for 6.142)
+
+2023-02-23 14:08:04,890-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2023-02-23 14:08:04,890-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2023-02-23 14:08:04,892-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2023-02-23 14:08:11,402-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-2 
+Successfully Mapped Register page
+
+2023-02-23 14:08:28,259-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-10 
+B
+
+2023-02-23 14:08:28,352-[WARN]-from org.mariadb.jdbc.message.server.ErrorPacket in http-nio-8080-exec-10 
+Error: 1048-23000: Column 'password' cannot be null
+
+2023-02-23 14:08:28,353-[WARN]-from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in http-nio-8080-exec-10 
+SQL Error: 1048, SQLState: 23000
+
+2023-02-23 14:08:28,353-[ERROR]-from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in http-nio-8080-exec-10 
+(conn=4) Column 'password' cannot be null
+
+2023-02-23 14:08:28,359-[ERROR]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] in http-nio-8080-exec-10 
+Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]] with root cause
+java.sql.SQLIntegrityConstraintViolationException: (conn=4) Column 'password' cannot be null
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:290)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:370)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:137)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:840)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:779)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:698)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:641)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:95)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:334)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:311)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3429)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:4058)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:103)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:612)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:483)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:721)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:480)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:329)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1425)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:477)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2234)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1930)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:654)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:407)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:163)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:218)
+	at jdk.proxy4/jdk.proxy4.$Proxy111.save(Unknown Source)
+	at edu.carroll.dogtag.service.RegisterServiceImpl.register(RegisterServiceImpl.java:38)
+	at edu.carroll.dogtag.web.controller.RegisterController.registerPost(RegisterController.java:50)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1080)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:973)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+2023-02-23 14:08:38,551-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:08:38,555-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown initiated...
+
+2023-02-23 14:08:38,559-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown completed.
+
+2023-02-23 14:11:37,096-[INFO]-from org.hibernate.validator.internal.util.Version in background-preinit 
+HV000001: Hibernate Validator 8.0.0.Final
+
+2023-02-23 14:11:37,131-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Starting DogtagAppApplication using Java 17.0.6 with PID 14800 (C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main started by dusti in C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app)
+
+2023-02-23 14:11:37,132-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2023-02-23 14:11:37,167-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2023-02-23 14:11:37,167-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2023-02-23 14:11:37,686-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2023-02-23 14:11:37,739-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 48 ms. Found 4 JPA repository interfaces.
+
+2023-02-23 14:11:38,125-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port(s): 8080 (http)
+
+2023-02-23 14:11:38,132-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:11:38,133-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2023-02-23 14:11:38,133-[INFO]-from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+
+2023-02-23 14:11:38,176-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2023-02-23 14:11:38,176-[INFO]-from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 1008 ms
+
+2023-02-23 14:11:38,297-[INFO]-from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2023-02-23 14:11:38,333-[INFO]-from org.hibernate.Version in restartedMain 
+HHH000412: Hibernate ORM core version 6.1.6.Final
+
+2023-02-23 14:11:38,495-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+
+2023-02-23 14:11:38,604-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Starting...
+
+2023-02-23 14:11:38,649-[INFO]-from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection org.mariadb.jdbc.Connection@12f557a7
+
+2023-02-23 14:11:38,651-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Start completed.
+
+2023-02-23 14:11:38,667-[INFO]-from SQL dialect in restartedMain 
+HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+
+2023-02-23 14:11:38,667-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MariaDB103Dialect has been deprecated; use org.hibernate.dialect.MariaDBDialect instead
+
+2023-02-23 14:11:39,403-[INFO]-from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+2023-02-23 14:11:39,411-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:11:39,660-[WARN]-from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2023-02-23 14:11:39,758-[INFO]-from org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping in restartedMain 
+Adding welcome page template: index
+
+2023-02-23 14:11:39,937-[INFO]-from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2023-02-23 14:11:39,951-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:11:39,964-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port(s): 8080 (http) with context path ''
+
+2023-02-23 14:11:39,970-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Started DogtagAppApplication in 3.206 seconds (process running for 3.663)
+
+2023-02-23 14:11:58,419-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2023-02-23 14:11:58,420-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2023-02-23 14:11:58,421-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2023-02-23 14:11:58,516-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+B
+
+2023-02-23 14:11:58,630-[WARN]-from org.mariadb.jdbc.message.server.ErrorPacket in http-nio-8080-exec-1 
+Error: 1048-23000: Column 'password' cannot be null
+
+2023-02-23 14:11:58,631-[WARN]-from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in http-nio-8080-exec-1 
+SQL Error: 1048, SQLState: 23000
+
+2023-02-23 14:11:58,631-[ERROR]-from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in http-nio-8080-exec-1 
+(conn=29) Column 'password' cannot be null
+
+2023-02-23 14:11:58,641-[ERROR]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] in http-nio-8080-exec-1 
+Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]] with root cause
+java.sql.SQLIntegrityConstraintViolationException: (conn=29) Column 'password' cannot be null
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:290)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:370)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:137)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:840)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:779)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:698)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:641)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:95)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:334)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:311)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3429)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:4058)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:103)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:612)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:483)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:721)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:480)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:329)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1425)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:477)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2234)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1930)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:654)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:407)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:163)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:218)
+	at jdk.proxy4/jdk.proxy4.$Proxy111.save(Unknown Source)
+	at edu.carroll.dogtag.service.RegisterServiceImpl.register(RegisterServiceImpl.java:38)
+	at edu.carroll.dogtag.web.controller.RegisterController.registerPost(RegisterController.java:50)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1080)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:973)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+2023-02-23 14:12:02,001-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-5 
+Successfully Mapped Register page
+
+2023-02-23 14:12:19,327-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-3 
+B
+
+2023-02-23 14:12:19,331-[WARN]-from org.mariadb.jdbc.message.server.ErrorPacket in http-nio-8080-exec-3 
+Error: 1048-23000: Column 'password' cannot be null
+
+2023-02-23 14:12:19,332-[WARN]-from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in http-nio-8080-exec-3 
+SQL Error: 1048, SQLState: 23000
+
+2023-02-23 14:12:19,332-[ERROR]-from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in http-nio-8080-exec-3 
+(conn=29) Column 'password' cannot be null
+
+2023-02-23 14:12:19,333-[ERROR]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] in http-nio-8080-exec-3 
+Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]] with root cause
+java.sql.SQLIntegrityConstraintViolationException: (conn=29) Column 'password' cannot be null
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:290)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:370)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:137)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:840)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:779)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:698)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:641)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:95)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:334)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:311)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3429)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:4058)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:103)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:612)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:483)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:721)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:480)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:329)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1425)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:477)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2234)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1930)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:654)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:407)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:163)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:218)
+	at jdk.proxy4/jdk.proxy4.$Proxy111.save(Unknown Source)
+	at edu.carroll.dogtag.service.RegisterServiceImpl.register(RegisterServiceImpl.java:38)
+	at edu.carroll.dogtag.web.controller.RegisterController.registerPost(RegisterController.java:50)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1080)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:973)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+2023-02-23 14:12:40,123-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:12:40,125-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown initiated...
+
+2023-02-23 14:12:40,130-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown completed.
+
+2023-02-23 14:17:13,565-[INFO]-from org.hibernate.validator.internal.util.Version in background-preinit 
+HV000001: Hibernate Validator 8.0.0.Final
+
+2023-02-23 14:17:13,596-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Starting DogtagAppApplication using Java 17.0.6 with PID 14980 (C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main started by dusti in C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app)
+
+2023-02-23 14:17:13,597-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2023-02-23 14:17:13,630-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2023-02-23 14:17:13,630-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2023-02-23 14:17:14,187-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2023-02-23 14:17:14,236-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 43 ms. Found 4 JPA repository interfaces.
+
+2023-02-23 14:17:14,642-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port(s): 8080 (http)
+
+2023-02-23 14:17:14,650-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:17:14,651-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2023-02-23 14:17:14,651-[INFO]-from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+
+2023-02-23 14:17:14,710-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2023-02-23 14:17:14,710-[INFO]-from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 1080 ms
+
+2023-02-23 14:17:14,813-[INFO]-from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2023-02-23 14:17:14,847-[INFO]-from org.hibernate.Version in restartedMain 
+HHH000412: Hibernate ORM core version 6.1.6.Final
+
+2023-02-23 14:17:15,001-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+
+2023-02-23 14:17:15,116-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Starting...
+
+2023-02-23 14:17:15,164-[INFO]-from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection org.mariadb.jdbc.Connection@599e46a8
+
+2023-02-23 14:17:15,166-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Start completed.
+
+2023-02-23 14:17:15,181-[INFO]-from SQL dialect in restartedMain 
+HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+
+2023-02-23 14:17:15,181-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MariaDB103Dialect has been deprecated; use org.hibernate.dialect.MariaDBDialect instead
+
+2023-02-23 14:17:15,762-[INFO]-from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+2023-02-23 14:17:15,770-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:17:16,009-[WARN]-from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2023-02-23 14:17:16,105-[INFO]-from org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping in restartedMain 
+Adding welcome page template: index
+
+2023-02-23 14:17:16,285-[INFO]-from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2023-02-23 14:17:16,301-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:17:16,313-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port(s): 8080 (http) with context path ''
+
+2023-02-23 14:17:16,322-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Started DogtagAppApplication in 3.062 seconds (process running for 3.52)
+
+2023-02-23 14:17:21,629-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2023-02-23 14:17:21,630-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2023-02-23 14:17:21,630-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 0 ms
+
+2023-02-23 14:17:21,653-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+Successfully Mapped Register page
+
+2023-02-23 14:17:27,551-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-4 
+B
+
+2023-02-23 14:17:27,644-[WARN]-from org.mariadb.jdbc.message.server.ErrorPacket in http-nio-8080-exec-4 
+Error: 1048-23000: Column 'password' cannot be null
+
+2023-02-23 14:17:27,644-[WARN]-from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in http-nio-8080-exec-4 
+SQL Error: 1048, SQLState: 23000
+
+2023-02-23 14:17:27,645-[ERROR]-from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in http-nio-8080-exec-4 
+(conn=41) Column 'password' cannot be null
+
+2023-02-23 14:17:27,650-[ERROR]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] in http-nio-8080-exec-4 
+Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]] with root cause
+java.sql.SQLIntegrityConstraintViolationException: (conn=41) Column 'password' cannot be null
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:290)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:370)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:137)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:840)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:779)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:698)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:641)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:95)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:334)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:311)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3429)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:4058)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:103)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:612)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:483)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:721)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:480)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:329)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1425)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:477)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2234)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1930)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:654)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:407)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:163)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:218)
+	at jdk.proxy4/jdk.proxy4.$Proxy111.save(Unknown Source)
+	at edu.carroll.dogtag.service.RegisterServiceImpl.register(RegisterServiceImpl.java:38)
+	at edu.carroll.dogtag.web.controller.RegisterController.registerPost(RegisterController.java:50)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1080)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:973)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+2023-02-23 14:18:00,256-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:18:00,259-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown initiated...
+
+2023-02-23 14:18:00,263-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown completed.
+
+2023-02-23 14:18:07,586-[INFO]-from org.hibernate.validator.internal.util.Version in background-preinit 
+HV000001: Hibernate Validator 8.0.0.Final
+
+2023-02-23 14:18:07,624-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Starting DogtagAppApplication using Java 17.0.6 with PID 13096 (C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main started by dusti in C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app)
+
+2023-02-23 14:18:07,625-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2023-02-23 14:18:07,672-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2023-02-23 14:18:07,672-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2023-02-23 14:18:08,633-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2023-02-23 14:18:08,749-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 100 ms. Found 4 JPA repository interfaces.
+
+2023-02-23 14:18:09,661-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port(s): 8080 (http)
+
+2023-02-23 14:18:09,677-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:18:09,679-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2023-02-23 14:18:09,680-[INFO]-from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+
+2023-02-23 14:18:09,809-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2023-02-23 14:18:09,810-[INFO]-from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 2137 ms
+
+2023-02-23 14:18:10,108-[INFO]-from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2023-02-23 14:18:10,231-[INFO]-from org.hibernate.Version in restartedMain 
+HHH000412: Hibernate ORM core version 6.1.6.Final
+
+2023-02-23 14:18:10,527-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+
+2023-02-23 14:18:10,703-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Starting...
+
+2023-02-23 14:18:10,806-[INFO]-from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection org.mariadb.jdbc.Connection@71069747
+
+2023-02-23 14:18:10,811-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Start completed.
+
+2023-02-23 14:18:10,846-[INFO]-from SQL dialect in restartedMain 
+HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+
+2023-02-23 14:18:10,847-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MariaDB103Dialect has been deprecated; use org.hibernate.dialect.MariaDBDialect instead
+
+2023-02-23 14:18:11,835-[INFO]-from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+2023-02-23 14:18:11,844-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:18:12,143-[WARN]-from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2023-02-23 14:18:12,252-[INFO]-from org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping in restartedMain 
+Adding welcome page template: index
+
+2023-02-23 14:18:12,446-[INFO]-from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2023-02-23 14:18:12,460-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:18:12,474-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port(s): 8080 (http) with context path ''
+
+2023-02-23 14:18:12,485-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Started DogtagAppApplication in 5.307 seconds (process running for 5.925)
+
+2023-02-23 14:18:16,965-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2023-02-23 14:18:16,965-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2023-02-23 14:18:16,966-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 0 ms
+
+2023-02-23 14:18:16,987-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+Successfully Mapped Register page
+
+2023-02-23 14:18:21,616-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-6 
+B
+
+2023-02-23 14:18:21,706-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-6 
+Registration post was successful
+
+2023-02-23 14:18:46,861-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-9 
+Successfully Mapped Register page
+
+2023-02-23 14:18:49,632-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-4 
+B
+
+2023-02-23 14:18:49,641-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-4 
+User failed validation
+
+2023-02-23 14:19:56,773-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:19:56,776-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown initiated...
+
+2023-02-23 14:19:56,779-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown completed.
+
+2023-02-23 14:19:59,402-[INFO]-from org.hibernate.validator.internal.util.Version in background-preinit 
+HV000001: Hibernate Validator 8.0.0.Final
+
+2023-02-23 14:19:59,434-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Starting DogtagAppApplication using Java 17.0.6 with PID 13984 (C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main started by dusti in C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app)
+
+2023-02-23 14:19:59,434-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2023-02-23 14:19:59,466-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2023-02-23 14:19:59,467-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2023-02-23 14:19:59,982-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2023-02-23 14:20:00,043-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 54 ms. Found 4 JPA repository interfaces.
+
+2023-02-23 14:20:00,589-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port(s): 8080 (http)
+
+2023-02-23 14:20:00,600-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:20:00,601-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2023-02-23 14:20:00,601-[INFO]-from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+
+2023-02-23 14:20:00,665-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2023-02-23 14:20:00,666-[INFO]-from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 1199 ms
+
+2023-02-23 14:20:00,906-[INFO]-from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2023-02-23 14:20:00,962-[INFO]-from org.hibernate.Version in restartedMain 
+HHH000412: Hibernate ORM core version 6.1.6.Final
+
+2023-02-23 14:20:01,194-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+
+2023-02-23 14:20:01,423-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Starting...
+
+2023-02-23 14:20:01,522-[INFO]-from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection org.mariadb.jdbc.Connection@7c3ca340
+
+2023-02-23 14:20:01,524-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Start completed.
+
+2023-02-23 14:20:01,551-[INFO]-from SQL dialect in restartedMain 
+HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+
+2023-02-23 14:20:01,551-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MariaDB103Dialect has been deprecated; use org.hibernate.dialect.MariaDBDialect instead
+
+2023-02-23 14:20:02,726-[INFO]-from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+2023-02-23 14:20:02,739-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:20:03,142-[WARN]-from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2023-02-23 14:20:03,284-[INFO]-from org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping in restartedMain 
+Adding welcome page template: index
+
+2023-02-23 14:20:03,602-[INFO]-from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2023-02-23 14:20:03,623-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:20:03,645-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port(s): 8080 (http) with context path ''
+
+2023-02-23 14:20:03,657-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Started DogtagAppApplication in 4.61 seconds (process running for 5.091)
+
+2023-02-23 14:20:07,218-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2023-02-23 14:20:07,219-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2023-02-23 14:20:07,220-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 0 ms
+
+2023-02-23 14:20:07,243-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+Successfully Mapped Register page
+
+2023-02-23 14:20:10,630-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-3 
+B
+
+2023-02-23 14:20:10,701-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-3 
+User failed validation
+
+2023-02-23 14:20:30,863-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-2 
+B
+
+2023-02-23 14:20:30,895-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-2 
+Registration post was successful
+
+2023-02-23 14:20:44,797-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:20:44,799-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown initiated...
+
+2023-02-23 14:20:44,803-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown completed.
+
+2023-02-23 14:36:32,767-[INFO]-from org.hibernate.validator.internal.util.Version in background-preinit 
+HV000001: Hibernate Validator 8.0.0.Final
+
+2023-02-23 14:36:32,796-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Starting DogtagAppApplication using Java 17.0.6 with PID 2052 (C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main started by dusti in C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app)
+
+2023-02-23 14:36:32,796-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2023-02-23 14:36:32,829-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2023-02-23 14:36:32,829-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2023-02-23 14:36:33,321-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2023-02-23 14:36:33,368-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 41 ms. Found 4 JPA repository interfaces.
+
+2023-02-23 14:36:33,767-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port(s): 8080 (http)
+
+2023-02-23 14:36:33,774-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:36:33,775-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2023-02-23 14:36:33,775-[INFO]-from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+
+2023-02-23 14:36:33,821-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2023-02-23 14:36:33,821-[INFO]-from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 991 ms
+
+2023-02-23 14:36:33,920-[INFO]-from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2023-02-23 14:36:33,952-[INFO]-from org.hibernate.Version in restartedMain 
+HHH000412: Hibernate ORM core version 6.1.6.Final
+
+2023-02-23 14:36:34,088-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+
+2023-02-23 14:36:34,175-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Starting...
+
+2023-02-23 14:36:34,220-[INFO]-from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection org.mariadb.jdbc.Connection@599e46a8
+
+2023-02-23 14:36:34,222-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Start completed.
+
+2023-02-23 14:36:34,237-[INFO]-from SQL dialect in restartedMain 
+HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+
+2023-02-23 14:36:34,237-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MariaDB103Dialect has been deprecated; use org.hibernate.dialect.MariaDBDialect instead
+
+2023-02-23 14:36:34,885-[INFO]-from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+2023-02-23 14:36:34,891-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:36:35,170-[WARN]-from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2023-02-23 14:36:35,327-[INFO]-from org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping in restartedMain 
+Adding welcome page template: index
+
+2023-02-23 14:36:35,598-[INFO]-from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2023-02-23 14:36:35,619-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:36:35,639-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port(s): 8080 (http) with context path ''
+
+2023-02-23 14:36:35,648-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Started DogtagAppApplication in 3.197 seconds (process running for 3.618)
+
+2023-02-23 14:36:41,414-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2023-02-23 14:36:41,416-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2023-02-23 14:36:41,417-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2023-02-23 14:36:41,436-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+Successfully Mapped Register page
+
+2023-02-23 14:36:46,892-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-2 
+B
+
+2023-02-23 14:36:46,961-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-2 
+User failed validation
+
+2023-02-23 14:36:58,905-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-3 
+B
+
+2023-02-23 14:36:58,938-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-3 
+Registration post was successful
+
+2023-02-23 14:38:03,713-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:38:03,715-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown initiated...
+
+2023-02-23 14:38:03,718-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown completed.
+
+2023-02-23 14:38:28,226-[INFO]-from org.hibernate.validator.internal.util.Version in background-preinit 
+HV000001: Hibernate Validator 8.0.0.Final
+
+2023-02-23 14:38:28,260-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Starting DogtagAppApplication using Java 17.0.6 with PID 6176 (C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main started by dusti in C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app)
+
+2023-02-23 14:38:28,260-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2023-02-23 14:38:28,290-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2023-02-23 14:38:28,291-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2023-02-23 14:38:28,814-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2023-02-23 14:38:28,860-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 40 ms. Found 4 JPA repository interfaces.
+
+2023-02-23 14:38:29,236-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port(s): 8080 (http)
+
+2023-02-23 14:38:29,243-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:38:29,244-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2023-02-23 14:38:29,244-[INFO]-from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+
+2023-02-23 14:38:29,284-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2023-02-23 14:38:29,284-[INFO]-from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 993 ms
+
+2023-02-23 14:38:29,373-[INFO]-from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2023-02-23 14:38:29,402-[INFO]-from org.hibernate.Version in restartedMain 
+HHH000412: Hibernate ORM core version 6.1.6.Final
+
+2023-02-23 14:38:29,550-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+
+2023-02-23 14:38:29,649-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Starting...
+
+2023-02-23 14:38:29,695-[INFO]-from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection org.mariadb.jdbc.Connection@1ba6de6e
+
+2023-02-23 14:38:29,697-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Start completed.
+
+2023-02-23 14:38:29,712-[INFO]-from SQL dialect in restartedMain 
+HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+
+2023-02-23 14:38:29,713-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MariaDB103Dialect has been deprecated; use org.hibernate.dialect.MariaDBDialect instead
+
+2023-02-23 14:38:30,340-[INFO]-from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+2023-02-23 14:38:30,348-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:38:30,602-[WARN]-from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2023-02-23 14:38:30,698-[INFO]-from org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping in restartedMain 
+Adding welcome page template: index
+
+2023-02-23 14:38:30,872-[INFO]-from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2023-02-23 14:38:30,886-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:38:30,900-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port(s): 8080 (http) with context path ''
+
+2023-02-23 14:38:30,907-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Started DogtagAppApplication in 2.991 seconds (process running for 3.4)
+
+2023-02-23 14:38:41,915-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-3 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2023-02-23 14:38:41,915-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-3 
+Initializing Servlet 'dispatcherServlet'
+
+2023-02-23 14:38:41,916-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-3 
+Completed initialization in 1 ms
+
+2023-02-23 14:38:41,939-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-3 
+Successfully Mapped Register page
+
+2023-02-23 14:38:52,603-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+B
+
+2023-02-23 14:38:52,699-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+Registration post was successful
+
+2023-02-23 14:40:05,817-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:40:05,819-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown initiated...
+
+2023-02-23 14:40:05,823-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown completed.
+
+2023-02-23 14:40:23,803-[INFO]-from org.hibernate.validator.internal.util.Version in background-preinit 
+HV000001: Hibernate Validator 8.0.0.Final
+
+2023-02-23 14:40:23,835-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Starting DogtagAppApplication using Java 17.0.6 with PID 20668 (C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main started by dusti in C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app)
+
+2023-02-23 14:40:23,836-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2023-02-23 14:40:23,870-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2023-02-23 14:40:23,871-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2023-02-23 14:40:24,353-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2023-02-23 14:40:24,402-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 43 ms. Found 4 JPA repository interfaces.
+
+2023-02-23 14:40:24,778-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port(s): 8080 (http)
+
+2023-02-23 14:40:24,784-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:40:24,786-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2023-02-23 14:40:24,786-[INFO]-from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+
+2023-02-23 14:40:24,826-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2023-02-23 14:40:24,826-[INFO]-from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 955 ms
+
+2023-02-23 14:40:24,920-[INFO]-from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2023-02-23 14:40:24,949-[INFO]-from org.hibernate.Version in restartedMain 
+HHH000412: Hibernate ORM core version 6.1.6.Final
+
+2023-02-23 14:40:25,066-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+
+2023-02-23 14:40:25,155-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Starting...
+
+2023-02-23 14:40:25,195-[INFO]-from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection org.mariadb.jdbc.Connection@647e4260
+
+2023-02-23 14:40:25,197-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Start completed.
+
+2023-02-23 14:40:25,217-[INFO]-from SQL dialect in restartedMain 
+HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+
+2023-02-23 14:40:25,218-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MariaDB103Dialect has been deprecated; use org.hibernate.dialect.MariaDBDialect instead
+
+2023-02-23 14:40:25,931-[INFO]-from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+2023-02-23 14:40:25,940-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:40:26,223-[WARN]-from org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext in restartedMain 
+Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'registerServiceImpl' defined in file [C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main\edu\carroll\dogtag\service\RegisterServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'registerRepository' defined in edu.carroll.dogtag.jpa.repo.RegisterRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List edu.carroll.dogtag.jpa.repo.RegisterRepository.findByUserIgnoreCase(java.lang.String,java.lang.String); Reason: Failed to create query for method public abstract java.util.List edu.carroll.dogtag.jpa.repo.RegisterRepository.findByUserIgnoreCase(java.lang.String,java.lang.String); At least 2 parameter(s) provided but only 1 parameter(s) present in query
+
+2023-02-23 14:40:26,223-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:40:26,226-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Shutdown initiated...
+
+2023-02-23 14:40:26,230-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Shutdown completed.
+
+2023-02-23 14:40:26,234-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Stopping service [Tomcat]
+
+2023-02-23 14:40:26,244-[INFO]-from org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger in restartedMain 
+
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+
+2023-02-23 14:40:26,259-[ERROR]-from org.springframework.boot.SpringApplication in restartedMain 
+Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'registerServiceImpl' defined in file [C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main\edu\carroll\dogtag\service\RegisterServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'registerRepository' defined in edu.carroll.dogtag.jpa.repo.RegisterRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List edu.carroll.dogtag.jpa.repo.RegisterRepository.findByUserIgnoreCase(java.lang.String,java.lang.String); Reason: Failed to create query for method public abstract java.util.List edu.carroll.dogtag.jpa.repo.RegisterRepository.findByUserIgnoreCase(java.lang.String,java.lang.String); At least 2 parameter(s) provided but only 1 parameter(s) present in query
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:245)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1344)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1188)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:961)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:915)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at edu.carroll.dogtag.DogtagAppApplication.main(DogtagAppApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'registerRepository' defined in edu.carroll.dogtag.jpa.repo.RegisterRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List edu.carroll.dogtag.jpa.repo.RegisterRepository.findByUserIgnoreCase(java.lang.String,java.lang.String); Reason: Failed to create query for method public abstract java.util.List edu.carroll.dogtag.jpa.repo.RegisterRepository.findByUserIgnoreCase(java.lang.String,java.lang.String); At least 2 parameter(s) provided but only 1 parameter(s) present in query
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
+	... 24 common frames omitted
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List edu.carroll.dogtag.jpa.repo.RegisterRepository.findByUserIgnoreCase(java.lang.String,java.lang.String); Reason: Failed to create query for method public abstract java.util.List edu.carroll.dogtag.jpa.repo.RegisterRepository.findByUserIgnoreCase(java.lang.String,java.lang.String); At least 2 parameter(s) provided but only 1 parameter(s) present in query
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:115)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:99)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:88)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:88)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:357)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:279)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:245)
+	at org.springframework.data.util.Lazy.get(Lazy.java:114)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:285)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	... 35 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List edu.carroll.dogtag.jpa.repo.RegisterRepository.findByUserIgnoreCase(java.lang.String,java.lang.String); At least 2 parameter(s) provided but only 1 parameter(s) present in query
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:124)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:258)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:95)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:111)
+	... 47 common frames omitted
+Caused by: java.lang.IllegalArgumentException: At least 2 parameter(s) provided but only 1 parameter(s) present in query
+	at org.springframework.util.Assert.isTrue(Assert.java:140)
+	at org.springframework.data.jpa.repository.query.QueryParameterSetterFactory$CriteriaQueryParameterSetterFactory.create(QueryParameterSetterFactory.java:286)
+	at org.springframework.data.jpa.repository.query.ParameterBinderFactory.createQueryParameterSetter(ParameterBinderFactory.java:140)
+	at org.springframework.data.jpa.repository.query.ParameterBinderFactory.createSetters(ParameterBinderFactory.java:129)
+	at org.springframework.data.jpa.repository.query.ParameterBinderFactory.createSetters(ParameterBinderFactory.java:121)
+	at org.springframework.data.jpa.repository.query.ParameterBinderFactory.createCriteriaBinder(ParameterBinderFactory.java:72)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery$QueryPreparer.getBinder(PartTreeJpaQuery.java:316)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery$QueryPreparer.<init>(PartTreeJpaQuery.java:206)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery$CountQueryPreparer.<init>(PartTreeJpaQuery.java:336)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:91)
+	... 51 common frames omitted
+
+2023-02-23 14:43:36,718-[INFO]-from org.hibernate.validator.internal.util.Version in background-preinit 
+HV000001: Hibernate Validator 8.0.0.Final
+
+2023-02-23 14:43:36,749-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Starting DogtagAppApplication using Java 17.0.6 with PID 5244 (C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main started by dusti in C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app)
+
+2023-02-23 14:43:36,749-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2023-02-23 14:43:36,783-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2023-02-23 14:43:36,783-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2023-02-23 14:43:37,270-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2023-02-23 14:43:37,316-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 41 ms. Found 4 JPA repository interfaces.
+
+2023-02-23 14:43:37,673-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port(s): 8080 (http)
+
+2023-02-23 14:43:37,680-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:43:37,680-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2023-02-23 14:43:37,680-[INFO]-from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+
+2023-02-23 14:43:37,718-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2023-02-23 14:43:37,719-[INFO]-from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 935 ms
+
+2023-02-23 14:43:37,807-[INFO]-from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2023-02-23 14:43:37,837-[INFO]-from org.hibernate.Version in restartedMain 
+HHH000412: Hibernate ORM core version 6.1.6.Final
+
+2023-02-23 14:43:37,968-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+
+2023-02-23 14:43:38,064-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Starting...
+
+2023-02-23 14:43:38,120-[INFO]-from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection org.mariadb.jdbc.Connection@68c495bb
+
+2023-02-23 14:43:38,123-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Start completed.
+
+2023-02-23 14:43:38,142-[INFO]-from SQL dialect in restartedMain 
+HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+
+2023-02-23 14:43:38,142-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MariaDB103Dialect has been deprecated; use org.hibernate.dialect.MariaDBDialect instead
+
+2023-02-23 14:43:38,802-[INFO]-from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+2023-02-23 14:43:38,809-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:43:39,146-[WARN]-from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2023-02-23 14:43:39,276-[INFO]-from org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping in restartedMain 
+Adding welcome page template: index
+
+2023-02-23 14:43:39,495-[INFO]-from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2023-02-23 14:43:39,513-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:43:39,531-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port(s): 8080 (http) with context path ''
+
+2023-02-23 14:43:39,540-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Started DogtagAppApplication in 3.148 seconds (process running for 3.619)
+
+2023-02-23 14:43:40,924-[INFO]-from org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener in File Watcher 
+Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+
+2023-02-23 14:43:40,935-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in Thread-5 
+Pausing ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:43:40,936-[INFO]-from org.apache.catalina.core.StandardService in Thread-5 
+Stopping service [Tomcat]
+
+2023-02-23 14:43:40,938-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in Thread-5 
+Stopping ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:43:40,940-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in Thread-5 
+Destroying ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:43:40,942-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in Thread-5 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:43:40,944-[INFO]-from com.zaxxer.hikari.HikariDataSource in Thread-5 
+HikariPool-1 - Shutdown initiated...
+
+2023-02-23 14:43:40,950-[INFO]-from com.zaxxer.hikari.HikariDataSource in Thread-5 
+HikariPool-1 - Shutdown completed.
+
+2023-02-23 14:43:41,013-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Starting DogtagAppApplication using Java 17.0.6 with PID 5244 (C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main started by dusti in C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app)
+
+2023-02-23 14:43:41,013-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2023-02-23 14:43:41,142-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2023-02-23 14:43:41,159-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
+
+2023-02-23 14:43:41,242-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port(s): 8080 (http)
+
+2023-02-23 14:43:41,243-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:43:41,243-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2023-02-23 14:43:41,243-[INFO]-from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+
+2023-02-23 14:43:41,259-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2023-02-23 14:43:41,259-[INFO]-from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 244 ms
+
+2023-02-23 14:43:41,283-[INFO]-from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2023-02-23 14:43:41,287-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+
+2023-02-23 14:43:41,291-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-2 - Starting...
+
+2023-02-23 14:43:41,294-[INFO]-from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-2 - Added connection org.mariadb.jdbc.Connection@7f04d343
+
+2023-02-23 14:43:41,294-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-2 - Start completed.
+
+2023-02-23 14:43:41,294-[INFO]-from SQL dialect in restartedMain 
+HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+
+2023-02-23 14:43:41,295-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MariaDB103Dialect has been deprecated; use org.hibernate.dialect.MariaDBDialect instead
+
+2023-02-23 14:43:41,340-[INFO]-from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+2023-02-23 14:43:41,340-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:43:41,393-[WARN]-from org.springframework.core.LocalVariableTableParameterNameDiscoverer in restartedMain 
+Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: edu.carroll.dogtag.jpa.repo.RegisterRepository
+
+2023-02-23 14:43:41,413-[WARN]-from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2023-02-23 14:43:41,451-[INFO]-from org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping in restartedMain 
+Adding welcome page template: index
+
+2023-02-23 14:43:41,529-[INFO]-from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2023-02-23 14:43:41,535-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:43:41,538-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port(s): 8080 (http) with context path ''
+
+2023-02-23 14:43:41,541-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Started DogtagAppApplication in 0.55 seconds (process running for 5.621)
+
+2023-02-23 14:43:41,543-[INFO]-from org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener in restartedMain 
+Condition evaluation unchanged
+
+2023-02-23 14:43:51,315-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2023-02-23 14:43:51,315-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2023-02-23 14:43:51,316-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2023-02-23 14:43:51,338-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+Successfully Mapped Register page
+
+2023-02-23 14:43:58,357-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-3 
+B
+
+2023-02-23 14:43:58,426-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-3 
+User failed validation
+
+2023-02-23 14:44:05,592-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:44:05,593-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-2 - Shutdown initiated...
+
+2023-02-23 14:44:05,596-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-2 - Shutdown completed.
+
+2023-02-23 14:50:38,583-[INFO]-from org.hibernate.validator.internal.util.Version in background-preinit 
+HV000001: Hibernate Validator 8.0.0.Final
+
+2023-02-23 14:50:38,628-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Starting DogtagAppApplication using Java 17.0.6 with PID 6792 (C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main started by dusti in C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app)
+
+2023-02-23 14:50:38,629-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2023-02-23 14:50:38,680-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2023-02-23 14:50:38,680-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2023-02-23 14:50:39,422-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2023-02-23 14:50:39,503-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 71 ms. Found 4 JPA repository interfaces.
+
+2023-02-23 14:50:40,114-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port(s): 8080 (http)
+
+2023-02-23 14:50:40,124-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:50:40,125-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2023-02-23 14:50:40,125-[INFO]-from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+
+2023-02-23 14:50:40,195-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2023-02-23 14:50:40,196-[INFO]-from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 1515 ms
+
+2023-02-23 14:50:40,391-[INFO]-from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2023-02-23 14:50:40,471-[INFO]-from org.hibernate.Version in restartedMain 
+HHH000412: Hibernate ORM core version 6.1.6.Final
+
+2023-02-23 14:50:40,714-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+
+2023-02-23 14:50:40,885-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Starting...
+
+2023-02-23 14:50:40,965-[INFO]-from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection org.mariadb.jdbc.Connection@469ea3bb
+
+2023-02-23 14:50:40,967-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Start completed.
+
+2023-02-23 14:50:40,990-[INFO]-from SQL dialect in restartedMain 
+HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+
+2023-02-23 14:50:40,991-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MariaDB103Dialect has been deprecated; use org.hibernate.dialect.MariaDBDialect instead
+
+2023-02-23 14:50:41,758-[INFO]-from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+2023-02-23 14:50:41,766-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:50:42,059-[WARN]-from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2023-02-23 14:50:42,177-[INFO]-from org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping in restartedMain 
+Adding welcome page template: index
+
+2023-02-23 14:50:42,430-[INFO]-from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2023-02-23 14:50:42,447-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 14:50:42,463-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port(s): 8080 (http) with context path ''
+
+2023-02-23 14:50:42,473-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Started DogtagAppApplication in 4.296 seconds (process running for 4.889)
+
+2023-02-23 14:50:50,129-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2023-02-23 14:50:50,130-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2023-02-23 14:50:50,130-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 0 ms
+
+2023-02-23 14:50:50,158-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+Successfully Mapped Register page
+
+2023-02-23 14:50:53,557-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-6 
+Errors
+
+2023-02-23 14:50:53,652-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-6 
+Registration post was successful
+
+2023-02-23 14:50:58,401-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-4 
+Successfully Mapped Register page
+
+2023-02-23 14:51:04,724-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-10 
+Errors
+
+2023-02-23 14:51:04,743-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-10 
+User failed validation
+
+2023-02-23 14:51:24,409-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-2 
+Errors
+
+2023-02-23 14:51:24,417-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-2 
+Registration post was successful
+
+2023-02-23 14:51:39,443-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-8 
+Successfully Mapped Register page
+
+2023-02-23 14:51:48,572-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-9 
+Errors
+
+2023-02-23 14:51:48,578-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-9 
+Email failed validation
+
+2023-02-23 14:51:59,222-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+Errors
+
+2023-02-23 14:51:59,225-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+Email failed validation
+
+2023-02-23 14:53:27,430-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 14:53:27,433-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown initiated...
+
+2023-02-23 14:53:27,438-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown completed.
+
+2023-02-23 17:10:43,313-[INFO]-from org.hibernate.validator.internal.util.Version in background-preinit 
+HV000001: Hibernate Validator 8.0.0.Final
+
+2023-02-23 17:10:43,379-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Starting DogtagAppApplication using Java 17.0.6 with PID 6100 (C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app\build\classes\java\main started by dusti in C:\Users\dusti\Documents\School Spring 2023\CS 389\dogtag-app\dogtag-app)
+
+2023-02-23 17:10:43,379-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2023-02-23 17:10:43,444-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2023-02-23 17:10:43,445-[INFO]-from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2023-02-23 17:10:44,866-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2023-02-23 17:10:45,062-[INFO]-from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 171 ms. Found 4 JPA repository interfaces.
+
+2023-02-23 17:10:46,327-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port(s): 8080 (http)
+
+2023-02-23 17:10:46,347-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 17:10:46,348-[INFO]-from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2023-02-23 17:10:46,348-[INFO]-from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+
+2023-02-23 17:10:46,470-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2023-02-23 17:10:46,471-[INFO]-from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 3024 ms
+
+2023-02-23 17:10:46,717-[INFO]-from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2023-02-23 17:10:46,828-[INFO]-from org.hibernate.Version in restartedMain 
+HHH000412: Hibernate ORM core version 6.1.6.Final
+
+2023-02-23 17:10:47,095-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+
+2023-02-23 17:10:47,348-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Starting...
+
+2023-02-23 17:10:47,499-[INFO]-from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection org.mariadb.jdbc.Connection@61c55b81
+
+2023-02-23 17:10:47,504-[INFO]-from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Start completed.
+
+2023-02-23 17:10:47,553-[INFO]-from SQL dialect in restartedMain 
+HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+
+2023-02-23 17:10:47,554-[WARN]-from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MariaDB103Dialect has been deprecated; use org.hibernate.dialect.MariaDBDialect instead
+
+2023-02-23 17:10:49,064-[INFO]-from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+2023-02-23 17:10:49,080-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 17:10:49,892-[WARN]-from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2023-02-23 17:10:50,226-[INFO]-from org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping in restartedMain 
+Adding welcome page template: index
+
+2023-02-23 17:10:50,662-[INFO]-from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2023-02-23 17:10:50,699-[INFO]-from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2023-02-23 17:10:50,722-[INFO]-from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port(s): 8080 (http) with context path ''
+
+2023-02-23 17:10:50,732-[INFO]-from edu.carroll.dogtag.DogtagAppApplication in restartedMain 
+Started DogtagAppApplication in 8.22 seconds (process running for 9.848)
+
+2023-02-23 17:10:56,416-[INFO]-from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2023-02-23 17:10:56,417-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2023-02-23 17:10:56,422-[INFO]-from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 4 ms
+
+2023-02-23 17:10:56,506-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-1 
+Successfully Mapped Register page
+
+2023-02-23 17:11:02,919-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-2 
+Errors
+
+2023-02-23 17:11:03,471-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-2 
+Registration post was successful
+
+2023-02-23 17:11:23,600-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-4 
+Successfully Mapped Register page
+
+2023-02-23 17:11:28,767-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-5 
+Errors
+
+2023-02-23 17:11:28,783-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-5 
+User failed validation
+
+2023-02-23 17:11:42,861-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-6 
+Errors
+
+2023-02-23 17:11:42,869-[INFO]-from edu.carroll.dogtag.web.controller.RegisterController in http-nio-8080-exec-6 
+Email failed validation
+
+2023-02-23 17:11:48,313-[INFO]-from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2023-02-23 17:11:48,313-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown initiated...
+
+2023-02-23 17:11:48,327-[INFO]-from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown completed.
+

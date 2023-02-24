@@ -2,7 +2,6 @@ package edu.carroll.dogtag.service;
 
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.repo.RegisterRepository;
-import edu.carroll.dogtag.web.form.RegisterForm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -30,6 +29,12 @@ public class RegisterServiceImpl implements RegisterService{
         // Always do the lookup in a case-insensitive manner (lower-casing the data).
         List<Login> users = registerRepo.findByUserIgnoreCase(user);
         return !users.isEmpty();
+    }
+
+    @Override
+    public boolean emailExists(String email){
+        List<Login> emails = registerRepo.findByEmailIgnoreCase(email);
+        return !emails.isEmpty();
     }
 
 

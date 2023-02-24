@@ -9,7 +9,10 @@ public interface RegisterService {
      * @param user - Data containing user login information, such as username and password.
      * @return true if data exists and matches what's on record, false otherwise
      */
+
     boolean userExists(String user);
+
+    boolean emailExists(String email);
 
     void register(Login register);
 

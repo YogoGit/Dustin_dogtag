@@ -22,6 +22,9 @@ public class Login {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "email", nullable = false)
+    private String email;
+
 
 
     public Long getId() {
@@ -47,6 +50,10 @@ public class Login {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getEmail(){return email;}
+
+    public void setEmail(String email){this.email = email;}
 
     private static final String EOL = System.lineSeparator();
     private static final String TAB = "\t";

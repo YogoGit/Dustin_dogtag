@@ -33,19 +33,29 @@ public class RegisterController {
 
     @PostMapping("/register")
     public String registerPost(@Valid @ModelAttribute RegisterForm registerForm, BindingResult result, RedirectAttributes attrs) {
-        log.info("B");
+        log.info("Errors");
         if(result.hasErrors()){
             log.info("User could not be registered");
             return "register";
         }
         if(registerService.userExists(registerForm.getUser())){
-            result.addError(new ObjectError("globalError", "User already exists"));
+            result.addError(new ObjectError("globalError", "Can not register: Please use a different User Name"));
             log.info("User failed validation");
             return "register";
         }
 
+        if(registerService.emailExists(registerForm.getEmail())){
+            result.addError(new ObjectError("globalError", "Can not register: Please use a different Email"));
+            log.info("Email failed validation");
+            return "register";
+        }
+
+
+
         Login userRegister = new Login();
         userRegister.setUser(registerForm.getUser());
+        userRegister.setEmail(registerForm.getEmail());
+        userRegister.setPassword(registerForm.getPassword());
         registerService.register(userRegister);
         attrs.addAttribute("user", registerForm.getUser());
         log.info("Registration post was successful");

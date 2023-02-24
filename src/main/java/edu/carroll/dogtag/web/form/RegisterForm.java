@@ -12,12 +12,19 @@ public class RegisterForm {
     @NotNull
     @Size(min = 8, message = "Password must be at least 8 characters long")
     private String password;
+
+    @NotNull
+    private String email;
+
+
+
     public RegisterForm() {
     }
 
-    public RegisterForm(String user, String password) {
+    public RegisterForm(String user, String password, String email) {
         this.user = user;
         this.password = password;
+        this.email = email;
     }
 
     public String getUser() {
@@ -35,5 +42,16 @@ public class RegisterForm {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+
 }
 

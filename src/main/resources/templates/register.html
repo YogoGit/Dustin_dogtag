@@ -12,6 +12,8 @@
     <span th:if="${#fields.hasErrors('user')}" th:errors="*{user}">User error</span><br/>
     <input type="password" th:field="*{password}" placeholder="Password"/>
     <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</span><br/>
+    <input type="email" th:field="*{email}" placeholder="email"/>
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email error</span><br/>
     <button type="submit">Register</button>
 </form>
 </body>
