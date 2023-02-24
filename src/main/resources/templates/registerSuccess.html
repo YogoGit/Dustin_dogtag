@@ -5,7 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<form action="#" th:action="@{/registerSuccess}" method="post">
 <h1>Successfully Registration</h1>
-<p th:text="'Welcome to the site ' + ${user}" />
+<p th:text="'Welcome are you ready to login ' + ${user}" />
+<button type="submit">Login</button>
+</form>
 </body>
 </html>

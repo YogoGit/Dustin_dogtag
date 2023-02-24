@@ -18,8 +18,6 @@ public class UserProfile {
     @Column(name = "lname", nullable = false)
     private String lname;
 
-    @Column(name = "email", nullable = false)
-    private String email;
 
     @Column(name = "phone", nullable = true)
     private String phone;
@@ -48,13 +46,6 @@ public class UserProfile {
         this.lname = lName;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getPhone() {
         return phone;
@@ -70,7 +61,6 @@ public class UserProfile {
                 "id=" + id +
                 ", fName='" + fname + '\'' +
                 ", lName='" + lname + '\'' +
-                ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 '}';
     }

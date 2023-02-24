@@ -30,6 +30,17 @@ public class LoginController {
         return "login";
     }
 
+    @PostMapping("/profilePage")
+    public String profilePage(){
+        return "redirect:/profile";
+    }
+    @PostMapping("/registerLogin")
+    public String registerPost(){
+        return "redirect:/register";
+    }
+
+
+
     @PostMapping("/login")
     public String loginPost(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, RedirectAttributes attrs) {
         if (result.hasErrors()) {

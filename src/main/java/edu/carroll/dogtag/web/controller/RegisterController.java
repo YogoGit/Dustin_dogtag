@@ -31,6 +31,10 @@ public class RegisterController {
         return "register";
     }
 
+    @PostMapping("/registerSuccess")
+    public String registerSuccessPost(){
+        return "redirect:/login";
+    }
     @PostMapping("/register")
     public String registerPost(@Valid @ModelAttribute RegisterForm registerForm, BindingResult result, RedirectAttributes attrs) {
         log.info("Errors");
