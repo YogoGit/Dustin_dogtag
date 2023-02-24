@@ -5,5 +5,9 @@
     <title>Success</title>
 </head>
 <body>
+<h1 th:text="'Welcome ' + ${user} + '.'"/>
+<form action="#" th:action="@{/profile}">
+    <h1></h1>Continue to Profile Setup</h1>
+    <button type="submit">Profile</button>
+</form>
 </body>
-</html>

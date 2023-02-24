@@ -54,8 +54,6 @@ public class RegisterController {
             return "register";
         }
 
-
-
         Login userRegister = new Login();
         userRegister.setUser(registerForm.getUser());
         userRegister.setEmail(registerForm.getEmail());

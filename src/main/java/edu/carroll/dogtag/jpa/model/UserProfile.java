@@ -30,19 +30,19 @@ public class UserProfile {
         this.id = id;
     }
 
-    public String getfName() {
+    public String getFname() {
         return fname;
     }
 
-    public void setfName(String fName) {
+    public void setFname(String fName) {
         this.fname = fName;
     }
 
-    public String getlName() {
+    public String getLname() {
         return lname;
     }
 
-    public void setlName(String lName) {
+    public void setLname(String lName) {
         this.lname = lName;
     }
 
