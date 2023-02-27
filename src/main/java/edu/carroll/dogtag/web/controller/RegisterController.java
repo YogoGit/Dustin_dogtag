@@ -1,7 +1,6 @@
 package edu.carroll.dogtag.web.controller;
 
 import edu.carroll.dogtag.jpa.model.Login;
-import edu.carroll.dogtag.service.LoginServiceImpl;
 import edu.carroll.dogtag.service.RegisterService;
 import edu.carroll.dogtag.web.form.RegisterForm;
 import jakarta.validation.Valid;
@@ -24,6 +23,7 @@ public class RegisterController {
     public RegisterController(RegisterService registerService) {
         this.registerService = registerService;
     }
+
     @GetMapping("/register")
     public String registerForm(Model model) {
         model.addAttribute("registerForm", new RegisterForm());
@@ -32,23 +32,24 @@ public class RegisterController {
     }
 
     @PostMapping("/registerSuccess")
-    public String registerSuccessPost(){
+    public String registerSuccessPost() {
         return "redirect:/login";
     }
+
     @PostMapping("/register")
     public String registerPost(@Valid @ModelAttribute RegisterForm registerForm, BindingResult result, RedirectAttributes attrs) {
         log.info("Errors");
-        if(result.hasErrors()){
+        if (result.hasErrors()) {
             log.info("User could not be registered");
             return "register";
         }
-        if(registerService.userExists(registerForm.getUser())){
+        if (registerService.userExists(registerForm.getUser())) {
             result.addError(new ObjectError("globalError", "Can not register: Please use a different User Name"));
             log.info("User failed validation");
             return "register";
         }
 
-        if(registerService.emailExists(registerForm.getEmail())){
+        if (registerService.emailExists(registerForm.getEmail())) {
             result.addError(new ObjectError("globalError", "Can not register: Please use a different Email"));
             log.info("Email failed validation");
             return "register";
@@ -65,10 +66,13 @@ public class RegisterController {
     }
 
     @GetMapping("/registerSuccess")
-    public String registerSuccess(String user, Model model){
+    public String registerSuccess(String user, Model model) {
         model.addAttribute("user", user);
         return "registerSuccess";
     }
+
     @GetMapping("/registerFailure")
-    public String registerFailure(){return "registerFailure";}
+    public String registerFailure() {
+        return "registerFailure";
+    }
 }

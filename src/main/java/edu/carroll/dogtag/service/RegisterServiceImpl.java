@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class RegisterServiceImpl implements RegisterService{
+public class RegisterServiceImpl implements RegisterService {
 
     private static final Logger log = LoggerFactory.getLogger(RegisterServiceImpl.class);
     private final RegisterRepository registerRepo;
@@ -32,7 +32,7 @@ public class RegisterServiceImpl implements RegisterService{
     }
 
     @Override
-    public boolean emailExists(String email){
+    public boolean emailExists(String email) {
         List<Login> emails = registerRepo.findByEmailIgnoreCase(email);
         return !emails.isEmpty();
     }

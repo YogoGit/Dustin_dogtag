@@ -1,8 +1,6 @@
 package edu.carroll.dogtag.web.controller;
-import edu.carroll.dogtag.jpa.model.Login;
+
 import edu.carroll.dogtag.jpa.model.UserProfile;
-import edu.carroll.dogtag.service.LoginServiceImpl;
-import edu.carroll.dogtag.service.RegisterService;
 import edu.carroll.dogtag.service.UserProfileService;
 import edu.carroll.dogtag.web.form.RegisterForm;
 import edu.carroll.dogtag.web.form.UserProfileForm;
@@ -12,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;

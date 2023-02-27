@@ -1,7 +1,5 @@
 package edu.carroll.dogtag.jpa.repo;
 
-import java.util.List;
-
 import edu.carroll.dogtag.jpa.model.UserProfile;
 import org.springframework.data.jpa.repository.JpaRepository;
 

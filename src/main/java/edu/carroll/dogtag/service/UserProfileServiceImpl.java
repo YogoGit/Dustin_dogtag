@@ -9,17 +9,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserProfileServiceImpl implements UserProfileService {
 
-        private static final Logger log = LoggerFactory.getLogger(RegisterServiceImpl.class);
-        private final UserProfileRepository userProfileRepository;
+    private static final Logger log = LoggerFactory.getLogger(RegisterServiceImpl.class);
+    private final UserProfileRepository userProfileRepository;
 
-        public UserProfileServiceImpl(UserProfileRepository userProfileRepository) {
-            this.userProfileRepository = userProfileRepository;
-        }
-
-        @Override
-        public void setProfile(UserProfile profile) {
-            userProfileRepository.save(profile);
-        }
+    public UserProfileServiceImpl(UserProfileRepository userProfileRepository) {
+        this.userProfileRepository = userProfileRepository;
     }
+
+    @Override
+    public void setProfile(UserProfile profile) {
+        userProfileRepository.save(profile);
+    }
+}
 
 

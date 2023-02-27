@@ -1,7 +1,6 @@
 package edu.carroll.dogtag.jpa.model;
 
 import jakarta.persistence.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Objects;
 
@@ -24,7 +23,6 @@ public class Login {
 
     @Column(name = "email", nullable = false)
     private String email;
-
 
 
     public Long getId() {
@@ -51,9 +49,13 @@ public class Login {
         this.password = password;
     }
 
-    public String getEmail(){return email;}
+    public String getEmail() {
+        return email;
+    }
 
-    public void setEmail(String email){this.email = email;}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     private static final String EOL = System.lineSeparator();
     private static final String TAB = "\t";
@@ -74,7 +76,7 @@ public class Login {
         if (o == null || getClass() != o.getClass())
             return false;
 
-        final Login login = (Login)o;
+        final Login login = (Login) o;
         return user.equals(login.user) && password.equals(login.password);
     }
 

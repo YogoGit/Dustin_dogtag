@@ -17,7 +17,6 @@ public class RegisterForm {
     private String email;
 
 
-
     public RegisterForm() {
     }
 
@@ -50,7 +49,6 @@ public class RegisterForm {
     public void setEmail(String email) {
         this.email = email;
     }
-
 
 
 }

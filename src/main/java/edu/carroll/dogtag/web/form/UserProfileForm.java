@@ -1,8 +1,5 @@
 package edu.carroll.dogtag.web.form;
 
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-
 public class UserProfileForm {
 
     private String fname;
