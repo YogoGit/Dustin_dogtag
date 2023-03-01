@@ -12,9 +12,30 @@ public interface RegisterService {
 
     boolean userExists(String user);
 
+    /**
+     * Given a registerForm, determine if the information provided is valid, and the user exists in the system.
+     *
+     * @param email -
+     * @return
+     */
+
     boolean emailExists(String email);
 
+    /**
+     * Given a registerForm, determine if the information provided is valid, and the user exists in the system.
+     *
+     * @param register -
+     * @return
+     */
+
     void register(Login register);
+
+    /**
+     * Given a registerForm, determine if the information provided is valid, and the user exists in the system.
+     *
+     * @param userRegister -
+     * @return t
+     */
 
     void deleteUser(Login userRegister);
 }
