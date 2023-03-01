@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserProfileServiceImpl implements UserProfileService {
 
-    private static final Logger log = LoggerFactory.getLogger(RegisterServiceImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(UserProfileServiceImpl.class);
     private final UserProfileRepository userProfileRepository;
 
     public UserProfileServiceImpl(UserProfileRepository userProfileRepository) {

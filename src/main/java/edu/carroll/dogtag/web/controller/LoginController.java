@@ -29,11 +29,6 @@ public class LoginController {
         return "login";
     }
 
-    @PostMapping("/profilePage")
-    public String profilePage() {
-        return "redirect:/profile";
-    }
-
     @PostMapping("/registerLogin")
     public String registerPost() {
         return "redirect:/register";

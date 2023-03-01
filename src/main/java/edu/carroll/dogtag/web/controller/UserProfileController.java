@@ -24,22 +24,22 @@ public class UserProfileController {
         this.userProfileService = userProfileService;
     }
 
-    @GetMapping("/profile")
+    @GetMapping("/profilesetup")
     public String profileForm(Model model) {
-        model.addAttribute("registerForm", new RegisterForm());
+        model.addAttribute("userProfileForm", new UserProfileForm());
         log.info("Successfully Mapped Register page");
-        return "profile";
+        return "/profilesetup";
     }
 
-    @PostMapping("/profile")
-    public String profilePost(@Valid @ModelAttribute UserProfileForm userProfileForm, BindingResult result, RedirectAttributes attrs) {
+    @PostMapping("/profilesetup")
+    public String profilePost(@Valid @ModelAttribute UserProfileForm userProfileForm, BindingResult result, Model model) {
         UserProfile userProfile = new UserProfile();
         userProfile.setFname(userProfileForm.getFname());
         userProfile.setLname(userProfileForm.getLname());
         userProfile.setPhone(userProfileForm.getPhone());
         userProfileService.setProfile(userProfile);
-        attrs.addAttribute("profile", userProfile.getFname());
+        model.addAttribute("profilesetup", userProfile.getFname());
         log.info("Registration post was successful");
-        return "profile";
+        return "profilesetup";
     }
 }
