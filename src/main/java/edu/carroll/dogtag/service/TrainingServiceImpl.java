@@ -1,8 +1,6 @@
 package edu.carroll.dogtag.service;
 
-import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.model.Training;
-import edu.carroll.dogtag.jpa.repo.RegisterRepository;
 import edu.carroll.dogtag.jpa.repo.TrainingRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,5 +19,9 @@ public class TrainingServiceImpl implements TrainingService{
     @Override
     public void trainingLog(Training trainingLog) {
         trainingRepository.save(trainingLog);
+    }
+    @Override
+    public Training traingins(){
+        return (Training) trainingRepository.findAll();
     }
 }

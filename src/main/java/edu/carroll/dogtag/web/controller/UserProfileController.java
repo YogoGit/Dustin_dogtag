@@ -43,4 +43,5 @@ public class UserProfileController {
         log.info("Registration post was successful");
         return "redirect:/traininglog";
     }
+
 }

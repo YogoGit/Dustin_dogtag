@@ -19,4 +19,22 @@
   <span th:if="${#fields.hasErrors('comments')}" th:errors="*{comments}">Phone error</span><br/>
   <button type="submit">Submit Profile Setup</button>
 </form>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Date</th>
+    <th>Training</th>
+    <th>Location</th>
+    <th>Comment</th>
+  </tr>
+  <tbody>
+  <tr th:each="training: ${trainings}">
+    <td th:text="${training.date}" />
+    <td th:text="${training.training}" />
+    <td th:text="${training.location}" />
+    <td th:text="${training.comments}" />
+  </tr>
+  </tbody>
+
+</table>
 </body>
