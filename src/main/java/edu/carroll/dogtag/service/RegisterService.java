@@ -34,7 +34,7 @@ public interface RegisterService {
      * Given a registerForm, determine if the information provided is valid, and the user exists in the system.
      *
      * @param userRegister -
-     * @return t
+     * @return
      */
 
     void deleteUser(Login userRegister);

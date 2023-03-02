@@ -10,9 +10,9 @@
     <span th:if="${#fields.hasGlobalErrors()}" th:errors="*{global}">Global error</span><br/>  <!-- Add this line -->
     <input type="text" th:field="*{fname}" placeholder="First Name"/>
     <span th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}">First Name Error</span><br/>
-    <input type="password" th:field="*{lname}" placeholder="Last Name"/>
+    <input type="text" th:field="*{lname}" placeholder="Last Name"/>
     <span th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}">Last Name error</span><br/>
-    <input type="Phone" th:field="*{phone}" placeholder="Phone"/>
+    <input type="tel" th:field="*{phone}" placeholder="Phone"/>
     <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone error</span><br/>
     <button type="submit">Submit Profile Setup</button>
 </form>

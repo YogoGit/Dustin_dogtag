@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Training Logs</title>
+</head>
+<body>
+<h1 th:text="'Welcome to the traing logs ' + ${fname} + ' ' + ${lname} "/>
+  <h1></h1>Enter Logs</a>
+<form action="#" th:action="@{/traininglog}" th:object="${trainingForm}" method="post">
+  <span th:if="${#fields.hasGlobalErrors()}" th:errors="*{global}">Global error</span><br/>  <!-- Add this line -->
+  <input type="date" th:field="*{date}" placeholder="Date of training"/>
+  <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}">First Name Error</span><br/>
+  <input type="text" th:field="*{location}" placeholder="Training location"/>
+  <span th:if="${#fields.hasErrors('location')}" th:errors="*{location}">Last Name error</span><br/>
+  <input type="text" th:field="*{training}" placeholder="Training activity"/>
+  <span th:if="${#fields.hasErrors('training')}" th:errors="*{training}">Phone error</span><br/>
+  <input type="text" th:field="*{comments}" placeholder="Training comments"/>
+  <span th:if="${#fields.hasErrors('comments')}" th:errors="*{comments}">Phone error</span><br/>
+  <button type="submit">Submit Profile Setup</button>
+</form>
+</body>

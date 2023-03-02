@@ -8,6 +8,8 @@ import jakarta.persistence.*;
 public class Training {
     private static final long serialVersionUID = 1L;
 
+
+
     @Id
     @GeneratedValue
     private Integer id;
@@ -22,7 +24,7 @@ public class Training {
     private String training;
 
     @Column(name = "comments", nullable = false)
-    private String phone;
+    private String comments;
 
     public Integer getId() {
         return id;
@@ -39,7 +41,6 @@ public class Training {
     public void setDate(String date) {
         this.date = date;
     }
-
     public String getLocation() {
         return location;
     }
@@ -56,12 +57,12 @@ public class Training {
         this.training = training;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getComments() {
+        return comments;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 
     @Override
@@ -71,7 +72,7 @@ public class Training {
                 ", date='" + date + '\'' +
                 ", location='" + location + '\'' +
                 ", training='" + training + '\'' +
-                ", phone='" + phone + '\'' +
+                ", comments='" + comments + '\'' +
                 '}';
     }
 }

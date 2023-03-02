@@ -32,14 +32,15 @@ public class UserProfileController {
     }
 
     @PostMapping("/profilesetup")
-    public String profilePost(@Valid @ModelAttribute UserProfileForm userProfileForm, BindingResult result, Model model) {
+    public String profilePost(@Valid @ModelAttribute UserProfileForm userProfileForm, BindingResult result, RedirectAttributes model) {
         UserProfile userProfile = new UserProfile();
         userProfile.setFname(userProfileForm.getFname());
         userProfile.setLname(userProfileForm.getLname());
         userProfile.setPhone(userProfileForm.getPhone());
         userProfileService.setProfile(userProfile);
-        model.addAttribute("profilesetup", userProfile.getFname());
+        model.addAttribute("fname", userProfile.getFname());
+        model.addAttribute("lname", userProfile.getLname());
         log.info("Registration post was successful");
-        return "profilesetup";
+        return "redirect:/traininglog";
     }
 }
