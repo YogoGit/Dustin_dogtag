@@ -1,6 +1,7 @@
 package edu.carroll.dogtag.web.controller;
 
 import edu.carroll.dogtag.jpa.model.Training;
+import edu.carroll.dogtag.jpa.model.UserProfile;
 import edu.carroll.dogtag.jpa.repo.TrainingRepository;
 import edu.carroll.dogtag.service.TrainingService;
 import edu.carroll.dogtag.web.form.TrainingForm;
@@ -51,21 +52,27 @@ public class TrainingController {
     public ModelAndView trainingForm(String fname, String lname, Model model) {
         model.addAttribute("trainingForm", new TrainingForm());
         log.info("Successfully Mapped Register page");
-        ModelAndView mav = new ModelAndView("traininglog");
-        mav.addObject("trainings", trainingRepository.findAll());
+        ModelAndView traininglogs = new ModelAndView("traininglog");
+        traininglogs.addObject("trainings", trainingRepository.findAll());
         model.addAttribute("fname", fname);
         model.addAttribute("lname", lname);
-        return mav;
+//        model.addAttribute("fname", fname);
+//        model.addAttribute("lname", lname);
+//        mav.addObject("fname",fname);
+//        mav.addObject("lname",lname);
+        return traininglogs;
     }
     @PostMapping("/traininglog")
-    public String registerPost(@Valid @ModelAttribute TrainingForm trainingForm, BindingResult result, RedirectAttributes attrs) {
-
+    public String registerPost(@Valid @ModelAttribute TrainingForm trainingForm, BindingResult result, RedirectAttributes attrs,String fname, String lname) {
         Training userTraining = new Training();
         userTraining.setDate(trainingForm.getDate());
         userTraining.setTraining(trainingForm.getTraining());
         userTraining.setLocation(trainingForm.getLocation());
         userTraining.setComments(trainingForm.getComments());
         trainingService.trainingLog(userTraining);
+//        attrs.addAttribute("trainingForm", new TrainingForm());
+        attrs.addAttribute("fname",fname);
+        attrs.addAttribute("lname", lname);
 //        attrs.addAttribute("user", trainingForm.getUser());
 //        log.info("Registration post was successful");
         return "redirect:/traininglog";

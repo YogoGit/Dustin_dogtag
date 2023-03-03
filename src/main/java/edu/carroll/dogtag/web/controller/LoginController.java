@@ -29,10 +29,10 @@ public class LoginController {
         return "login";
     }
 
-    @PostMapping("/registerLogin")
-    public String registerPost() {
-        return "redirect:/register";
-    }
+//    @PostMapping("/registerLogin")
+//    public String registerPost() {
+//        return "redirect:/register";
+//    }
 
 
     @PostMapping("/login")

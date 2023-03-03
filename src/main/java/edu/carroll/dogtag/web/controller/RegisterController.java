@@ -27,7 +27,7 @@ public class RegisterController {
     @GetMapping("/register")
     public String registerForm(Model model) {
         model.addAttribute("registerForm", new RegisterForm());
-        log.info("Successfully Mapped Register page");
+        log.info("Register page loaded");
         return "register";
     }
 
@@ -38,22 +38,31 @@ public class RegisterController {
 
     @PostMapping("/register")
     public String registerPost(@Valid @ModelAttribute RegisterForm registerForm, BindingResult result, RedirectAttributes attrs) {
-        log.info("Errors");
+        log.info("Logging info for {} registration", registerForm.getUser());
         if (result.hasErrors()) {
-            log.info("User could not be registered");
+            log.debug("{} could not be registered and was not stopped by @Notnull and @Size", registerForm.getUser());
             return "register";
         }
         if (registerService.userExists(registerForm.getUser())) {
-            result.addError(new ObjectError("globalError", "Can not register: Please use a different User Name"));
-            log.info("User failed validation");
+            result.addError(new ObjectError("user", "Can not register: Please use a different User Name"));
+            log.info("User {} exists in database already", registerForm.getUser() );//show what user failed to register
             return "register";
         }
 
         if (registerService.emailExists(registerForm.getEmail())) {
-            result.addError(new ObjectError("globalError", "Can not register: Please use a different Email"));
-            log.info("Email failed validation");
+            result.addError(new ObjectError("email", "Can not register: Please use a different Email"));
+            log.info("Email {} exists in database already", registerForm.getEmail());//show what email failed vaidation
             return "register";
         }
+
+        if(registerService.userExists(registerForm.getUser())&&registerService.emailExists(registerForm.getEmail())){
+            result.addError(new ObjectError("email", "Can not register: Please use a different Email"));
+            log.info("Email {} exists in database already", registerForm.getEmail());//show what email failed vaidation
+            result.addError(new ObjectError("user", "Can not register: Please use a different User Name"));
+            log.info("User {} exists in database already", registerForm.getUser() );//show what user failed to register
+            return "register";
+        }
+        //add if both user and email show error message indicating both
 
         Login userRegister = new Login();
         userRegister.setUser(registerForm.getUser());
@@ -61,7 +70,8 @@ public class RegisterController {
         userRegister.setPassword(registerForm.getPassword());
         registerService.register(userRegister);
         attrs.addAttribute("user", registerForm.getUser());
-        log.info("Registration post was successful");
+        log.info("User {} was able to register");
+        log.debug("List of info in registerForm user:{} email{}", registerForm.getUser(),registerForm.getEmail());
         return "redirect:/registerSuccess";
     }
 
