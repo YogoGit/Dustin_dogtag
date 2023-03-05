@@ -43,6 +43,15 @@ public class RegisterController {
             log.debug("{} could not be registered and was not stopped by @Notnull and @Size", registerForm.getUser());
             return "register";
         }
+
+        if(registerService.userExists(registerForm.getUser())&&registerService.emailExists(registerForm.getEmail())){
+            result.addError(new ObjectError("email", "Can not register: Please use a different Email"));
+            log.info("Email {} exists in database already", registerForm.getEmail());//show what email failed vaidation
+            result.addError(new ObjectError("user", "Can not register: Please use a different User Name"));
+            log.info("User {} exists in database already", registerForm.getUser() );//show what user failed to register
+            return "register";
+        }
+
         if (registerService.userExists(registerForm.getUser())) {
             result.addError(new ObjectError("user", "Can not register: Please use a different User Name"));
             log.info("User {} exists in database already", registerForm.getUser() );//show what user failed to register
@@ -55,13 +64,7 @@ public class RegisterController {
             return "register";
         }
 
-        if(registerService.userExists(registerForm.getUser())&&registerService.emailExists(registerForm.getEmail())){
-            result.addError(new ObjectError("email", "Can not register: Please use a different Email"));
-            log.info("Email {} exists in database already", registerForm.getEmail());//show what email failed vaidation
-            result.addError(new ObjectError("user", "Can not register: Please use a different User Name"));
-            log.info("User {} exists in database already", registerForm.getUser() );//show what user failed to register
-            return "register";
-        }
+
         //add if both user and email show error message indicating both
 
         Login userRegister = new Login();

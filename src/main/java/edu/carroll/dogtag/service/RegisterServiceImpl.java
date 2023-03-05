@@ -48,10 +48,15 @@ public class RegisterServiceImpl implements RegisterService {
     }
 
     @Override
-    public void deleteUser(Login userRegister) {
-        registerRepo.delete(userRegister);
+    public void deleteByUser(String userEntityDelete) {
+        List<Login> userRowDelete = registerRepo.findByUserIgnoreCase(userEntityDelete);
+        registerRepo.deleteAll(userRowDelete);
     }
+
+
+
 }
+
 
 
 

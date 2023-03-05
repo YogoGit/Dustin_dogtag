@@ -33,9 +33,9 @@ public interface RegisterService {
     /**
      * Given a registerForm, determine if the information provided is valid, and the user exists in the system.
      *
-     * @param userRegister -
+     * @param userEntityDelete -
      * @return
      */
 
-    void deleteUser(Login userRegister);
+    void deleteByUser(String userEntityDelete);
 }

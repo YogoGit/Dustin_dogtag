@@ -27,36 +27,71 @@ class RegisterServiceImplTest {
     private RegisterRepository registerRepository;
 
     @Test
-    public void userExistsTest() {
+    public void userExistsTestHappy1() {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(username);
         userRegister.setEmail(email);
         registerService.register(userRegister);
-        assertTrue("userExistsTest: should succeed", registerService.userExists(userRegister.getUser()));
+        assertTrue("userExistsTest: should succeed when a user already exists", registerService.userExists(userRegister.getUser()));
     }
 
     @Test
-    public void emailsExistsTest() {
+    public void userExistsTestHappy2() {
+        Login userRegister = new Login();
+        userRegister.setPassword(password);
+        userRegister.setUser(username);
+        userRegister.setEmail(email);
+        registerService.register(userRegister);
+        String userNotFound = "userNotFound";
+        assertFalse("userExistsTest: should fail when a user is not found in database", registerService.userExists(userNotFound));
+    }
+
+    @Test
+    public void emailsExistsTestHappy1() {
         Login emailRegister = new Login();
         emailRegister.setPassword(password);
         emailRegister.setUser(username);
         emailRegister.setEmail(email);
         registerService.register(emailRegister);
-        assertTrue("emailExistsTest: should succeed", registerService.emailExists(emailRegister.getEmail()));
+        assertTrue("emailExistsTest: should succeed when a email already exists", registerService.emailExists(emailRegister.getEmail()));
+
+    }
+    @Test
+    public void emailsExistsTestHappy2() {
+        Login emailRegister = new Login();
+        emailRegister.setPassword(password);
+        emailRegister.setUser(username);
+        emailRegister.setEmail(email);
+        registerService.register(emailRegister);
+        String emailNotFound = "emailNotFound";
+        assertFalse("emailExistsTest: should fail when email is not found", registerService.emailExists(emailNotFound));
 
     }
 
     @Test
-    public void deleteCreatedUserTest() {
+    public void deleteCreatedUserTestHappy1() {
         Login userRegisterDelete = new Login();
         userRegisterDelete.setPassword(password);
         userRegisterDelete.setEmail(email);
         userRegisterDelete.setUser(username);
         registerService.register(userRegisterDelete);
-        assertTrue("deleteCreatedUserTest: should succeed", registerService.userExists(userRegisterDelete.getUser()));
-        registerService.deleteUser(userRegisterDelete);
-        assertFalse("deleteCreatedUserTest: should fail", registerService.userExists(userRegisterDelete.getUser()));
+        assertTrue("deleteCreatedUserTest: should succeed creating a user", registerService.userExists(userRegisterDelete.getUser()));
+        registerService.deleteByUser(userRegisterDelete.getUser());
+        assertFalse("deleteCreatedUserTest: should fail deleting a user not found", registerService.userExists(userRegisterDelete.getUser()));
+    }
+
+    @Test
+    public void deleteCreatedUserTestHappy2() {
+        Login userRegisterDelete = new Login();
+        userRegisterDelete.setPassword(password);
+        userRegisterDelete.setEmail(email);
+        userRegisterDelete.setUser(username);
+        registerService.register(userRegisterDelete);
+        assertTrue("deleteCreatedUserTest: should succeed creating a user", registerService.userExists(userRegisterDelete.getUser()));
+        String noUserToDelete = "noUserToDelete";
+        registerService.deleteByUser(noUserToDelete);
+        assertTrue("deleteCreatedUserTest: should fail because user was not deleted", registerService.userExists(userRegisterDelete.getUser()));
     }
 
 }
