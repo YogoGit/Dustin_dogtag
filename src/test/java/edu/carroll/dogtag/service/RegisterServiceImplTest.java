@@ -55,7 +55,7 @@ class RegisterServiceImplTest {
         userRegister.setUser(username);
         userRegister.setEmail(email);
         registerService.register(userRegister);
-        assertFalse("userExistsTest: should fail when checking for an email instead of user", registerService.userExists(userRegister.getEmail()));
+        assertFalse("userExistsTest: should fail when checking for an email existing instead of user existing", registerService.userExists(userRegister.getEmail()));
     }
 
     @Test
@@ -87,7 +87,7 @@ class RegisterServiceImplTest {
         emailRegister.setUser(username);
         emailRegister.setEmail(email);
         registerService.register(emailRegister);
-        assertFalse("emailExistsTest: should fail when user instead of an email", registerService.emailExists(emailRegister.getUser()));
+        assertFalse("emailExistsTest: should fail when checking if a user exists instead of an email", registerService.emailExists(emailRegister.getUser()));
 
     }
 
