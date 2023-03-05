@@ -14,8 +14,10 @@ import static org.springframework.test.util.AssertionErrors.assertTrue;
 @Transactional
 class RegisterServiceImplTest {
     private static final String username = "usertest";
+    private static final String usernameShort = "user";
 
     private static final String password = "passwordtest";
+    private static final String passwordShort = "pass";
 
     private static final String email = "emailTest@gmail.com";
 
@@ -46,6 +48,15 @@ class RegisterServiceImplTest {
         String userNotFound = "userNotFound";
         assertFalse("userExistsTest: should fail when a user is not found in database", registerService.userExists(userNotFound));
     }
+    @Test
+    public void userExistsTestCrappy1() {
+        Login userRegister = new Login();
+        userRegister.setPassword(password);
+        userRegister.setUser(username);
+        userRegister.setEmail(email);
+        registerService.register(userRegister);
+        assertFalse("userExistsTest: should fail when checking for an email instead of user", registerService.userExists(userRegister.getEmail()));
+    }
 
     @Test
     public void emailsExistsTestHappy1() {
@@ -70,6 +81,17 @@ class RegisterServiceImplTest {
     }
 
     @Test
+    public void emailsExistsTestCrappy1() {
+        Login emailRegister = new Login();
+        emailRegister.setPassword(password);
+        emailRegister.setUser(username);
+        emailRegister.setEmail(email);
+        registerService.register(emailRegister);
+        assertFalse("emailExistsTest: should fail when user instead of an email", registerService.emailExists(emailRegister.getUser()));
+
+    }
+
+    @Test
     public void deleteCreatedUserTestHappy1() {
         Login userRegisterDelete = new Login();
         userRegisterDelete.setPassword(password);
@@ -78,7 +100,7 @@ class RegisterServiceImplTest {
         registerService.register(userRegisterDelete);
         assertTrue("deleteCreatedUserTest: should succeed creating a user", registerService.userExists(userRegisterDelete.getUser()));
         registerService.deleteByUser(userRegisterDelete.getUser());
-        assertFalse("deleteCreatedUserTest: should fail deleting a user not found", registerService.userExists(userRegisterDelete.getUser()));
+        assertFalse("deleteCreatedUserTest: should succeeded deleting because no longer not found", registerService.userExists(userRegisterDelete.getUser()));
     }
 
     @Test
