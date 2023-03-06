@@ -1,19 +1,19 @@
 <!DOCTYPE HTML>
 <html xmlns:th="https://www.thymeleaf.org">
 <!--<head>-->
-    <title>Profile Setup</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Profile Setup</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
 </head>
 <body>
 <h1>Profile Setup</h1>
-<form action="#" th:action="@{/profilesetup}" th:object="${userProfileForm}" method="post">
-    <span th:if="${#fields.hasGlobalErrors()}" th:errors="*{global}">Global error</span><br/>  <!-- Add this line -->
-    <input type="text" th:field="*{fname}" placeholder="First Name"/>
-    <span th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}">First Name Error</span><br/>
-    <input type="text" th:field="*{lname}" placeholder="Last Name"/>
-    <span th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}">Last Name error</span><br/>
-    <input type="tel" th:field="*{phone}" placeholder="Phone"/>
-    <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone error</span><br/>
+<form action="#" method="post" th:action="@{/profilesetup}" th:object="${userProfileForm}">
+    <span th:errors="*{global}" th:if="${#fields.hasGlobalErrors()}">Global error</span><br/>  <!-- Add this line -->
+    <input placeholder="First Name" th:field="*{fname}" type="text"/>
+    <span th:errors="*{fname}" th:if="${#fields.hasErrors('fname')}">First Name Error</span><br/>
+    <input placeholder="Last Name" th:field="*{lname}" type="text"/>
+    <span th:errors="*{lname}" th:if="${#fields.hasErrors('lname')}">Last Name error</span><br/>
+    <input placeholder="Phone" th:field="*{phone}" type="tel"/>
+    <span th:errors="*{phone}" th:if="${#fields.hasErrors('phone')}">Phone error</span><br/>
     <button type="submit">Submit Profile Setup</button>
 </form>
 </body>

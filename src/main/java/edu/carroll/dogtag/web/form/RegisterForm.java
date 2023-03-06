@@ -1,6 +1,5 @@
 package edu.carroll.dogtag.web.form;
 
-import edu.carroll.dogtag.web.controller.RegisterController;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.slf4j.Logger;
@@ -38,7 +37,7 @@ public class RegisterForm {
     }
 
     public void setUser(String user) {
-        if(user.length()<6 || user.length()>50) {
+        if (user.length() < 6 || user.length() > 50) {
             log.info("Did not meet user name min or max requirements");
         }
         this.user = user;
@@ -49,7 +48,7 @@ public class RegisterForm {
     }
 
     public void setPassword(String password) {
-        if(password.length()<8 || password.length()>15) {
+        if (password.length() < 8 || password.length() > 15) {
             log.info("Did not meet password min or max requirements");
         }
         this.password = password;

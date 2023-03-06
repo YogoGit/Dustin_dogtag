@@ -10,20 +10,17 @@ import java.util.Objects;
 public class Login {
 
     private static final long serialVersionUID = 1L;
-
+    private static final String EOL = System.lineSeparator();
+    private static final String TAB = "\t";
     @Id
     @GeneratedValue
     private Long id; //switch to long
-
     @Column(name = "username", nullable = false, unique = true)
     private String user;
-
     @Column(name = "password", nullable = false)
     private String password;
-
     @Column(name = "email", nullable = false)
     private String email;
-
 
     public Long getId() {
         return id;
@@ -56,9 +53,6 @@ public class Login {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    private static final String EOL = System.lineSeparator();
-    private static final String TAB = "\t";
 
     @Override
     public String toString() {

@@ -2,10 +2,10 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <title>Registration Complete</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
 </head>
 <body>
-<form action="#" th:action="@{/registerSuccess}" method="post">
+<form action="#" method="post" th:action="@{/registerSuccess}">
     <h1>Successfully Registration</h1>
     <p th:text="'Welcome are you ready to login ' + ${user}"/>
     <button type="submit">Login</button>

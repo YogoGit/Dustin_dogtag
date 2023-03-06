@@ -9,7 +9,6 @@ public class Training {
     private static final long serialVersionUID = 1L;
 
 
-
     @Id
     @GeneratedValue
     private Integer id;
@@ -41,6 +40,7 @@ public class Training {
     public void setDate(String date) {
         this.date = date;
     }
+
     public String getLocation() {
         return location;
     }

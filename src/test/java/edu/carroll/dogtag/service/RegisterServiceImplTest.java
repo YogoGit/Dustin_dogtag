@@ -7,9 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.sql.SQLException;
-
-import static org.springframework.test.util.AssertionErrors.*;
+import static org.springframework.test.util.AssertionErrors.assertFalse;
+import static org.springframework.test.util.AssertionErrors.assertTrue;
 
 @SpringBootTest
 @Transactional
@@ -34,6 +33,7 @@ class RegisterServiceImplTest {
         String noUser = "noUser";
         assertFalse("userExistsTest: should succeed when a user already exists", registerService.userExists(noUser));
     }
+
     @Test
     public void userExistsTestHappy2() {
         Login userRegister = new Login();
@@ -59,6 +59,7 @@ class RegisterServiceImplTest {
         registerService.register(userRegister2);
         assertTrue("user2ExistsTest: should succeed when user2 already exists", registerService.userExists(userRegister2.getUser()));
     }
+
     @Test
     public void userExistsTestHappy4() {
         Login userRegister = new Login();
@@ -73,20 +74,21 @@ class RegisterServiceImplTest {
         userRegister2.setEmail(email + "2");
         registerService.register(userRegister2);
         assertTrue("user2ExistsTest: should succeed when user2 already exists", registerService.userExists(userRegister2.getUser()));
-            Login userRegister3 = new Login();
-            userRegister3.setPassword(password + "3");
-            userRegister3.setUser(username + "3");
-            userRegister3.setEmail(email + "3");
-            registerService.register(userRegister3);
-            Login userRegister4 = new Login();
-            assertTrue("userExistsTest: should succeed when a user3 already exists", registerService.userExists(userRegister.getUser()));
-            userRegister4.setPassword(password + "4");
-            userRegister4.setUser(username + "4");
-            userRegister4.setEmail(email + "4");
-            registerService.register(userRegister4);
-            assertTrue("user2ExistsTest: should succeed when user4 already exists", registerService.userExists(userRegister2.getUser()));
+        Login userRegister3 = new Login();
+        userRegister3.setPassword(password + "3");
+        userRegister3.setUser(username + "3");
+        userRegister3.setEmail(email + "3");
+        registerService.register(userRegister3);
+        Login userRegister4 = new Login();
+        assertTrue("userExistsTest: should succeed when a user3 already exists", registerService.userExists(userRegister.getUser()));
+        userRegister4.setPassword(password + "4");
+        userRegister4.setUser(username + "4");
+        userRegister4.setEmail(email + "4");
+        registerService.register(userRegister4);
+        assertTrue("user2ExistsTest: should succeed when user4 already exists", registerService.userExists(userRegister2.getUser()));
 
     }
+
     @Test
     public void userExistsTestHappy5() {
         Login userRegister = new Login();
@@ -118,6 +120,7 @@ class RegisterServiceImplTest {
         assertTrue("emailExistsTest: should succeed when a email already exists", registerService.emailExists(emailRegister.getEmail()));
 
     }
+
     @Test
     public void emailsExistsTestHappy2() {
         Login emailRegister = new Login();

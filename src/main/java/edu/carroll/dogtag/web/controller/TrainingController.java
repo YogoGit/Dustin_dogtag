@@ -1,7 +1,6 @@
 package edu.carroll.dogtag.web.controller;
 
 import edu.carroll.dogtag.jpa.model.Training;
-import edu.carroll.dogtag.jpa.model.UserProfile;
 import edu.carroll.dogtag.jpa.repo.TrainingRepository;
 import edu.carroll.dogtag.service.TrainingService;
 import edu.carroll.dogtag.web.form.TrainingForm;
@@ -17,8 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
-
 @Controller
 public class TrainingController {
 
@@ -32,7 +29,7 @@ public class TrainingController {
         this.trainingRepository = trainingRepository;
     }
 
-//    @GetMapping("/traininglog")
+    //    @GetMapping("/traininglog")
 //    public ModelAndView getAllTrainings()
 //    {
 //        ModelAndView mav = new ModelAndView("traininglog");
@@ -62,8 +59,9 @@ public class TrainingController {
 //        mav.addObject("lname",lname);
         return traininglogs;
     }
+
     @PostMapping("/traininglog")
-    public String registerPost(@Valid @ModelAttribute TrainingForm trainingForm, BindingResult result, RedirectAttributes attrs,String fname, String lname) {
+    public String registerPost(@Valid @ModelAttribute TrainingForm trainingForm, BindingResult result, RedirectAttributes attrs, String fname, String lname) {
         Training userTraining = new Training();
         userTraining.setDate(trainingForm.getDate());
         userTraining.setTraining(trainingForm.getTraining());
@@ -71,7 +69,7 @@ public class TrainingController {
         userTraining.setComments(trainingForm.getComments());
         trainingService.trainingLog(userTraining);
 //        attrs.addAttribute("trainingForm", new TrainingForm());
-        attrs.addAttribute("fname",fname);
+        attrs.addAttribute("fname", fname);
         attrs.addAttribute("lname", lname);
 //        attrs.addAttribute("user", trainingForm.getUser());
 //        log.info("Registration post was successful");

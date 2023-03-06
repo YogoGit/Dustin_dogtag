@@ -42,8 +42,8 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Override
     public void register(Login register) {
-            registerRepo.save(register);
-            log.info("Register Info for {} sent to login table", register.getUser());
+        registerRepo.save(register);
+        log.info("Register Info for {} sent to login table", register.getUser());
     }
 
     @Override
@@ -52,7 +52,6 @@ public class RegisterServiceImpl implements RegisterService {
         registerRepo.deleteAll(userRowDelete);
         log.info("User {} was deleted", userEntityDelete);
     }
-
 
 
 }

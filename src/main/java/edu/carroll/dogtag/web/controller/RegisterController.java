@@ -44,17 +44,17 @@ public class RegisterController {
             return "register";
         }
 
-        if(registerService.userExists(registerForm.getUser())&&registerService.emailExists(registerForm.getEmail())){
+        if (registerService.userExists(registerForm.getUser()) && registerService.emailExists(registerForm.getEmail())) {
             result.addError(new ObjectError("email", "Can not register: Please use a different Email"));
             log.info("Email {} exists in database already", registerForm.getEmail());//show what email failed vaidation
             result.addError(new ObjectError("user", "Can not register: Please use a different User Name"));
-            log.info("User {} exists in database already", registerForm.getUser() );//show what user failed to register
+            log.info("User {} exists in database already", registerForm.getUser());//show what user failed to register
             return "register";
         }
 
         if (registerService.userExists(registerForm.getUser())) {
             result.addError(new ObjectError("user", "Can not register: Please use a different User Name"));
-            log.info("User {} exists in database already", registerForm.getUser() );//show what user failed to register
+            log.info("User {} exists in database already", registerForm.getUser());//show what user failed to register
             return "register";
         }
 
@@ -74,7 +74,7 @@ public class RegisterController {
         registerService.register(userRegister);
         attrs.addAttribute("user", registerForm.getUser());
         log.info("User {} was able to register");
-        log.debug("List of info in registerForm user:{} email{}", registerForm.getUser(),registerForm.getEmail());
+        log.debug("List of info in registerForm user:{} email{}", registerForm.getUser(), registerForm.getEmail());
         return "redirect:/registerSuccess";
     }
 

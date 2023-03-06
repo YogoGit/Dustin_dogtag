@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TrainingServiceImpl implements TrainingService{
+public class TrainingServiceImpl implements TrainingService {
 
     private static final Logger log = LoggerFactory.getLogger(TrainingServiceImpl.class);
     private final TrainingRepository trainingRepository;
@@ -20,8 +20,9 @@ public class TrainingServiceImpl implements TrainingService{
     public void trainingLog(Training trainingLog) {
         trainingRepository.save(trainingLog);
     }
+
     @Override
-    public Training traingins(){
+    public Training traingins() {
         return (Training) trainingRepository.findAll();
     }
 }

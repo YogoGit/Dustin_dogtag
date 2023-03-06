@@ -2,7 +2,6 @@ package edu.carroll.dogtag.web.controller;
 
 import edu.carroll.dogtag.jpa.model.UserProfile;
 import edu.carroll.dogtag.service.UserProfileService;
-import edu.carroll.dogtag.web.form.RegisterForm;
 import edu.carroll.dogtag.web.form.UserProfileForm;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;

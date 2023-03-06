@@ -1,19 +1,15 @@
 package edu.carroll.dogtag.service;
 
-import static org.springframework.test.util.AssertionErrors.assertFalse;
-import static org.springframework.test.util.AssertionErrors.assertNotNull;
-import static org.springframework.test.util.AssertionErrors.assertTrue;
-
-import java.util.List;
-
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.repo.LoginRepository;
 import edu.carroll.dogtag.web.form.LoginForm;
 import jakarta.transaction.Transactional;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.springframework.test.util.AssertionErrors.assertFalse;
+import static org.springframework.test.util.AssertionErrors.assertTrue;
 
 @SpringBootTest
 @Transactional
