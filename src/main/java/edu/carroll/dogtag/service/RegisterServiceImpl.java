@@ -28,29 +28,29 @@ public class RegisterServiceImpl implements RegisterService {
     public boolean userExists(String user) {
         // Always do the lookup in a case-insensitive manner (lower-casing the data).
         List<Login> users = registerRepo.findByUserIgnoreCase(user);
-        log.info("Checking if user exists");
+        log.info("Checking if {} user exists", user);
         return !users.isEmpty();
     }
 
     @Override
     public boolean emailExists(String email) {
         List<Login> emails = registerRepo.findByEmailIgnoreCase(email);
-        log.info("Checking if email exists");
+        log.info("Checking if {} email exists", email);
         return !emails.isEmpty();
     }
 
 
     @Override
     public void register(Login register) {
-
-        registerRepo.save(register);
-        log.info("Register Info sent to login table");
+            registerRepo.save(register);
+            log.info("Register Info for {} sent to login table", register.getUser());
     }
 
     @Override
     public void deleteByUser(String userEntityDelete) {
         List<Login> userRowDelete = registerRepo.findByUserIgnoreCase(userEntityDelete);
         registerRepo.deleteAll(userRowDelete);
+        log.info("User {} was deleted", userEntityDelete);
     }
 
 
