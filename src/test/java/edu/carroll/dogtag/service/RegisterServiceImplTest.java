@@ -31,6 +31,11 @@ class RegisterServiceImplTest {
 
     @Test
     public void userExistsTestHappy1() {
+        String noUser = "noUser";
+        assertFalse("userExistsTest: should succeed when a user already exists", registerService.userExists(noUser));
+    }
+    @Test
+    public void userExistsTestHappy2() {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(username);
@@ -40,7 +45,50 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void userExistsTestHappy2() {
+    public void userExistsTestHappy3() {
+        Login userRegister = new Login();
+        userRegister.setPassword(password);
+        userRegister.setUser(username);
+        userRegister.setEmail(email);
+        registerService.register(userRegister);
+        Login userRegister2 = new Login();
+        assertTrue("userExistsTest: should succeed when a user already exists", registerService.userExists(userRegister.getUser()));
+        userRegister2.setPassword(password + "2");
+        userRegister2.setUser(username + "2");
+        userRegister2.setEmail(email + "2");
+        registerService.register(userRegister2);
+        assertTrue("user2ExistsTest: should succeed when user2 already exists", registerService.userExists(userRegister2.getUser()));
+    }
+    @Test
+    public void userExistsTestHappy4() {
+        Login userRegister = new Login();
+        userRegister.setPassword(password);
+        userRegister.setUser(username);
+        userRegister.setEmail(email);
+        registerService.register(userRegister);
+        Login userRegister2 = new Login();
+        assertTrue("userExistsTest: should succeed when a user already exists", registerService.userExists(userRegister.getUser()));
+        userRegister2.setPassword(password + "2");
+        userRegister2.setUser(username + "2");
+        userRegister2.setEmail(email + "2");
+        registerService.register(userRegister2);
+        assertTrue("user2ExistsTest: should succeed when user2 already exists", registerService.userExists(userRegister2.getUser()));
+            Login userRegister3 = new Login();
+            userRegister3.setPassword(password + "3");
+            userRegister3.setUser(username + "3");
+            userRegister3.setEmail(email + "3");
+            registerService.register(userRegister3);
+            Login userRegister4 = new Login();
+            assertTrue("userExistsTest: should succeed when a user3 already exists", registerService.userExists(userRegister.getUser()));
+            userRegister4.setPassword(password + "4");
+            userRegister4.setUser(username + "4");
+            userRegister4.setEmail(email + "4");
+            registerService.register(userRegister4);
+            assertTrue("user2ExistsTest: should succeed when user4 already exists", registerService.userExists(userRegister2.getUser()));
+
+    }
+    @Test
+    public void userExistsTestHappy5() {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(username);
@@ -49,8 +97,9 @@ class RegisterServiceImplTest {
         String userNotFound = "userNotFound";
         assertFalse("userExistsTest: should fail when a user is not found in database", registerService.userExists(userNotFound));
     }
+
     @Test
-    public void userExistsTestCrappy1() {
+    public void userExistsTestCrappy2() {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(username);
