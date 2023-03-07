@@ -59,7 +59,6 @@ class RegisterServiceImplTest {
         registerService.register(userRegister2);
         assertTrue("user2ExistsTest: should succeed when user2 already exists", registerService.userExists(userRegister2.getUser()));
     }
-
     @Test
     public void userExistsTestHappy4() {
         Login userRegister = new Login();
