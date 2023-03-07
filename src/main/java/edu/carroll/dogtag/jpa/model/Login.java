@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.Objects;
 
-//Git Author update
+//Git Author update test 2
 @Entity
 @Table(name = "login")
 public class Login {
