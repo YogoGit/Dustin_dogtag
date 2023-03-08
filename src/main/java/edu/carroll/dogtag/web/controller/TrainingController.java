@@ -29,50 +29,27 @@ public class TrainingController {
         this.trainingRepository = trainingRepository;
     }
 
-    //    @GetMapping("/traininglog")
-//    public ModelAndView getAllTrainings()
-//    {
-//        ModelAndView mav = new ModelAndView("traininglog");
-//        mav.addObject("trainings", trainingRepository.findAll());
-//        System.out.println(mav);
-//        return mav;
-//
-//    }
-//    @GetMapping({"/traininglog"})
-//    public ModelAndView getAllEmployees() {
-//        ModelAndView mav = new ModelAndView("traininglog");
-//        mav.addObject("trainings", trainingService.traingins());
-//        System.out.println(mav);
-//        return mav;
-//    }
     @GetMapping("/traininglog")
     public ModelAndView trainingForm(String fname, String lname, Model model) {
         model.addAttribute("trainingForm", new TrainingForm());
         log.info("Successfully Mapped Register page");
         ModelAndView traininglogs = new ModelAndView("traininglog");
         traininglogs.addObject("trainings", trainingRepository.findAll());
-        model.addAttribute("fname", fname);
-        model.addAttribute("lname", lname);
-//        model.addAttribute("fname", fname);
-//        model.addAttribute("lname", lname);
-//        mav.addObject("fname",fname);
-//        mav.addObject("lname",lname);
+        traininglogs.addObject("fname",fname);
+        traininglogs.addObject("lname", lname);
         return traininglogs;
     }
 
     @PostMapping("/traininglog")
-    public String registerPost(@Valid @ModelAttribute TrainingForm trainingForm, BindingResult result, RedirectAttributes attrs, String fname, String lname) {
+    public String trainingPost(@Valid @ModelAttribute TrainingForm trainingForm,String fname, String lname , BindingResult result, RedirectAttributes attr) {
         Training userTraining = new Training();
         userTraining.setDate(trainingForm.getDate());
         userTraining.setTraining(trainingForm.getTraining());
         userTraining.setLocation(trainingForm.getLocation());
         userTraining.setComments(trainingForm.getComments());
         trainingService.trainingLog(userTraining);
-//        attrs.addAttribute("trainingForm", new TrainingForm());
-        attrs.addAttribute("fname", fname);
-        attrs.addAttribute("lname", lname);
-//        attrs.addAttribute("user", trainingForm.getUser());
-//        log.info("Registration post was successful");
+        attr.addAttribute("fname",fname);
+        attr.addAttribute("lname",lname);
         return "redirect:/traininglog";
     }
 
