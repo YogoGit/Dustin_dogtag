@@ -110,7 +110,12 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void emailsExistsTestHappy1() {
+    public void emailExistsTestHappy1(){
+        String noEmail = "noEmail";
+        assertFalse("emailExistsTest: should fail when no email exists", registerService.emailExists(noEmail));
+    }
+    @Test
+    public void emailExistsTestHappy2() {
         Login emailRegister = new Login();
         emailRegister.setPassword(password);
         emailRegister.setUser(username);
@@ -121,7 +126,23 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void emailsExistsTestHappy2() {
+    public void emailExistsTestHappy3() {
+        Login userRegister = new Login();
+        userRegister.setPassword(password);
+        userRegister.setUser(username);
+        userRegister.setEmail(email);
+        registerService.register(userRegister);
+        Login userRegister2 = new Login();
+        assertTrue("userExistsTest: should succeed when a user already exists", registerService.userExists(userRegister.getUser()));
+        userRegister2.setPassword(password + "2");
+        userRegister2.setUser(username + "2");
+        userRegister2.setEmail(email + "2");
+        registerService.register(userRegister2);
+        assertTrue("user2ExistsTest: should succeed when user2 already exists", registerService.userExists(userRegister2.getUser()));
+    }
+
+    @Test
+    public void emailsExistsTestHappy4() {
         Login emailRegister = new Login();
         emailRegister.setPassword(password);
         emailRegister.setUser(username);
