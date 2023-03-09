@@ -34,16 +34,20 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Override
     public boolean emailExists(String email) {
-        List<Login> emails = registerRepo.findByEmailIgnoreCase(email);
-        log.info("Checking if {} email exists", email);
-        return !emails.isEmpty();
-    }
-
+            List<Login> emails = registerRepo.findByEmailIgnoreCase(email);
+            log.info("Checking if {} email exists", email);
+            return !emails.isEmpty();
+        }
 
     @Override
     public void register(Login register) {
-        registerRepo.save(register);
-        log.info("Register Info for {} sent to login table", register.getUser());
+        if(register.getUser() != null) {
+            registerRepo.save(register);
+            log.info("Register Info for {} sent to login table", register.getUser());
+        }
+        else{
+            log.info("User can not be null {}", register.getUser());
+        }
     }
 
     @Override

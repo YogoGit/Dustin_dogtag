@@ -1,6 +1,9 @@
 package edu.carroll.dogtag.jpa.model;
 
+import edu.carroll.dogtag.service.RegisterServiceImpl;
 import jakarta.persistence.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Objects;
 
@@ -12,10 +15,12 @@ public class Login {
     private static final long serialVersionUID = 1L;
     private static final String EOL = System.lineSeparator();
     private static final String TAB = "\t";
+
+    private static final Logger log = LoggerFactory.getLogger(Login.class);
     @Id
     @GeneratedValue
     private Long id; //switch to long
-    @Column(name = "username", nullable = false, unique = true)
+    @Column(name = "username", unique = true)
     private String user;
     @Column(name = "password", nullable = false)
     private String password;
@@ -35,7 +40,13 @@ public class Login {
     }
 
     public void setUser(String user) {
-        this.user = user;
+
+        if(user != null){
+            this.user = user;
+        }
+        else {
+            log.info("User should not be null {}", user);
+        }
     }
 
     public String getPassword() {
