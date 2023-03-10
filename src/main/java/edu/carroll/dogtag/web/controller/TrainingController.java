@@ -35,21 +35,21 @@ public class TrainingController {
         log.info("Successfully Mapped Register page");
         ModelAndView traininglogs = new ModelAndView("traininglog");
         traininglogs.addObject("trainings", trainingRepository.findAll());
-        traininglogs.addObject("fname",fname);
+        traininglogs.addObject("fname", fname);
         traininglogs.addObject("lname", lname);
         return traininglogs;
     }
 
     @PostMapping("/traininglog")
-    public String trainingPost(@Valid @ModelAttribute TrainingForm trainingForm,String fname, String lname , BindingResult result, RedirectAttributes attr) {
+    public String trainingPost(@Valid @ModelAttribute TrainingForm trainingForm, String fname, String lname, BindingResult result, RedirectAttributes attr) {
         Training userTraining = new Training();
         userTraining.setDate(trainingForm.getDate());
         userTraining.setTraining(trainingForm.getTraining());
         userTraining.setLocation(trainingForm.getLocation());
         userTraining.setComments(trainingForm.getComments());
         trainingService.trainingLog(userTraining);
-        attr.addAttribute("fname",fname);
-        attr.addAttribute("lname",lname);
+        attr.addAttribute("fname", fname);
+        attr.addAttribute("lname", lname);
         return "redirect:/traininglog";
     }
 

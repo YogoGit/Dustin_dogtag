@@ -62,6 +62,7 @@ class RegisterServiceImplTest {
         registerService.register(userRegister2);
         assertTrue("user2ExistsTest: should succeed when user2 already exists", registerService.userExists(userRegister2.getUser()));
     }
+
     @Test
     public void userExistsTest4UsersHappy() {
         Login userRegister = new Login();
@@ -111,12 +112,11 @@ class RegisterServiceImplTest {
         userRegister.setUser(username);
         userRegister.setEmail(email);
         registerService.register(userRegister);
-
         assertFalse("userExistsTest: should fail when checking for an email existing instead of user existing", registerService.userExists(userRegister.getEmail()));
     }
 
     @Test
-    public void userExistsTestNullUserCrazy1(){
+    public void userExistsTestNullUserCrazy1() {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(null);
@@ -127,10 +127,22 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void emailExistsTestHappy1(){
+    public void userExistsTestBlankCrazy1() {
+        Login userRegister = new Login();
+        userRegister.setPassword(password);
+        userRegister.setUser("");
+        userRegister.setEmail(email);
+        log.info("User should be null {}", userRegister.getUser());
+        registerService.register(userRegister);
+        assertFalse("userExistsTest: should fail when a user is null", registerService.userExists(userRegister.getUser()));
+    }
+
+    @Test
+    public void emailExistsTestHappy1() {
         String noEmail = "noEmail";
         assertFalse("emailExistsTest: should fail when no email exists", registerService.emailExists(noEmail));
     }
+
     @Test
     public void emailExistsTestHappy2() {
         Login emailRegister = new Login();
@@ -153,7 +165,7 @@ class RegisterServiceImplTest {
 
         Login emailRegister2 = new Login();
         emailRegister2.setPassword(password + "2");
-        emailRegister2.setUser(username + "2") ;
+        emailRegister2.setUser(username + "2");
         emailRegister2.setEmail(email + "2");
         registerService.register(emailRegister2);
         assertTrue("emailExistsTest: should succeed when a email2 already exists", registerService.emailExists(emailRegister2.getEmail()));
@@ -178,9 +190,9 @@ class RegisterServiceImplTest {
         assertTrue("emailExistsTest: should succeed when a email already exists", registerService.emailExists(emailRegister2.getEmail()));
 
         Login emailRegister3 = new Login();
-        emailRegister3.setPassword(password  + "3");
-        emailRegister3.setUser(username  + "3");
-        emailRegister3.setEmail(email  + "3");
+        emailRegister3.setPassword(password + "3");
+        emailRegister3.setUser(username + "3");
+        emailRegister3.setEmail(email + "3");
         registerService.register(emailRegister3);
         assertTrue("emailExistsTest: should succeed when a email already exists", registerService.emailExists(emailRegister3.getEmail()));
 
@@ -193,7 +205,7 @@ class RegisterServiceImplTest {
 
     }
 
-        @Test
+    @Test
     public void emailsExistsTestCrappy1() {
         Login emailRegister = new Login();
         emailRegister.setPassword(password);

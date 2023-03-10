@@ -9,8 +9,8 @@
 <h1></h1>Enter Logs</a>
 <form action="#" method="post" th:action="@{/traininglog}" th:object="${trainingForm}">
     <span th:errors="*{global}" th:if="${#fields.hasGlobalErrors()}">Global error</span><br/>  <!-- Add this line -->
-    <input type="hidden" name="fname" th:value="${fname}"/>
-    <input type="hidden" name="lname" th:value="${lname}"/>
+    <input name="fname" th:value="${fname}" type="hidden"/>
+    <input name="lname" th:value="${lname}" type="hidden"/>
     <input placeholder="Date of training" th:field="*{date}" type="date"/>
     <span th:errors="*{date}" th:if="${#fields.hasErrors('date')}">First Name Error</span><br/>
     <input placeholder="Training location" th:field="*{location}" type="text"/>

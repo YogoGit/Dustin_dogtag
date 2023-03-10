@@ -1,6 +1,5 @@
 package edu.carroll.dogtag.jpa.model;
 
-import edu.carroll.dogtag.service.RegisterServiceImpl;
 import jakarta.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,10 +40,9 @@ public class Login {
 
     public void setUser(String user) {
 
-        if(user != null){
+        if (user != null) {
             this.user = user;
-        }
-        else {
+        } else {
             log.info("User should not be null {}", user);
         }
     }
