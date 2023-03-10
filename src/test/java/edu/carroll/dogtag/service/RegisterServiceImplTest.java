@@ -264,7 +264,6 @@ class RegisterServiceImplTest {
         assertTrue("deleteCreatedUserTest: should fail because user was not deleted", registerService.userExists(userRegisterDelete.getUser()));
     }
 
-    //add see if password if good and login service works
     @Test
     public void userPasswordTestGoodPasswordHappy1(){
         Login userRegister = new Login();
@@ -275,7 +274,8 @@ class RegisterServiceImplTest {
         registerService.register(userRegister);
         List<Login> users = registerRepository.findByUserIgnoreCase(username);
         String pass = users.get(0).getPassword();
-        assertTrue("userPasswordTestBlankCrappy2: should fail when a user is blank", password == pass);
+        assertTrue("userPasswordTestBlankCrappy2: should pass when a password is correctly created", password == pass);
+        assertTrue("userRegister should pass with correct register passed", registerService.userExists(userRegister.getUser()));
     }
 
     @Test
