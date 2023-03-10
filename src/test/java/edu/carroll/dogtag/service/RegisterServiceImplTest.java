@@ -20,7 +20,6 @@ class RegisterServiceImplTest {
 
     private static final String password = "passwordtest";
     private static final String passwordShort = "pass";
-
     private static final String email = "emailTest@gmail.com";
 
     private static final Logger log = LoggerFactory.getLogger(RegisterServiceImplTest.class);
@@ -116,6 +115,17 @@ class RegisterServiceImplTest {
     }
 
     @Test
+    public void userExistsTestBlankCrappy2() {
+        Login userRegister = new Login();
+        userRegister.setPassword(password);
+        userRegister.setUser("");
+        userRegister.setEmail(email);
+        log.info("User should be blank {}", userRegister.getUser());
+        registerService.register(userRegister);
+        assertFalse("userExistsTest: should fail when a user is blank", registerService.userExists(userRegister.getUser()));
+    }
+
+    @Test
     public void userExistsTestNullUserCrazy1() {
         Login userRegister = new Login();
         userRegister.setPassword(password);
@@ -126,16 +136,6 @@ class RegisterServiceImplTest {
         assertFalse("userExistsTest: should fail when a user is null", registerService.userExists(userRegister.getUser()));
     }
 
-    @Test
-    public void userExistsTestBlankCrazy1() {
-        Login userRegister = new Login();
-        userRegister.setPassword(password);
-        userRegister.setUser("");
-        userRegister.setEmail(email);
-        log.info("User should be null {}", userRegister.getUser());
-        registerService.register(userRegister);
-        assertFalse("userExistsTest: should fail when a user is null", registerService.userExists(userRegister.getUser()));
-    }
 
     @Test
     public void emailExistsTestHappy1() {
@@ -169,8 +169,6 @@ class RegisterServiceImplTest {
         emailRegister2.setEmail(email + "2");
         registerService.register(emailRegister2);
         assertTrue("emailExistsTest: should succeed when a email2 already exists", registerService.emailExists(emailRegister2.getEmail()));
-
-
     }
 
     @Test
@@ -202,7 +200,6 @@ class RegisterServiceImplTest {
         emailRegister4.setEmail(email + "4");
         registerService.register(emailRegister4);
         assertTrue("emailExistsTest: should succeed when a email already exists", registerService.emailExists(emailRegister4.getEmail()));
-
     }
 
     @Test
@@ -214,6 +211,17 @@ class RegisterServiceImplTest {
         registerService.register(emailRegister);
         assertFalse("emailExistsTest: should fail when checking if a user exists instead of an email", registerService.emailExists(emailRegister.getUser()));
 
+    }
+
+    @Test
+    public void userEmailTestBlankCrappy2() {
+        Login userRegister = new Login();
+        userRegister.setPassword(password);
+        userRegister.setUser(username);
+        userRegister.setEmail("");
+        log.info("Email should be blank {}", userRegister.getEmail());
+        registerService.register(userRegister);
+        assertFalse("userExistsTest: should fail when a user is blank", registerService.userExists(userRegister.getEmail()));
     }
 
     @Test
@@ -240,5 +248,28 @@ class RegisterServiceImplTest {
         registerService.deleteByUser(noUserToDelete);
         assertTrue("deleteCreatedUserTest: should fail because user was not deleted", registerService.userExists(userRegisterDelete.getUser()));
     }
+
+    @Test
+    public void userPasswordTestBlankCrappy1() {
+        Login userRegister = new Login();
+        userRegister.setPassword("");
+        userRegister.setUser(username);
+        userRegister.setEmail(email);
+        log.info("User should be blank {}", userRegister.getUser());
+        registerService.register(userRegister);
+        assertFalse("userPasswordTestBlankCrappy2: should fail when a user is blank", registerService.userExists(userRegister.getPassword()));
+    }
+
+    @Test
+    public void userPasswordTestNullPasswordCrazy1() {
+        Login userRegister = new Login();
+        userRegister.setPassword(null);
+        userRegister.setUser(username);
+        userRegister.setEmail(email);
+        log.info("Password should be null {}", userRegister.getUser());
+        registerService.register(userRegister);
+        assertFalse("userPasswordTestNullPasswordCrazy1: should fail when a password is null", registerService.userExists(userRegister.getPassword()));
+    }
+
 
 }

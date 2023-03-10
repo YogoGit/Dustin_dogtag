@@ -41,11 +41,15 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Override
     public void register(Login register) {
-        if (register.getUser() != null && register.getUser() != "") {
+        if (register.getUser() != null && register.getUser() != ""
+                && register.getPassword() != null && register.getPassword() != ""
+                && register.getEmail() != null && register.getEmail() != "") {
+
             registerRepo.save(register);
             log.info("Register Info for {} sent to login table", register.getUser());
-        } else {
-            log.info("User can not be null {}", register.getUser());
+        }
+        else {
+            log.info("Can can not be null of blank {}", register.getUser());
         }
     }
 
