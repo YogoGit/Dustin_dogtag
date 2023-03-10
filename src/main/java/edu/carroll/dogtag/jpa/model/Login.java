@@ -18,12 +18,12 @@ public class Login {
     private static final Logger log = LoggerFactory.getLogger(Login.class);
     @Id
     @GeneratedValue
-    private Long id; //switch to long
-    @Column(name = "username", unique = true)
+    private Long id;
+    @Column(name = "username", nullable = false, unique = true)
     private String user;
     @Column(name = "password", nullable = false)
     private String password;
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     public Long getId() {
@@ -40,11 +40,9 @@ public class Login {
 
     public void setUser(String user) {
 
-        if (user != null) {
+
             this.user = user;
-        } else {
-            log.info("User should not be null {}", user);
-        }
+
     }
 
     public String getPassword() {
@@ -52,11 +50,8 @@ public class Login {
     }
 
     public void setPassword(String password) {
-        if (password != null) {
+
             this.password = password;
-        } else {
-            log.info("password should not be null {}", password);
-        }
     }
 
     public String getEmail() {
@@ -64,11 +59,9 @@ public class Login {
     }
 
     public void setEmail(String email) {
-        if (email != null) {
+
             this.email = email;
-        } else {
-            log.info("Email should not be null {}", email);
-        }
+
     }
 
     @Override

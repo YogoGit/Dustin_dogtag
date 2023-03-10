@@ -28,7 +28,7 @@ public interface RegisterService {
      * @return
      */
 
-    void register(Login register);
+    boolean register(Login register);
 
     /**
      * Given a registerForm, determine if the information provided is valid, and the user exists in the system.
