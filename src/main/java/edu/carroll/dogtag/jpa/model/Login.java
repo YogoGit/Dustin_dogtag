@@ -52,7 +52,11 @@ public class Login {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        if (password != null) {
+            this.password = password;
+        } else {
+            log.info("password should not be null {}", password);
+        }
     }
 
     public String getEmail() {
@@ -60,7 +64,11 @@ public class Login {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if (email != null) {
+            this.email = email;
+        } else {
+            log.info("Email should not be null {}", email);
+        }
     }
 
     @Override
