@@ -1,10 +1,6 @@
 package edu.carroll.dogtag.jpa.model;
 
 import jakarta.persistence.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.Objects;
 
 /**
  * Login is the database model. If it has not been created, yet it will do it on the first run.
@@ -35,39 +31,76 @@ public class Login {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
+    /**
+     * @return unique Long number entry in this case the primary key
+     */
     public Long getId() {
         return id;
     }
+
+    /**
+     * @param id sets the unique Long number id. This is auto generated with the above
+     *           springboot implementation.
+     */
 
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * @return the user that is stored in the database.
+     */
+
     public String getUser() {
         return user;
     }
+
+    /**
+     * @param user sets the user in the database.
+     */
 
     public void setUser(String user) {
         this.user = user;
     }
 
+    /**
+     * @return password in hashed form to compare with what the user entered in LoginForm
+     */
+
     public String getPassword() {
         return password;
     }
+
+    /**
+     * @param password sets the password in the database
+     */
 
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     * @return email is returned from the database and
+     * is used to check if email is already in use
+     */
+
     public String getEmail() {
         return email;
     }
+
+    /**
+     * @param email sets the email entry into the database
+     */
 
     public void setEmail(String email) {
 
         this.email = email;
 
     }
+
+    /**
+     * @return the toString method for logs and debugging.
+     */
 
     @Override
     public String toString() {
@@ -78,6 +111,11 @@ public class Login {
         return builder;
     }
 
+    /**
+     * @param o the object being checked to do an equals function with.
+     * @return In this case if it is the object return true.  If it is null or does not equal
+     * the class return false.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o)
@@ -88,11 +126,4 @@ public class Login {
         final Login login = (Login) o;
         return user.equals(login.user) && password.equals(login.password);
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(user, password);
-    }
-
-
 }

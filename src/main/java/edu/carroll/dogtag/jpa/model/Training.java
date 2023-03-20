@@ -38,38 +38,75 @@ public class Training {
     @Column(name = "comments", nullable = false)
     private String comments;
 
+    /**
+     * @return unique Long number entry in this case the primary key
+     */
+
     public Integer getId() {
         return id;
     }
 
+    /**
+     * @param id sets the unique Long number id. This is auto generated with the above
+     *           springboot implementation.
+     */
     public void setId(Integer id) {
         this.id = id;
     }
+
+    /**
+     *
+     * @return the date that the training took place for that entry.
+     */
 
     public String getDate() {
         return date;
     }
 
+    /**
+     * @param date sets the date the log was entered
+     */
     public void setDate(String date) {
         this.date = date;
     }
+
+    /**
+     *
+     * @return the location that the training took place for that entry.
+     */
 
     public String getLocation() {
         return location;
     }
 
+    /**
+     * @param location sets the location for the log was entered
+     */
     public void setLocation(String location) {
         this.location = location;
     }
 
+    /**
+     *
+     * @return the training that took place for that entry.
+     */
     public String getTraining() {
         return training;
     }
+
+    /**
+     *
+     * @param training sets the training that took place for the log entry.
+     */
 
     public void setTraining(String training) {
         this.training = training;
     }
 
+    /**
+     *
+     * @return the date that the training took place for that entry.
+     */
     public String getComments() {
         return comments;
     }
@@ -78,6 +115,9 @@ public class Training {
         this.comments = comments;
     }
 
+    /**
+     * @return the toString method for logs and debugging.
+     */
     @Override
     public String toString() {
         return "Training{" +

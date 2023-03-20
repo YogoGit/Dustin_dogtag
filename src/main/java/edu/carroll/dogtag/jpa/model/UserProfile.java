@@ -33,39 +33,79 @@ public class UserProfile {
     @Column(name = "phone", nullable = true)
     private String phone;
 
+    /**
+     * @return unique Long number entry in this case the primary key
+     */
     public Integer getId() {
         return id;
     }
+
+    /**
+     * @param id sets the unique Long number id. This is auto generated with the above
+     *           springboot implementation.
+     */
 
     public void setId(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return the users First Name in their profile.
+     */
+
     public String getFname() {
         return fname;
     }
+
+    /**
+     *
+     * @param fName this sets the users First Name for the profile being created.
+     */
 
     public void setFname(String fName) {
         this.fname = fName;
     }
 
+    /**
+     *
+     * @return the users Last Name in their profile.
+     */
+
     public String getLname() {
         return lname;
     }
+
+    /**
+     *
+     * @param lName this sets the users First Name for the profile being created.
+     */
 
     public void setLname(String lName) {
         this.lname = lName;
     }
 
+    /**
+     *
+     * @return the users Phone Number in their profile.
+     */
 
     public String getPhone() {
         return phone;
     }
 
+    /**
+     *
+     * @param phone this sets the users First Name for the profile being created.
+     */
+
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
+    /**
+     * @return the toString method for logs and debugging.
+     */
     @Override
     public String toString() {
         return "UserProfile{" +
