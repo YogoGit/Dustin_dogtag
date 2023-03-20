@@ -6,16 +6,25 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Objects;
 
-//Git Author update test 2
+/**
+ * Login is the database model. If it has not been created, yet it will do it on the first run.
+ * Database Table name is "login"
+ * Used in storing or checking to see if a user and password match.
+ * Columns: username, password and email
+ * Registering a new user also uses this template on how to enter a new entry information into the database
+ */
 @Entity
 @Table(name = "login")
-public class Login {
 
+public class Login {
     private static final long serialVersionUID = 1L;
     private static final String EOL = System.lineSeparator();
     private static final String TAB = "\t";
 
-    private static final Logger log = LoggerFactory.getLogger(Login.class);
+    /**
+     * @Id is stating to springboot that this an id field typically used for @GeneratedValue.
+     * This creates a sequence number applied to each entry.
+     */
     @Id
     @GeneratedValue
     private Long id;
@@ -39,10 +48,7 @@ public class Login {
     }
 
     public void setUser(String user) {
-
-
-            this.user = user;
-
+        this.user = user;
     }
 
     public String getPassword() {
@@ -50,8 +56,7 @@ public class Login {
     }
 
     public void setPassword(String password) {
-
-            this.password = password;
+        this.password = password;
     }
 
     public String getEmail() {
@@ -60,7 +65,7 @@ public class Login {
 
     public void setEmail(String email) {
 
-            this.email = email;
+        this.email = email;
 
     }
 

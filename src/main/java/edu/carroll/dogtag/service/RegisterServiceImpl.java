@@ -49,8 +49,7 @@ public class RegisterServiceImpl implements RegisterService {
             registerRepo.save(register);
             log.info("Register Info for {} sent to login table", register.getUser());
             return true;
-        }
-        else {
+        } else {
             log.info("Can can not be null or blank {}", register.getUser());
             return false;
         }

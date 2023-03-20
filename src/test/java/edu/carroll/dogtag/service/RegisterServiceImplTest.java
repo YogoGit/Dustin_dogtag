@@ -16,7 +16,6 @@ import static org.springframework.test.util.AssertionErrors.assertTrue;
 
 @SpringBootTest
 @Transactional
-
 class RegisterServiceImplTest {
     private static final String username = "usertest";
     private static final String usernameShort = "uShrt";
@@ -36,7 +35,8 @@ class RegisterServiceImplTest {
         String noUser = "noUser";
         assertFalse("userExistsTest: should succeed when a user already exists", registerService.userExists(noUser));
     }
-//Add boolean test updates
+
+    //Add boolean test updates
     @Test
     public void userExistsTest1UsersHappy() {
         Login userRegister = new Login();
@@ -128,7 +128,8 @@ class RegisterServiceImplTest {
         registerService.register(userRegister);
         assertFalse("userExistsTest: should fail when a user is blank", registerService.userExists(userRegister.getUser()));
     }
-//Test user min and max and add in impl
+
+    //Test user min and max and add in impl
     @Test
     public void userExistsTestNullUserCrazy1() {
         Login userRegister = new Login();
@@ -239,6 +240,7 @@ class RegisterServiceImplTest {
         registerService.register(userRegister);
         assertFalse("userExistsTest: should fail when a user is null", registerService.userExists(userRegister.getUser()));
     }
+
     @Test
     public void deleteCreatedUserTestHappy1() {
         Login userRegisterDelete = new Login();
@@ -265,7 +267,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void userPasswordTestGoodPasswordHappy1(){
+    public void userPasswordTestGoodPasswordHappy1() {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(username);

@@ -3,11 +3,22 @@ package edu.carroll.dogtag.jpa.model;
 
 import jakarta.persistence.*;
 
+/**
+ * UserProfile is the database model. If it has not been created, yet it will do it on the first run.
+ * Database Table name is "userinfo"
+ * Columns: fname = first name, lname = lastname,and phone.
+ * This model is used to set a users information and link it to their username that they have created.d
+ */
+
 @Entity
 @Table(name = "userinfo")
 public class UserProfile {
     private static final long serialVersionUID = 1L;
 
+    /**
+     * @Id is stating to springboot that this an id field typically used for @GeneratedValue.
+     * This creates a sequence number applied to each entry.
+     */
     @Id
     @GeneratedValue
     private Integer id;
