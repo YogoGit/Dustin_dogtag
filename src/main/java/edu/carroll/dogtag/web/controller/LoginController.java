@@ -2,6 +2,7 @@ package edu.carroll.dogtag.web.controller;
 
 import edu.carroll.dogtag.service.LoginService;
 import edu.carroll.dogtag.web.form.LoginForm;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,7 +37,7 @@ public class LoginController {
 
 
     @PostMapping("/login")
-    public String loginPost(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, RedirectAttributes attrs) {
+    public String loginPost(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, RedirectAttributes attrs, HttpServletRequest req) {
         if (result.hasErrors()) {
             return "login";
         }
@@ -44,12 +45,17 @@ public class LoginController {
             result.addError(new ObjectError("globalError", "Username and password do not match known users"));
             return "login";
         }
-        attrs.addAttribute("user", loginForm.getUser());
+//        attrs.addAttribute("user", loginForm.getUser());
+        req.getSession().setAttribute("user", loginForm.getUser());
         return "redirect:/loginSuccess";
     }
 
     @GetMapping("/loginSuccess")
-    public String loginSuccess(String user, Model model) {
+    public String loginSuccess(Model model, HttpServletRequest req) {
+        final String user = (String)req.getSession().getAttribute("user");
+        if (user == null || user.isBlank()){
+            return "redirect:/login";
+        }
         model.addAttribute("user", user);
         return "loginSuccess";
     }
