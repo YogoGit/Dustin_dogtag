@@ -3,6 +3,7 @@ package edu.carroll.dogtag.web.controller;
 import edu.carroll.dogtag.service.LoginService;
 import edu.carroll.dogtag.web.form.LoginForm;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,7 +38,7 @@ public class LoginController {
 
 
     @PostMapping("/login")
-    public String loginPost(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, RedirectAttributes attrs, HttpServletRequest req) {
+    public String loginPost(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, RedirectAttributes attrs, HttpSession session) {
         if (result.hasErrors()) {
             return "login";
         }
@@ -46,7 +47,7 @@ public class LoginController {
             return "login";
         }
 //        attrs.addAttribute("user", loginForm.getUser());
-        req.getSession().setAttribute("user", loginForm.getUser());
+        session.setAttribute("user", loginForm.getUser());
         return "redirect:/loginSuccess";
     }
 

@@ -12,7 +12,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "userinfo")
-public class UserProfile {
+public class UserProfile{
     private static final long serialVersionUID = 1L;
 
     /**
@@ -22,6 +22,19 @@ public class UserProfile {
     @Id
     @GeneratedValue
     private Integer id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "login_id")
+    private Login login;
+
+    private Long user_id;
+    public Login getLogin() {
+        return login;
+    }
+
+    public void setLogin(Login login) {
+        this.login = login;
+    }
 
     @Column(name = "fname", nullable = false)
     private String fname;

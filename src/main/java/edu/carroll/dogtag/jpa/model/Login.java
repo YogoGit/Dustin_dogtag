@@ -2,6 +2,8 @@ package edu.carroll.dogtag.jpa.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 /**
  * Login is the database model. If it has not been created, yet it will do it on the first run.
  * Database Table name is "login"
@@ -24,6 +26,10 @@ public class Login {
     @Id
     @GeneratedValue
     private Long id;
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "id")
+    private List<UserProfile> userProfiles;
+
     @Column(name = "username", nullable = false, unique = true)
     private String user;
     @Column(name = "password", nullable = false)

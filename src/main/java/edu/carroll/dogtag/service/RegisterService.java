@@ -21,6 +21,7 @@ public interface RegisterService {
 
     boolean emailExists(String email);
 
+
     /**
      * Given a registerForm, determine if the information provided is valid, and the user exists in the system.
      *

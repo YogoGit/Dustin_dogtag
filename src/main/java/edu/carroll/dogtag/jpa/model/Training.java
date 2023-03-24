@@ -26,6 +26,18 @@ public class Training {
     @GeneratedValue
     private Integer id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "login_id")
+    private Login login;
+
+    public Login getLogin() {
+        return login;
+    }
+
+    public void setLogin(Login login) {
+        this.login = login;
+    }
+
     @Column(name = "date", nullable = false)
     private String date;
 

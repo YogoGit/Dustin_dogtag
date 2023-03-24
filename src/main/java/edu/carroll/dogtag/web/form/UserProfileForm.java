@@ -18,7 +18,21 @@ public class UserProfileForm {
     @Size(max = 20, message = "Phone Name must be less than 50 character long")
     private String phone;
 
+    private String user;
+
     public UserProfileForm() {
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public UserProfileForm(String user){
+        this.user = user;
     }
 
     public UserProfileForm(String fname, String lname, String phone) {

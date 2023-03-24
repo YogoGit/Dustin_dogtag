@@ -39,6 +39,8 @@ public class RegisterServiceImpl implements RegisterService {
         return !emails.isEmpty();
     }
 
+
+
     @Override
     public boolean register(Login register) {
         if (register.getUser() != null && !register.getUser().isBlank()
