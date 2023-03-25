@@ -8,6 +8,7 @@
 <h1 th:text="'Welcome to the traing logs ' + ${fname} + ' ' + ${lname} "/>
 <h1></h1>Enter Logs</a>
 <form action="#" method="post" th:action="@{/traininglog}" th:object="${trainingForm}">
+    <input type="hidden" name="user" value="*{user}"/>
     <span th:errors="*{global}" th:if="${#fields.hasGlobalErrors()}">Global error</span><br/>  <!-- Add this line -->
     <input name="fname" th:value="${fname}" type="hidden"/>
     <input name="lname" th:value="${lname}" type="hidden"/>

@@ -4,6 +4,7 @@ import edu.carroll.dogtag.jpa.model.Training;
 import edu.carroll.dogtag.jpa.repo.TrainingRepository;
 import edu.carroll.dogtag.service.TrainingService;
 import edu.carroll.dogtag.web.form.TrainingForm;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +31,10 @@ public class TrainingController {
     }
 
     @GetMapping("/traininglog")
-    public ModelAndView trainingForm(String fname, String lname, Model model) {
+    public ModelAndView trainingForm(String fname, String lname, Model model, HttpSession session) {
+        final String user = (String) session.getAttribute("user");
+        if (user == null || user.isBlank()) {
+        }
         model.addAttribute("trainingForm", new TrainingForm());
         log.info("Successfully Mapped Register page");
         ModelAndView traininglogs = new ModelAndView("traininglog");
@@ -41,7 +45,11 @@ public class TrainingController {
     }
 
     @PostMapping("/traininglog")
-    public String trainingPost(@Valid @ModelAttribute TrainingForm trainingForm, String fname, String lname, BindingResult result, RedirectAttributes attr) {
+    public String trainingPost(@Valid @ModelAttribute TrainingForm trainingForm, String fname, String lname, BindingResult result, RedirectAttributes attr, HttpSession session) {
+        final String user = (String) session.getAttribute("user");
+        if (user == null || user.isBlank()) {
+            return "redirect:/login";
+        }
         Training userTraining = new Training();
         userTraining.setDate(trainingForm.getDate());
         userTraining.setTraining(trainingForm.getTraining());
