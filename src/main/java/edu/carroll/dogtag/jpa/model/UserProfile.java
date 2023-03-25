@@ -27,7 +27,6 @@ public class UserProfile{
     @JoinColumn(name = "login_id")
     private Login login;
 
-    private Long user_id;
     public Login getLogin() {
         return login;
     }
