@@ -21,7 +21,15 @@ public class UserProfile{
      */
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long userProfile_id;
+
+    public Long getUserProfile_id() {
+        return userProfile_id;
+    }
+
+    public void setUserProfile_id(Long userProfile_id) {
+        this.userProfile_id = userProfile_id;
+    }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "login_id")
@@ -48,19 +56,6 @@ public class UserProfile{
     /**
      * @return unique Long number entry in this case the primary key
      */
-    public Integer getId() {
-        return id;
-    }
-
-    /**
-     * @param id sets the unique Long number id. This is auto generated with the above
-     *           springboot implementation.
-     */
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     /**
      *
      * @return the users First Name in their profile.
@@ -121,7 +116,7 @@ public class UserProfile{
     @Override
     public String toString() {
         return "UserProfile{" +
-                "id=" + id +
+                "id=" + userProfile_id +
                 ", fName='" + fname + '\'' +
                 ", lName='" + lname + '\'' +
                 ", phone='" + phone + '\'' +

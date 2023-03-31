@@ -24,7 +24,15 @@ public class Training {
      */
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long training_id;
+
+    public Long getTraining_id() {
+        return training_id;
+    }
+
+    public void setTraining_id(Long training_id) {
+        this.training_id = training_id;
+    }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "login_id")
@@ -50,21 +58,11 @@ public class Training {
     @Column(name = "comments", nullable = false)
     private String comments;
 
+
     /**
      * @return unique Long number entry in this case the primary key
      */
 
-    public Integer getId() {
-        return id;
-    }
-
-    /**
-     * @param id sets the unique Long number id. This is auto generated with the above
-     *           springboot implementation.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     /**
      *
@@ -102,7 +100,7 @@ public class Training {
      *
      * @return the training that took place for that entry.
      */
-    public String getTraining() {
+    public String getTrainings() {
         return training;
     }
 
@@ -111,7 +109,7 @@ public class Training {
      * @param training sets the training that took place for the log entry.
      */
 
-    public void setTraining(String training) {
+    public void setTrainings(String training) {
         this.training = training;
     }
 
@@ -133,7 +131,7 @@ public class Training {
     @Override
     public String toString() {
         return "Training{" +
-                "id=" + id +
+                "id=" + training_id +
                 ", date='" + date + '\'' +
                 ", location='" + location + '\'' +
                 ", training='" + training + '\'' +

@@ -49,4 +49,14 @@ public class LoginServiceImpl implements LoginService {
         return true;
     }
 
+    @Override
+    public Login findLogin(String user){
+        List<Login> logins = loginRepo.findByUserIgnoreCase(user);
+        if(logins.isEmpty()){
+            return null;
+        }
+        log.info("Returning training {} from user", logins.get(0));
+        return logins.get(0);
+    }
+
 }

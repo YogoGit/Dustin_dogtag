@@ -2,6 +2,7 @@ package edu.carroll.dogtag.web.controller;
 
 import edu.carroll.dogtag.jpa.model.UserProfile;
 import edu.carroll.dogtag.jpa.repo.UserProfileRepository;
+import edu.carroll.dogtag.service.LoginService;
 import edu.carroll.dogtag.service.UserProfileService;
 import edu.carroll.dogtag.web.form.UserProfileForm;
 import jakarta.servlet.http.HttpSession;
@@ -20,12 +21,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class UserProfileController {
     private static final Logger log = LoggerFactory.getLogger(UserProfileController.class);
     private final UserProfileService userProfileService;
-    private final UserProfileRepository userProfileRepository;
+    private final LoginService loginService;
 
 
-    public UserProfileController(UserProfileService userProfileService, UserProfileRepository userProfileRepository) {
+
+
+    public UserProfileController(UserProfileService userProfileService, LoginService loginService) {
         this.userProfileService = userProfileService;
-        this.userProfileRepository = userProfileRepository;
+        this.loginService = loginService;
     }
 
     @GetMapping("/profilesetup")
@@ -34,6 +37,7 @@ public class UserProfileController {
         if (user == null || user.isBlank()){
             return "redirect:/login";
         }
+        model.addAttribute("user", user);
         model.addAttribute("userProfileForm", new UserProfileForm(user));
         log.info("Successfully Mapped Register page");
         return "/profilesetup";
@@ -41,7 +45,7 @@ public class UserProfileController {
 
 
     @PostMapping("/profilesetup")
-    public String profilePost(@Valid @ModelAttribute UserProfileForm userProfileForm, BindingResult result, RedirectAttributes attr, HttpSession session) {
+    public String profilePost(@Valid @ModelAttribute UserProfileForm userProfileForm, BindingResult result, HttpSession session, RedirectAttributes attr) {
         final String user = (String) session.getAttribute("user");
         if (user == null || user.isBlank()) {
             return "redirect:/login";
@@ -50,11 +54,8 @@ public class UserProfileController {
         userProfile.setFname(userProfileForm.getFname());
         userProfile.setLname(userProfileForm.getLname());
         userProfile.setPhone(userProfileForm.getPhone());
-        userProfile.setLogin(userProfileService.fetchLoginFromUser(user));
+        userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
-
-        attr.addAttribute("fname", userProfile.getFname());
-        attr.addAttribute("lname", userProfile.getLname());
         log.info("Registration post was successful");
         return "redirect:/traininglog";
     }

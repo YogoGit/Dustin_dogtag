@@ -1,8 +1,10 @@
 package edu.carroll.dogtag.web.controller;
 
+import edu.carroll.dogtag.jpa.model.UserProfile;
 import edu.carroll.dogtag.service.LoginService;
+import edu.carroll.dogtag.service.UserProfileService;
 import edu.carroll.dogtag.web.form.LoginForm;
-import jakarta.servlet.http.HttpServletRequest;
+import edu.carroll.dogtag.web.form.UserProfileForm;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -21,15 +23,20 @@ public class LoginController {
 
     private final LoginService loginService;
 
-    public LoginController(LoginService loginService) {
+    private UserProfileService userProfileService;
+
+    public LoginController(LoginService loginService, UserProfileService userProfileService) {
         this.loginService = loginService;
+        this.userProfileService = userProfileService;
     }
 
     @GetMapping("/login")
-    public String loginGet(Model model) {
+    public String loginGet(Model model, HttpSession session) {
         model.addAttribute("loginForm", new LoginForm());
         return "login";
     }
+
+
 
 //    @PostMapping("/registerLogin")
 //    public String registerPost() {
@@ -46,19 +53,12 @@ public class LoginController {
             result.addError(new ObjectError("globalError", "Username and password do not match known users"));
             return "login";
         }
-//        attrs.addAttribute("user", loginForm.getUser());
         session.setAttribute("user", loginForm.getUser());
-        return "redirect:/loginSuccess";
-    }
-
-    @GetMapping("/loginSuccess")
-    public String loginSuccess(Model model, HttpServletRequest req) {
-        final String user = (String)req.getSession().getAttribute("user");
-        if (user == null || user.isBlank()){
-            return "redirect:/login";
+        UserProfile profile = userProfileService.fetchUserProfile(loginForm.getUser());
+        if(profile == null){
+            return "redirect:/profilesetup";
         }
-        model.addAttribute("user", user);
-        return "loginSuccess";
+        return "redirect:/traininglog";
     }
 
     @GetMapping("/loginFailure")

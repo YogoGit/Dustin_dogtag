@@ -27,8 +27,13 @@ public class Login {
     @GeneratedValue
     private Long id;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "id")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "userProfile_id")
     private List<UserProfile> userProfiles;
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "training_id")
+    private List<Training> training;
+
+
 
     @Column(name = "username", nullable = false, unique = true)
     private String user;
@@ -36,6 +41,26 @@ public class Login {
     private String password;
     @Column(name = "email", nullable = false, unique = true)
     private String email;
+
+
+    public Login() {
+    }
+
+    public List<UserProfile> getUserProfiles() {
+        return userProfiles;
+    }
+
+    public void setUserProfiles(List<UserProfile> userProfiles) {
+        this.userProfiles = userProfiles;
+    }
+
+    public List<Training> getTrainings() {
+        return training;
+    }
+
+    public void setTrainings(List<Training> trainings) {
+        this.training = trainings;
+    }
 
     /**
      * @return unique Long number entry in this case the primary key
