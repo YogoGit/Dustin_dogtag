@@ -3,6 +3,8 @@ package edu.carroll.dogtag.jpa.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 /**
  * Training is the database model. If it has not been created, yet it will do it on the first run.
  * Database Table name is "training"
@@ -100,7 +102,7 @@ public class Training {
      *
      * @return the training that took place for that entry.
      */
-    public String getTrainings() {
+    public String getTraining() {
         return training;
     }
 
@@ -109,7 +111,7 @@ public class Training {
      * @param training sets the training that took place for the log entry.
      */
 
-    public void setTrainings(String training) {
+    public void setTraining(String training) {
         this.training = training;
     }
 

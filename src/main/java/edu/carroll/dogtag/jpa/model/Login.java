@@ -46,6 +46,14 @@ public class Login {
     public Login() {
     }
 
+    public List<Training> getTrainings() {
+        return training;
+    }
+
+    public void setTraining(List<Training> training) {
+        this.training = training;
+    }
+
     public List<UserProfile> getUserProfiles() {
         return userProfiles;
     }
@@ -54,9 +62,6 @@ public class Login {
         this.userProfiles = userProfiles;
     }
 
-    public List<Training> getTrainings() {
-        return training;
-    }
 
     public void setTrainings(List<Training> trainings) {
         this.training = trainings;
