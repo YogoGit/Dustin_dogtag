@@ -50,6 +50,9 @@ public class TrainingController {
     public ModelAndView trainingForm(String fname, String lname, Model model, HttpSession session) {
         final String user = (String) session.getAttribute("user");
         if (user == null || user.isBlank()) {
+            ModelAndView noSession =  new ModelAndView("redirect:/login");
+            noSession.addObject("modelAttribute" , noSession);
+            return noSession;
         }
         Login l = loginService.findLogin(user);
         model.addAttribute("trainingForm", new TrainingForm());
@@ -58,7 +61,6 @@ public class TrainingController {
         List<Training> trainings = (trainingService.fetchUserTraining(user));
         log.info("Returned training from fetchUser {}", trainings);
         traininglogs.addObject("trainings", trainings);
-        traininglogs.addObject(l);
         traininglogs.addObject("fname", userProfileService.fetchUserProfile(user).getFname());
         traininglogs.addObject("lname", userProfileService.fetchUserProfile(user).getLname());
         return traininglogs;
