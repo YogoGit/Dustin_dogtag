@@ -5,6 +5,14 @@
     <title>Training Logs</title>
 </head>
 <body>
+<form action="#" method="post" th:action="@{/logout}">
+    <input type="hidden" name="user" value="*{user}"/>
+    <button type="submit">Logout</button>
+</form>
+<form action="#" method="get" th:action="@{/profilesetup}">
+    <input type="hidden" name="user" value="*{user}"/>
+    <button type="submit">Profile Setup</button>
+</form>
 <h1 th:text="'Welcome to the traing logs ' + ${fname} + ' ' + ${lname} "/>
 <h1></h1>Enter Logs</a>
 <form action="#" method="post" th:action="@{/traininglog}" th:object="${trainingForm}">

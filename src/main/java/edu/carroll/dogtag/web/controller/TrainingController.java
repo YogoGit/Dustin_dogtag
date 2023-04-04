@@ -83,4 +83,6 @@ public class TrainingController {
         attr.addAttribute("lname", userProfileService.fetchUserProfile(user).getLname());
         return "redirect:/traininglog";
     }
+
+    //add logout
 }

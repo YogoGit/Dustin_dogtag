@@ -89,3 +89,5 @@ public class RegisterController {
         return "registerFailure";
     }
 }
+
+//add logout

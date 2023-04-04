@@ -60,4 +60,6 @@ public class UserProfileController {
         return "redirect:/traininglog";
     }
 
+    //add logout
+
 }

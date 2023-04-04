@@ -37,11 +37,7 @@ public class LoginController {
     }
 
 
-
-//    @PostMapping("/registerLogin")
-//    public String registerPost() {
-//        return "redirect:/register";
-//    }
+    //add logout
 
 
     @PostMapping("/login")
@@ -55,14 +51,20 @@ public class LoginController {
         }
         session.setAttribute("user", loginForm.getUser());
         UserProfile profile = userProfileService.fetchUserProfile(loginForm.getUser());
-        if(profile == null){
+        if (profile == null) {
             return "redirect:/profilesetup";
         }
         return "redirect:/traininglog";
     }
 
-    @GetMapping("/loginFailure")
-    public String loginFailure() {
-        return "loginFailure";
+    @GetMapping("/logout")
+    public String logoutUserGet() {
+        return "redirect:/login";
+    }
+
+    @PostMapping("/logout")
+    public String logoutUserPost(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, RedirectAttributes attrs, HttpSession session) {
+        session.invalidate();
+        return "redirect:/traininglog";
     }
 }
