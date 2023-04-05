@@ -5,7 +5,7 @@
     <title>Login page</title>
 
 </head>
-
+<body>
 
 <form action="#" method="post" th:action="@{/login}" th:object="${loginForm}">
     <span th:errors="*{global}" th:if="${#fields.hasGlobalErrors()}">Global error</span><br/>  <!-- Add this line -->

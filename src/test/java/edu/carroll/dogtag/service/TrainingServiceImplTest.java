@@ -23,4 +23,12 @@ class TrainingServiceImplTest {
     @Test
     void traingins() {
     }
+
+    @Test
+    void saveLog() {
+    }
+
+    @Test
+    void fetchUserTraining() {
+    }
 }

@@ -1,18 +1,17 @@
 package edu.carroll.dogtag.web.form;
 
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 public class TrainingForm {
-    @NotNull
+
     private String date;
 
-    @NotNull
+
     private String location;
 
-    @NotNull
     private String training;
 
-    @NotNull
     private String comments;
 
     public TrainingForm() {
