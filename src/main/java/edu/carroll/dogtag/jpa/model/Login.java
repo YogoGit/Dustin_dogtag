@@ -27,8 +27,15 @@ public class Login {
     @GeneratedValue
     private Long id;
 
+    //This creates a linking database table between Login and UserProfile
+    //Table and is connected through the "userProfile_id"
+    //Could be @OneToOne but the trainer might have multiple people
+    //Working with the same dog.
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "userProfile_id")
     private List<UserProfile> userProfiles;
+
+    //This creates a linking database table between Login and Training
+    //Table and is connected through the "training_id"
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "training_id")
     private List<Training> training;
@@ -45,18 +52,27 @@ public class Login {
     public Login() {
     }
 
+    /**
+     * Adds connection usage for obtaining a list back from the Training Table
+     * @return a list of all the trainings.
+     */
     public List<Training> getTrainings() {
         return training;
     }
 
+    /**
+     * This would be used to set manually multiple training events as
+     * one.
+     * @param trainings
+     */
     public void setTrainings(List<Training> trainings) {
         this.training = trainings;
     }
 
-    public void setTraining(List<Training> training) {
-        this.training = training;
-    }
-
+    /**
+     * Adds connection usage for obtaining a list back from the UserProfile Table
+     * @return a list of all the UserProfile in the table
+     */
     public List<UserProfile> getUserProfiles() {
         return userProfiles;
     }
