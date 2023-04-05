@@ -3,8 +3,6 @@ package edu.carroll.dogtag.jpa.model;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 /**
  * Training is the database model. If it has not been created, yet it will do it on the first run.
  * Database Table name is "training"
@@ -27,6 +25,17 @@ public class Training {
     @Id
     @GeneratedValue
     private Long training_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "login_id")
+    private Login login;
+    @Column(name = "date", nullable = false)
+    private String date;
+    @Column(name = "location", nullable = false)
+    private String location;
+    @Column(name = "training", nullable = false)
+    private String training;
+    @Column(name = "comments", nullable = false)
+    private String comments;
 
     public Long getTraining_id() {
         return training_id;
@@ -36,10 +45,6 @@ public class Training {
         this.training_id = training_id;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "login_id")
-    private Login login;
-
     public Login getLogin() {
         return login;
     }
@@ -48,26 +53,12 @@ public class Training {
         this.login = login;
     }
 
-    @Column(name = "date", nullable = false)
-    private String date;
-
-    @Column(name = "location", nullable = false)
-    private String location;
-
-    @Column(name = "training", nullable = false)
-    private String training;
-
-    @Column(name = "comments", nullable = false)
-    private String comments;
-
 
     /**
      * @return unique Long number entry in this case the primary key
      */
 
-
     /**
-     *
      * @return the date that the training took place for that entry.
      */
 
@@ -83,7 +74,6 @@ public class Training {
     }
 
     /**
-     *
      * @return the location that the training took place for that entry.
      */
 
@@ -99,7 +89,6 @@ public class Training {
     }
 
     /**
-     *
      * @return the training that took place for that entry.
      */
     public String getTraining() {
@@ -107,7 +96,6 @@ public class Training {
     }
 
     /**
-     *
      * @param training sets the training that took place for the log entry.
      */
 
@@ -116,7 +104,6 @@ public class Training {
     }
 
     /**
-     *
      * @return the date that the training took place for that entry.
      */
     public String getComments() {

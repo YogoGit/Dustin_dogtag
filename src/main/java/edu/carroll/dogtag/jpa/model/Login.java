@@ -27,12 +27,11 @@ public class Login {
     @GeneratedValue
     private Long id;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "userProfile_id")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userProfile_id")
     private List<UserProfile> userProfiles;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "training_id")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "training_id")
     private List<Training> training;
-
 
 
     @Column(name = "username", nullable = false, unique = true)
@@ -50,6 +49,10 @@ public class Login {
         return training;
     }
 
+    public void setTrainings(List<Training> trainings) {
+        this.training = trainings;
+    }
+
     public void setTraining(List<Training> training) {
         this.training = training;
     }
@@ -60,11 +63,6 @@ public class Login {
 
     public void setUserProfiles(List<UserProfile> userProfiles) {
         this.userProfiles = userProfiles;
-    }
-
-
-    public void setTrainings(List<Training> trainings) {
-        this.training = trainings;
     }
 
     /**

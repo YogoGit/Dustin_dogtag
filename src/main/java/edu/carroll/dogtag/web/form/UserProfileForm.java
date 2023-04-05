@@ -23,15 +23,7 @@ public class UserProfileForm {
     public UserProfileForm() {
     }
 
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public UserProfileForm(String user){
+    public UserProfileForm(String user) {
         this.user = user;
     }
 
@@ -39,6 +31,14 @@ public class UserProfileForm {
         this.fname = fname;
         this.lname = lname;
         this.phone = phone;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public String getFname() {

@@ -3,8 +3,6 @@ package edu.carroll.dogtag.service;
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.web.form.LoginForm;
 
-import java.util.List;
-
 public interface LoginService {
     /**
      * Given a loginForm, determine if the information provided is valid, and the user exists in the system.

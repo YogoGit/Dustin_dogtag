@@ -4,7 +4,6 @@ import edu.carroll.dogtag.jpa.model.UserProfile;
 import edu.carroll.dogtag.service.LoginService;
 import edu.carroll.dogtag.service.UserProfileService;
 import edu.carroll.dogtag.web.form.LoginForm;
-import edu.carroll.dogtag.web.form.UserProfileForm;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;

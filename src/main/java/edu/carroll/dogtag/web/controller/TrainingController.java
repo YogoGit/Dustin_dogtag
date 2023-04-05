@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,8 +50,8 @@ public class TrainingController {
     public ModelAndView trainingForm(String fname, String lname, Model model, HttpSession session) {
         final String user = (String) session.getAttribute("user");
         if (user == null || user.isBlank()) {
-            ModelAndView noSession =  new ModelAndView("redirect:/login");
-            noSession.addObject("modelAttribute" , noSession);
+            ModelAndView noSession = new ModelAndView("redirect:/login");
+            noSession.addObject("modelAttribute", noSession);
             return noSession;
         }
         Login l = loginService.findLogin(user);

@@ -12,7 +12,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "userinfo")
-public class UserProfile{
+public class UserProfile {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -22,6 +22,15 @@ public class UserProfile{
     @Id
     @GeneratedValue
     private Long userProfile_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "login_id")
+    private Login login;
+    @Column(name = "fname", nullable = false)
+    private String fname;
+    @Column(name = "lname", nullable = false)
+    private String lname;
+    @Column(name = "phone", nullable = true)
+    private String phone;
 
     public Long getUserProfile_id() {
         return userProfile_id;
@@ -31,10 +40,6 @@ public class UserProfile{
         this.userProfile_id = userProfile_id;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "login_id")
-    private Login login;
-
     public Login getLogin() {
         return login;
     }
@@ -43,21 +48,11 @@ public class UserProfile{
         this.login = login;
     }
 
-    @Column(name = "fname", nullable = false)
-    private String fname;
-
-    @Column(name = "lname", nullable = false)
-    private String lname;
-
-
-    @Column(name = "phone", nullable = true)
-    private String phone;
-
     /**
      * @return unique Long number entry in this case the primary key
      */
+
     /**
-     *
      * @return the users First Name in their profile.
      */
 
@@ -66,7 +61,6 @@ public class UserProfile{
     }
 
     /**
-     *
      * @param fName this sets the users First Name for the profile being created.
      */
 
@@ -75,7 +69,6 @@ public class UserProfile{
     }
 
     /**
-     *
      * @return the users Last Name in their profile.
      */
 
@@ -84,7 +77,6 @@ public class UserProfile{
     }
 
     /**
-     *
      * @param lName this sets the users First Name for the profile being created.
      */
 
@@ -93,7 +85,6 @@ public class UserProfile{
     }
 
     /**
-     *
      * @return the users Phone Number in their profile.
      */
 
@@ -102,7 +93,6 @@ public class UserProfile{
     }
 
     /**
-     *
      * @param phone this sets the users First Name for the profile being created.
      */
 

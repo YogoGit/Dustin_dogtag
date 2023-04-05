@@ -1,8 +1,6 @@
 package edu.carroll.dogtag.jpa.repo;
 
-import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.model.Training;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

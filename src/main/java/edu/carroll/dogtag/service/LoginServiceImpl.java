@@ -50,9 +50,9 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public Login findLogin(String user){
+    public Login findLogin(String user) {
         List<Login> logins = loginRepo.findByUserIgnoreCase(user);
-        if(logins.isEmpty()){
+        if (logins.isEmpty()) {
             return null;
         }
         log.info("Returning training {} from user", logins.get(0));

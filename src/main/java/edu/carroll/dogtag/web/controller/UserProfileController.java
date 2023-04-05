@@ -1,7 +1,6 @@
 package edu.carroll.dogtag.web.controller;
 
 import edu.carroll.dogtag.jpa.model.UserProfile;
-import edu.carroll.dogtag.jpa.repo.UserProfileRepository;
 import edu.carroll.dogtag.service.LoginService;
 import edu.carroll.dogtag.service.UserProfileService;
 import edu.carroll.dogtag.web.form.UserProfileForm;
@@ -24,8 +23,6 @@ public class UserProfileController {
     private final LoginService loginService;
 
 
-
-
     public UserProfileController(UserProfileService userProfileService, LoginService loginService) {
         this.userProfileService = userProfileService;
         this.loginService = loginService;
@@ -33,8 +30,8 @@ public class UserProfileController {
 
     @GetMapping("/profilesetup")
     public String profileForm(Model model, HttpSession session) {
-        final String user = (String)session.getAttribute("user");
-        if (user == null || user.isBlank()){
+        final String user = (String) session.getAttribute("user");
+        if (user == null || user.isBlank()) {
             return "redirect:/login";
         }
         model.addAttribute("user", user);

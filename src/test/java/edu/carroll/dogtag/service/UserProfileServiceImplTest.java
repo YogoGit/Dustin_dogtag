@@ -5,13 +5,21 @@ import edu.carroll.dogtag.jpa.model.UserProfile;
 import edu.carroll.dogtag.jpa.repo.LoginRepository;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest
 @Transactional
 class UserProfileServiceImplTest {
+
+    private static final String user = "usertest";
+    private static final String password = "passwordtest";
+    private static final String email = "emailTest@gmail.com";
+    private static final Logger log = LoggerFactory.getLogger(RegisterServiceImplTest.class);
     @Autowired
     private LoginService loginService;
     @Autowired
@@ -19,10 +27,45 @@ class UserProfileServiceImplTest {
     @Autowired
     private UserProfileService userProfileService;
 
+    @Test
+    void fetchUserProfileHappy() {
+        UserProfile noUser = userProfileService.fetchUserProfile("user1");
+        assertNull(noUser);
 
+    }
 
     @Test
     void fetchUserProfileHappy1() {
+        Login createUser = new Login();
+        createUser.setPassword("password");
+        createUser.setUser("user");
+        createUser.setEmail("email");
+        loginRepository.save(createUser);
+        UserProfile noUser = userProfileService.fetchUserProfile("user");
+        assertNull(noUser);
+
+    }
+
+    @Test
+    void fetchUserProfileHappy3() {
+        Login createUser = new Login();
+        createUser.setPassword("password");
+        createUser.setUser("user");
+        createUser.setEmail("email");
+        loginRepository.save(createUser);
+        UserProfile userProfile = new UserProfile();
+        userProfile.setFname("Dustin");
+        userProfile.setLname("Gardner");
+        userProfile.setPhone("4069800947");
+        userProfile.setLogin(loginService.findLogin("user"));
+        userProfileService.setProfile(userProfile);
+        UserProfile userFound = userProfileService.fetchUserProfile("user");
+        assertNotNull(userFound);
+
+    }
+
+    @Test
+    void fetchUserProfileHappyFname1() {
         Login createUser = new Login();
         createUser.setPassword("password");
         createUser.setUser("user");
@@ -35,13 +78,13 @@ class UserProfileServiceImplTest {
         userProfile.setLogin(loginService.findLogin("user"));
         userProfileService.setProfile(userProfile);
         userProfileService.fetchUserProfile("user");
-        assertTrue(userProfileService.fetchUserProfile("user").getFname().equals(userProfile.getFname()));
+        assertTrue(userProfileService.fetchUserProfile("user").equals(userProfile));
         assertTrue(userProfileService.fetchUserProfile("user").getFname().equals("Dustin"));
 
     }
 
     @Test
-    void fetchUserProfileHappy2() {
+    void fetchUserProfileCrappyFname1() {
         Login createUser = new Login();
         createUser.setPassword("password");
         createUser.setUser("user");
@@ -60,7 +103,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileHappy3() {
+    void fetchUserProfileCrappyFname2() {
         Login createUser = new Login();
         createUser.setPassword("password");
         createUser.setUser("user");
@@ -79,7 +122,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileHappy4() {
+    void fetchUserProfileHappyLname1() {
         Login createUser = new Login();
         createUser.setPassword("password");
         createUser.setUser("user");
@@ -96,8 +139,9 @@ class UserProfileServiceImplTest {
         assertTrue(userProfileService.fetchUserProfile("user").getLname().equals("Gardner"));
 
     }
+
     @Test
-    void fetchUserProfileHappy5() {
+    void fetchUserProfileCrappyLname1() {
         Login createUser = new Login();
         createUser.setPassword("password");
         createUser.setUser("user");
@@ -114,8 +158,9 @@ class UserProfileServiceImplTest {
         assertTrue(userProfileService.fetchUserProfile("user").getLname().equals("Gardner"));
 
     }
+
     @Test
-    void fetchUserProfileHappy6() {
+    void fetchUserProfileCrappyLname2() {
         Login createUser = new Login();
         createUser.setPassword("password");
         createUser.setUser("user");
@@ -134,7 +179,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileHappy7() {
+    void fetchUserProfileCrappyLname3() {
         Login createUser = new Login();
         createUser.setPassword("password");
         createUser.setUser("user");
@@ -151,8 +196,9 @@ class UserProfileServiceImplTest {
         assertTrue(userProfileService.fetchUserProfile("user").getLname().equals("Gardner"));
 
     }
+
     @Test
-    void fetchUserProfileHappy8() {
+    void fetchUserProfile() {
         Login createUser = new Login();
         createUser.setPassword("password");
         createUser.setUser("user");
@@ -169,6 +215,7 @@ class UserProfileServiceImplTest {
         assertFalse(userProfileService.fetchUserProfile("user").getLname().equals("Dustin"));
 
     }
+
     @Test
     void setProfile() {
     }

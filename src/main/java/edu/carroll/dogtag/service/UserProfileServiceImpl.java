@@ -1,7 +1,6 @@
 package edu.carroll.dogtag.service;
 
 import edu.carroll.dogtag.jpa.model.Login;
-import edu.carroll.dogtag.jpa.model.Training;
 import edu.carroll.dogtag.jpa.model.UserProfile;
 import edu.carroll.dogtag.jpa.repo.LoginRepository;
 import edu.carroll.dogtag.jpa.repo.RegisterRepository;
@@ -10,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -29,15 +27,16 @@ public class UserProfileServiceImpl implements UserProfileService {
     @Override
     public UserProfile fetchUserProfile(String user) {
         List<Login> fetchUser = loginRepository.findByUserIgnoreCase(user);
-        if(fetchUser.isEmpty()){
+        if (fetchUser.isEmpty()) {
             return null;
         }
         List<UserProfile> profiles = userProfileRepository.findByLogin(fetchUser.get(0));
-        if(profiles.isEmpty()){
+        if (profiles.isEmpty()) {
             return null;
         }
         return profiles.get(0);
     }
+
     @Override
     public void setProfile(UserProfile profile) {
         userProfileRepository.save(profile);
