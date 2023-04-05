@@ -3,6 +3,7 @@ package edu.carroll.dogtag.web.controller;
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.service.RegisterService;
 import edu.carroll.dogtag.web.form.RegisterForm;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,11 @@ public class RegisterController {
         this.registerService = registerService;
     }
 
+    /**
+     *
+     * @param model
+     * @return
+     */
     @GetMapping("/register")
     public String registerForm(Model model) {
         model.addAttribute("registerForm", new RegisterForm());
@@ -31,11 +37,22 @@ public class RegisterController {
         return "register";
     }
 
+    /**
+     *
+     * @return
+     */
     @PostMapping("/registerSuccess")
     public String registerSuccessPost() {
         return "redirect:/login";
     }
 
+    /**
+     *
+     * @param registerForm
+     * @param result
+     * @param attrs
+     * @return
+     */
     @PostMapping("/register")
     public String registerPost(@Valid @ModelAttribute RegisterForm registerForm, BindingResult result, RedirectAttributes attrs) {
         log.info("Logging info for {} registration", registerForm.getUser());
@@ -79,10 +96,16 @@ public class RegisterController {
     }
 
     @GetMapping("/registerSuccess")
-    public String registerSuccess(String user, Model model) {
+    public String registerSuccess(Model model, HttpSession session) {
+        final String user = (String) session.getAttribute("user");
+        if (user == null || user.isBlank()) {
+            return "redirect:/register";
+        }
         model.addAttribute("user", user);
         return "registerSuccess";
     }
+
+
 
     @GetMapping("/registerFailure")
     public String registerFailure() {
@@ -90,4 +113,3 @@ public class RegisterController {
     }
 }
 
-//add logout

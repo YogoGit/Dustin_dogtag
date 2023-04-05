@@ -29,6 +29,12 @@ public class LoginController {
         this.userProfileService = userProfileService;
     }
 
+    /**
+     *
+     * @param model
+     * @param session
+     * @return
+     */
     @GetMapping("/login")
     public String loginGet(Model model, HttpSession session) {
         model.addAttribute("loginForm", new LoginForm());
@@ -38,6 +44,14 @@ public class LoginController {
 
     //add logout
 
+    /**
+     *
+     * @param loginForm
+     * @param result
+     * @param attrs
+     * @param session
+     * @return
+     */
 
     @PostMapping("/login")
     public String loginPost(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, RedirectAttributes attrs, HttpSession session) {
@@ -56,11 +70,23 @@ public class LoginController {
         return "redirect:/traininglog";
     }
 
+    /**
+     *
+     * @return
+     */
     @GetMapping("/logout")
     public String logoutUserGet() {
         return "redirect:/login";
     }
 
+    /**
+     *
+     * @param loginForm
+     * @param result
+     * @param attrs
+     * @param session
+     * @return
+     */
     @PostMapping("/logout")
     public String logoutUserPost(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, RedirectAttributes attrs, HttpSession session) {
         session.invalidate();

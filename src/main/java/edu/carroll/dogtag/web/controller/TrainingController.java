@@ -1,5 +1,4 @@
 package edu.carroll.dogtag.web.controller;
-
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.model.Training;
 import edu.carroll.dogtag.jpa.repo.TrainingRepository;
@@ -45,7 +44,14 @@ public class TrainingController {
         this.trainingRepository = trainingRepository;
     }
 
-
+    /**
+     *
+     * @param fname
+     * @param lname
+     * @param model
+     * @param session
+     * @return
+     */
     @GetMapping("/traininglog")
     public ModelAndView trainingForm(String fname, String lname, Model model, HttpSession session) {
         final String user = (String) session.getAttribute("user");
@@ -66,6 +72,16 @@ public class TrainingController {
         return traininglogs;
     }
 
+    /**
+     *
+     * @param trainingForm
+     * @param fname
+     * @param lname
+     * @param result
+     * @param attr
+     * @param session
+     * @return
+     */
     @PostMapping("/traininglog")
     public String trainingPost(@Valid @ModelAttribute TrainingForm trainingForm, String fname, String lname, BindingResult result, RedirectAttributes attr, HttpSession session) {
         final String user = (String) session.getAttribute("user");
@@ -88,5 +104,4 @@ public class TrainingController {
         return "redirect:/traininglog";
     }
 
-    //add logout
 }

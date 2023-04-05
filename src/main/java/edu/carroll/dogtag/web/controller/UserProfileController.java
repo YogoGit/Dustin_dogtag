@@ -28,6 +28,12 @@ public class UserProfileController {
         this.loginService = loginService;
     }
 
+    /**
+     *
+     * @param model
+     * @param session
+     * @return
+     */
     @GetMapping("/profilesetup")
     public String profileForm(Model model, HttpSession session) {
         final String user = (String) session.getAttribute("user");
@@ -40,7 +46,14 @@ public class UserProfileController {
         return "/profilesetup";
     }
 
-
+    /**
+     *
+     * @param userProfileForm
+     * @param result
+     * @param session
+     * @param attr
+     * @return
+     */
     @PostMapping("/profilesetup")
     public String profilePost(@Valid @ModelAttribute UserProfileForm userProfileForm, BindingResult result, HttpSession session, RedirectAttributes attr) {
         final String user = (String) session.getAttribute("user");
@@ -56,7 +69,5 @@ public class UserProfileController {
         log.info("Registration post was successful");
         return "redirect:/traininglog";
     }
-
     //add logout
-
 }

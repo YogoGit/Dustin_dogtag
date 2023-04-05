@@ -24,6 +24,11 @@ public class UserProfileServiceImpl implements UserProfileService {
         this.loginRepository = loginRepository;
     }
 
+    /**
+     *
+     * @param user
+     * @return
+     */
     @Override
     public UserProfile fetchUserProfile(String user) {
         List<Login> fetchUser = loginRepository.findByUserIgnoreCase(user);
@@ -37,6 +42,10 @@ public class UserProfileServiceImpl implements UserProfileService {
         return profiles.get(0);
     }
 
+    /**
+     * 
+     * @param profile
+     */
     @Override
     public void setProfile(UserProfile profile) {
         userProfileRepository.save(profile);

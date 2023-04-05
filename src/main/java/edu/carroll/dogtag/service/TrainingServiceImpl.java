@@ -23,12 +23,21 @@ public class TrainingServiceImpl implements TrainingService {
         this.loginRepository = loginRepository;
     }
 
+    /**
+     *
+     * @param trainingLog
+     */
+
     @Override
     public void saveLog(Training trainingLog) {
         trainingRepository.save(trainingLog);
     }
 
-
+    /**
+     *
+     * @param user
+     * @return
+     */
     @Override
     public List<Training> fetchUserTraining(String user) {
         List<Login> fetchUser = loginRepository.findByUserIgnoreCase(user);
