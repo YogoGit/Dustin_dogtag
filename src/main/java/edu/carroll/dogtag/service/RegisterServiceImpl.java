@@ -19,10 +19,12 @@ public class RegisterServiceImpl implements RegisterService {
     }
 
     /**
-     * Given a registerForm, determine if the information provided is valid, and the user exists in the system.
-     *
-     * @param user - check for user in database
-     * @return true if data user does not exist already
+     * Checks if a user is already in the database for allowing a user to
+     * register or not with that name.
+     * @param user
+     * @return true comes back that the user is already in the database.
+     * false comes back in the user is not in the database. This is one of the
+     * checks before a user can register
      */
     @Override
     public boolean userExists(String user) {
@@ -33,9 +35,11 @@ public class RegisterServiceImpl implements RegisterService {
     }
 
     /**
-     *
-     * @param email -
-     * @return
+     * Checks if a email is already in the database for allowing email to
+     * register or not with that name.
+     * @param email @return true comes back that the email is already in the database.
+     * false comes back in the user is not in the database. This is one of the
+     * checks before a user can register
      */
     @Override
     public boolean emailExists(String email) {
@@ -45,9 +49,10 @@ public class RegisterServiceImpl implements RegisterService {
     }
 
     /**
-     *
-     * @param register -
-     * @return
+     * register is used once all the information is correct being given to
+     * this method to send to the database
+     * @param register
+     * @return true if was successful in registering.
      */
 
     @Override
@@ -67,8 +72,9 @@ public class RegisterServiceImpl implements RegisterService {
     }
 
     /**
+     * Given a user this method is to delete a user for the database
      *
-     * @param userEntityDelete -
+     * @param userEntityDelete
      */
     @Override
     public void deleteByUser(String userEntityDelete) {
