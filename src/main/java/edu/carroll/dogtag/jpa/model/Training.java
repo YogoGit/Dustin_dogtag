@@ -25,6 +25,11 @@ public class Training {
     @Id
     @GeneratedValue
     private Long training_id;
+
+    /*
+    This creates a linking database table between Training and Login
+    Table and is connected through the "login_id"
+     */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "login_id")
     private Login login;
@@ -37,18 +42,35 @@ public class Training {
     @Column(name = "comments", nullable = false)
     private String comments;
 
+    /**
+     * Allows for the training_id for the event to be shown.
+     * @return the training_id for that user
+     */
     public Long getTraining_id() {
         return training_id;
     }
 
+    /**
+     * This set the training_id but is done automatically with
+     * @GeneratedValue
+     * @param training_id
+     */
     public void setTraining_id(Long training_id) {
         this.training_id = training_id;
     }
 
+    /**
+     * A link to utilize the Login method
+     * @return
+     */
     public Login getLogin() {
         return login;
     }
 
+    /**
+     * This allows to set the login id for the training tables foreigner key
+     * @param login
+     */
     public void setLogin(Login login) {
         this.login = login;
     }
