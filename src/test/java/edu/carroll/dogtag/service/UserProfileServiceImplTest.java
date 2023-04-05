@@ -115,6 +115,61 @@ class UserProfileServiceImplTest {
 
     }
     @Test
+    void fetchUserProfileHappy6() {
+        Login createUser = new Login();
+        createUser.setPassword("password");
+        createUser.setUser("user");
+        createUser.setEmail("email");
+        loginRepository.save(createUser);
+        UserProfile userProfile = new UserProfile();
+        userProfile.setFname("Dustin");
+        userProfile.setLname("Gardner");
+        userProfile.setPhone("4069800947");
+        userProfile.setLogin(loginService.findLogin("user"));
+        userProfileService.setProfile(userProfile);
+        userProfileService.fetchUserProfile("user");
+        assertTrue(userProfileService.fetchUserProfile("user").getLname().equals(userProfile.getLname()));
+        assertFalse(userProfileService.fetchUserProfile("user").getLname().equals("Dustin"));
+
+    }
+
+    @Test
+    void fetchUserProfileHappy7() {
+        Login createUser = new Login();
+        createUser.setPassword("password");
+        createUser.setUser("user");
+        createUser.setEmail("email");
+        loginRepository.save(createUser);
+        UserProfile userProfile = new UserProfile();
+        userProfile.setFname("Dustin");
+        userProfile.setLname("Gardner");
+        userProfile.setPhone("4069800947");
+        userProfile.setLogin(loginService.findLogin("user"));
+        userProfileService.setProfile(userProfile);
+        userProfileService.fetchUserProfile("user");
+        assertFalse(userProfileService.fetchUserProfile("user").getLname().equals(userProfile.getPhone()));
+        assertTrue(userProfileService.fetchUserProfile("user").getLname().equals("Gardner"));
+
+    }
+    @Test
+    void fetchUserProfileHappy8() {
+        Login createUser = new Login();
+        createUser.setPassword("password");
+        createUser.setUser("user");
+        createUser.setEmail("email");
+        loginRepository.save(createUser);
+        UserProfile userProfile = new UserProfile();
+        userProfile.setFname("Dustin");
+        userProfile.setLname("Gardner");
+        userProfile.setPhone("4069800947");
+        userProfile.setLogin(loginService.findLogin("user"));
+        userProfileService.setProfile(userProfile);
+        userProfileService.fetchUserProfile("user");
+        assertFalse(userProfileService.fetchUserProfile("user").getLname().equals(userProfile.getPhone()));
+        assertFalse(userProfileService.fetchUserProfile("user").getLname().equals("Dustin"));
+
+    }
+    @Test
     void setProfile() {
     }
 }
