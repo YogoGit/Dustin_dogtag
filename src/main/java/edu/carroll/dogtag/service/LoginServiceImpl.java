@@ -49,6 +49,13 @@ public class LoginServiceImpl implements LoginService {
         return true;
     }
 
+    /**
+     * This is used to find the Login for a user with multiple services using them to
+     * check if user is in the system before methods send back information
+     * @param user
+     * @return a Login object that can be used then to call methods.
+     */
+
     @Override
     public Login findLogin(String user) {
         List<Login> logins = loginRepo.findByUserIgnoreCase(user);

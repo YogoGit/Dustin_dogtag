@@ -32,6 +32,11 @@ public class RegisterServiceImpl implements RegisterService {
         return !users.isEmpty();
     }
 
+    /**
+     *
+     * @param email -
+     * @return
+     */
     @Override
     public boolean emailExists(String email) {
         List<Login> emails = registerRepo.findByEmailIgnoreCase(email);
@@ -39,6 +44,11 @@ public class RegisterServiceImpl implements RegisterService {
         return !emails.isEmpty();
     }
 
+    /**
+     *
+     * @param register -
+     * @return
+     */
 
     @Override
     public boolean register(Login register) {
@@ -56,6 +66,10 @@ public class RegisterServiceImpl implements RegisterService {
         }
     }
 
+    /**
+     *
+     * @param userEntityDelete -
+     */
     @Override
     public void deleteByUser(String userEntityDelete) {
         List<Login> userRowDelete = registerRepo.findByUserIgnoreCase(userEntityDelete);
