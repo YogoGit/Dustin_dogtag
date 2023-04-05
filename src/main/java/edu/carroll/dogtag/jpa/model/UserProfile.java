@@ -22,6 +22,11 @@ public class UserProfile {
     @Id
     @GeneratedValue
     private Long userProfile_id;
+
+    /*
+    This creates a linking database table between Training and Login
+    Table and is connected through the "login_id"
+     */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "login_id")
     private Login login;
@@ -32,18 +37,35 @@ public class UserProfile {
     @Column(name = "phone", nullable = true)
     private String phone;
 
+    /**
+     * Allows for the userProfile_id for the event to be shown.
+     * @return the userProfile_id for that profile. Not used right now
+     */
     public Long getUserProfile_id() {
         return userProfile_id;
     }
 
+    /**
+     * This set the userProfile_id but is done automatically with
+     * @GeneratedValue
+     * @param userProfile_id
+     */
     public void setUserProfile_id(Long userProfile_id) {
         this.userProfile_id = userProfile_id;
     }
 
+    /**
+     * A link to utilize the Login method
+     * @return login information for the user
+     * this allows the use to link the two tables
+     */
     public Login getLogin() {
         return login;
     }
-
+    /**
+     * This allows to set the login id for the training tables foreigner key
+     * @param login
+     */
     public void setLogin(Login login) {
         this.login = login;
     }

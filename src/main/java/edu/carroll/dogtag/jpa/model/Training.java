@@ -61,7 +61,8 @@ public class Training {
 
     /**
      * A link to utilize the Login method
-     * @return
+     * @return login information for the user
+     * this allows the use to link the two tables
      */
     public Login getLogin() {
         return login;
