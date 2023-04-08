@@ -1,4 +1,5 @@
 package edu.carroll.dogtag.web.controller;
+
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.model.Training;
 import edu.carroll.dogtag.jpa.repo.TrainingRepository;
@@ -13,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,62 +46,48 @@ public class TrainingController {
         this.trainingRepository = trainingRepository;
     }
 
+
     @GetMapping("/traininglog")
-    public ModelAndView trainingForm(HttpSession session) {
+    public ModelAndView trainingForm(String fname, String lname, Model model, HttpSession session) {
         final String user = (String) session.getAttribute("user");
         if (user == null || user.isBlank()) {
-            ModelAndView noSession = new ModelAndView("redirect:/login");
-            noSession.addObject("modelAttribute", noSession);
+            ModelAndView noSession =  new ModelAndView("redirect:/login");
+            noSession.addObject("modelAttribute" , noSession);
             return noSession;
         }
         Login l = loginService.findLogin(user);
-
+        model.addAttribute("trainingForm", new TrainingForm());
         log.info("Successfully Mapped Register page");
         ModelAndView traininglogs = new ModelAndView("traininglog");
-        List<Training> trainings = trainingService.fetchUserTraining(user);
-        log.info("Returned training from fetchUser {}", trainings.size());
-        traininglogs.addObject("trainingForm", new TrainingForm());
+        List<Training> trainings = (trainingService.fetchUserTraining(user));
+        log.info("Returned training from fetchUser {}", trainings);
         traininglogs.addObject("trainings", trainings);
         traininglogs.addObject("fname", userProfileService.fetchUserProfile(user).getFname());
         traininglogs.addObject("lname", userProfileService.fetchUserProfile(user).getLname());
         return traininglogs;
     }
 
-    /**
-     *
-     * @param trainingForm
-     * @param fname
-     * @param lname
-     * @param result
-     * @param attr
-     * @param session
-     * @return
-     */
     @PostMapping("/traininglog")
-    public ModelAndView trainingPost(@Valid @ModelAttribute TrainingForm trainingForm, String fname, String lname, BindingResult result, RedirectAttributes attr, HttpSession session, ModelAndView modelAndView) {
+    public String trainingPost(@Valid @ModelAttribute TrainingForm trainingForm, String fname, String lname, BindingResult result, RedirectAttributes attr, HttpSession session) {
         final String user = (String) session.getAttribute("user");
         if (user == null || user.isBlank()) {
-            ModelAndView noSession = new ModelAndView("redirect:/login");
-            noSession.addObject("modelAttribute", noSession);
-            return noSession;
+            return "redirect:/login";
         }
         if (result.hasErrors()) {
-            ModelAndView noSession = new ModelAndView("traininglog");
-            noSession.addObject("traininglog", noSession);
-            return noSession;
+            return "traininglog";
         }
-
-        ModelAndView trainingPost = new ModelAndView("traininglog");
+//
         Training userTraining = new Training();
         userTraining.setDate(trainingForm.getDate());
         userTraining.setTraining(trainingForm.getTraining());
         userTraining.setLocation(trainingForm.getLocation());
         userTraining.setComments(trainingForm.getComments());
         userTraining.setLogin(loginService.findLogin(user));
-        trainingPost.addObject(userTraining);
-        trainingPost.addObject("fname", userProfileService.fetchUserProfile(user).getFname());
-        trainingPost.addObject("lname", userProfileService.fetchUserProfile(user).getLname());
-        return trainingPost;
+        trainingService.saveLog(userTraining);
+        attr.addAttribute("fname", userProfileService.fetchUserProfile(user).getFname());
+        attr.addAttribute("lname", userProfileService.fetchUserProfile(user).getLname());
+        return "redirect:/traininglog";
     }
 
+    //add logout
 }
