@@ -17,17 +17,17 @@
 <h1></h1>Enter Logs</a>
 <form action="#" method="post" th:action="@{/traininglog}" th:object="${trainingForm}">
     <input name="user" type="hidden" value="*{user}"/>
-    <span th:errors="*{global}" th:if="${#fields.hasGlobalErrors()}">Global error</span><br/>  <!-- Add this line -->
     <input name="fname" th:value="${fname}" type="hidden"/>
     <input name="lname" th:value="${lname}" type="hidden"/>
+    <span th:errors="*{global}" th:if="${#fields.hasGlobalErrors()}">Global error</span><br/>  <!-- Add this line -->
     <input placeholder="Date of training" th:field="*{date}" type="date"/>
-    <span th:errors="*{date}" th:if="${#fields.hasErrors('date')}">First Name Error</span><br/>
-    <input placeholder="Training location" th:field="*{location}" type="text"/>
-    <span th:errors="*{location}" th:if="${#fields.hasErrors('location')}">Last Name error</span><br/>
-    <input placeholder="Training activity" th:field="*{training}" type="text"/>
-    <span th:errors="*{training}" th:if="${#fields.hasErrors('training')}">Phone error</span><br/>
-    <input placeholder="Training comments" th:field="*{comments}" type="text"/>
-    <span th:errors="*{comments}" th:if="${#fields.hasErrors('comments')}">Phone error</span><br/>
+    <span th:errors="*{date}" th:if="${#fields.hasErrors('date')}">Date Error</span><br/>
+    <input placeholder="Training location" th:field="*{location}" type="text" th:min="2" th:maxlength="15"/>
+    <span th:errors="*{location}" th:if="${#fields.hasErrors('location')}">Location error</span><br/>
+    <input placeholder="Training activity" th:field="*{training}" type="text" th:min="3" th:maxlength="15"/>
+    <span th:errors="*{training}" th:if="${#fields.hasErrors('training')}">Training error</span><br/>
+    <input placeholder="Training comments" th:field="*{comments}" type="text" th:min="3" th:maxlength="20"/>
+    <span th:errors="*{comments}" th:if="${#fields.hasErrors('comments')}">Comments error</span><br/>
     <button type="submit">Submit Training</button>
 </form>
 

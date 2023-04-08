@@ -10,11 +10,11 @@
 <form action="#" method="post" th:action="@{/profilesetup}" th:object="${userProfileForm}">
     <input name="user" type="hidden" value="*{user}"/>
     <span th:errors="*{global}" th:if="${#fields.hasGlobalErrors()}">Global error</span><br/>  <!-- Add this line -->
-    <input placeholder="First Name" th:field="*{fname}" type="text"/>
+    <input placeholder="First Name" th:field="*{fname}" type="text" th:min="1" th:maxlength="10"/>
     <span th:errors="*{fname}" th:if="${#fields.hasErrors('fname')}">First Name Error</span><br/>
-    <input placeholder="Last Name" th:field="*{lname}" type="text"/>
+    <input placeholder="Last Name" th:field="*{lname}" type="text" th:min="1" th:maxlength="10"/>
     <span th:errors="*{lname}" th:if="${#fields.hasErrors('lname')}">Last Name error</span><br/>
-    <input placeholder="Phone" th:field="*{phone}" type="tel"/>
+    <input placeholder="123-45-6789" th:field="*{phone}" type="tel" th:min="11" th:maxlength="11" pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}" />
     <span th:errors="*{phone}" th:if="${#fields.hasErrors('phone')}">Phone error</span><br/>
     <button type="submit">Submit Profile Setup</button>
 </form>

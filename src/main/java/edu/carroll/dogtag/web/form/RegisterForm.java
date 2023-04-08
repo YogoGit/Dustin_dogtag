@@ -9,17 +9,17 @@ public class RegisterForm {
     private static final Logger log = LoggerFactory.getLogger(RegisterForm.class);
     @NotNull
     @Size(min = 6, message = "Username must be at least 6 characters long")
-    @Size(max = 15, message = "Username must be less than 16 character long")
+    @Size(max = 16, message = "Username must be less than 16 character long")
     private String user;
 
     @NotNull
     @Size(min = 8, message = "Password must be at least 8 characters long")
-    @Size(max = 15, message = "Password must be less than 16 character long")
+    @Size(max = 16, message = "Password must be less than 16 character long")
     private String password;
 
     @NotNull
     @Size(min = 6, message = "Email must be at least 6 characters long")
-    @Size(max = 50, message = "Password must be less than 16 character long")
+    @Size(max = 20, message = "Email must be less than 50 character long")
     private String email;
 
 

@@ -8,11 +8,11 @@
 <h1>Registration</h1>
 <form action="#" method="post" th:action="@{/register}" th:object="${registerForm}">
     <span th:errors="*{global}" th:if="${#fields.hasGlobalErrors()}">Global error</span><br/>  <!-- Add this line -->
-    <input placeholder="User" th:field="*{user}" type="text"/>
+    <input placeholder="User" th:field="*{user}" type="text" th:min="6" th:maxlength="15"/>
     <span th:errors="*{user}" th:if="${#fields.hasErrors('user')}">User error</span><br/>
-    <input placeholder="Password" th:field="*{password}" type="password"/>
+    <input placeholder="Password" th:field="*{password}" type="password" th:min="8" th:maxlength="15"/>
     <span th:errors="*{password}" th:if="${#fields.hasErrors('password')}">Password error</span><br/>
-    <input placeholder="email" th:field="*{email}" type="email"/>
+    <input placeholder="email" th:field="*{email}" type="email" th:min="6" th:maxlength="50"/>
     <span th:errors="*{email}" th:if="${#fields.hasErrors('email')}">email error</span><br/>
     <button type="submit">Register</button>
 </form>

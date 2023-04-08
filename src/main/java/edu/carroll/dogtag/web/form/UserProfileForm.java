@@ -6,16 +6,16 @@ import jakarta.validation.constraints.Size;
 public class UserProfileForm {
     @NotNull
     @Size(min = 1, message = "First Name must be at least 1 character long")
-    @Size(max = 50, message = "First Name must be less than 50 character long")
+    @Size(max = 10, message = "First Name must be less than 10 character long")
     private String fname;
     @NotNull
     @Size(min = 1, message = "First Last must be at least 1 character long")
-    @Size(max = 50, message = "First Last must be less than 50 character long")
+    @Size(max = 10, message = "First Last must be less than 10 character long")
     private String lname;
 
     @NotNull
-    @Size(min = 7, message = "Phone must be at least 7 character long")
-    @Size(max = 20, message = "Phone Name must be less than 50 character long")
+    @Size(min = 11, message = "Phone must be at least 10 character long")
+    @Size(max = 11, message = "Phone must be less than 10 character long")
     private String phone;
 
     private String user;

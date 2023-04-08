@@ -44,16 +44,8 @@ public class TrainingController {
         this.trainingRepository = trainingRepository;
     }
 
-    /**
-     *
-     * @param fname
-     * @param lname
-     * @param model
-     * @param session
-     * @return
-     */
     @GetMapping("/traininglog")
-    public ModelAndView trainingForm(String fname, String lname, Model model, HttpSession session) {
+    public ModelAndView trainingForm(HttpSession session) {
         final String user = (String) session.getAttribute("user");
         if (user == null || user.isBlank()) {
             ModelAndView noSession = new ModelAndView("redirect:/login");
@@ -61,11 +53,12 @@ public class TrainingController {
             return noSession;
         }
         Login l = loginService.findLogin(user);
-        model.addAttribute("trainingForm", new TrainingForm());
+
         log.info("Successfully Mapped Register page");
         ModelAndView traininglogs = new ModelAndView("traininglog");
-        List<Training> trainings = (trainingService.fetchUserTraining(user));
-        log.info("Returned training from fetchUser {}", trainings);
+        List<Training> trainings = trainingService.fetchUserTraining(user);
+        log.info("Returned training from fetchUser {}", trainings.size());
+        traininglogs.addObject("trainingForm", new TrainingForm());
         traininglogs.addObject("trainings", trainings);
         traininglogs.addObject("fname", userProfileService.fetchUserProfile(user).getFname());
         traininglogs.addObject("lname", userProfileService.fetchUserProfile(user).getLname());
@@ -83,25 +76,30 @@ public class TrainingController {
      * @return
      */
     @PostMapping("/traininglog")
-    public String trainingPost(@Valid @ModelAttribute TrainingForm trainingForm, String fname, String lname, BindingResult result, RedirectAttributes attr, HttpSession session) {
+    public ModelAndView trainingPost(@Valid @ModelAttribute TrainingForm trainingForm, String fname, String lname, BindingResult result, RedirectAttributes attr, HttpSession session, ModelAndView modelAndView) {
         final String user = (String) session.getAttribute("user");
         if (user == null || user.isBlank()) {
-            return "redirect:/login";
+            ModelAndView noSession = new ModelAndView("redirect:/login");
+            noSession.addObject("modelAttribute", noSession);
+            return noSession;
         }
         if (result.hasErrors()) {
-            return "traininglog";
+            ModelAndView noSession = new ModelAndView("traininglog");
+            noSession.addObject("traininglog", noSession);
+            return noSession;
         }
-//
+
+        ModelAndView trainingPost = new ModelAndView("traininglog");
         Training userTraining = new Training();
         userTraining.setDate(trainingForm.getDate());
         userTraining.setTraining(trainingForm.getTraining());
         userTraining.setLocation(trainingForm.getLocation());
         userTraining.setComments(trainingForm.getComments());
         userTraining.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(userTraining);
-        attr.addAttribute("fname", userProfileService.fetchUserProfile(user).getFname());
-        attr.addAttribute("lname", userProfileService.fetchUserProfile(user).getLname());
-        return "redirect:/traininglog";
+        trainingPost.addObject(userTraining);
+        trainingPost.addObject("fname", userProfileService.fetchUserProfile(user).getFname());
+        trainingPost.addObject("lname", userProfileService.fetchUserProfile(user).getLname());
+        return trainingPost;
     }
 
 }

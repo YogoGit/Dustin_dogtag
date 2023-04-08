@@ -60,6 +60,9 @@ public class UserProfileController {
         if (user == null || user.isBlank()) {
             return "redirect:/login";
         }
+        if (result.hasErrors()) {
+            return "profilesetup";
+        }
         UserProfile userProfile = new UserProfile();
         userProfile.setFname(userProfileForm.getFname());
         userProfile.setLname(userProfileForm.getLname());
