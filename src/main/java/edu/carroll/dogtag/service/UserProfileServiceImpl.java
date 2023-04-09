@@ -25,8 +25,13 @@ public class UserProfileServiceImpl implements UserProfileService {
     }
 
     /**
+     * This is used to find the all user profiles in the database that have been
+     * entered already for that user. Then returns the one that is found or that is empty
+     * this is used to see if a profile already exist and detterm where to redirect the end
+     * user to
+     *
      * @param user
-     * @return
+     * @return List of UserProfiles that are for that user
      */
     @Override
     public UserProfile fetchUserProfile(String user) {

@@ -54,7 +54,8 @@ public class RegisterServiceImpl implements RegisterService {
      * register is used once all the information is correct being given to
      * this method to send to the database
      *
-     * @param register
+     * @param register this is using the Login models methods to set all
+     *                 information from the register form.
      * @return true if was successful in registering.
      */
 
@@ -77,7 +78,8 @@ public class RegisterServiceImpl implements RegisterService {
     /**
      * Given a user this method is to delete a user for the database
      *
-     * @param userEntityDelete
+     * @param userEntityDelete send a users name to look and delete them
+     *                         out of the database.
      */
     @Override
     public void deleteByUser(String userEntityDelete) {
