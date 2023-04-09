@@ -30,7 +30,7 @@ public class UserProfileServiceImpl implements UserProfileService {
      * this is used to see if a profile already exist and detterm where to redirect the end
      * user to
      *
-     * @param user
+     * @param user the profile that is being looked for
      * @return List of UserProfiles that are for that user
      */
     @Override
@@ -47,7 +47,7 @@ public class UserProfileServiceImpl implements UserProfileService {
     }
 
     /**
-     * @param profile
+     * @param profile is the Users information that has been set by using the form information.
      */
     @Override
     public void setProfile(UserProfile profile) {

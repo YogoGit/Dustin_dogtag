@@ -27,7 +27,7 @@ public class TrainingServiceImpl implements TrainingService {
      * saveLog is used once all the information is correct being given to
      * this method to send to the database
      *
-     * @param trainingLog
+     * @param trainingLog is the Users information that has been set by using the form information.
      */
 
     @Override
@@ -40,7 +40,7 @@ public class TrainingServiceImpl implements TrainingService {
      * entered already for that user that is being passed to the method
      * with multiple services using them to
      *
-     * @param user
+     * @param user the training user that is being looked for
      * @return List of Trainings that are for that user
      */
     @Override
