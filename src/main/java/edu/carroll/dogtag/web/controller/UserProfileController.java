@@ -29,7 +29,6 @@ public class UserProfileController {
     }
 
     /**
-     *
      * @param model
      * @param session
      * @return
@@ -47,7 +46,6 @@ public class UserProfileController {
     }
 
     /**
-     *
      * @param userProfileForm
      * @param result
      * @param session

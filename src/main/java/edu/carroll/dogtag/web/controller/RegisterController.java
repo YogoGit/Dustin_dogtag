@@ -26,7 +26,6 @@ public class RegisterController {
     }
 
     /**
-     *
      * @param model
      * @return
      */
@@ -38,7 +37,6 @@ public class RegisterController {
     }
 
     /**
-     *
      * @return
      */
     @PostMapping("/registerSuccess")
@@ -47,7 +45,6 @@ public class RegisterController {
     }
 
     /**
-     *
      * @param registerForm
      * @param result
      * @param attrs
@@ -104,7 +101,6 @@ public class RegisterController {
         model.addAttribute("user", user);
         return "registerSuccess";
     }
-
 
 
     @GetMapping("/registerFailure")

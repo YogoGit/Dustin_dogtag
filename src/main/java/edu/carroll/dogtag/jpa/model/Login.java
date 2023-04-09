@@ -54,6 +54,7 @@ public class Login {
 
     /**
      * Adds connection usage for obtaining a list back from the Training Table
+     *
      * @return a list of all the trainings.
      */
     public List<Training> getTrainings() {
@@ -63,6 +64,7 @@ public class Login {
     /**
      * This would be used to set manually multiple training events as
      * one.
+     *
      * @param trainings
      */
     public void setTrainings(List<Training> trainings) {
@@ -71,6 +73,7 @@ public class Login {
 
     /**
      * Adds connection usage for obtaining a list back from the UserProfile Table
+     *
      * @return a list of all the UserProfile in the table
      */
     public List<UserProfile> getUserProfiles() {

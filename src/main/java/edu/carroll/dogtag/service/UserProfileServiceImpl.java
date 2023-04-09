@@ -25,7 +25,6 @@ public class UserProfileServiceImpl implements UserProfileService {
     }
 
     /**
-     *
      * @param user
      * @return
      */
@@ -43,7 +42,6 @@ public class UserProfileServiceImpl implements UserProfileService {
     }
 
     /**
-     * 
      * @param profile
      */
     @Override

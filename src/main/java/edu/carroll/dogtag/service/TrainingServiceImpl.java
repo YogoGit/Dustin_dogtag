@@ -26,6 +26,7 @@ public class TrainingServiceImpl implements TrainingService {
     /**
      * saveLog is used once all the information is correct being given to
      * this method to send to the database
+     *
      * @param trainingLog
      */
 
@@ -38,6 +39,7 @@ public class TrainingServiceImpl implements TrainingService {
      * This is used to find the trainings that have been
      * entered already for that user that is being passed to the method
      * with multiple services using them to
+     *
      * @param user
      * @return List of Trainings that are for that user
      */
@@ -48,7 +50,6 @@ public class TrainingServiceImpl implements TrainingService {
             return null;
         }
         List<Training> trainings = trainingRepository.findByLogin_Id(fetchUser.get(0).getId());
-//        List<Training> trainings = trainingRepository.findAll();
         if (trainings.isEmpty()) {
             return null;
         }

@@ -22,11 +22,11 @@
     <span th:errors="*{global}" th:if="${#fields.hasGlobalErrors()}">Global error</span><br/>  <!-- Add this line -->
     <input placeholder="Date of training" th:field="*{date}" type="date"/>
     <span th:errors="*{date}" th:if="${#fields.hasErrors('date')}">Date Error</span><br/>
-    <input placeholder="Training location" th:field="*{location}" type="text" th:min="2" th:maxlength="15"/>
+    <input placeholder="Training location" th:field="*{location}" th:maxlength="15" th:min="2" type="text"/>
     <span th:errors="*{location}" th:if="${#fields.hasErrors('location')}">Location error</span><br/>
-    <input placeholder="Training activity" th:field="*{training}" type="text" th:min="3" th:maxlength="15"/>
+    <input placeholder="Training activity" th:field="*{training}" th:maxlength="15" th:min="3" type="text"/>
     <span th:errors="*{training}" th:if="${#fields.hasErrors('training')}">Training error</span><br/>
-    <input placeholder="Training comments" th:field="*{comments}" type="text" th:min="3" th:maxlength="20"/>
+    <input placeholder="Training comments" th:field="*{comments}" th:maxlength="20" th:min="3" type="text"/>
     <span th:errors="*{comments}" th:if="${#fields.hasErrors('comments')}">Comments error</span><br/>
     <button type="submit">Submit Training</button>
 </form>

@@ -44,6 +44,7 @@ public class Training {
 
     /**
      * Allows for the training_id for the event to be shown.
+     *
      * @return the training_id for that user
      */
     public Long getTraining_id() {
@@ -52,8 +53,9 @@ public class Training {
 
     /**
      * This set the training_id but is done automatically with
-     * @GeneratedValue
+     *
      * @param training_id
+     * @GeneratedValue
      */
     public void setTraining_id(Long training_id) {
         this.training_id = training_id;
@@ -61,6 +63,7 @@ public class Training {
 
     /**
      * A link to utilize the Login method
+     *
      * @return login information for the user
      * this allows the use to link the two tables
      */
@@ -70,6 +73,7 @@ public class Training {
 
     /**
      * This allows to set the login id for the training tables foreigner key
+     *
      * @param login
      */
     public void setLogin(Login login) {

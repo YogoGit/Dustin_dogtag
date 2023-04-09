@@ -30,7 +30,6 @@ public class LoginController {
     }
 
     /**
-     *
      * @param model
      * @param session
      * @return
@@ -45,7 +44,6 @@ public class LoginController {
     //add logout
 
     /**
-     *
      * @param loginForm
      * @param result
      * @param attrs
@@ -71,7 +69,6 @@ public class LoginController {
     }
 
     /**
-     *
      * @return
      */
     @GetMapping("/logout")
@@ -80,7 +77,6 @@ public class LoginController {
     }
 
     /**
-     *
      * @param loginForm
      * @param result
      * @param attrs
