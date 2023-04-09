@@ -24,7 +24,8 @@ public class TrainingServiceImpl implements TrainingService {
     }
 
     /**
-     *
+     * saveLog is used once all the information is correct being given to
+     * this method to send to the database
      * @param trainingLog
      */
 
@@ -34,9 +35,11 @@ public class TrainingServiceImpl implements TrainingService {
     }
 
     /**
-     *
+     * This is used to find the trainings that have been
+     * entered already for that user that is being passed to the method
+     * with multiple services using them to
      * @param user
-     * @return
+     * @return List of Trainings that are for that user
      */
     @Override
     public List<Training> fetchUserTraining(String user) {
