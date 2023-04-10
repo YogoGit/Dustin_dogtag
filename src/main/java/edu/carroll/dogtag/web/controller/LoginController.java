@@ -44,7 +44,7 @@ public class LoginController {
     //add logout
 
     /**
-     * @param loginForm the informated being entered into the form to be submitted.
+     * @param loginForm the informated being entered into the form to be submitted to check the database.
      * @param result this is to check errors on the templates and display the error message
      * @param session this is to create a It allows the server to store and retrieve
      *                user-specific data between requests.

@@ -26,8 +26,9 @@ public class RegisterController {
     }
 
     /**
-     * @param model
-     * @return
+     * @param model used to add the RegisterFom to be able to pass it the PostMapping to
+     *              be used.
+     * @return the register is requested after the post of the button for register is clicked
      */
     @GetMapping("/register")
     public String registerForm(Model model) {
@@ -37,18 +38,17 @@ public class RegisterController {
     }
 
     /**
-     * @return
-     */
-    @PostMapping("/registerSuccess")
-    public String registerSuccessPost() {
-        return "redirect:/login";
-    }
-
-    /**
-     * @param registerForm
-     * @param result
-     * @param attrs
-     * @return
+     * @param registerForm the information being entered into the form to be submitted to database.
+     * @param result this is to check errors on the templates and display the error message
+     * @param attrs used to redirect user info to the register success pages to display the registered
+     *              name entered.
+     * @return there is any errors within the form or the template itself
+     *      if the user is found, email is found, or required entry are not met
+     *      and error is returned for using a different username or email.
+     *      If any errors of occur the register is page is reloaded. If no errors then
+     *      the control check if a user or email exist in the database.
+     *      Once the checks are complete it allows the controller to submit the information to the
+     *      RegisterService and then is sent to the register success page.
      */
     @PostMapping("/register")
     public String registerPost(@Valid @ModelAttribute RegisterForm registerForm, BindingResult result, RedirectAttributes attrs) {
@@ -78,9 +78,6 @@ public class RegisterController {
             return "register";
         }
 
-
-        //add if both user and email show error message indicating both
-
         Login userRegister = new Login();
         userRegister.setUser(registerForm.getUser());
         userRegister.setEmail(registerForm.getEmail());
@@ -92,6 +89,13 @@ public class RegisterController {
         return "redirect:/registerSuccess";
     }
 
+    /**
+     *
+     * @param model used to send the users new register information to the register page
+     * @param session this is to create a allows the server to store and retrieve
+     *                      user-specific data between requests.
+     * @return
+     */
     @GetMapping("/registerSuccess")
     public String registerSuccess(Model model, HttpSession session) {
         final String user = (String) session.getAttribute("user");
@@ -102,10 +106,13 @@ public class RegisterController {
         return "registerSuccess";
     }
 
-
-    @GetMapping("/registerFailure")
-    public String registerFailure() {
-        return "registerFailure";
+    /**
+     * @return this is once the login button is click and returns the user to
+     * login page to enter the new login information submited to the database
+     */
+    @PostMapping("/registerSuccess")
+    public String registerSuccessPost() {
+        return "redirect:/login";
     }
 }
 
