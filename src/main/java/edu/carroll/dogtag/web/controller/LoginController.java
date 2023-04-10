@@ -30,12 +30,12 @@ public class LoginController {
     }
 
     /**
-     * @param model
-     * @param session
-     * @return
+     * @param model used to add the loginForm to be able to pass it the PostMapping to
+     *              be used.
+     * @return the login is requested after the post of the index page is click to the login button
      */
     @GetMapping("/login")
-    public String loginGet(Model model, HttpSession session) {
+    public String loginGet(Model model) {
         model.addAttribute("loginForm", new LoginForm());
         return "login";
     }
@@ -44,15 +44,20 @@ public class LoginController {
     //add logout
 
     /**
-     * @param loginForm
-     * @param result
-     * @param attrs
-     * @param session
-     * @return
+     * @param loginForm the informated being entered into the form to be submitted.
+     * @param result this is to check errors on the templates and display the error message
+     * @param session this is to create a It allows the server to store and retrieve
+     *                user-specific data between requests.
+     * @return there is any errors within the form or the template itself
+     *      if the user is not found, password is wrong, username is not found or both
+     *      and error is returned "Username and password do not match known users"
+     *      If any errors of occur the login is page is reloaded. If no errors then
+     *      the control check if a profile exist in the database and gets the profile page
+     *      if there is not one or send to traininglog page if there is one.
      */
 
     @PostMapping("/login")
-    public String loginPost(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, RedirectAttributes attrs, HttpSession session) {
+    public String loginPost(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, HttpSession session) {
         if (result.hasErrors()) {
             return "login";
         }
@@ -69,23 +74,21 @@ public class LoginController {
     }
 
     /**
-     * @return
+     * @return the logout button is request and then when posted return to the logout page.
      */
     @GetMapping("/logout")
     public String logoutUserGet() {
-        return "redirect:/login";
+        return "redirect:/logout";
     }
 
     /**
-     * @param loginForm
-     * @param result
-     * @param attrs
-     * @param session
+     * @param session is removed and all pages redirect to login page because there
+     *                is no session present.
      * @return
      */
     @PostMapping("/logout")
-    public String logoutUserPost(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, RedirectAttributes attrs, HttpSession session) {
+    public String logoutUserPost(@Valid @ModelAttribute HttpSession session) {
         session.invalidate();
-        return "redirect:/traininglog";
+        return "redirect:/login";
     }
 }

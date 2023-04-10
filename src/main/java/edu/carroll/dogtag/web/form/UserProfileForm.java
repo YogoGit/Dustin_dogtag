@@ -10,7 +10,7 @@ public class UserProfileForm {
     private String fname;
     @NotNull
     @Size(min = 1, message = "First Last must be at least 1 character long")
-    @Size(max = 10, message = "First Last must be less than 10 character long")
+    @Size(max = 11, message = "First Last must be less than 11 character long")
     private String lname;
 
     @NotNull
