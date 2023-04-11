@@ -45,8 +45,6 @@ public class TrainingController {
     }
 
     /**
-     * @param model   used to add the TrainingForm to be able to pass it the PostMapping to
-     *                be used.
      * @param session It allows the server to store and retrieve
      *                user-specific data between requests.
      * @return This class merely holds both to make it possible for a controller
