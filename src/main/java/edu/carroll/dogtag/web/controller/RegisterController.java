@@ -89,19 +89,8 @@ public class RegisterController {
         return "redirect:/registerSuccess";
     }
 
-    /**
-     * @param model   used to send the users new register information to the register page
-     * @param session this is to create a allows the server to store and retrieve
-     *                user-specific data between requests.
-     * @return
-     */
     @GetMapping("/registerSuccess")
-    public String registerSuccess(Model model, HttpSession session) {
-        final String user = (String) session.getAttribute("user");
-        if (user == null || user.isBlank()) {
-            return "redirect:/register";
-        }
-        model.addAttribute("user", user);
+    public String registerSuccess() {
         return "registerSuccess";
     }
 
