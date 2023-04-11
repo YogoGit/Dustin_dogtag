@@ -22,18 +22,30 @@ public class LoginForm {
         this.password = password;
     }
 
+    /**
+     * @return the user that is stored in the database.
+     */
     public String getUser() {
         return user;
     }
 
+    /**
+     * @param user sets the user in the database.
+     */
     public void setUser(String user) {
         this.user = user;
     }
 
+    /**
+     * @return password to compare with what the user entered in LoginForm
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * @param password sets the password in the database
+     */
     public void setPassword(String password) {
         this.password = password;
     }

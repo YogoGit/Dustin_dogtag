@@ -83,8 +83,7 @@ public class TrainingController {
      * @param session      It allows the server to store and retrieve
      *                     user-specific data between requests.
      * @return there is any errors within the form or the template itself
-     * if the user is found, email is found, or required entry are not met
-     * and error is returned. Once the checks are complete it allows the controller to submit the
+     * Once the checks are complete it allows the controller to submit the
      * information to the TrainingService.
      */
 

@@ -14,7 +14,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class UserProfileController {
@@ -33,7 +32,7 @@ public class UserProfileController {
      *                be used.
      * @param session It allows the server to store and retrieve
      *                user-specific data between requests.
-     * @return
+     * @return the UserProfileController is requested after the post of the button for submit is clicked
      */
     @GetMapping("/profilesetup")
     public String profileForm(Model model, HttpSession session) {
@@ -50,17 +49,14 @@ public class UserProfileController {
     /**
      * @param userProfileForm the information being entered into the form to be submitted to database.
      * @param result          this is to check errors on the templates and display the error message
-     * @param attr            used to add the userProfileForm to be able to pass it the PostMapping to
-     *                        be used.
      * @param session         It allows the server to store and retrieve
      *                        user-specific data between requests.
      * @return there is any errors within the form or the template itself
-     * if the user is found, email is found, or required entry are not met
-     * and error is returned. Once the checks are complete it allows the controller to submit the
-     * information to the TrainingService.
+     * Once the checks are complete it allows the controller to submit the
+     * information to the UserProfileService.
      */
     @PostMapping("/profilesetup")
-    public String profilePost(@Valid @ModelAttribute UserProfileForm userProfileForm, BindingResult result, HttpSession session, RedirectAttributes attr) {
+    public String profilePost(@Valid @ModelAttribute UserProfileForm userProfileForm, BindingResult result, HttpSession session) {
         final String user = (String) session.getAttribute("user");
         if (user == null || user.isBlank()) {
             return "redirect:/login";

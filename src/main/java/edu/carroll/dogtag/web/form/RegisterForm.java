@@ -32,10 +32,16 @@ public class RegisterForm {
         this.email = email;
     }
 
+    /**
+     * @return the user that is stored in the database.
+     */
     public String getUser() {
         return user;
     }
 
+    /**
+     * @param user sets the user in the database.
+     */
     public void setUser(String user) {
         if (user.length() < 6 || user.length() > 50) {
             log.info("Did not meet user name min or max requirements");
@@ -43,10 +49,16 @@ public class RegisterForm {
         this.user = user;
     }
 
+    /**
+     * @return password to compare with what the user entered in RegisterForm
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * @param password sets the password in the database
+     */
     public void setPassword(String password) {
         if (password.length() < 8 || password.length() > 15) {
             log.info("Did not meet password min or max requirements");
@@ -54,10 +66,16 @@ public class RegisterForm {
         this.password = password;
     }
 
+    /**
+     * @return email to compare with what the user entered in RegisterForm
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * @param email sets the password in the database
+     */
     public void setEmail(String email) {
         this.email = email;
     }
