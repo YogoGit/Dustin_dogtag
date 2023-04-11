@@ -66,14 +66,15 @@ public class TrainingController {
     }
 
     /**
-     *
-     * @param trainingForm
-     * @param fname
-     * @param lname
-     * @param result
-     * @param attr
-     * @param session
-     * @return
+     * @param trainingForm the information being entered into the form to be submitted to database.
+     * @param result       this is to check errors on the templates and display the error message
+     * @param attr         used to add the TrainingForm to be able to pass it the PostMapping to
+     *                     be used.
+     * @param session      It allows the server to store and retrieve
+     *                     user-specific data between requests.
+     * @return there is any errors within the form or the template itself.
+     * Once the checks are complete it allows the controller to submit the
+     * information to the TrainingService.
      */
     @PostMapping("/traininglog")
     public ModelAndView trainingPost(@Valid @ModelAttribute TrainingForm trainingForm, String fname, String lname, BindingResult result, RedirectAttributes attr, HttpSession session, ModelAndView modelAndView) {
