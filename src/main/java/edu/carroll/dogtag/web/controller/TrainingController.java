@@ -72,35 +72,31 @@ public class TrainingController {
      *                     be used.
      * @param session      It allows the server to store and retrieve
      *                     user-specific data between requests.
-     * @return there is any errors within the form or the template itself.
+     * @return there is any errors within the form or the template itself
      * Once the checks are complete it allows the controller to submit the
      * information to the TrainingService.
      */
+
     @PostMapping("/traininglog")
-    public ModelAndView trainingPost(@Valid @ModelAttribute TrainingForm trainingForm, String fname, String lname, BindingResult result, RedirectAttributes attr, HttpSession session, ModelAndView modelAndView) {
+    public String trainingPost(@Valid @ModelAttribute TrainingForm trainingForm, String fname, String lname, BindingResult result, RedirectAttributes attr, HttpSession session) {
         final String user = (String) session.getAttribute("user");
         if (user == null || user.isBlank()) {
-            ModelAndView noSession = new ModelAndView("redirect:/login");
-            noSession.addObject("modelAttribute", noSession);
-            return noSession;
+            return "redirect:/login";
         }
         if (result.hasErrors()) {
-            ModelAndView noSession = new ModelAndView("traininglog");
-            noSession.addObject(noSession);
-            return noSession;
+            return "traininglog";
         }
-
-        ModelAndView trainingPost = new ModelAndView("traininglog");
+//
         Training userTraining = new Training();
         userTraining.setDate(trainingForm.getDate());
         userTraining.setTraining(trainingForm.getTraining());
         userTraining.setLocation(trainingForm.getLocation());
         userTraining.setComments(trainingForm.getComments());
         userTraining.setLogin(loginService.findLogin(user));
-        trainingPost.addObject(userTraining);
-        trainingPost.addObject("fname", userProfileService.fetchUserProfile(user).getFname());
-        trainingPost.addObject("lname", userProfileService.fetchUserProfile(user).getLname());
-        return trainingPost;
+        trainingService.saveLog(userTraining);
+        attr.addAttribute("fname", userProfileService.fetchUserProfile(user).getFname());
+        attr.addAttribute("lname", userProfileService.fetchUserProfile(user).getLname());
+        return "redirect:/traininglog";
     }
 
 }
