@@ -137,6 +137,9 @@ public class Training {
         return comments;
     }
 
+    /**
+     * @param comments sets the explanation for the training that took place for the log entry.
+     */
     public void setComments(String comments) {
         this.comments = comments;
     }

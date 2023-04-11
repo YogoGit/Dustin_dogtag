@@ -31,35 +31,59 @@ public class TrainingForm {
         this.comments = comments;
     }
 
+    /**
+     * @return the date that the training took place for that entry.
+     */
     public String getDate() {
         return date;
     }
 
+    /**
+     * @param date sets the date the log was entered
+     */
     public void setDate(String date) {
         this.date = date;
     }
 
 
+    /**
+     * @return the location that the training took place for that entry.
+     */
     public String getLocation() {
         return location;
     }
 
+    /**
+     * @param location sets the location for the log was entered
+     */
     public void setLocation(String location) {
         this.location = location;
     }
 
+    /**
+     * @return the training that took place for that entry.
+     */
     public String getTraining() {
         return training;
     }
 
+    /**
+     * @param training sets the training that took place for the log entry.
+     */
     public void setTraining(String training) {
         this.training = training;
     }
 
+    /**
+     * @return the date that the training took place for that entry.
+     */
     public String getComments() {
         return comments;
     }
 
+    /**
+     * @param comments sets the explanation for the training that took place for the log entry.
+     */
     public void setComments(String comments) {
         this.comments = comments;
     }
