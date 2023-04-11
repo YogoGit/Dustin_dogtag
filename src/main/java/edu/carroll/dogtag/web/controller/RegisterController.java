@@ -39,16 +39,16 @@ public class RegisterController {
 
     /**
      * @param registerForm the information being entered into the form to be submitted to database.
-     * @param result this is to check errors on the templates and display the error message
-     * @param attrs used to redirect user info to the register success pages to display the registered
-     *              name entered.
+     * @param result       this is to check errors on the templates and display the error message
+     * @param attrs        used to redirect user info to the register success pages to display the registered
+     *                     name entered.
      * @return there is any errors within the form or the template itself
-     *      if the user is found, email is found, or required entry are not met
-     *      and error is returned for using a different username or email.
-     *      If any errors of occur the register is page is reloaded. If no errors then
-     *      the control check if a user or email exist in the database.
-     *      Once the checks are complete it allows the controller to submit the information to the
-     *      RegisterService and then is sent to the register success page.
+     * if the user is found, email is found, or required entry are not met
+     * and error is returned for using a different username or email.
+     * If any errors of occur the register is page is reloaded. If no errors then
+     * the control check if a user or email exist in the database.
+     * Once the checks are complete it allows the controller to submit the information to the
+     * RegisterService and then is sent to the register success page.
      */
     @PostMapping("/register")
     public String registerPost(@Valid @ModelAttribute RegisterForm registerForm, BindingResult result, RedirectAttributes attrs) {
@@ -90,10 +90,9 @@ public class RegisterController {
     }
 
     /**
-     *
-     * @param model used to send the users new register information to the register page
+     * @param model   used to send the users new register information to the register page
      * @param session this is to create a allows the server to store and retrieve
-     *                      user-specific data between requests.
+     *                user-specific data between requests.
      * @return
      */
     @GetMapping("/registerSuccess")

@@ -13,7 +13,6 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class LoginController {
@@ -45,15 +44,15 @@ public class LoginController {
 
     /**
      * @param loginForm the informated being entered into the form to be submitted to check the database.
-     * @param result this is to check errors on the templates and display the error message
-     * @param session this is to create a It allows the server to store and retrieve
-     *                user-specific data between requests.
+     * @param result    this is to check errors on the templates and display the error message
+     * @param session   this is to create a It allows the server to store and retrieve
+     *                  user-specific data between requests.
      * @return there is any errors within the form or the template itself
-     *      if the user is not found, password is wrong, username is not found or both
-     *      and error is returned "Username and password do not match known users"
-     *      If any errors of occur the login is page is reloaded. If no errors then
-     *      the control check if a profile exist in the database and gets the profile page
-     *      if there is not one or send to traininglog page if there is one.
+     * if the user is not found, password is wrong, username is not found or both
+     * and error is returned "Username and password do not match known users"
+     * If any errors of occur the login is page is reloaded. If no errors then
+     * the control check if a profile exist in the database and gets the profile page
+     * if there is not one or send to traininglog page if there is one.
      */
 
     @PostMapping("/login")

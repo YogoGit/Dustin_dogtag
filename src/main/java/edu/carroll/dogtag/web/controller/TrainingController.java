@@ -2,7 +2,6 @@ package edu.carroll.dogtag.web.controller;
 
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.model.Training;
-import edu.carroll.dogtag.jpa.repo.TrainingRepository;
 import edu.carroll.dogtag.service.LoginService;
 import edu.carroll.dogtag.service.TrainingService;
 import edu.carroll.dogtag.service.UserProfileService;
@@ -32,9 +31,8 @@ public class TrainingController {
 
     private final UserProfileService userProfileService;
 
-    private final TrainingRepository trainingRepository;
 
-    public TrainingController(TrainingService trainingService, LoginService loginService, UserProfileService userProfileService, TrainingRepository trainingRepository) {
+    public TrainingController(TrainingService trainingService, LoginService loginService, UserProfileService userProfileService) {
         this.trainingService = trainingService;
 
         this.loginService = loginService;
@@ -42,9 +40,20 @@ public class TrainingController {
 
         this.userProfileService = userProfileService;
 
-        this.trainingRepository = trainingRepository;
     }
 
+    /**
+     * @param model   used to add the TrainingForm to be able to pass it the PostMapping to
+     *                be used.
+     * @param session It allows the server to store and retrieve
+     *                user-specific data between requests.
+     * @return This class merely holds both to make it possible for a controller
+     * to return both model and view in a single return value. ModelAndView is a value object designed
+     * to hold model and view making it possible for a handler to return both model
+     * and view in a single return value. In this case primarily a list of trainings for
+     * the intended user that is being passed to fetchUserTraining(user).  This allows the
+     * template to immediatly display the new information that has been entered.
+     */
 
     @GetMapping("/traininglog")
     public ModelAndView trainingForm(String fname, String lname, Model model, HttpSession session) {
@@ -65,6 +74,19 @@ public class TrainingController {
         traininglogs.addObject("lname", userProfileService.fetchUserProfile(user).getLname());
         return traininglogs;
     }
+
+    /**
+     * @param trainingForm the information being entered into the form to be submitted to database.
+     * @param result       this is to check errors on the templates and display the error message
+     * @param attr         used to add the TrainingForm to be able to pass it the PostMapping to
+     *                     be used.
+     * @param session      It allows the server to store and retrieve
+     *                     user-specific data between requests.
+     * @return there is any errors within the form or the template itself
+     * if the user is found, email is found, or required entry are not met
+     * and error is returned. Once the checks are complete it allows the controller to submit the
+     * information to the TrainingService.
+     */
 
     @PostMapping("/traininglog")
     public String trainingPost(@Valid @ModelAttribute TrainingForm trainingForm, String fname, String lname, BindingResult result, RedirectAttributes attr, HttpSession session) {
