@@ -13,6 +13,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class LoginController {
@@ -75,9 +76,10 @@ public class LoginController {
     /**
      * @return the logout button is request and then when posted return to the logout page.
      */
+
     @GetMapping("/logout")
     public String logoutUserGet() {
-        return "redirect:/logout";
+        return "redirect:/login";
     }
 
     /**
@@ -86,8 +88,8 @@ public class LoginController {
      * @return
      */
     @PostMapping("/logout")
-    public String logoutUserPost(@Valid @ModelAttribute HttpSession session) {
+    public String logoutUserPost(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, RedirectAttributes attrs, HttpSession session) {
         session.invalidate();
-        return "redirect:/login";
+        return "redirect:/traininglog";
     }
 }
