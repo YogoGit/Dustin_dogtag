@@ -44,6 +44,18 @@ public class TrainingController {
         this.trainingRepository = trainingRepository;
     }
 
+    /**
+     * @param model   used to add the TrainingForm to be able to pass it the PostMapping to
+     *                be used.
+     * @param session It allows the server to store and retrieve
+     *                user-specific data between requests.
+     * @return This class merely holds both to make it possible for a controller
+     * to return both model and view in a single return value. ModelAndView is a value object designed
+     * to hold model and view making it possible for a handler to return both model
+     * and view in a single return value. In this case primarily a list of trainings for
+     * the intended user that is being passed to fetchUserTraining(user).  This allows the
+     * template to immediately display the new information that has been entered.
+     */
     @GetMapping("/traininglog")
     public ModelAndView trainingForm(HttpSession session) {
         final String user = (String) session.getAttribute("user");
