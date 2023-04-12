@@ -194,4 +194,47 @@ class TrainingServiceImplTest {
         Assertions.assertTrue(trainingService.fetchUserTraining("user").get(1).getDate().equals("2023-04-13"));
 
     }
+
+    @Test
+    void fetchUserTrainingHappyDate3() {
+        Login createUser = new Login();
+        createUser.setPassword("password");
+        createUser.setUser("user");
+        createUser.setEmail("email");
+        loginRepository.save(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(loginService.findLogin("user"));
+        trainingService.saveLog(trainingLog);
+        Training trainingLog2 = new Training();
+        trainingLog2.setDate("2023-04-13");
+        trainingLog2.setLocation("Carroll2");
+        trainingLog2.setTraining("Walking2");
+        trainingLog2.setComments("Good2");
+        trainingLog2.setLogin(loginService.findLogin("user"));
+        trainingService.saveLog(trainingLog2);
+        Training trainingLog3 = new Training();
+        trainingLog3.setDate("2023-04-14");
+        trainingLog3.setLocation("Carroll3");
+        trainingLog3.setTraining("Walking3");
+        trainingLog3.setComments("Good3");
+        trainingLog3.setLogin(loginService.findLogin("user"));
+        trainingService.saveLog(trainingLog3);
+        Training trainingLog4 = new Training();
+        trainingLog4.setDate("2023-04-15");
+        trainingLog4.setLocation("Carroll4");
+        trainingLog4.setTraining("Walking4");
+        trainingLog4.setComments("Good4");
+        trainingLog4.setLogin(loginService.findLogin("user"));
+        trainingService.saveLog(trainingLog4);
+        List<Training> userTraining = trainingService.fetchUserTraining("user");
+        Assertions.assertTrue(trainingService.fetchUserTraining("user").equals(userTraining));
+        Assertions.assertTrue(trainingService.fetchUserTraining("user").get(0).getDate().equals("2023-04-12"));
+        Assertions.assertTrue(trainingService.fetchUserTraining("user").get(1).getDate().equals("2023-04-13"));
+        Assertions.assertTrue(trainingService.fetchUserTraining("user").get(2).getDate().equals("2023-04-14"));
+        Assertions.assertTrue(trainingService.fetchUserTraining("user").get(3).getDate().equals("2023-04-15"));
+    }
 }
