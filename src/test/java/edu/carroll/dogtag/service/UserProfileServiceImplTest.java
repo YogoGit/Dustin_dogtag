@@ -47,7 +47,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileHappy3() {
+    void fetchUserProfileHappy2() {
         Login createUser = new Login();
         createUser.setPassword("password");
         createUser.setUser("user");
