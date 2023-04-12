@@ -6,11 +6,11 @@
 </head>
 <body>
 
-<!-- Register page that allows the user to save their
-credentials to the Login database. Once entered and correct parameter are met
-the user is allowed to then login. When register button is clicked the template
-forwards the user to the register success page which has a login hyperlink to
-forward back to the login page-->
+<!-- Training log page has the user enter training events to save
+into the database. Once entered and correct parameter are met
+the user is allowed to submit. When Submit Training button is clicked the template
+reloads the user page with updated entries. The page also has a logout button and a profile
+setup button-->
 
 <form action="#" method="post" th:action="@{/logout}">
     <input name="user" type="hidden" value="*{user}"/>
