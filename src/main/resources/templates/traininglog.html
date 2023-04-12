@@ -27,7 +27,7 @@ setup button-->
     <input name="fname" th:value="${fname}" type="hidden"/>
     <input name="lname" th:value="${lname}" type="hidden"/>
     <span th:errors="*{global}" th:if="${#fields.hasGlobalErrors()}">Global error</span><br/>  <!-- Add this line -->
-    <input placeholder="Date of training" th:field="*{date}" type="text"/>
+    <input placeholder="Date of training" th:field="*{date}" type="date"/>
     <span th:errors="*{date}" th:if="${#fields.hasErrors('date')}">Date Error</span><br/>
     <input placeholder="Training location" th:field="*{location}" th:maxlength="15" th:min="2" type="text"/>
     <span th:errors="*{location}" th:if="${#fields.hasErrors('location')}">Location error</span><br/>
