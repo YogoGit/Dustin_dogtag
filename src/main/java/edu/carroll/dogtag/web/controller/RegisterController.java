@@ -3,7 +3,6 @@ package edu.carroll.dogtag.web.controller;
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.service.RegisterService;
 import edu.carroll.dogtag.web.form.RegisterForm;
-import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
