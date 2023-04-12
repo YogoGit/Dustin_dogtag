@@ -13,21 +13,21 @@ reloads the user page with updated entries. The page also has a logout button an
 setup button-->
 
 <form action="#" method="post" th:action="@{/logout}">
-    <input name="user" type="hidden" value="*{user}"/>
+<!--    <input name="user" type="hidden" value="*{user}"/>-->
     <button type="submit">Logout</button>
 </form>
 <form action="#" method="get" th:action="@{/profilesetup}">
-    <input name="user" type="hidden" value="*{user}"/>
-    <button type="submit">Profile Setup</button>
+<!--    <input name="user" type="hidden" value="*{user}"/>-->
+    <button type="submit">Profile Update</button>
 </form>
 <h1 th:text="'Welcome to the traing logs ' + ${fname} + ' ' + ${lname} "/>
-<h1></h1>Enter Logs</a>
+<h1>Enter Logs</h1>
 <form action="#" method="post" th:action="@{/traininglog}" th:object="${trainingForm}">
-    <input name="user" type="hidden" value="*{user}"/>
+<!--    <input name="user" type="hidden" value="*{user}"/>-->
     <input name="fname" th:value="${fname}" type="hidden"/>
     <input name="lname" th:value="${lname}" type="hidden"/>
     <span th:errors="*{global}" th:if="${#fields.hasGlobalErrors()}">Global error</span><br/>  <!-- Add this line -->
-    <input placeholder="Date of training" th:field="*{date}" type="date"/>
+    <input placeholder="Date of training" th:field="*{date}" type="text"/>
     <span th:errors="*{date}" th:if="${#fields.hasErrors('date')}">Date Error</span><br/>
     <input placeholder="Training location" th:field="*{location}" th:maxlength="15" th:min="2" type="text"/>
     <span th:errors="*{location}" th:if="${#fields.hasErrors('location')}">Location error</span><br/>
@@ -45,14 +45,12 @@ setup button-->
         <th>Location</th>
         <th>Comment</th>
     </tr>
-    <tbody>
-    <tr th:each="training:${trainings}">
+    <tr th:each="training: ${trainings}">
         <td th:text="${training.date}"/>
         <td th:text="${training.training}"/>
         <td th:text="${training.location}"/>
         <td th:text="${training.comments}"/>
     </tr>
-    </tbody>
 
 </table>
 </body>

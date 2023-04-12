@@ -35,7 +35,7 @@ public class UserProfileController {
      * @return the UserProfileController is requested after the post of the button for submit is clicked
      */
     @GetMapping("/profilesetup")
-    public String profileForm(Model model, HttpSession session) {
+    public String profileForm(Model model, HttpSession session, String fname, String lname) {
         final String user = (String) session.getAttribute("user");
         if (user == null || user.isBlank()) {
             return "redirect:/login";
@@ -56,12 +56,13 @@ public class UserProfileController {
      * information to the UserProfileService.
      */
     @PostMapping("/profilesetup")
-    public String profilePost(@Valid @ModelAttribute UserProfileForm userProfileForm, BindingResult result, HttpSession session) {
+    public String profilePost(@Valid @ModelAttribute UserProfileForm userProfileForm, BindingResult result, HttpSession session, Model model, String fname, String lname) {
         final String user = (String) session.getAttribute("user");
         if (user == null || user.isBlank()) {
             return "redirect:/login";
         }
         if (result.hasErrors()) {
+            model.addAttribute("user", loginService.findLogin(user).getUser());
             return "profilesetup";
         }
         UserProfile userProfile = new UserProfile();
@@ -70,6 +71,8 @@ public class UserProfileController {
         userProfile.setPhone(userProfileForm.getPhone());
         userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
+        model.addAttribute("fname", userProfileService.fetchUserProfile(user).getFname());
+        model.addAttribute("lname", userProfileService.fetchUserProfile(user).getLname());
         log.info("Registration post was successful");
         return "redirect:/traininglog";
     }

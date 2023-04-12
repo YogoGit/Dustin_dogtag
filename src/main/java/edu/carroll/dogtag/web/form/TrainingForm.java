@@ -1,6 +1,7 @@
 package edu.carroll.dogtag.web.form;
 
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 public class TrainingForm {
 
@@ -8,17 +9,17 @@ public class TrainingForm {
     private String date;
 
 
-    //    @NotNull
-//    @Size(min = 2, message = "Location must be at least 2 character long: Example CA")
-//    @Size(max = 15, message = "Location Name must be less than 15 character long")
+    @NotNull
+    @Size(min = 2, message = "Location must be at least 2 character long: Example CA")
+    @Size(max = 15, message = "Location Name must be less than 15 character long")
     private String location;
     //    @NotNull
-//    @Size(min = 3, message = "Training must be at least 3 character long")
-//    @Size(max = 15, message = "Training must be less than 15 character long")
+    @Size(min = 3, message = "Training must be at least 3 character long")
+    @Size(max = 15, message = "Training must be less than 15 character long")
     private String training;
-    //    @NotNull
-//    @Size(min = 3, message = "Comments be at least 3 character long")
-//    @Size(max = 20, message = "Comments must be less than 20 character long")
+    @NotNull
+    @Size(min = 3, message = "Comments be at least 3 character long")
+    @Size(max = 20, message = "Comments must be less than 20 character long")
     private String comments;
 
     public TrainingForm() {

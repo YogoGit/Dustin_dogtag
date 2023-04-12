@@ -31,10 +31,10 @@
     <!--
       The logger name is typically the Java/Scala package name.
       This configures the log level to log at for a package and its
-      children p    ackages.
+      children packages.
     -->
     <!-- Overwrite level for a internal code - Commented out for now  -->
-    <logger name="edu.carroll.cs389" level="DEBUG"/>
+    <logger name="edu.carroll.cs389" level="INFO"/> <!-- Fatal or error warn info debug trace-->  <!-- Trace -->
 
 
     <!-- Reduce DB startup chatter -->
@@ -42,7 +42,7 @@
     <logger name="com.zaxxer.hikari" level="INFO"/>
 
     <!-- Default level is INFO -->
-    <root level="INFO">
+    <root level="INFO"> <!-- Fatal or -->  <!-- Trace -->
         <appender-ref ref="Console"/>
         <appender-ref ref="Logfile"/>
     </root>

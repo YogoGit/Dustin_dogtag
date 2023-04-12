@@ -90,6 +90,6 @@ public class LoginController {
     @PostMapping("/logout")
     public String logoutUserPost(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, RedirectAttributes attrs, HttpSession session) {
         session.invalidate();
-        return "redirect:/traininglog";
+        return "redirect:/login";
     }
 }
