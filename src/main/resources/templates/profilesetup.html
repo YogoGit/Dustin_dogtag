@@ -6,6 +6,12 @@
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
 </head>
 <body>
+
+<!-- Profile setup page that allows the user to enter information into the database.
+Including Full name, Last name, Phone number.
+One button are displayed the Submit Profile Setup button forwards you to the
+appropriate template for logging training logs-->
+
 <h1>Profile Setup</h1>
 <form action="#" method="post" th:action="@{/profilesetup}" th:object="${userProfileForm}">
     <input name="user" type="hidden" value="*{user}"/>

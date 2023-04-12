@@ -5,6 +5,16 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
 </head>
 <body>
+
+<!-- Fix Template that is the login page that allows the user to log in with their
+credentials or go to the register page to enter information into the database
+to be allowed to then login. Two buttons
+are displayed the login button and register button that forwards you to the appropriate
+template to continue-->
+
+<!-- Template that is the first page that the local:8080 takes you to and
+ is supplied by the login button that forwards you to the login template-->
+
 <form action="#" method="post" th:action="@{/registerSuccess}">
     <h1>Successfully Registration</h1>
     <p th:text="'Welcome are you ready to login ' + ${user}"/>

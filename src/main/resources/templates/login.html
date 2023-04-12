@@ -6,7 +6,7 @@
 
 </head>
 <body>
-<!-- Template that is the login page that allows the user to log in with their
+<!-- Login page that allows the user to log in with their
 credentials or go to the register page to enter information into the database
 to be allowed to then login. Two buttons
 are displayed the login button and register button that forwards you to the appropriate
@@ -14,6 +14,7 @@ template to continue-->
 
 <!-- Template that is the first page that the local:8080 takes you to and
  is supplied by the login button that forwards you to the login template-->
+
 <form action="#" method="post" th:action="@{/login}" th:object="${loginForm}">
     <span th:errors="*{global}" th:if="${#fields.hasGlobalErrors()}">Global error</span><br/>  <!-- Add this line -->
     <input placeholder="User" th:field="*{user}" th:maxlength="15" th:min="6" type="text"/>
