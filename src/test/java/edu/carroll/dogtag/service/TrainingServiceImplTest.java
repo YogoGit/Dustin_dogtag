@@ -28,8 +28,7 @@ class TrainingServiceImplTest {
     private static final Logger log = LoggerFactory.getLogger(RegisterServiceImplTest.class);
 
     @Autowired
-    private TrainingRepository trainingRepository;
-
+    private RegisterService registerService;
     @Autowired
     private TrainingServiceImpl trainingService;
 
@@ -54,7 +53,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNull(userTraining);
     }
@@ -65,7 +64,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -84,7 +83,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -110,7 +109,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -150,7 +149,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -170,7 +169,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -198,7 +197,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -241,7 +240,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -261,7 +260,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -289,7 +288,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -332,7 +331,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -352,7 +351,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -380,7 +379,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -423,7 +422,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -443,7 +442,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -471,7 +470,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");

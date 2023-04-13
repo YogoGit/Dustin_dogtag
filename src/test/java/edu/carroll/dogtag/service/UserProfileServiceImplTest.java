@@ -27,6 +27,9 @@ class UserProfileServiceImplTest {
     @Autowired
     private UserProfileService userProfileService;
 
+    @Autowired
+    private RegisterService registerService;
+
     @Test
     void fetchUserProfileHappy() {
         UserProfile noUser = userProfileService.fetchUserProfile("user1");
@@ -40,7 +43,7 @@ class UserProfileServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         UserProfile noUser = userProfileService.fetchUserProfile(user);
         assertNull(noUser);
 
@@ -52,7 +55,7 @@ class UserProfileServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -70,7 +73,7 @@ class UserProfileServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -89,7 +92,7 @@ class UserProfileServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -108,7 +111,7 @@ class UserProfileServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -127,7 +130,7 @@ class UserProfileServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -146,7 +149,7 @@ class UserProfileServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -165,7 +168,7 @@ class UserProfileServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -184,7 +187,7 @@ class UserProfileServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -203,7 +206,7 @@ class UserProfileServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        loginRepository.save(createUser);
+        registerService.register(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
