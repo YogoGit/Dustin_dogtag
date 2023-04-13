@@ -42,7 +42,7 @@ public class UserProfile {
     private String lname;
     @Column(name = "phone")
     @NotEmpty
-    @Size(min = 11, max = 11)
+    @Size(min = 12, max = 12)
     private String phone;
 
     /**

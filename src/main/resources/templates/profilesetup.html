@@ -20,7 +20,7 @@ appropriate template for logging training logs-->
     <span th:errors="*{fname}" th:if="${#fields.hasErrors('fname')}">First Name Error</span><br/>
     <input placeholder="Last Name" th:field="*{lname}" th:maxlength="10" th:min="1" type="text"/>
     <span th:errors="*{lname}" th:if="${#fields.hasErrors('lname')}">Last Name error</span><br/>
-    <input pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}" placeholder="123-45-6789" th:field="*{phone}" th:maxlength="11"
+    <input pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-45-6789" th:field="*{phone}" th:maxlength="12"
            type="tel"/>
     <span th:errors="*{phone}" th:if="${#fields.hasErrors('phone')}">Phone error</span><br/>
     <button type="submit">Submit Profile Setup</button>

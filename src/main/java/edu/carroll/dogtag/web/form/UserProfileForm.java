@@ -14,8 +14,8 @@ public class UserProfileForm {
     private String lname;
 
     @NotNull
-    @Size(min = 11, message = "Phone must be at least 10 character long")
-    @Size(max = 11, message = "Phone must be less than 10 character long")
+    @Size(min = 12, message = "Phone must be at least 10 character long")
+    @Size(max = 12, message = "Phone must be less than 10 character long")
     private String phone;
 
     private String user;

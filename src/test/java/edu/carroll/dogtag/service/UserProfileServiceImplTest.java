@@ -37,11 +37,11 @@ class UserProfileServiceImplTest {
     @Test
     void fetchUserProfileHappy1() {
         Login createUser = new Login();
-        createUser.setPassword("password");
-        createUser.setUser("user");
-        createUser.setEmail("email");
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
         loginRepository.save(createUser);
-        UserProfile noUser = userProfileService.fetchUserProfile("user");
+        UserProfile noUser = userProfileService.fetchUserProfile(user);
         assertNull(noUser);
 
     }
@@ -49,17 +49,17 @@ class UserProfileServiceImplTest {
     @Test
     void fetchUserProfileHappy2() {
         Login createUser = new Login();
-        createUser.setPassword("password");
-        createUser.setUser("user");
-        createUser.setEmail("email");
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
         loginRepository.save(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
-        userProfile.setPhone("4069800947");
-        userProfile.setLogin(loginService.findLogin("user"));
+        userProfile.setPhone("406-980-0947");
+        userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
-        UserProfile userFound = userProfileService.fetchUserProfile("user");
+        UserProfile userFound = userProfileService.fetchUserProfile(user);
         assertNotNull(userFound);
 
     }
@@ -67,152 +67,152 @@ class UserProfileServiceImplTest {
     @Test
     void fetchUserProfileHappyFname1() {
         Login createUser = new Login();
-        createUser.setPassword("password");
-        createUser.setUser("user");
-        createUser.setEmail("email");
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
         loginRepository.save(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
-        userProfile.setPhone("4069800947");
-        userProfile.setLogin(loginService.findLogin("user"));
+        userProfile.setPhone("406-980-0947");
+        userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
-        userProfileService.fetchUserProfile("user");
-        assertTrue(userProfileService.fetchUserProfile("user").equals(userProfile));
-        assertTrue(userProfileService.fetchUserProfile("user").getFname().equals("Dustin"));
+        userProfileService.fetchUserProfile(user);
+        assertTrue(userProfileService.fetchUserProfile(user).equals(userProfile));
+        assertTrue(userProfileService.fetchUserProfile(user).getFname().equals("Dustin"));
 
     }
 
     @Test
     void fetchUserProfileCrappyFname1() {
         Login createUser = new Login();
-        createUser.setPassword("password");
-        createUser.setUser("user");
-        createUser.setEmail("email");
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
         loginRepository.save(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
-        userProfile.setPhone("4069800947");
-        userProfile.setLogin(loginService.findLogin("user"));
+        userProfile.setPhone("406-980-0947");
+        userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
-        userProfileService.fetchUserProfile("user");
-        assertFalse(userProfileService.fetchUserProfile("user").getFname().equals(userProfile.getLname()));
-        assertTrue(userProfileService.fetchUserProfile("user").getFname().equals("Dustin"));
+        userProfileService.fetchUserProfile(user);
+        assertFalse(userProfileService.fetchUserProfile(user).getFname().equals(userProfile.getLname()));
+        assertTrue(userProfileService.fetchUserProfile(user).getFname().equals("Dustin"));
 
     }
 
     @Test
     void fetchUserProfileCrappyFname2() {
         Login createUser = new Login();
-        createUser.setPassword("password");
-        createUser.setUser("user");
-        createUser.setEmail("email");
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
         loginRepository.save(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
-        userProfile.setPhone("4069800947");
-        userProfile.setLogin(loginService.findLogin("user"));
+        userProfile.setPhone("406-980-0947");
+        userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
-        userProfileService.fetchUserProfile("user");
-        assertTrue(userProfileService.fetchUserProfile("user").getFname().equals(userProfile.getFname()));
-        assertFalse(userProfileService.fetchUserProfile("user").getFname().equals("Gardner"));
+        userProfileService.fetchUserProfile(user);
+        assertTrue(userProfileService.fetchUserProfile(user).getFname().equals(userProfile.getFname()));
+        assertFalse(userProfileService.fetchUserProfile(user).getFname().equals("Gardner"));
 
     }
 
     @Test
     void fetchUserProfileHappyLname1() {
         Login createUser = new Login();
-        createUser.setPassword("password");
-        createUser.setUser("user");
-        createUser.setEmail("email");
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
         loginRepository.save(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
-        userProfile.setPhone("4069800947");
-        userProfile.setLogin(loginService.findLogin("user"));
+        userProfile.setPhone("406-980-0947");
+        userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
-        userProfileService.fetchUserProfile("user");
-        assertTrue(userProfileService.fetchUserProfile("user").getLname().equals(userProfile.getLname()));
-        assertTrue(userProfileService.fetchUserProfile("user").getLname().equals("Gardner"));
+        userProfileService.fetchUserProfile(user);
+        assertTrue(userProfileService.fetchUserProfile(user).getLname().equals(userProfile.getLname()));
+        assertTrue(userProfileService.fetchUserProfile(user).getLname().equals("Gardner"));
 
     }
 
     @Test
     void fetchUserProfileCrappyLname1() {
         Login createUser = new Login();
-        createUser.setPassword("password");
-        createUser.setUser("user");
-        createUser.setEmail("email");
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
         loginRepository.save(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
-        userProfile.setPhone("4069800947");
-        userProfile.setLogin(loginService.findLogin("user"));
+        userProfile.setPhone("406-980-0947");
+        userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
-        userProfileService.fetchUserProfile("user");
-        assertFalse(userProfileService.fetchUserProfile("user").getLname().equals(userProfile.getFname()));
-        assertTrue(userProfileService.fetchUserProfile("user").getLname().equals("Gardner"));
+        userProfileService.fetchUserProfile(user);
+        assertFalse(userProfileService.fetchUserProfile(user).getLname().equals(userProfile.getFname()));
+        assertTrue(userProfileService.fetchUserProfile(user).getLname().equals("Gardner"));
 
     }
 
     @Test
     void fetchUserProfileCrappyLname2() {
         Login createUser = new Login();
-        createUser.setPassword("password");
-        createUser.setUser("user");
-        createUser.setEmail("email");
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
         loginRepository.save(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
-        userProfile.setPhone("4069800947");
-        userProfile.setLogin(loginService.findLogin("user"));
+        userProfile.setPhone("406-980-0947");
+        userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
-        userProfileService.fetchUserProfile("user");
-        assertTrue(userProfileService.fetchUserProfile("user").getLname().equals(userProfile.getLname()));
-        assertFalse(userProfileService.fetchUserProfile("user").getLname().equals("Dustin"));
+        userProfileService.fetchUserProfile(user);
+        assertTrue(userProfileService.fetchUserProfile(user).getLname().equals(userProfile.getLname()));
+        assertFalse(userProfileService.fetchUserProfile(user).getLname().equals("Dustin"));
 
     }
 
     @Test
     void fetchUserProfileCrappyLname3() {
         Login createUser = new Login();
-        createUser.setPassword("password");
-        createUser.setUser("user");
-        createUser.setEmail("email");
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
         loginRepository.save(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
-        userProfile.setPhone("4069800947");
-        userProfile.setLogin(loginService.findLogin("user"));
+        userProfile.setPhone("406-980-0947");
+        userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
-        userProfileService.fetchUserProfile("user");
-        assertFalse(userProfileService.fetchUserProfile("user").getLname().equals(userProfile.getPhone()));
-        assertTrue(userProfileService.fetchUserProfile("user").getLname().equals("Gardner"));
+        userProfileService.fetchUserProfile(user);
+        assertFalse(userProfileService.fetchUserProfile(user).getLname().equals(userProfile.getPhone()));
+        assertTrue(userProfileService.fetchUserProfile(user).getLname().equals("Gardner"));
 
     }
 
     @Test
     void fetchUserProfile() {
         Login createUser = new Login();
-        createUser.setPassword("password");
-        createUser.setUser("user");
-        createUser.setEmail("email");
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
         loginRepository.save(createUser);
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
-        userProfile.setPhone("4069800947");
-        userProfile.setLogin(loginService.findLogin("user"));
+        userProfile.setPhone("406-980-0947");
+        userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
-        userProfileService.fetchUserProfile("user");
-        assertFalse(userProfileService.fetchUserProfile("user").getLname().equals(userProfile.getPhone()));
-        assertFalse(userProfileService.fetchUserProfile("user").getLname().equals("Dustin"));
+        userProfileService.fetchUserProfile(user);
+        assertFalse(userProfileService.fetchUserProfile(user).getLname().equals(userProfile.getPhone()));
+        assertFalse(userProfileService.fetchUserProfile(user).getLname().equals("Dustin"));
 
     }
 
