@@ -2,6 +2,8 @@ package edu.carroll.dogtag.jpa.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 /**
  * UserProfile is the database model. If it has not been created, yet it will do it on the first run.
@@ -30,11 +32,17 @@ public class UserProfile {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "login_id")
     private Login login;
-    @Column(name = "fname", nullable = false)
+    @Column(name = "fname")
+    @NotEmpty
+    @Size(min = 1, max = 10)
     private String fname;
-    @Column(name = "lname", nullable = false)
+    @Column(name = "lname")
+    @NotEmpty
+    @Size(min = 1, max = 11)
     private String lname;
-    @Column(name = "phone", nullable = true)
+    @Column(name = "phone")
+    @NotEmpty
+    @Size(min = 11, max = 11)
     private String phone;
 
     /**

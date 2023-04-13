@@ -1,6 +1,5 @@
 package edu.carroll.dogtag.web.controller;
 
-import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.model.Training;
 import edu.carroll.dogtag.jpa.repo.TrainingRepository;
 import edu.carroll.dogtag.service.LoginService;
@@ -17,8 +16,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -57,7 +54,7 @@ public class TrainingController {
      */
 
     @GetMapping("/traininglog")
-    public String trainingForm(HttpSession session, Model model){
+    public String trainingForm(HttpSession session, Model model) {
         final String user = (String) session.getAttribute("user");
         if (user == null || user.isBlank()) {
             return "redirect:/login";
@@ -67,7 +64,7 @@ public class TrainingController {
         model.addAttribute("trainingForm", new TrainingForm());
         model.addAttribute("fname", userProfileService.fetchUserProfile(user).getFname());
         model.addAttribute("lname", userProfileService.fetchUserProfile(user).getLname());
-       return "traininglog";
+        return "traininglog";
     }
 
 //    @GetMapping("/traininglog")
@@ -106,7 +103,7 @@ public class TrainingController {
     @PostMapping("/traininglog")
     // Order matters with paramiter that are being passed The BindingResult must come right after the
     // model object that is validated or else Spring will fail to validate the object and throw an exception.
-    public String trainingPost(@Valid @ModelAttribute TrainingForm trainingForm,BindingResult result, String fname, String lname, HttpSession session, Model attr) {
+    public String trainingPost(@Valid @ModelAttribute TrainingForm trainingForm, BindingResult result, String fname, String lname, HttpSession session, Model attr) {
         final String user = (String) session.getAttribute("user");
         if (user == null || user.isBlank()) {
             return "redirect:/login";

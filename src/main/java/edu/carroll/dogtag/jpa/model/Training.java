@@ -2,6 +2,8 @@ package edu.carroll.dogtag.jpa.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 /**
  * Training is the database model. If it has not been created, yet it will do it on the first run.
@@ -33,13 +35,20 @@ public class Training {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "login_id")
     private Login login;
-    @Column(name = "date", nullable = false)
+    @Column(name = "date")
+    @NotEmpty
     private String date;
-    @Column(name = "location", nullable = false)
+    @Column(name = "location")
+    @NotEmpty
+    @Size(min = 2, max = 15)
     private String location;
     @Column(name = "training", nullable = false)
+    @NotEmpty
+    @Size(min = 3, max = 15)
     private String training;
     @Column(name = "comments", nullable = false)
+    @NotEmpty
+    @Size(min = 3, max = 20)
     private String comments;
 
     /**

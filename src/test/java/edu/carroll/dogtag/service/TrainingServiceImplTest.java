@@ -2,9 +2,7 @@ package edu.carroll.dogtag.service;
 
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.model.Training;
-import edu.carroll.dogtag.jpa.model.UserProfile;
 import edu.carroll.dogtag.jpa.repo.LoginRepository;
-import edu.carroll.dogtag.jpa.repo.RegisterRepository;
 import edu.carroll.dogtag.jpa.repo.TrainingRepository;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Assertions;
@@ -18,7 +16,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.springframework.test.util.AssertionErrors.assertFalse;
 import static org.springframework.test.util.AssertionErrors.assertTrue;
 
 @SpringBootTest
@@ -78,7 +75,7 @@ class TrainingServiceImplTest {
         trainingService.saveLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining("user");
         assertNotNull(userTraining);
-        assertTrue("One entry for traininglog", userTraining.size()==1);
+        assertTrue("One entry for traininglog", userTraining.size() == 1);
     }
 
     @Test
@@ -104,7 +101,7 @@ class TrainingServiceImplTest {
         trainingService.saveLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining("user");
         assertNotNull(userTraining);
-        assertTrue("Two entry for traininglog", userTraining.size()==2);
+        assertTrue("Two entry for traininglog", userTraining.size() == 2);
     }
 
     @Test
@@ -144,7 +141,7 @@ class TrainingServiceImplTest {
         trainingService.saveLog(trainingLog4);
         List<Training> userTraining = trainingService.fetchUserTraining("user");
         assertNotNull(userTraining);
-        assertTrue("Two entry for traininglog", userTraining.size()==4);
+        assertTrue("Two entry for traininglog", userTraining.size() == 4);
     }
 
     @Test

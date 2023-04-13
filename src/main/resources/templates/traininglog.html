@@ -13,17 +13,17 @@ reloads the user page with updated entries. The page also has a logout button an
 setup button-->
 
 <form action="#" method="post" th:action="@{/logout}">
-<!--    <input name="user" type="hidden" value="*{user}"/>-->
+    <!--    <input name="user" type="hidden" value="*{user}"/>-->
     <button type="submit">Logout</button>
 </form>
 <form action="#" method="get" th:action="@{/profilesetup}">
-<!--    <input name="user" type="hidden" value="*{user}"/>-->
+    <!--    <input name="user" type="hidden" value="*{user}"/>-->
     <button type="submit">Profile Update</button>
 </form>
 <h1 th:text="'Welcome to the traing logs ' + ${fname} + ' ' + ${lname} "/>
 <h1>Enter Logs</h1>
 <form action="#" method="post" th:action="@{/traininglog}" th:object="${trainingForm}">
-<!--    <input name="user" type="hidden" value="*{user}"/>-->
+    <!--    <input name="user" type="hidden" value="*{user}"/>-->
     <input name="fname" th:value="${fname}" type="hidden"/>
     <input name="lname" th:value="${lname}" type="hidden"/>
     <span th:errors="*{global}" th:if="${#fields.hasGlobalErrors()}">Global error</span><br/>  <!-- Add this line -->

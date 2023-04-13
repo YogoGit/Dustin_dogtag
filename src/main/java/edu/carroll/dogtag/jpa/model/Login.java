@@ -1,6 +1,9 @@
 package edu.carroll.dogtag.jpa.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
@@ -42,10 +45,17 @@ public class Login {
 
 
     @Column(name = "username", nullable = false, unique = true)
+    @NotEmpty
+    @Size(min = 6, max = 16)
     private String user;
     @Column(name = "password", nullable = false)
+    @NotEmpty
+    @Size(min = 8, max = 16)
     private String password;
     @Column(name = "email", nullable = false, unique = true)
+    @NotEmpty
+    @Email()
+    @Size(min = 6, max = 20)
     private String email;
 
 
