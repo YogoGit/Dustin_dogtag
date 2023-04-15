@@ -144,6 +144,23 @@ public class LoginServiceImplTest {
     }
 
     @Test
+    public void validateUserSwitchUserLookupTest() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        final LoginForm form = new LoginForm(user, password+"2");
+        Login createUser2 = new Login();
+        createUser.setPassword(password+"2");
+        createUser.setUser(user+"2");
+        createUser.setEmail(email+"2");
+        registerService.register(createUser2);
+        final LoginForm form2 = new LoginForm(user+"2", password);
+        assertFalse("validateUserSuccessTest: should succeed using the same user/pass info", loginService.validateUser(form));
+        assertFalse("validateUserSuccessTest: should succeed using the same user/pass info", loginService.validateUser(form2));
+    }
+    @Test
     public void findLogin(){
 
     }
