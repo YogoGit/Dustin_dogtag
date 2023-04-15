@@ -99,7 +99,30 @@ public class LoginServiceImplTest {
 
     }
 
-
+    @Test
+    public void validateUserFailPasswordAndSuccessInputTest() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        final LoginForm form = new LoginForm( user, password+"2");
+        final LoginForm form2 = new LoginForm(user,password);
+        assertFalse("validateUserFailInputSwitchTest: should fail switching user/pass info", loginService.validateUser(form));
+        assertTrue("validateUserFailInputSwitchTest: should fail switching user/pass info", loginService.validateUser(form2));
+    }
+    @Test
+    public void validateUserFailAndSuccessInputTest() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        final LoginForm form = new LoginForm(user+"2", password);
+        final LoginForm form2 = new LoginForm(user,password);
+        assertFalse("validateUserFailInputSwitchTest: should fail switching user/pass info", loginService.validateUser(form));
+        assertTrue("validateUserFailInputSwitchTest: should fail switching user/pass info", loginService.validateUser(form2));
+    }
     @Test
     public void validateUserFailInputSwitchTest() {
         Login createUser = new Login();
