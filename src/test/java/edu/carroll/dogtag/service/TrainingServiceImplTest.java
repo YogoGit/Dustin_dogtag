@@ -3,7 +3,6 @@ package edu.carroll.dogtag.service;
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.model.Training;
 import edu.carroll.dogtag.jpa.repo.LoginRepository;
-import edu.carroll.dogtag.jpa.repo.TrainingRepository;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -524,20 +523,20 @@ class TrainingServiceImplTest {
         trainingService.saveLog(trainingLog);
 
         Login createUser2 = new Login();
-        createUser2.setPassword(password+"2");
-        createUser2.setUser(user+"2");
-        createUser2.setEmail(email+"2");
+        createUser2.setPassword(password + "2");
+        createUser2.setUser(user + "2");
+        createUser2.setEmail(email + "2");
         registerService.register(createUser2);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
-        trainingLog2.setLogin(loginService.findLogin(user+"2"));
+        trainingLog2.setLogin(loginService.findLogin(user + "2"));
         trainingService.saveLog(trainingLog2);
 
         List<Training> userTraining = trainingService.fetchUserTraining(user);
-        List<Training> userTraining2 = trainingService.fetchUserTraining(user+"2");
+        List<Training> userTraining2 = trainingService.fetchUserTraining(user + "2");
         assertNotNull(userTraining);
         assertFalse("One entry for traininglog and not for both", userTraining.size() == 2);
         assertFalse("Should not return the first user training = the second user training",
@@ -568,25 +567,25 @@ class TrainingServiceImplTest {
         trainingService.saveLog(trainingLog2);
 
         Login createUser2 = new Login();
-        createUser2.setPassword(password+"2");
-        createUser2.setUser(user+"2");
-        createUser2.setEmail(email+"2");
+        createUser2.setPassword(password + "2");
+        createUser2.setUser(user + "2");
+        createUser2.setEmail(email + "2");
         registerService.register(createUser2);
         Training trainingLog3 = new Training();
         trainingLog3.setDate("2023-04-14");
         trainingLog3.setLocation("Carroll3");
         trainingLog3.setTraining("Walking3");
         trainingLog3.setComments("Good3");
-        trainingLog3.setLogin(loginService.findLogin(user+"2"));
+        trainingLog3.setLogin(loginService.findLogin(user + "2"));
         trainingService.saveLog(trainingLog3);
         Training trainingLog4 = new Training();
         trainingLog4.setDate("2023-04-15");
         trainingLog4.setLocation("Carroll4");
         trainingLog4.setTraining("Walking4");
         trainingLog4.setComments("Good4");
-        trainingLog4.setLogin(loginService.findLogin(user+"2"));
+        trainingLog4.setLogin(loginService.findLogin(user + "2"));
         trainingService.saveLog(trainingLog4);
-        List<Training> userTraining = trainingService.fetchUserTraining(user+"2");
+        List<Training> userTraining = trainingService.fetchUserTraining(user + "2");
         assertNotNull(userTraining);
         assertFalse("Two entry for createUser", userTraining.size() == 4);
     }
