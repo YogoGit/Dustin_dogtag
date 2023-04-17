@@ -302,5 +302,43 @@ class RegisterServiceImplTest {
         assertFalse("userPasswordTestNullPasswordCrazy1: should fail when a password is null", registerService.userExists(userRegister.getPassword()));
     }
 
+    @Test
+    public void userPasswordTestPasswdUserNullCrazy() {
+        Login userRegister = new Login();
+        userRegister.setPassword(null);
+        userRegister.setUser(null);
+        userRegister.setEmail(email);
+        log.info("Password should be null {}", userRegister.getPassword());
+        registerService.register(userRegister);
+        assertFalse("userPasswordTestNullPasswordCrazy1: should fail when a password is null", registerService.userExists(userRegister.getPassword()));
+        assertFalse("userPasswordTestNullPasswordCrazy1: should fail when a password is null", registerService.userExists(userRegister.getUser()));
+        assertFalse("userPasswordTestNullPasswordCrazy1: should fail when a password is null", registerService.userExists(userRegister.getEmail()));
+    }
+
+    @Test
+    public void userPasswordTestEmailUserNullCrazy() {
+        Login userRegister = new Login();
+        userRegister.setPassword(password);
+        userRegister.setUser(null);
+        userRegister.setEmail(null);
+        log.info("Password should be null {}", userRegister.getPassword());
+        registerService.register(userRegister);
+        assertFalse("userPasswordTestNullPasswordCrazy1: should fail when a password is null", registerService.userExists(userRegister.getPassword()));
+        assertFalse("userPasswordTestNullPasswordCrazy1: should fail when a password is null", registerService.userExists(userRegister.getUser()));
+        assertFalse("userPasswordTestNullPasswordCrazy1: should fail when a password is null", registerService.userExists(userRegister.getEmail()));
+    }
+
+    @Test
+    public void userPasswordTestAllNullCrazy() {
+        Login userRegister = new Login();
+        userRegister.setPassword(null);
+        userRegister.setUser(null);
+        userRegister.setEmail(null);
+        log.info("Password should be null {}", userRegister.getPassword());
+        registerService.register(userRegister);
+        assertFalse("userPasswordTestNullPasswordCrazy1: should fail when a password is null", registerService.userExists(userRegister.getPassword()));
+        assertFalse("userPasswordTestNullPasswordCrazy1: should fail when a password is null", registerService.userExists(userRegister.getUser()));
+        assertFalse("userPasswordTestNullPasswordCrazy1: should fail when a password is null", registerService.userExists(userRegister.getEmail()));
+    }
 
 }
