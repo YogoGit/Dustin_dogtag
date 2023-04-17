@@ -22,6 +22,6 @@ public interface UserProfileService {
      *
      * @param profile is the Users information that has been set by using the form information.
      */
-    void setProfile(UserProfile profile);
+    boolean setProfile(UserProfile profile);
 
 }

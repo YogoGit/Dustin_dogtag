@@ -314,6 +314,46 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void setProfile() {
+    void setProfileHappy() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        UserProfile userProfile = new UserProfile();
+        userProfile.setFname("Dustin");
+        userProfile.setLname("Gardner");
+        userProfile.setPhone("406-980-0947");
+        userProfile.setLogin(loginService.findLogin(user));
+        assertTrue(userProfileService.setProfile(userProfile));
+    }
+    @Test
+    void setProfileBlankFormPassedCrappy() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        UserProfile userProfile = new UserProfile();
+        userProfile.setFname("Dustin");
+        userProfile.setLname("Gardner");
+        userProfile.setPhone("406-980-0947");
+        userProfile.setLogin(loginService.findLogin(user));
+        userProfileService.setProfile(userProfile);
+        userProfileService.fetchUserProfile(user);
+        UserProfile userProfile2 = new UserProfile();
+        assertFalse(userProfileService.setProfile(userProfile2));
+    }
+    @Test
+    void setProfileOnlyFnameFormPassedCrappy2() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        UserProfile userProfile = new UserProfile();
+        userProfile.setFname("Dustin");
+        userProfileService.setProfile(userProfile);
+        assertFalse(userProfileService.setProfile(userProfile));
     }
 }

@@ -50,8 +50,20 @@ public class UserProfileServiceImpl implements UserProfileService {
      * @param profile is the Users information that has been set by using the form information.
      */
     @Override
-    public void setProfile(UserProfile profile) {
-        userProfileRepository.save(profile);
+    public boolean setProfile(UserProfile profile) {
+        if(profile.getPhone()==null||profile.getPhone().isBlank()){
+            return false;
+        }
+        if(profile.getLname()==null||profile.getLname().isBlank()){
+            return false;
+        }
+        if(profile.getFname()==null||profile.getFname().isBlank()){
+            return false;
+        }
+        else {
+            userProfileRepository.save(profile);
+            return true;
+        }
     }
 }
 
