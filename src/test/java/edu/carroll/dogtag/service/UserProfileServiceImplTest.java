@@ -201,7 +201,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfile() {
+    void fetchUserProfileCrappyLname4() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -216,6 +216,100 @@ class UserProfileServiceImplTest {
         userProfileService.fetchUserProfile(user);
         assertFalse(userProfileService.fetchUserProfile(user).getLname().equals(userProfile.getPhone()));
         assertFalse(userProfileService.fetchUserProfile(user).getLname().equals("Dustin"));
+
+    }
+    @Test
+    void fetchUserProfileHappyPhone1() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        UserProfile userProfile = new UserProfile();
+        userProfile.setFname("Dustin");
+        userProfile.setLname("Gardner");
+        userProfile.setPhone("406-980-0947");
+        userProfile.setLogin(loginService.findLogin(user));
+        userProfileService.setProfile(userProfile);
+        userProfileService.fetchUserProfile(user);
+        assertTrue(userProfileService.fetchUserProfile(user).getPhone().equals(userProfile.getPhone()));
+        assertTrue(userProfileService.fetchUserProfile(user).getPhone().equals("406-980-0947"));
+
+    }
+
+    @Test
+    void fetchUserProfileCrappyPhone1() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        UserProfile userProfile = new UserProfile();
+        userProfile.setFname("Dustin");
+        userProfile.setLname("Gardner");
+        userProfile.setPhone("406-980-0947");
+        userProfile.setLogin(loginService.findLogin(user));
+        userProfileService.setProfile(userProfile);
+        userProfileService.fetchUserProfile(user);
+        assertFalse(userProfileService.fetchUserProfile(user).getPhone().equals(userProfile.getFname()));
+        assertTrue(userProfileService.fetchUserProfile(user).getPhone().equals("406-980-0947"));
+
+    }
+
+    @Test
+    void fetchUserProfileCrappyPhone2() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        UserProfile userProfile = new UserProfile();
+        userProfile.setFname("Dustin");
+        userProfile.setLname("Gardner");
+        userProfile.setPhone("406-980-0947");
+        userProfile.setLogin(loginService.findLogin(user));
+        userProfileService.setProfile(userProfile);
+        userProfileService.fetchUserProfile(user);
+        assertTrue(userProfileService.fetchUserProfile(user).getPhone().equals(userProfile.getPhone()));
+        assertFalse(userProfileService.fetchUserProfile(user).getPhone().equals("Dustin"));
+
+    }
+
+    @Test
+    void fetchUserProfileCrappyPhone3() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        UserProfile userProfile = new UserProfile();
+        userProfile.setFname("Dustin");
+        userProfile.setLname("Gardner");
+        userProfile.setPhone("406-980-0947");
+        userProfile.setLogin(loginService.findLogin(user));
+        userProfileService.setProfile(userProfile);
+        userProfileService.fetchUserProfile(user);
+        assertFalse(userProfileService.fetchUserProfile(user).getPhone().equals(userProfile.getFname()));
+        assertTrue(userProfileService.fetchUserProfile(user).getPhone().equals("406-980-0947"));
+
+    }
+
+    @Test
+    void fetchUserProfileCrappyPhone4() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        UserProfile userProfile = new UserProfile();
+        userProfile.setFname("Dustin");
+        userProfile.setLname("Gardner");
+        userProfile.setPhone("406-980-0947");
+        userProfile.setLogin(loginService.findLogin(user));
+        userProfileService.setProfile(userProfile);
+        userProfileService.fetchUserProfile(user);
+        assertFalse(userProfileService.fetchUserProfile(user).getPhone().equals(userProfile.getLogin()));
+        assertFalse(userProfileService.fetchUserProfile(user).getPhone().equals("Dustin"));
 
     }
 
