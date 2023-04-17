@@ -133,7 +133,7 @@ class RegisterServiceImplTest {
     public void userExistsTestNullUserCrazy1() {
         Login userRegister = new Login();
         userRegister.setPassword(password);
-       userRegister.setUser(null);
+        userRegister.setUser(null);
         userRegister.setEmail(email);
         log.info("User should be null {}", userRegister.getUser());
         registerService.register(userRegister);
