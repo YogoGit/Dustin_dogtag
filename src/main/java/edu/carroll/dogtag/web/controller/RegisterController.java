@@ -1,6 +1,7 @@
 package edu.carroll.dogtag.web.controller;
 
 import edu.carroll.dogtag.jpa.model.Login;
+import edu.carroll.dogtag.service.LoginService;
 import edu.carroll.dogtag.service.RegisterService;
 import edu.carroll.dogtag.web.form.RegisterForm;
 import jakarta.validation.Valid;
@@ -20,8 +21,11 @@ public class RegisterController {
     private static final Logger log = LoggerFactory.getLogger(RegisterController.class);
     private final RegisterService registerService;
 
-    public RegisterController(RegisterService registerService) {
+    private final LoginService loginService;
+
+    public RegisterController(RegisterService registerService, LoginService loginService) {
         this.registerService = registerService;
+        this.loginService = loginService;
     }
 
     /**
@@ -50,7 +54,7 @@ public class RegisterController {
      * RegisterService and then is sent to the register success page.
      */
     @PostMapping("/register")
-    public String registerPost(@Valid @ModelAttribute RegisterForm registerForm, BindingResult result, RedirectAttributes attrs) {
+    public String registerPost(@Valid @ModelAttribute RegisterForm registerForm, BindingResult result, Model attrs) {
         log.info("Logging info for {} registration", registerForm.getUser());
         if (result.hasErrors()) {
             log.debug("{} could not be registered and was not stopped by @Notnull and @Size", registerForm.getUser());
@@ -89,7 +93,7 @@ public class RegisterController {
     }
 
     @GetMapping("/registerSuccess")
-    public String registerSuccess() {
+    public String registerSuccess(String user) {
         return "registerSuccess";
     }
 

@@ -129,12 +129,11 @@ class RegisterServiceImplTest {
         assertFalse("userExistsTest: should fail when a user is blank", registerService.userExists(userRegister.getUser()));
     }
 
-    //Test user min and max and add in impl
     @Test
     public void userExistsTestNullUserCrazy1() {
         Login userRegister = new Login();
         userRegister.setPassword(password);
-//        userRegister.setUser(null);
+       userRegister.setUser(null);
         userRegister.setEmail(email);
         log.info("User should be null {}", userRegister.getUser());
         registerService.register(userRegister);
@@ -228,7 +227,7 @@ class RegisterServiceImplTest {
         userRegister.setEmail("");
         log.info("Email should be blank {}", userRegister.getEmail());
         registerService.register(userRegister);
-        assertFalse("userExistsTest: should fail when a user is blank", registerService.userExists(userRegister.getEmail()));
+        assertFalse("userExistsTest: should fail when a email is blank", registerService.userExists(userRegister.getEmail()));
     }
 
     @Test
@@ -236,9 +235,10 @@ class RegisterServiceImplTest {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(username);
+        userRegister.setEmail(null);
         log.info("User should be null {}", userRegister.getUser());
         registerService.register(userRegister);
-        assertFalse("userExistsTest: should fail when a user is null", registerService.userExists(userRegister.getUser()));
+        assertFalse("userExistsTest: should fail when a email is null", registerService.userExists(userRegister.getUser()));
     }
 
     @Test

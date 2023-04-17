@@ -67,27 +67,6 @@ public class TrainingController {
         return "traininglog";
     }
 
-//    @GetMapping("/traininglog")
-//    public ModelAndView trainingForm(HttpSession session) {
-//        final String user = (String) session.getAttribute("user");
-//        if (user == null || user.isBlank()) {
-//            ModelAndView noSession = new ModelAndView("redirect:/login");
-//            noSession.addObject("modelAttribute", noSession);
-//            return noSession;
-//        }
-//        Login l = loginService.findLogin(user);
-//
-//        log.info("Successfully Mapped Register page");
-//        ModelAndView traininglogs = new ModelAndView("traininglog");
-//        List<Training> trainings = trainingService.fetchUserTraining(user);
-//        log.info("Returned training from fetchUser {}", trainings.size());
-//        traininglogs.addObject("trainingForm", new TrainingForm());
-//        traininglogs.addObject("trainings", trainings);
-//        traininglogs.addObject("fname", userProfileService.fetchUserProfile(user).getFname());
-//        traininglogs.addObject("lname", userProfileService.fetchUserProfile(user).getLname());
-//        return traininglogs;
-//    }
-
     /**
      * @param trainingForm the information being entered into the form to be submitted to database.
      * @param result       this is to check errors on the templates and display the error message
