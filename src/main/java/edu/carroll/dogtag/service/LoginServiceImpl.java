@@ -26,6 +26,12 @@ public class LoginServiceImpl implements LoginService {
      */
     @Override
     public boolean validateUser(LoginForm loginForm) {
+        if (loginForm.getUser() == null || loginForm.getUser().isBlank()) {
+            return false;
+        }
+        if (loginForm.getPassword() == null || loginForm.getPassword().isBlank()) {
+            return false;
+        }
         log.info("validateUser: ¡™'{}' attempted login", loginForm.getUser());
         // Always do the lookup in a case-insensitive manner (lower-casing the data).
         List<Login> user = loginRepo.findByUserIgnoreCase(loginForm.getUser());
@@ -67,5 +73,4 @@ public class LoginServiceImpl implements LoginService {
         log.info("Returning training {} from user", logins.get(0));
         return logins.get(0);
     }
-
 }

@@ -92,7 +92,7 @@ public class RegisterController {
     }
 
     @GetMapping("/registerSuccess")
-    public String registerSuccess(String user) {
+    public String registerSuccess(String user, Model model) {
         return "registerSuccess";
     }
 

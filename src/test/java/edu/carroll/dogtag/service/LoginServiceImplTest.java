@@ -219,7 +219,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserSwitchUserLookupTest() {
+    public void validateUserSwitchUserLookupTest2() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -237,31 +237,101 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void findLoginNoLogin() {
-        final LoginForm form = new LoginForm(user, password);
-        assertNull("validateUserSuccessTest: should succeed using the same user/pass info", loginService.findLogin(form.getUser()));
-    }
-
-    @Test
-    public void findLoginUserCreatedCrappy() {
+    public void validateUserSwitchUserLookupTest4() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
         registerService.register(createUser);
-        final LoginForm form = new LoginForm(user + "2", password);
-        assertNull("validateUserSuccessTest: should succeed using the same user/pass info", loginService.findLogin(form.getUser()));
+        final LoginForm form = new LoginForm(user, password + "2");
+        Login createUser2 = new Login();
+        createUser2.setPassword(password + "2");
+        createUser2.setUser(user + "2");
+        createUser2.setEmail(email + "2");
+        registerService.register(createUser2);
+        final LoginForm form3 = new LoginForm(user + "2", password);
+        Login createUser3 = new Login();
+        createUser3.setPassword(password + "3");
+        createUser3.setUser(user + "3");
+        createUser3.setEmail(email + "3");
+        registerService.register(createUser3);
+        final LoginForm form4 = new LoginForm(user, password + "3");
+        Login createUser4 = new Login();
+        createUser4.setPassword(password + "4");
+        createUser4.setUser(user + "4");
+        createUser4.setEmail(email + "4");
+        registerService.register(createUser4);
+        final LoginForm form2 = new LoginForm(user + "4", password);
+        assertFalse("validateUserSuccessTest: should fail using the user and different user2 pass info", loginService.validateUser(form));
+        assertFalse("validateUserSuccessTest: should fail using the user2 and different user pass info", loginService.validateUser(form2));
+        assertFalse("validateUserSuccessTest: should fail using the user and different user2 pass info", loginService.validateUser(form3));
+        assertFalse("validateUserSuccessTest: should fail using the user2 and different user pass info", loginService.validateUser(form4));
     }
 
     @Test
-    public void findLoginPasswordCreatedCrappy() {
+    public void validateUserFormNull() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
         registerService.register(createUser);
-        final LoginForm form = new LoginForm(user, password);
-        assertNull("validateUserSuccessTest: should succeed using the same user/pass info", loginService.findLogin(form.getPassword()));
+        final LoginForm form = new LoginForm(null, null);
+        assertFalse("validateUserSuccessTest: should fail using the user2 and different user pass info", loginService.validateUser(form));
+    }
+
+    @Test
+    public void validateUserFormBlank() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        final LoginForm form = new LoginForm("", "");
+        assertFalse("validateUserSuccessTest: should fail using the user2 and different user pass info", loginService.validateUser(form));
+    }
+
+    @Test
+    public void validateUserFormBlankUser() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        final LoginForm form = new LoginForm("", password);
+        assertFalse("validateUserSuccessTest: should fail using the user2 and different user pass info", loginService.validateUser(form));
+    }
+
+    @Test
+    public void validateUserFormBlankPassword() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        final LoginForm form = new LoginForm(user, "");
+        assertFalse("validateUserSuccessTest: should fail using the user2 and different user pass info", loginService.validateUser(form));
+    }
+
+    @Test
+    public void validateUserNullUser() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        final LoginForm form = new LoginForm(null, password);
+        assertFalse("validateUserSuccessTest: should fail using the user2 and different user pass info", loginService.validateUser(form));
+    }
+
+    @Test
+    public void validateUserNullPassword() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        final LoginForm form = new LoginForm(user, null);
+        assertFalse("validateUserSuccessTest: should fail using the user2 and different user pass info", loginService.validateUser(form));
     }
 
     @Test
@@ -274,6 +344,7 @@ public class LoginServiceImplTest {
         final LoginForm form = new LoginForm(user, password);
         assertTrue("validateUserSuccessTest: should succeed using the same user/pass info", loginService.findLogin(form.getUser()).equals(createUser));
     }
+
 
     @Test
     public void findLogin2() {
@@ -323,6 +394,69 @@ public class LoginServiceImplTest {
         assertTrue("validateUserSuccessTest: should succeed using the same user/pass info", loginService.findLogin(form2.getUser()).equals(createUser2));
         assertTrue("validateUserSuccessTest: should succeed using the same user/pass info", loginService.findLogin(form3.getUser()).equals(createUser3));
         assertTrue("validateUserSuccessTest: should succeed using the same user/pass info", loginService.findLogin(form4.getUser()).equals(createUser4));
+    }
+
+    @Test
+    public void findLoginNoLogin() {
+        final LoginForm form = new LoginForm(user, password);
+        assertNull("validateUserSuccessTest: should succeed using the same user/pass info", loginService.findLogin(form.getUser()));
+    }
+
+    @Test
+    public void findLoginPassNull() {
+        final LoginForm form = new LoginForm(user, password);
+        assertNull("validateUserSuccessTest: should succeed using the same user/pass info", loginService.findLogin(null));
+    }
+
+    @Test
+    public void findLoginNullLoginForm() {
+        final LoginForm form = new LoginForm(null, null);
+        assertNull("validateUserSuccessTest: should succeed using the same user/pass info", loginService.findLogin(form.getUser()));
+    }
+
+    @Test
+    public void findLoginNullLoginFormUser() {
+        final LoginForm form = new LoginForm(null, password);
+        assertNull("validateUserSuccessTest: should succeed using the same user/pass info", loginService.findLogin(form.getUser()));
+    }
+
+    @Test
+    public void findLoginNullLoginFormPassword() {
+        final LoginForm form = new LoginForm(user, null);
+        assertNull("validateUserSuccessTest: should succeed using the same user/pass info", loginService.findLogin(form.getPassword()));
+    }
+
+    @Test
+    public void findLoginUserCreatedCrappy() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        final LoginForm form = new LoginForm(user + "2", password);
+        assertNull("validateUserSuccessTest: should succeed using the same user/pass info", loginService.findLogin(form.getUser()));
+    }
+
+    @Test
+    public void findLoginUserNullUserCrappy() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        final LoginForm form = new LoginForm(null, password);
+        assertNull("validateUserSuccessTest: should succeed using the same user/pass info", loginService.findLogin(null));
+    }
+
+    @Test
+    public void findLoginPasswordCreatedCrappy() {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        final LoginForm form = new LoginForm(user, password);
+        assertNull("validateUserSuccessTest: should succeed using the same user/pass info", loginService.findLogin(form.getPassword()));
     }
 
     @Test

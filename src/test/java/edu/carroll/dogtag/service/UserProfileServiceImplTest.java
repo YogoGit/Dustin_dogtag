@@ -218,6 +218,7 @@ class UserProfileServiceImplTest {
         assertFalse(userProfileService.fetchUserProfile(user).getLname().equals("Dustin"));
 
     }
+
     @Test
     void fetchUserProfileHappyPhone1() {
         Login createUser = new Login();
@@ -327,6 +328,7 @@ class UserProfileServiceImplTest {
         userProfile.setLogin(loginService.findLogin(user));
         assertTrue(userProfileService.setProfile(userProfile));
     }
+
     @Test
     void setProfileBlankFormPassedCrappy() {
         Login createUser = new Login();
@@ -344,6 +346,7 @@ class UserProfileServiceImplTest {
         UserProfile userProfile2 = new UserProfile();
         assertFalse(userProfileService.setProfile(userProfile2));
     }
+
     @Test
     void setProfileOnlyFnameFormPassedCrappy2() {
         Login createUser = new Login();

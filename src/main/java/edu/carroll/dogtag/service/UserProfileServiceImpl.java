@@ -51,16 +51,15 @@ public class UserProfileServiceImpl implements UserProfileService {
      */
     @Override
     public boolean setProfile(UserProfile profile) {
-        if(profile.getPhone()==null||profile.getPhone().isBlank()){
+        if (profile.getPhone() == null || profile.getPhone().isBlank()) {
             return false;
         }
-        if(profile.getLname()==null||profile.getLname().isBlank()){
+        if (profile.getLname() == null || profile.getLname().isBlank()) {
             return false;
         }
-        if(profile.getFname()==null||profile.getFname().isBlank()){
+        if (profile.getFname() == null || profile.getFname().isBlank()) {
             return false;
-        }
-        else {
+        } else {
             userProfileRepository.save(profile);
             return true;
         }
