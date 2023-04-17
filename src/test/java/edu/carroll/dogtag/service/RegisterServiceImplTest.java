@@ -294,6 +294,7 @@ class RegisterServiceImplTest {
     @Test
     public void userPasswordTestNullPasswordCrazy1() {
         Login userRegister = new Login();
+        userRegister.setPassword(null);
         userRegister.setUser(username);
         userRegister.setEmail(email);
         log.info("Password should be null {}", userRegister.getPassword());
