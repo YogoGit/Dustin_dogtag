@@ -89,7 +89,8 @@ public class LoginController {
     /**
      * @param session is removed and all pages redirect to login page because there
      *                is no session present.
-     * @return
+     * @return the logout button is pressed and the session is removed from the
+     * logged-in user and is then redirected to the login page.
      */
     @PostMapping("/logout")
     public String logoutUserPost(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, RedirectAttributes attrs, HttpSession session) {

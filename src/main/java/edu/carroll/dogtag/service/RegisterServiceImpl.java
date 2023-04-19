@@ -22,14 +22,17 @@ public class RegisterServiceImpl implements RegisterService {
      * Checks if a user is already in the database for allowing a user to
      * register or not with that name.
      *
-     * @param user
+     * @param user is entered in html form and passed to controller is going to use that field
+     *             to check if that name is already in the database.
      * @return true comes back that the user is already in the database.
      * false comes back in the user is not in the database. This is one of the
      * checks before a user can register
      */
     @Override
     public boolean userExists(String user) {
-        // Always do the lookup in a case-insensitive manner (lower-casing the data).
+        if (user == null || user.isBlank()) {
+            return false;
+        }
         List<Login> users = registerRepo.findByUserIgnoreCase(user);
         log.info("Checking if {} user exists", user);
         return !users.isEmpty();
@@ -42,9 +45,15 @@ public class RegisterServiceImpl implements RegisterService {
      * @param email @return true comes back that the email is already in the database.
      *              false comes back in the user is not in the database. This is one of the
      *              checks before a user can register
+     * @return true comes back that the email is already in the database.
+     * false comes back in the email is not in the database. This is one of the
+     * checks before a email can be register
      */
     @Override
     public boolean emailExists(String email) {
+        if (email == null || email.isBlank()) {
+            return false;
+        }
         List<Login> emails = registerRepo.findByEmailIgnoreCase(email);
         log.info("Checking if {} email exists", email);
         return !emails.isEmpty();

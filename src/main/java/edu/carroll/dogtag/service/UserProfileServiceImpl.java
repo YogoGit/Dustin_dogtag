@@ -35,6 +35,9 @@ public class UserProfileServiceImpl implements UserProfileService {
      */
     @Override
     public UserProfile fetchUserProfile(String user) {
+        if (user == null || user.isBlank()) {
+            return null;
+        }
         List<Login> fetchUser = loginRepository.findByUserIgnoreCase(user);
         if (fetchUser.isEmpty()) {
             log.debug("fetchUser List was empty with size 0 for user: {}", user);
@@ -50,6 +53,9 @@ public class UserProfileServiceImpl implements UserProfileService {
 
     /**
      * @param profile is the Users information that has been set by using the form information.
+     * @return true if no errors are found and this allows the profile to be saved to the database
+     * of  that are for that user if all list are returned correctly and false if any
+     * fields are null or empty being passed.
      */
     @Override
     public boolean setProfile(UserProfile profile) {

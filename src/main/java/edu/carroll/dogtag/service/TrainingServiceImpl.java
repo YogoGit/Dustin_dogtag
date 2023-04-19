@@ -28,6 +28,10 @@ public class TrainingServiceImpl implements TrainingService {
      * this method to send to the database
      *
      * @param trainingLog is the Users information that has been set by using the form information.
+     * @return a boolean is returned to give feedback. If any of the trainingLog being
+     * passed to the saveLog method is null or blank a false is returned.  Only a true
+     * is returned if no null or blank entries are on the trainingLog that is trying
+     * to be saved in the database.
      */
 
     @Override
@@ -60,12 +64,20 @@ public class TrainingServiceImpl implements TrainingService {
      * entered already for that user that is being passed to the method
      * with multiple services using them to
      *
-     * @param user the training user that is being looked for
-     * @return List of Trainings that are for that user
+     * @param user the training user that is being looked for to pull training that they
+     *             have entered the database.
+     * @return List of Trainings that are for that user if all list are returned correctly
+     * from a valid user still.
      */
     @Override
     public List<Training> fetchUserTraining(String user) {
+        if (user == null || user.isBlank()) {
+            return null;
+        }
         List<Login> fetchUser = loginRepository.findByUserIgnoreCase(user);
+        if (user == null || user.isBlank()) {
+            return null;
+        }
         if (fetchUser.isEmpty()) {
             log.debug("fetchUser List was empty with size 0 for user: {}", user);
             return null;

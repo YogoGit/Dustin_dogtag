@@ -249,7 +249,7 @@ class RegisterServiceImplTest {
         userRegisterDelete.setUser(username);
         registerService.register(userRegisterDelete);
         assertTrue("deleteCreatedUserTest: should succeed creating a user", registerService.userExists(userRegisterDelete.getUser()));
-         }
+    }
 
     @Test
     public void deleteCreatedUserTestHappy2() {
@@ -260,7 +260,7 @@ class RegisterServiceImplTest {
         registerService.register(userRegisterDelete);
         assertTrue("deleteCreatedUserTest: should succeed creating a user", registerService.userExists(userRegisterDelete.getUser()));
         String noUserToDelete = "noUserToDelete";
-       }
+    }
 
     @Test
     public void userPasswordTestGoodPasswordHappy1() {
