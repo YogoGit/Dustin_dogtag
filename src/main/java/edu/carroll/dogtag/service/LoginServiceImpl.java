@@ -26,31 +26,29 @@ public class LoginServiceImpl implements LoginService {
      */
     @Override
     public boolean validateUser(LoginForm loginForm) {
+        log.info("validateUser: {} attempted login", loginForm.getUser());
         if (loginForm.getUser() == null || loginForm.getUser().isBlank()) {
+            log.debug("loginForm User was null or blank {}", loginForm.getUser());
             return false;
         }
         if (loginForm.getPassword() == null || loginForm.getPassword().isBlank()) {
+            log.debug("loginForm Password was null or blank for user {}", loginForm.getUser());
             return false;
         }
-        log.info("validateUser: ¡™'{}' attempted login", loginForm.getUser());
+        log.info("validateUser: {} attempted login", loginForm.getUser());
         // Always do the lookup in a case-insensitive manner (lower-casing the data).
         List<Login> user = loginRepo.findByUserIgnoreCase(loginForm.getUser());
 
-        // We expect 0 or 1, so if we get more than 1, bail out as this is an error we don't deal with properly.
         if (user.size() != 1) {
-            log.info("validateUser:{} users not found", loginForm.getUser());
+            log.info("validateUser:{} users not found", user.size());
             return false;
         }
         Login u = user.get(0);
-        // XXX - Using Java's hashCode is wrong on SO many levels, but is good enough for demonstration purposes.
-        // NEVER EVER do this in production code!
         final String userProvided = loginForm.getPassword();
         if (!u.getPassword().equals(userProvided)) {
-            log.info("validateUser: {} password !match", loginForm.getUser());
+            log.info("validateUser: {} password does not match", loginForm.getUser());
             return false;
         }
-
-        // User exists, and the provided password matches the hashed password in the database.
         log.info("validateUser: {} successful login", loginForm.getUser());
         return true;
     }
@@ -68,9 +66,10 @@ public class LoginServiceImpl implements LoginService {
     public Login findLogin(String user) {
         List<Login> logins = loginRepo.findByUserIgnoreCase(user);
         if (logins.isEmpty()) {
+            log.info("findLogin: loging List was empty {}", logins.size());
             return null;
         }
-        log.info("Returning training {} from user", logins.get(0));
+        log.info("Returning Login user {}", logins.get(0).getUser());
         return logins.get(0);
     }
 }

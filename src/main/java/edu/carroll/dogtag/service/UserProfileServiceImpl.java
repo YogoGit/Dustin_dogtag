@@ -37,10 +37,12 @@ public class UserProfileServiceImpl implements UserProfileService {
     public UserProfile fetchUserProfile(String user) {
         List<Login> fetchUser = loginRepository.findByUserIgnoreCase(user);
         if (fetchUser.isEmpty()) {
+            log.debug("fetchUser List was empty with size 0 for user: {}", user);
             return null;
         }
         List<UserProfile> profiles = userProfileRepository.findByLogin(fetchUser.get(0));
         if (profiles.isEmpty()) {
+            log.debug("fetchUser List was empty with size 0 for user: {}", user);
             return null;
         }
         return profiles.get(0);
@@ -52,15 +54,19 @@ public class UserProfileServiceImpl implements UserProfileService {
     @Override
     public boolean setProfile(UserProfile profile) {
         if (profile.getPhone() == null || profile.getPhone().isBlank()) {
+            log.debug("profile phone field was null or blank {}", profile.getPhone());
             return false;
         }
         if (profile.getLname() == null || profile.getLname().isBlank()) {
+            log.debug("profile Last name field was null or blank {}", profile.getLname());
             return false;
         }
         if (profile.getFname() == null || profile.getFname().isBlank()) {
+            log.debug("profile First name was null or blank {}", profile.getFname());
             return false;
         } else {
             userProfileRepository.save(profile);
+            log.info("profile was saved successfully {}", profile.getFname() + "" + profile.getLname() +"" + profile.getPhone());
             return true;
         }
     }

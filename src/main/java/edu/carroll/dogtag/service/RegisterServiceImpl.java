@@ -75,20 +75,6 @@ public class RegisterServiceImpl implements RegisterService {
         }
     }
 
-    /**
-     * Given a user this method is to delete a user for the database
-     *
-     * @param userEntityDelete send a users name to look and delete them
-     *                         out of the database.
-     */
-    @Override
-    public void deleteByUser(String userEntityDelete) {
-        List<Login> userRowDelete = registerRepo.findByUserIgnoreCase(userEntityDelete);
-        registerRepo.deleteAll(userRowDelete);
-        log.info("User {} was deleted", userEntityDelete);
-    }
-
-
 }
 
 

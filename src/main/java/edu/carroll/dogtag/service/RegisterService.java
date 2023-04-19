@@ -38,12 +38,4 @@ public interface RegisterService {
 
     boolean register(Login register);
 
-    /**
-     * Given a user this method is to delete a user for the database
-     *
-     * @param userEntityDelete send a users name to look and delete them
-     *                         out of the database.
-     */
-
-    void deleteByUser(String userEntityDelete);
 }
