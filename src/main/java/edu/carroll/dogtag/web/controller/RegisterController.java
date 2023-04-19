@@ -35,7 +35,6 @@ public class RegisterController {
     @GetMapping("/register")
     public String registerForm(Model model) {
         model.addAttribute("registerForm", new RegisterForm());
-        log.info("Register page loaded");
         return "register";
     }
 
@@ -56,15 +55,15 @@ public class RegisterController {
     public String registerPost(@Valid @ModelAttribute RegisterForm registerForm, BindingResult result, Model attrs) {
         log.info("Logging info for {} registration", registerForm.getUser());
         if (result.hasErrors()) {
-            log.debug("{} could not be registered and was not stopped by @Notnull and @Size", registerForm.getUser());
+            log.error("{} could not be registered and was not stopped by @Notnull and @Size", registerForm.getUser());
             return "register";
         }
 
         if (registerService.userExists(registerForm.getUser()) && registerService.emailExists(registerForm.getEmail())) {
             result.addError(new ObjectError("email", "Can not register: Please use a different Email"));
-            log.info("Email {} exists in database already", registerForm.getEmail());//show what email failed vaidation
+            log.info("Email {} exists in database already", registerForm.getEmail());
             result.addError(new ObjectError("user", "Can not register: Please use a different User Name"));
-            log.info("User {} exists in database already", registerForm.getUser());//show what user failed to register
+            log.info("User {} exists in database already", registerForm.getUser());
             return "register";
         }
 
@@ -86,8 +85,8 @@ public class RegisterController {
         userRegister.setPassword(registerForm.getPassword());
         registerService.register(userRegister);
         attrs.addAttribute("user", registerForm.getUser());
-        log.info("User {} was able to register");
-        log.debug("List of info in registerForm user:{} email{}", registerForm.getUser(), registerForm.getEmail());
+        log.info("User {} was able to register", registerForm.getUser());
+        log.info("List of info in registerForm user and email{}", registerForm.getUser()+ "" + registerForm.getEmail());
         return "redirect:/registerSuccess";
     }
 

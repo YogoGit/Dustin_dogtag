@@ -6,6 +6,8 @@ import edu.carroll.dogtag.service.UserProfileService;
 import edu.carroll.dogtag.web.form.LoginForm;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,6 +25,8 @@ public class LoginController {
     private final LoginService loginService;
 
     private UserProfileService userProfileService;
+
+    private static final Logger log = LoggerFactory.getLogger(LoginController.class);
 
     public LoginController(LoginService loginService, UserProfileService userProfileService) {
         this.loginService = loginService;
@@ -68,8 +72,10 @@ public class LoginController {
         session.setAttribute("user", loginForm.getUser());
         UserProfile profile = userProfileService.fetchUserProfile(loginForm.getUser());
         if (profile == null) {
+            log.info("Login user {} does not have profile and is asked to setup one", loginForm.getUser());
             return "redirect:/profilesetup";
         }
+        log.info("Login user {} has a profile and is directed to traininglog page", loginForm.getUser());
         return "redirect:/traininglog";
     }
 
@@ -90,6 +96,7 @@ public class LoginController {
     @PostMapping("/logout")
     public String logoutUserPost(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, RedirectAttributes attrs, HttpSession session) {
         session.invalidate();
+        log.info("User {} has ended session and returned to login page", loginForm.getUser());
         return "redirect:/login";
     }
 }

@@ -38,6 +38,7 @@ public class UserProfileController {
     public String profileForm(Model model, HttpSession session, String fname, String lname) {
         final String user = (String) session.getAttribute("user");
         if (user == null || user.isBlank()) {
+            log.error("Login user {} does not have session", user);
             return "redirect:/login";
         }
         model.addAttribute("user", user);
@@ -59,10 +60,12 @@ public class UserProfileController {
     public String profilePost(@Valid @ModelAttribute UserProfileForm userProfileForm, BindingResult result, HttpSession session, Model model, String fname, String lname) {
         final String user = (String) session.getAttribute("user");
         if (user == null || user.isBlank()) {
+            log.error("Login user {} does not have session", user);
             return "redirect:/login";
         }
         if (result.hasErrors()) {
             model.addAttribute("user", loginService.findLogin(user).getUser());
+            log.error("Login user {} has errors in UserProfileForm" , user);
             return "profilesetup";
         }
         UserProfile userProfile = new UserProfile();

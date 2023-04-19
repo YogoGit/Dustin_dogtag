@@ -28,11 +28,11 @@ public class LoginServiceImpl implements LoginService {
     public boolean validateUser(LoginForm loginForm) {
         log.info("validateUser: {} attempted login", loginForm.getUser());
         if (loginForm.getUser() == null || loginForm.getUser().isBlank()) {
-            log.debug("loginForm User was null or blank {}", loginForm.getUser());
+            log.error("loginForm User was null or blank {}", loginForm.getUser());
             return false;
         }
         if (loginForm.getPassword() == null || loginForm.getPassword().isBlank()) {
-            log.debug("loginForm Password was null or blank for user {}", loginForm.getUser());
+            log.error("loginForm Password was null or blank for user {}", loginForm.getUser());
             return false;
         }
         log.info("validateUser: {} attempted login", loginForm.getUser());

@@ -62,7 +62,6 @@ public class RegisterServiceImpl implements RegisterService {
     @Override
     public boolean register(Login register) {
         if (register.getUser() != null && !register.getUser().isBlank()
-                //fix is blank
                 && register.getPassword() != null && register.getPassword() != ""
                 && register.getEmail() != null && register.getEmail() != "") {
 

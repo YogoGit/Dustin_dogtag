@@ -34,19 +34,19 @@ public class TrainingServiceImpl implements TrainingService {
     @Override
     public boolean saveLog(Training trainingLog) {
             if (trainingLog.getDate() == null || trainingLog.getDate().isBlank()) {
-                log.debug("Traininglog date field was null or blank {}", trainingLog.getDate());
+                log.error("Traininglog date field was null or blank {}", trainingLog.getDate());
                 return false;
             }
             if (trainingLog.getLocation() == null || trainingLog.getLocation().isBlank()) {
-                log.debug("Traininglog location was null or blank {}", trainingLog.getLocation());
+                log.error("Traininglog location was null or blank {}", trainingLog.getLocation());
                 return false;
             }
             if (trainingLog.getTraining() == null || trainingLog.getTraining().isBlank()) {
-                log.debug("Traininglog training was null or black for {} ", trainingLog.getTraining());
+                log.error("Traininglog training was null or black for {} ", trainingLog.getTraining());
                 return false;
             }
             if (trainingLog.getComments() == null || trainingLog.getComments().isBlank()) {
-                log.debug("Traininglog comment was null or black {} ", trainingLog.getComments());
+                log.error("Traininglog comment was null or black {} ", trainingLog.getComments());
                 return false;
             }
              else {

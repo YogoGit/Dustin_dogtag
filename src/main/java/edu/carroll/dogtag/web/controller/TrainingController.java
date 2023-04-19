@@ -57,6 +57,7 @@ public class TrainingController {
     public String trainingForm(HttpSession session, Model model) {
         final String user = (String) session.getAttribute("user");
         if (user == null || user.isBlank()) {
+            log.error("Login user {} does not have session", user);
             return "redirect:/login";
         }
         List<Training> trainings = trainingService.fetchUserTraining(user);
@@ -85,12 +86,14 @@ public class TrainingController {
     public String trainingPost(@Valid @ModelAttribute TrainingForm trainingForm, BindingResult result, String fname, String lname, HttpSession session, Model attr) {
         final String user = (String) session.getAttribute("user");
         if (user == null || user.isBlank()) {
+            log.error("Login user {} does not have session", user);
             return "redirect:/login";
         }
         if (result.hasErrors()) {
             attr.addAttribute("trainings", trainingService.fetchUserTraining(user));
             attr.addAttribute("fname", fname);
             attr.addAttribute("lname", lname);
+            log.error("Login user {} has errors in TrainingForm" , user);
             return "traininglog";
         }
 
@@ -101,9 +104,6 @@ public class TrainingController {
         userTraining.setComments(trainingForm.getComments());
         userTraining.setLogin(loginService.findLogin(user));
         trainingService.saveLog(userTraining);
-//        attr.addAttribute("trainings", trainingService.fetchUserTraining(user));
-//        attr.addAttribute("fname", userProfileService.fetchUserProfile(user).getFname());
-//        attr.addAttribute("lname", userProfileService.fetchUserProfile(user).getLname());
         return "redirect:/traininglog";
     }
 

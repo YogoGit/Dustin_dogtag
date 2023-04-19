@@ -54,15 +54,15 @@ public class UserProfileServiceImpl implements UserProfileService {
     @Override
     public boolean setProfile(UserProfile profile) {
         if (profile.getPhone() == null || profile.getPhone().isBlank()) {
-            log.debug("profile phone field was null or blank {}", profile.getPhone());
+            log.error("profile phone field was null or blank {}", profile.getPhone());
             return false;
         }
         if (profile.getLname() == null || profile.getLname().isBlank()) {
-            log.debug("profile Last name field was null or blank {}", profile.getLname());
+            log.error("profile Last name field was null or blank {}", profile.getLname());
             return false;
         }
         if (profile.getFname() == null || profile.getFname().isBlank()) {
-            log.debug("profile First name was null or blank {}", profile.getFname());
+            log.error("profile First name was null or blank {}", profile.getFname());
             return false;
         } else {
             userProfileRepository.save(profile);
