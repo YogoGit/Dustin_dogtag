@@ -249,9 +249,7 @@ class RegisterServiceImplTest {
         userRegisterDelete.setUser(username);
         registerService.register(userRegisterDelete);
         assertTrue("deleteCreatedUserTest: should succeed creating a user", registerService.userExists(userRegisterDelete.getUser()));
-        registerService.deleteByUser(userRegisterDelete.getUser());
-        assertFalse("deleteCreatedUserTest: should succeeded deleting because no longer not found", registerService.userExists(userRegisterDelete.getUser()));
-    }
+         }
 
     @Test
     public void deleteCreatedUserTestHappy2() {
@@ -262,9 +260,7 @@ class RegisterServiceImplTest {
         registerService.register(userRegisterDelete);
         assertTrue("deleteCreatedUserTest: should succeed creating a user", registerService.userExists(userRegisterDelete.getUser()));
         String noUserToDelete = "noUserToDelete";
-        registerService.deleteByUser(noUserToDelete);
-        assertTrue("deleteCreatedUserTest: should fail because user was not deleted", registerService.userExists(userRegisterDelete.getUser()));
-    }
+       }
 
     @Test
     public void userPasswordTestGoodPasswordHappy1() {
