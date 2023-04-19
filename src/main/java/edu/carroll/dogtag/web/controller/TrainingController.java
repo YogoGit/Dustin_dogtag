@@ -93,7 +93,7 @@ public class TrainingController {
             attr.addAttribute("trainings", trainingService.fetchUserTraining(user));
             attr.addAttribute("fname", fname);
             attr.addAttribute("lname", lname);
-            log.error("Login user {} has errors in TrainingForm" , user);
+            log.error("Login user {} has errors in TrainingForm", user);
             return "traininglog";
         }
 

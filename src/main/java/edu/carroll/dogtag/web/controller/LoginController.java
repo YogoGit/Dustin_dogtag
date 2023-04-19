@@ -22,11 +22,9 @@ public class LoginController {
 
     // XXX - If anything like this is used in a real application, I will hunt you down and embarrass you to all your peers.
 
-    private final LoginService loginService;
-
-    private UserProfileService userProfileService;
-
     private static final Logger log = LoggerFactory.getLogger(LoginController.class);
+    private final LoginService loginService;
+    private UserProfileService userProfileService;
 
     public LoginController(LoginService loginService, UserProfileService userProfileService) {
         this.loginService = loginService;

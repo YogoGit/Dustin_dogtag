@@ -86,7 +86,7 @@ public class RegisterController {
         registerService.register(userRegister);
         attrs.addAttribute("user", registerForm.getUser());
         log.info("User {} was able to register", registerForm.getUser());
-        log.info("List of info in registerForm user and email{}", registerForm.getUser()+ "" + registerForm.getEmail());
+        log.info("List of info in registerForm user and email{}", registerForm.getUser() + "" + registerForm.getEmail());
         return "redirect:/registerSuccess";
     }
 

@@ -66,7 +66,7 @@ public class UserProfileServiceImpl implements UserProfileService {
             return false;
         } else {
             userProfileRepository.save(profile);
-            log.info("profile was saved successfully {}", profile.getFname() + "" + profile.getLname() +"" + profile.getPhone());
+            log.info("profile was saved successfully {}", profile.getFname() + "" + profile.getLname() + "" + profile.getPhone());
             return true;
         }
     }

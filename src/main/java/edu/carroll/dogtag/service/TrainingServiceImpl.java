@@ -2,7 +2,6 @@ package edu.carroll.dogtag.service;
 
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.model.Training;
-import edu.carroll.dogtag.jpa.model.UserProfile;
 import edu.carroll.dogtag.jpa.repo.LoginRepository;
 import edu.carroll.dogtag.jpa.repo.TrainingRepository;
 import org.slf4j.Logger;
@@ -33,27 +32,26 @@ public class TrainingServiceImpl implements TrainingService {
 
     @Override
     public boolean saveLog(Training trainingLog) {
-            if (trainingLog.getDate() == null || trainingLog.getDate().isBlank()) {
-                log.error("Traininglog date field was null or blank {}", trainingLog.getDate());
-                return false;
-            }
-            if (trainingLog.getLocation() == null || trainingLog.getLocation().isBlank()) {
-                log.error("Traininglog location was null or blank {}", trainingLog.getLocation());
-                return false;
-            }
-            if (trainingLog.getTraining() == null || trainingLog.getTraining().isBlank()) {
-                log.error("Traininglog training was null or black for {} ", trainingLog.getTraining());
-                return false;
-            }
-            if (trainingLog.getComments() == null || trainingLog.getComments().isBlank()) {
-                log.error("Traininglog comment was null or black {} ", trainingLog.getComments());
-                return false;
-            }
-             else {
-                log.info("Traininglog {} was saved successfully", trainingLog);
-                trainingRepository.save(trainingLog);
-                return true;
-            }
+        if (trainingLog.getDate() == null || trainingLog.getDate().isBlank()) {
+            log.error("Traininglog date field was null or blank {}", trainingLog.getDate());
+            return false;
+        }
+        if (trainingLog.getLocation() == null || trainingLog.getLocation().isBlank()) {
+            log.error("Traininglog location was null or blank {}", trainingLog.getLocation());
+            return false;
+        }
+        if (trainingLog.getTraining() == null || trainingLog.getTraining().isBlank()) {
+            log.error("Traininglog training was null or black for {} ", trainingLog.getTraining());
+            return false;
+        }
+        if (trainingLog.getComments() == null || trainingLog.getComments().isBlank()) {
+            log.error("Traininglog comment was null or black {} ", trainingLog.getComments());
+            return false;
+        } else {
+            log.info("Traininglog {} was saved successfully", trainingLog);
+            trainingRepository.save(trainingLog);
+            return true;
+        }
 
     }
 

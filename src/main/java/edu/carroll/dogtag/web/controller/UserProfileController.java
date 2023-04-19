@@ -65,7 +65,7 @@ public class UserProfileController {
         }
         if (result.hasErrors()) {
             model.addAttribute("user", loginService.findLogin(user).getUser());
-            log.error("Login user {} has errors in UserProfileForm" , user);
+            log.error("Login user {} has errors in UserProfileForm", user);
             return "profilesetup";
         }
         UserProfile userProfile = new UserProfile();
