@@ -2,8 +2,11 @@ package edu.carroll.dogtag.web.form;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class UserProfileForm {
+    private static final Logger log = LoggerFactory.getLogger(UserProfileForm.class);
     @NotNull
     @Size(min = 1, message = "First Name must be at least 1 character long")
     @Size(max = 10, message = "First Name must be less than 10 character long")
@@ -31,6 +34,7 @@ public class UserProfileForm {
         this.fname = fname;
         this.lname = lname;
         this.phone = phone;
+
     }
 
     /**

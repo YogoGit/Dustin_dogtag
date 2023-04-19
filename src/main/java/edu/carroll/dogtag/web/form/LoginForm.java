@@ -2,16 +2,19 @@ package edu.carroll.dogtag.web.form;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LoginForm {
+    private static final Logger log = LoggerFactory.getLogger(LoginForm.class);
     @NotNull
     @Size(min = 6, message = "Username must be at least 6 characters long")
-    @Size(max = 15, message = "Username must be less than 16 character long")
+    @Size(max = 16, message = "Username must be less than 16 character long")
     private String user;
 
     @NotNull
     @Size(min = 8, message = "Password must be at least 8 characters long")
-    @Size(max = 15, message = "Password must be less than 16 character long")
+    @Size(max = 16, message = "Password must be less than 16 character long")
     private String password;
 
     public LoginForm() {
@@ -21,6 +24,7 @@ public class LoginForm {
         this.user = user;
         this.password = password;
     }
+
 
     /**
      * @return the user that is stored in the database.
@@ -34,12 +38,14 @@ public class LoginForm {
      */
     public void setUser(String user) {
         this.user = user;
+
     }
 
     /**
      * @return password to compare with what the user entered in LoginForm
      */
     public String getPassword() {
+
         return password;
     }
 
@@ -48,5 +54,6 @@ public class LoginForm {
      */
     public void setPassword(String password) {
         this.password = password;
+
     }
 }

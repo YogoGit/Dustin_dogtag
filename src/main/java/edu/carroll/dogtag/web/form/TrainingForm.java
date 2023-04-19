@@ -3,8 +3,11 @@ package edu.carroll.dogtag.web.form;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TrainingForm {
+    private static final Logger log = LoggerFactory.getLogger(TrainingForm.class);
 
     @NotNull(message = "Enter a Date")
     @NotBlank(message = "Enter a Date")
@@ -46,6 +49,7 @@ public class TrainingForm {
      */
     public void setDate(String date) {
         this.date = date;
+
     }
 
 
@@ -61,6 +65,7 @@ public class TrainingForm {
      */
     public void setLocation(String location) {
         this.location = location;
+
     }
 
     /**
@@ -75,6 +80,7 @@ public class TrainingForm {
      */
     public void setTraining(String training) {
         this.training = training;
+
     }
 
     /**
@@ -89,5 +95,6 @@ public class TrainingForm {
      */
     public void setComments(String comments) {
         this.comments = comments;
+
     }
 }

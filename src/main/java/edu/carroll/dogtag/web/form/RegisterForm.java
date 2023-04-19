@@ -19,7 +19,7 @@ public class RegisterForm {
 
     @NotNull
     @Size(min = 6, message = "Email must be at least 6 characters long")
-    @Size(max = 20, message = "Email must be less than 50 character long")
+    @Size(max = 50, message = "Email must be less than 50 character long")
     private String email;
 
 
@@ -30,6 +30,7 @@ public class RegisterForm {
         this.user = user;
         this.password = password;
         this.email = email;
+
     }
 
     /**
@@ -43,10 +44,8 @@ public class RegisterForm {
      * @param user sets the user in the database.
      */
     public void setUser(String user) {
-        if (user.length() < 6 || user.length() > 50) {
-            log.info("Did not meet user name min or max requirements");
-        }
         this.user = user;
+
     }
 
     /**
@@ -60,10 +59,8 @@ public class RegisterForm {
      * @param password sets the password in the database
      */
     public void setPassword(String password) {
-        if (password.length() < 8 || password.length() > 15) {
-            log.info("Did not meet password min or max requirements");
-        }
         this.password = password;
+
     }
 
     /**
@@ -78,8 +75,8 @@ public class RegisterForm {
      */
     public void setEmail(String email) {
         this.email = email;
-    }
 
+    }
 
 }
 

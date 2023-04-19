@@ -13,10 +13,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.springframework.test.util.AssertionErrors.assertFalse;
 import static org.springframework.test.util.AssertionErrors.assertTrue;
+import static org.springframework.test.util.AssertionErrors.assertNull;
+import static org.springframework.test.util.AssertionErrors.assertNotNull;
 
 @SpringBootTest
 @Transactional
@@ -55,7 +55,7 @@ class TrainingServiceImplTest {
         createUser.setEmail(email);
         registerService.register(createUser);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
-        assertNull(userTraining);
+        assertNull("error",userTraining);
     }
 
     @Test
@@ -159,7 +159,7 @@ class TrainingServiceImplTest {
         trainingService.saveLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         Assertions.assertTrue(trainingService.fetchUserTraining(user).equals(userTraining));
-        Assertions.assertTrue(trainingService.fetchUserTraining(user).get(0).getDate().equals("2023-04-12"));
+        assertTrue(trainingService.fetchUserTraining(user).get(0).getDate().equals("2023-04-12"));
 
     }
 
