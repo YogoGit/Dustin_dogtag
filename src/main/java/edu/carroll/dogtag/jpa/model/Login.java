@@ -48,10 +48,30 @@ public class Login {
     @NotEmpty
     @Size(min = 6, max = 16)
     private String user;
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", nullable = false, length = 65555)
     @NotEmpty
-    @Size(min = 8, max = 16)
     private String password;
+
+    @Column(name="salt", length = 65555)
+    @NotEmpty
+    private String salt;
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public List<Training> getTraining() {
+        return training;
+    }
+
+    public void setTraining(List<Training> training) {
+        this.training = training;
+    }
+
     @Column(name = "email", nullable = false, unique = true)
     @NotEmpty
     @Email()

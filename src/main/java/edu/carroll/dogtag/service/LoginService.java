@@ -3,6 +3,9 @@ package edu.carroll.dogtag.service;
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.web.form.LoginForm;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
 public interface LoginService {
     /**
      * Given a loginForm, determine if the information provided is valid, and the user exists in the system.
@@ -10,7 +13,7 @@ public interface LoginService {
      * @param loginForm - Data containing user login information, such as username and password.
      * @return true if data exists and matches what's on record, false otherwise
      */
-    boolean validateUser(LoginForm loginForm);
+    boolean validateUser(LoginForm loginForm) throws InvalidKeySpecException, NoSuchAlgorithmException;
 
     /**
      * This is used to find the Login for a user with multiple services using them to

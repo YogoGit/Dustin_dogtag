@@ -44,7 +44,7 @@ class TrainingServiceImplTest {
     @Test
     void fetchUserTrainingHappy() {
         List<Training> noUser = trainingService.fetchUserTraining(user);
-        assertNull(noUser);
+        assertNull("",noUser);
     }
 
     @Test
@@ -73,7 +73,7 @@ class TrainingServiceImplTest {
         trainingLog.setLogin(loginService.findLogin(user));
         trainingService.saveLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
-        assertNotNull(userTraining);
+        assertNotNull("",userTraining);
         assertTrue("One entry for traininglog", userTraining.size() == 1);
     }
 
@@ -99,7 +99,7 @@ class TrainingServiceImplTest {
         trainingLog2.setLogin(loginService.findLogin(user));
         trainingService.saveLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
-        assertNotNull(userTraining);
+        assertNotNull("",userTraining);
         assertTrue("Two entry for traininglog", userTraining.size() == 2);
     }
 
@@ -139,7 +139,7 @@ class TrainingServiceImplTest {
         trainingLog4.setLogin(loginService.findLogin(user));
         trainingService.saveLog(trainingLog4);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
-        assertNotNull(userTraining);
+        assertNotNull("",userTraining);
         assertTrue("Two entry for traininglog", userTraining.size() == 4);
     }
 
@@ -158,8 +158,8 @@ class TrainingServiceImplTest {
         trainingLog.setLogin(loginService.findLogin(user));
         trainingService.saveLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
-        Assertions.assertTrue(trainingService.fetchUserTraining(user).equals(userTraining));
-        assertTrue(trainingService.fetchUserTraining(user).get(0).getDate().equals("2023-04-12"));
+        assertTrue("",trainingService.fetchUserTraining(user).equals(userTraining));
+        assertTrue("",trainingService.fetchUserTraining(user).get(0).getDate().equals("2023-04-12"));
 
     }
 
@@ -185,9 +185,9 @@ class TrainingServiceImplTest {
         trainingLog2.setLogin(loginService.findLogin(user));
         trainingService.saveLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
-        Assertions.assertTrue(trainingService.fetchUserTraining(user).equals(userTraining));
-        Assertions.assertTrue(trainingService.fetchUserTraining(user).get(0).getDate().equals("2023-04-12"));
-        Assertions.assertTrue(trainingService.fetchUserTraining(user).get(1).getDate().equals("2023-04-13"));
+        assertTrue("",trainingService.fetchUserTraining(user).equals(userTraining));
+        assertTrue("",trainingService.fetchUserTraining(user).get(0).getDate().equals("2023-04-12"));
+        assertTrue("",trainingService.fetchUserTraining(user).get(1).getDate().equals("2023-04-13"));
 
     }
 
@@ -227,11 +227,11 @@ class TrainingServiceImplTest {
         trainingLog4.setLogin(loginService.findLogin(user));
         trainingService.saveLog(trainingLog4);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
-        Assertions.assertTrue(trainingService.fetchUserTraining(user).equals(userTraining));
-        Assertions.assertTrue(trainingService.fetchUserTraining(user).get(0).getDate().equals("2023-04-12"));
-        Assertions.assertTrue(trainingService.fetchUserTraining(user).get(1).getDate().equals("2023-04-13"));
-        Assertions.assertTrue(trainingService.fetchUserTraining(user).get(2).getDate().equals("2023-04-14"));
-        Assertions.assertTrue(trainingService.fetchUserTraining(user).get(3).getDate().equals("2023-04-15"));
+        assertTrue("",trainingService.fetchUserTraining(user).equals(userTraining));
+        assertTrue("",trainingService.fetchUserTraining(user).get(0).getDate().equals("2023-04-12"));
+        assertTrue("",trainingService.fetchUserTraining(user).get(1).getDate().equals("2023-04-13"));
+        assertTrue("",trainingService.fetchUserTraining(user).get(2).getDate().equals("2023-04-14"));
+        assertTrue("",trainingService.fetchUserTraining(user).get(3).getDate().equals("2023-04-15"));
     }
 
     @Test
@@ -249,8 +249,8 @@ class TrainingServiceImplTest {
         trainingLog.setLogin(loginService.findLogin(user));
         trainingService.saveLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
-        Assertions.assertTrue(trainingService.fetchUserTraining(user).equals(userTraining));
-        Assertions.assertTrue(trainingService.fetchUserTraining(user).get(0).getLocation().equals("Carroll"));
+        assertTrue("",trainingService.fetchUserTraining(user).equals(userTraining));
+        assertTrue("",trainingService.fetchUserTraining(user).get(0).getLocation().equals("Carroll"));
 
     }
 

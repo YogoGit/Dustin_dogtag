@@ -7,6 +7,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
+import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 
 @Service
@@ -14,9 +22,11 @@ public class LoginServiceImpl implements LoginService {
     private static final Logger log = LoggerFactory.getLogger(LoginServiceImpl.class);
     private final LoginRepository loginRepo;
 
-    public LoginServiceImpl(LoginRepository loginRepo) {
+    public LoginServiceImpl(LoginRepository loginRepo)   {
         this.loginRepo = loginRepo;
     }
+
+
 
     /**
      * Given a loginForm, determine if the information provided is valid, and the user exists in the system.
@@ -25,7 +35,7 @@ public class LoginServiceImpl implements LoginService {
      * @return true if data exists and matches what's on record, false otherwise
      */
     @Override
-    public boolean validateUser(LoginForm loginForm) {
+    public boolean validateUser(LoginForm loginForm) throws InvalidKeySpecException, NoSuchAlgorithmException {
         log.info("validateUser: {} attempted login", loginForm.getUser());
         if (loginForm.getUser() == null || loginForm.getUser().isBlank()) {
             log.error("loginForm User was null or blank {}", loginForm.getUser());
@@ -43,12 +53,26 @@ public class LoginServiceImpl implements LoginService {
             log.info("validateUser:{} users not found", user.size());
             return false;
         }
+
         Login u = user.get(0);
         final String userProvided = loginForm.getPassword();
-        if (!u.getPassword().equals(userProvided)) {
+        byte[] salt = Base64.getMimeDecoder().decode(u.getSalt());
+        PBEKeySpec pbeKeySpec = new PBEKeySpec(userProvided.toCharArray(), salt, 10, 512);
+        SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
+        byte[] hash = skf.generateSecret(pbeKeySpec).getEncoded();
+
+        //converting to string to store into database
+        String base64Hash = Base64.getMimeEncoder().encodeToString(hash);
+        //Here, you obtain the salt from the database
+        log.info("check if hashes match, result: {}", base64Hash.equals(hash));
+        String hash2 = u.getPassword();
+        log.info(hash2);
+        log.info(base64Hash);
+        if (!hash2.equals(base64Hash)) {
             log.info("validateUser: {} password does not match", loginForm.getUser());
             return false;
         }
+
         log.info("validateUser: {} successful login", loginForm.getUser());
         return true;
     }

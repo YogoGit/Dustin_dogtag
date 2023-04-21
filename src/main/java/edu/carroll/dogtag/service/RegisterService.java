@@ -2,6 +2,9 @@ package edu.carroll.dogtag.service;
 
 import edu.carroll.dogtag.jpa.model.Login;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
 public interface RegisterService {
 
     /**
@@ -36,6 +39,6 @@ public interface RegisterService {
      * @return true if was successful in registering.
      */
 
-    boolean register(Login register);
+    boolean register(Login register) throws NoSuchAlgorithmException, InvalidKeySpecException;
 
 }
