@@ -53,7 +53,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileHappy2() {
+    void fetchUserProfileHappy2() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -71,7 +71,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileHappyFname1() {
+    void fetchUserProfileHappyFname1() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -90,7 +90,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyFname1() {
+    void fetchUserProfileCrappyFname1() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -109,7 +109,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyFname2() {
+    void fetchUserProfileCrappyFname2() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -128,7 +128,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileHappyLname1() {
+    void fetchUserProfileHappyLname1() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -147,7 +147,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyLname1() {
+    void fetchUserProfileCrappyLname1() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -166,7 +166,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyLname2() {
+    void fetchUserProfileCrappyLname2() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -185,7 +185,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyLname3() {
+    void fetchUserProfileCrappyLname3() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -204,7 +204,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyLname4() {
+    void fetchUserProfileCrappyLname4() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -223,7 +223,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileHappyPhone1() {
+    void fetchUserProfileHappyPhone1() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -242,7 +242,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyPhone1() {
+    void fetchUserProfileCrappyPhone1() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -261,7 +261,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyPhone2() {
+    void fetchUserProfileCrappyPhone2() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -280,7 +280,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyPhone3() {
+    void fetchUserProfileCrappyPhone3() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -299,7 +299,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyPhone4() {
+    void fetchUserProfileCrappyPhone4() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -318,7 +318,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void setProfileHappy() {
+    void setProfileHappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -351,7 +351,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void setProfileOnlyFnameFormPassedCrappy2() {
+    void setProfileOnlyFnameFormPassedCrappy2() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);

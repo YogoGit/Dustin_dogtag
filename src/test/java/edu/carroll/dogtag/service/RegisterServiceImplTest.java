@@ -2,6 +2,7 @@ package edu.carroll.dogtag.service;
 
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.repo.RegisterRepository;
+import edu.carroll.dogtag.web.form.LoginForm;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -9,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.List;
 
 import static org.springframework.test.util.AssertionErrors.assertFalse;
@@ -30,6 +33,9 @@ class RegisterServiceImplTest {
     @Autowired
     private RegisterRepository registerRepository;
 
+    @Autowired
+    private LoginService loginService;
+
     @Test
     public void userExistsTestNoUserHappy() {
         String noUser = "noUser";
@@ -38,7 +44,7 @@ class RegisterServiceImplTest {
 
     //Add boolean test updates
     @Test
-    public void userExistsTest1UsersHappy() {
+    public void userExistsTest1UsersHappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(username);
@@ -48,7 +54,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void userExistsTest2UsersHappy() {
+    public void userExistsTest2UsersHappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(username);
@@ -66,7 +72,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void userExistsTest4UsersHappy() {
+    public void userExistsTest4UsersHappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(username);
@@ -98,7 +104,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void userExistsTestHappy5() {
+    public void userExistsTestHappy5() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(username);
@@ -109,7 +115,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void userExistsTestCrappy1() {
+    public void userExistsTestCrappy1() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(username);
@@ -119,7 +125,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void userExistsTestBlankCrappy2() {
+    public void userExistsTestBlankCrappy2() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser("");
@@ -130,7 +136,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void userExistsTestNullUserCrazy1() {
+    public void userExistsTestNullUserCrazy1() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(null);
@@ -148,7 +154,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void emailExistsTestHappy2() {
+    public void emailExistsTestHappy2() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login emailRegister = new Login();
         emailRegister.setPassword(password);
         emailRegister.setUser(username);
@@ -159,7 +165,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void emailExistsTestHappy3() {
+    public void emailExistsTestHappy3() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login emailRegister = new Login();
         emailRegister.setPassword(password);
         emailRegister.setUser(username);
@@ -177,7 +183,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void emailsExistsTestHappy4() {
+    public void emailsExistsTestHappy4() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login emailRegister = new Login();
         emailRegister.setPassword(password);
         emailRegister.setUser(username);
@@ -209,7 +215,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void emailsExistsTestCrappy1() {
+    public void emailsExistsTestCrappy1() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login emailRegister = new Login();
         emailRegister.setPassword(password);
         emailRegister.setUser(username);
@@ -220,7 +226,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void userEmailTestBlankCrappy2() {
+    public void userEmailTestBlankCrappy2() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(username);
@@ -231,7 +237,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void userEmailTestNullEmailCrazy1() {
+    public void userEmailTestNullEmailCrazy1() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(username);
@@ -242,7 +248,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void deleteCreatedUserTestHappy1() {
+    public void deleteCreatedUserTestHappy1() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login userRegisterDelete = new Login();
         userRegisterDelete.setPassword(password);
         userRegisterDelete.setEmail(email);
@@ -252,7 +258,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void deleteCreatedUserTestHappy2() {
+    public void deleteCreatedUserTestHappy2() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login userRegisterDelete = new Login();
         userRegisterDelete.setPassword(password);
         userRegisterDelete.setEmail(email);
@@ -263,7 +269,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void userPasswordTestGoodPasswordHappy1() {
+    public void userPasswordTestGoodPasswordHappy1() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(username);
@@ -271,13 +277,13 @@ class RegisterServiceImplTest {
         log.info("password should be {}", userRegister.getPassword());
         registerService.register(userRegister);
         List<Login> users = registerRepository.findByUserIgnoreCase(username);
-        String pass = users.get(0).getPassword();
-        assertTrue("userPasswordTestBlankCrappy2: should pass when a password is correctly created", password == pass);
+        LoginForm loginForm = new LoginForm(username, password);
+        assertTrue("userPasswordTestBlankCrappy2: should pass when a password is correctly created", loginService.validateUser(loginForm));
         assertTrue("userRegister should pass with correct register passed", registerService.userExists(userRegister.getUser()));
     }
 
     @Test
-    public void userPasswordTestBlankCrappy1() {
+    public void userPasswordTestBlankCrappy1() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login userRegister = new Login();
         userRegister.setPassword("");
         userRegister.setUser(username);
@@ -288,7 +294,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void userPasswordTestNullPasswordCrazy1() {
+    public void userPasswordTestNullPasswordCrazy1() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login userRegister = new Login();
         userRegister.setPassword(null);
         userRegister.setUser(username);
@@ -299,7 +305,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void userPasswordTestPasswdUserNullCrazy() {
+    public void userPasswordTestPasswdUserNullCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login userRegister = new Login();
         userRegister.setPassword(null);
         userRegister.setUser(null);
@@ -312,7 +318,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void userPasswordTestEmailUserNullCrazy() {
+    public void userPasswordTestEmailUserNullCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login userRegister = new Login();
         userRegister.setPassword(password);
         userRegister.setUser(null);
@@ -325,7 +331,7 @@ class RegisterServiceImplTest {
     }
 
     @Test
-    public void userPasswordTestAllNullCrazy() {
+    public void userPasswordTestAllNullCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login userRegister = new Login();
         userRegister.setPassword(null);
         userRegister.setUser(null);

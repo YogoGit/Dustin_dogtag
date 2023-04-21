@@ -52,9 +52,17 @@ public class Login {
     @NotEmpty
     private String password;
 
-    @Column(name="salt", length = 65555)
+    @Column(name = "salt", length = 65555)
     @NotEmpty
     private String salt;
+    @Column(name = "email", nullable = false, unique = true)
+    @NotEmpty
+    @Email()
+    @Size(min = 6, max = 20)
+    private String email;
+
+    public Login() {
+    }
 
     public String getSalt() {
         return salt;
@@ -70,16 +78,6 @@ public class Login {
 
     public void setTraining(List<Training> training) {
         this.training = training;
-    }
-
-    @Column(name = "email", nullable = false, unique = true)
-    @NotEmpty
-    @Email()
-    @Size(min = 6, max = 20)
-    private String email;
-
-
-    public Login() {
     }
 
     /**

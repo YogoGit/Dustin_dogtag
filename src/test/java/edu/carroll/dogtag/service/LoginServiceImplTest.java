@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
 import static org.springframework.test.util.AssertionErrors.*;
 
 @SpringBootTest
@@ -24,20 +27,20 @@ public class LoginServiceImplTest {
     private RegisterService registerService;
 
     @Test
-    public void validateUserNoUsersInDatabase() {
+    public void validateUserNoUsersInDatabase() throws InvalidKeySpecException, NoSuchAlgorithmException {
         final LoginForm form = new LoginForm(user, password);
         assertFalse("validateUserNoUsersInDatabase: should fail with no users in database", loginService.validateUser(form));
     }
 
     @Test
-    public void validateUserNoUsersInDatabase2() {
+    public void validateUserNoUsersInDatabase2() throws InvalidKeySpecException, NoSuchAlgorithmException {
         final LoginForm form = new LoginForm(password, user);
         assertFalse("validateUserNoUsersInDatabase: should fail with no users in database and switched login" +
                 "form inputs", loginService.validateUser(form));
     }
 
     @Test
-    public void validateUserSuccessTest() {
+    public void validateUserSuccessTest() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -48,7 +51,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserSuccessTest2() {
+    public void validateUserSuccessTest2() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -66,7 +69,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserSuccessTest4() {
+    public void validateUserSuccessTest4() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -99,7 +102,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserFailPasswordAndSuccessInputTest() {
+    public void validateUserFailPasswordAndSuccessInputTest() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -112,7 +115,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserFailAndSuccessInputTest() {
+    public void validateUserFailAndSuccessInputTest() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -125,7 +128,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserFailInputSwitchTest() {
+    public void validateUserFailInputSwitchTest() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -136,7 +139,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserExistingUserInvalidPasswordTest() {
+    public void validateUserExistingUserInvalidPasswordTest() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -147,7 +150,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserInvalidUserValidPasswordTest() {
+    public void validateUserInvalidUserValidPasswordTest() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -158,7 +161,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserInvalidUserInvalidPasswordTest() {
+    public void validateUserInvalidUserInvalidPasswordTest() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -169,7 +172,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserInvalidUserInvalidPasswordTest2() {
+    public void validateUserInvalidUserInvalidPasswordTest2() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -187,7 +190,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserInvalidUserInvalidPasswordTest4() {
+    public void validateUserInvalidUserInvalidPasswordTest4() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -219,7 +222,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserSwitchUserLookupTest2() {
+    public void validateUserSwitchUserLookupTest2() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -237,7 +240,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserSwitchUserLookupTest4() {
+    public void validateUserSwitchUserLookupTest4() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -269,7 +272,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserFormNull() {
+    public void validateUserFormNull() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -280,7 +283,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserFormBlank() {
+    public void validateUserFormBlank() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -291,7 +294,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserFormBlankUser() {
+    public void validateUserFormBlankUser() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -302,7 +305,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserFormBlankPassword() {
+    public void validateUserFormBlankPassword() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -313,7 +316,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserNullUser() {
+    public void validateUserNullUser() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -324,7 +327,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void validateUserNullPassword() {
+    public void validateUserNullPassword() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -335,7 +338,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void findLogin() {
+    public void findLogin() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -347,7 +350,7 @@ public class LoginServiceImplTest {
 
 
     @Test
-    public void findLogin2() {
+    public void findLogin2() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -365,7 +368,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void findLogin4() {
+    public void findLogin4() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -427,7 +430,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void findLoginUserCreatedCrappy() {
+    public void findLoginUserCreatedCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -438,7 +441,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void findLoginUserNullUserCrappy() {
+    public void findLoginUserNullUserCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -449,7 +452,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void findLoginPasswordCreatedCrappy() {
+    public void findLoginPasswordCreatedCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -460,7 +463,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void findLoginCrappy2() {
+    public void findLoginCrappy2() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -478,7 +481,7 @@ public class LoginServiceImplTest {
     }
 
     @Test
-    public void findLoginCrappy4() {
+    public void findLoginCrappy4() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);

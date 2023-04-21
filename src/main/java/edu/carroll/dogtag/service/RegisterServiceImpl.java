@@ -6,13 +6,13 @@ import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Base64;
-
 import java.util.List;
 
 @Service
@@ -21,7 +21,7 @@ public class RegisterServiceImpl implements RegisterService {
     private static final Logger log = LoggerFactory.getLogger(RegisterServiceImpl.class);
     private final RegisterRepository registerRepo;
 
-    public RegisterServiceImpl(RegisterRepository registerRepo){
+    public RegisterServiceImpl(RegisterRepository registerRepo) {
         this.registerRepo = registerRepo;
     }
 
@@ -76,7 +76,7 @@ public class RegisterServiceImpl implements RegisterService {
      */
 
     @Override
-    public boolean register(Login register)throws NoSuchAlgorithmException, InvalidKeySpecException  {
+    public boolean register(Login register) throws NoSuchAlgorithmException, InvalidKeySpecException {
         if (register.getUser() != null && !register.getUser().isBlank()
                 && register.getPassword() != null && register.getPassword() != ""
                 && register.getEmail() != null && register.getEmail() != "") {

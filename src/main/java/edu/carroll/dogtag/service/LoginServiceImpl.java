@@ -7,13 +7,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
-import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
 
@@ -22,10 +19,9 @@ public class LoginServiceImpl implements LoginService {
     private static final Logger log = LoggerFactory.getLogger(LoginServiceImpl.class);
     private final LoginRepository loginRepo;
 
-    public LoginServiceImpl(LoginRepository loginRepo)   {
+    public LoginServiceImpl(LoginRepository loginRepo) {
         this.loginRepo = loginRepo;
     }
-
 
 
     /**
