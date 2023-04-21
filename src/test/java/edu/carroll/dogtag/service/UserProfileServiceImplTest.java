@@ -10,6 +10,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -38,7 +41,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileHappy1() {
+    void fetchUserProfileHappy1() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -330,7 +333,7 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void setProfileBlankFormPassedCrappy() {
+    void setProfileBlankFormPassedCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
