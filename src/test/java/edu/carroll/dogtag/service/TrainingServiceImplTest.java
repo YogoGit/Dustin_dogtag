@@ -49,7 +49,7 @@ class TrainingServiceImplTest {
         trainingLog.setLocation("Carroll");
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
-        trainingLog.setLogin(loginService.findLogin(user));
+        trainingLog.setLogin(loginService.findLogin("LookingForNoUser"));
         trainingService.saveLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining("LookingForNoUser");
         assertNull("User does not exist and will be null", userTraining);
@@ -72,6 +72,25 @@ class TrainingServiceImplTest {
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNotNull("User has training that is returned", userTraining);
         assertTrue("User training setDate is correct", userTraining.get(0).getDate().equals("2023-04-12"));
+        assertTrue("One entry for traininglog", userTraining.size() == 1);
+    }
+    @Test
+    void saveLogCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog);
+        List<Training> userTraining = trainingService.fetchUserTraining(user);
+        assertNotNull("User has training that is returned", userTraining);
+        assertFalse("User training setDate is wrong", userTraining.get(0).getDate().equals("2023-04-13"));
         assertTrue("One entry for traininglog", userTraining.size() == 1);
     }
     @Test
@@ -99,6 +118,34 @@ class TrainingServiceImplTest {
         assertNotNull("User has training that is returned", userTraining2);
         assertTrue("User training setDate is correct", userTraining2.get(0).getDate().equals("2023-04-12"));
         assertTrue("User training2 setDate is correct", userTraining2.get(1).getDate().equals("2023-04-13"));
+        assertTrue("Two entry for traininglog", userTraining2.size() == 2);
+    }
+
+    @Test
+    void saveLog2OneHappyOneCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog);
+        Training trainingLog2 = new Training();
+        trainingLog2.setDate("2023-04-13");
+        trainingLog2.setLocation("Carroll2");
+        trainingLog2.setTraining("Walking2");
+        trainingLog2.setComments("Good2");
+        trainingLog2.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog2);
+        List<Training> userTraining2 = trainingService.fetchUserTraining(user);
+        assertNotNull("User has training that is returned", userTraining2);
+        assertTrue("User training setDate is correct", userTraining2.get(0).getDate().equals("2023-04-12"));
+        assertFalse("User training2 setDate is correct", userTraining2.get(1).getDate().equals("2023-04-12"));
         assertTrue("Two entry for traininglog", userTraining2.size() == 2);
     }
     @Test
@@ -142,6 +189,50 @@ class TrainingServiceImplTest {
         assertTrue("User training2 setDate is correct", userTraining4.get(1).getDate().equals("2023-04-13"));
         assertTrue("User training3 setDate is correct", userTraining4.get(2).getDate().equals("2023-04-14"));
         assertTrue("User training4 setDate is correct", userTraining4.get(3).getDate().equals("2023-04-15"));
+        assertTrue("Two entry for traininglog", userTraining4.size() == 4);
+    }
+
+    @Test
+    void saveLog4TwoCrappyTwoHappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog);
+        Training trainingLog2 = new Training();
+        trainingLog2.setDate("2023-04-13");
+        trainingLog2.setLocation("Carroll2");
+        trainingLog2.setTraining("Walking2");
+        trainingLog2.setComments("Good2");
+        trainingLog2.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog2);
+        Training trainingLog3 = new Training();
+        trainingLog3.setDate("2023-04-14");
+        trainingLog3.setLocation("Carroll3");
+        trainingLog3.setTraining("Walking3");
+        trainingLog3.setComments("Good3");
+        trainingLog3.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog3);
+        Training trainingLog4 = new Training();
+        trainingLog4.setDate("2023-04-15");
+        trainingLog4.setLocation("Carroll4");
+        trainingLog4.setTraining("Walking4");
+        trainingLog4.setComments("Good4");
+        trainingLog4.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog4);
+        List<Training> userTraining4 = trainingService.fetchUserTraining(user);
+        assertNotNull("User has training that is returned", userTraining4);
+        assertTrue("User training setDate is correct", userTraining4.get(0).getDate().equals("2023-04-12"));
+        assertTrue("User training2 setDate is correct", userTraining4.get(1).getDate().equals("2023-04-13"));
+        assertFalse("User training3 setDate is correct", userTraining4.get(2).getDate().equals("2023-04-12"));
+        assertFalse("User training4 setDate is correct", userTraining4.get(3).getDate().equals("2023-04-13"));
         assertTrue("Two entry for traininglog", userTraining4.size() == 4);
     }
 
