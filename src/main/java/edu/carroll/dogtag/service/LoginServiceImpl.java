@@ -41,7 +41,6 @@ public class LoginServiceImpl implements LoginService {
             log.error("loginForm Password was null or blank for user {}", loginForm.getUser());
             return false;
         }
-        log.info("validateUser: {} attempted login", loginForm.getUser());
         // Always do the lookup in a case-insensitive manner (lower-casing the data).
         List<Login> user = loginRepo.findByUserIgnoreCase(loginForm.getUser());
 
@@ -60,10 +59,7 @@ public class LoginServiceImpl implements LoginService {
         //converting to string to store into database
         String base64Hash = Base64.getMimeEncoder().encodeToString(hash);
         //Here, you obtain the salt from the database
-        log.info("check if hashes match, result: {}", base64Hash.equals(hash));
         String hash2 = u.getPassword();
-        log.info(hash2);
-        log.info(base64Hash);
         if (!hash2.equals(base64Hash)) {
             log.info("validateUser: {} password does not match", loginForm.getUser());
             return false;

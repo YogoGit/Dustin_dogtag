@@ -9,12 +9,12 @@ public class RegisterForm {
     @Size(max = 16, message = "Username must be less than 16 character long")
     private String user;
 
-    @NotBlank(message = "")
+    @NotBlank
     @Size(min = 8, message = "Password must be at least 8 characters long")
     @Size(max = 16, message = "Password must be less than 16 character long")
     private String password;
 
-    @NotBlank(message = "")
+    @NotBlank
     @Size(min = 6, message = "Email must be at least 6 characters long")
     @Size(max = 50, message = "Email must be less than 50 character long")
     private String email;

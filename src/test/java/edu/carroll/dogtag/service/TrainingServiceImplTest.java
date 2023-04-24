@@ -22,10 +22,10 @@ class TrainingServiceImplTest {
     private static final String user = "usertest";
     private static final String password = "passwordtest";
     private static final String email = "emailTest@gmail.com";
-    private static final Logger log = LoggerFactory.getLogger(RegisterServiceImplTest.class);
 
     @Autowired
     private RegisterService registerService;
+
     @Autowired
     private TrainingServiceImpl trainingService;
 
@@ -61,7 +61,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin("LookingForNoUser"));
-        trainingService.saveLog(trainingLog);
+        assertTrue("",trainingService.saveLog(trainingLog));
         List<Training> userTraining = trainingService.fetchUserTraining("LookingForNoUser");
         assertNull("User does not exist and will be null", userTraining);
     }

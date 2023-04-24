@@ -4,16 +4,16 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class UserProfileForm {
-    @NotBlank(message = "")
+    @NotBlank
     @Size(min = 1, message = "First Name must be at least 1 character long")
     @Size(max = 10, message = "First Name must be less than 10 character long")
     private String fname;
-    @NotBlank(message = "")
+    @NotBlank
     @Size(min = 1, message = "Last Name must be at least 1 character long")
     @Size(max = 11, message = "Last Name must be less than 11 character long")
     private String lname;
 
-    @NotBlank(message = "")
+    @NotBlank
     @Size(min = 12, message = "Phone must be at least 10 character long")
     @Size(max = 12, message = "Phone must be less than 10 character long")
     private String phone;

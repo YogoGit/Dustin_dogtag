@@ -20,6 +20,9 @@ import java.util.List;
 public class RegisterServiceImpl implements RegisterService {
     private static final Logger log = LoggerFactory.getLogger(RegisterServiceImpl.class);
     private final RegisterRepository registerRepo;
+    private final SecureRandom secureRandom = new SecureRandom();
+
+
 
     public RegisterServiceImpl(RegisterRepository registerRepo) {
         this.registerRepo = registerRepo;
@@ -76,24 +79,13 @@ public class RegisterServiceImpl implements RegisterService {
      */
 
     @Override
-    public boolean register(Login register) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public boolean register(Login register) {
         if (register.getUser() != null && !register.getUser().isBlank()
                 && register.getPassword() != null && register.getPassword() != ""
                 && register.getEmail() != null && register.getEmail() != "") {
-
-            SecureRandom secureRandom = new SecureRandom();
-            byte[] salt = secureRandom.generateSeed(12);
-            PBEKeySpec pbeKeySpec = new PBEKeySpec(register.getPassword().toCharArray(), salt, 10, 512);
-            SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
-            byte[] hash = skf.generateSecret(pbeKeySpec).getEncoded();
-
-            //converting to string to store into database
-            String base64Hash = Base64.getMimeEncoder().encodeToString(hash);
-            String base64Salt = Base64.getMimeEncoder().encodeToString(salt);
-            register.setSalt(base64Salt);
-            register.setPassword(base64Hash);
-            log.info(base64Hash);
-
+            String passSalt[] = hashString(register.getPassword());
+            register.setPassword(passSalt[0]);
+            register.setSalt(passSalt[1]);
 
             registerRepo.save(register);
             log.info("Register Info for {} sent to login table", register.getUser());
@@ -102,6 +94,26 @@ public class RegisterServiceImpl implements RegisterService {
             log.info("Can can not be null or blank {}", register.getUser());
             return false;
         }
+    }
+
+    private String[] hashString(String rawPassword){
+        String[] result = new String[2];
+
+        byte[] salt = secureRandom.generateSeed(12);
+        PBEKeySpec pbeKeySpec = new PBEKeySpec(rawPassword.toCharArray(), salt, 10, 512);
+
+        try {
+            SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");;
+            byte[] hash = skf.generateSecret(pbeKeySpec).getEncoded();
+            //converting to string to store into database
+            result[0] = Base64.getMimeEncoder().encodeToString(hash);
+            result[1] = Base64.getMimeEncoder().encodeToString(salt);
+        } catch (NoSuchAlgorithmException e) {
+            log.error("Failed to encrypt password", e);
+        } catch (InvalidKeySpecException e) {
+            log.error("Failed to SHA512 encryption", e);
+        }
+        return result;
     }
 
 }

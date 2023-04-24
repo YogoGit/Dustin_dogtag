@@ -29,7 +29,6 @@ public interface RegisterService {
 
     boolean emailExists(String email);
 
-
     /**
      * register is used once all the information is correct being given to
      * this method to send to the database
@@ -39,6 +38,6 @@ public interface RegisterService {
      * @return true if was successful in registering.
      */
 
-    boolean register(Login register) throws NoSuchAlgorithmException, InvalidKeySpecException;
+    boolean register(Login register);
 
 }

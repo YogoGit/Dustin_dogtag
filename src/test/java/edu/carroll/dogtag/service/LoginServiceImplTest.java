@@ -35,8 +35,8 @@ public class LoginServiceImplTest {
     @Test
     public void validateUserNoUsersInDatabase2() throws InvalidKeySpecException, NoSuchAlgorithmException {
         final LoginForm form = new LoginForm(password, user);
-        assertFalse("validateUserNoUsersInDatabase: should fail with no users in database and switched login" +
-                "form inputs", loginService.validateUser(form));
+        assertFalse("validateUserNoUsersInDatabase: should fail with no users in database and switched loginform inputs",
+                loginService.validateUser(form));
     }
 
     @Test

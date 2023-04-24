@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -81,7 +82,7 @@ public class TrainingServiceImpl implements TrainingService {
     @Override
     public List<Training> fetchUserTraining(String user) {
         if (user == null || user.isBlank()) {
-            return null;
+            return Collections.EMPTY_LIST;
         }
         List<Login> fetchUser = loginRepository.findByUserIgnoreCase(user);
         if (user == null || user.isBlank()) {
@@ -94,9 +95,9 @@ public class TrainingServiceImpl implements TrainingService {
         List<Training> trainings = trainingRepository.findByLogin_Id(fetchUser.get(0).getId());
         if (trainings.isEmpty()) {
             log.debug("trainings List was empty with size 0 for user: {}", user);
-            return null;
+        } else {
+            log.info("fetchUser List was successfully found {}", user);
         }
-        log.info("fetchUser List was successfully found {}", user);
         return trainings;
     }
 }
