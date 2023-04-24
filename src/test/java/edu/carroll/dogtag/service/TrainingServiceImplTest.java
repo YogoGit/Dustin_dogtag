@@ -144,6 +144,42 @@ class TrainingServiceImplTest {
         assertTrue("User training4 setDate is correct", userTraining4.get(3).getDate().equals("2023-04-15"));
         assertTrue("Two entry for traininglog", userTraining4.size() == 4);
     }
+
+    @Test
+    void saveLog2UsersReturn1() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Login createUser2 = new Login();
+        createUser2.setPassword(password+"2");
+        createUser2.setUser(user+"2");
+        createUser2.setEmail(email+"2");
+        registerService.register(createUser2);
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog);
+        Training trainingLog2 = new Training();
+        trainingLog2.setDate("2023-04-13");
+        trainingLog2.setLocation("Carroll2");
+        trainingLog2.setTraining("Walking2");
+        trainingLog2.setComments("Good2");
+        trainingLog2.setLogin(loginService.findLogin(user+"2"));
+        trainingService.saveLog(trainingLog2);
+        List<Training> userTraining = trainingService.fetchUserTraining(user);
+        List<Training> userTraining2 = trainingService.fetchUserTraining(user+"2");
+        assertNotNull("User has training that is returned", userTraining);
+        assertNotNull("User has training that is returned", userTraining2);
+        assertTrue("User training setDate is correct", userTraining.get(0).getDate().equals("2023-04-12"));
+        assertTrue("User training2 setDate is correct", userTraining2.get(0).getDate().equals("2023-04-13"));
+        assertTrue("Two entry for traininglog", userTraining.size() == 1);
+        assertTrue("Two entry for traininglog", userTraining2.size() == 1);
+    }
     @Test
     void fetchUserTrainingHappy() {
         List<Training> noUser = trainingService.fetchUserTraining(user);
