@@ -80,11 +80,9 @@ public class RegisterServiceImpl implements RegisterService {
         if (register.getUser() != null && !register.getUser().isBlank()
                 && register.getPassword() != null && register.getPassword() != ""
                 && register.getEmail() != null && register.getEmail() != "") {
+
             SecureRandom secureRandom = new SecureRandom();
-
-            //make sure to save this into a database
             byte[] salt = secureRandom.generateSeed(12);
-
             PBEKeySpec pbeKeySpec = new PBEKeySpec(register.getPassword().toCharArray(), salt, 10, 512);
             SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
             byte[] hash = skf.generateSecret(pbeKeySpec).getEncoded();

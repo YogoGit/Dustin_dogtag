@@ -1,20 +1,20 @@
 package edu.carroll.dogtag.web.form;
 
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class RegisterForm {
-    @NotNull
+    @NotBlank
     @Size(min = 6, message = "Username must be at least 6 characters long")
     @Size(max = 16, message = "Username must be less than 16 character long")
     private String user;
 
-    @NotNull
+    @NotBlank(message = "")
     @Size(min = 8, message = "Password must be at least 8 characters long")
     @Size(max = 16, message = "Password must be less than 16 character long")
     private String password;
 
-    @NotNull
+    @NotBlank(message = "")
     @Size(min = 6, message = "Email must be at least 6 characters long")
     @Size(max = 50, message = "Email must be less than 50 character long")
     private String email;
