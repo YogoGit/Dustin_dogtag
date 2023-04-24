@@ -2,8 +2,6 @@ package edu.carroll.dogtag.web.form;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class LoginForm {
     @NotNull
