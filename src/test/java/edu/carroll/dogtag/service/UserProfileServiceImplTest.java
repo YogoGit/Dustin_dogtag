@@ -84,8 +84,8 @@ class UserProfileServiceImplTest {
         userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
         userProfileService.fetchUserProfile(user);
-        assertTrue(userProfileService.fetchUserProfile(user).equals(userProfile));
-        assertTrue(userProfileService.fetchUserProfile(user).getFname().equals("Dustin"));
+        assertEquals(userProfileService.fetchUserProfile(user), userProfile);
+        assertEquals("Dustin", userProfileService.fetchUserProfile(user).getFname());
 
     }
 
@@ -103,8 +103,8 @@ class UserProfileServiceImplTest {
         userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
         userProfileService.fetchUserProfile(user);
-        assertFalse(userProfileService.fetchUserProfile(user).getFname().equals(userProfile.getLname()));
-        assertTrue(userProfileService.fetchUserProfile(user).getFname().equals("Dustin"));
+        assertNotEquals(userProfileService.fetchUserProfile(user).getFname(), userProfile.getLname());
+        assertEquals("Dustin", userProfileService.fetchUserProfile(user).getFname());
 
     }
 
@@ -122,8 +122,8 @@ class UserProfileServiceImplTest {
         userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
         userProfileService.fetchUserProfile(user);
-        assertTrue(userProfileService.fetchUserProfile(user).getFname().equals(userProfile.getFname()));
-        assertFalse(userProfileService.fetchUserProfile(user).getFname().equals("Gardner"));
+        assertEquals(userProfileService.fetchUserProfile(user).getFname(), userProfile.getFname());
+        assertNotEquals("Gardner", userProfileService.fetchUserProfile(user).getFname());
 
     }
 
@@ -141,8 +141,8 @@ class UserProfileServiceImplTest {
         userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
         userProfileService.fetchUserProfile(user);
-        assertTrue(userProfileService.fetchUserProfile(user).getLname().equals(userProfile.getLname()));
-        assertTrue(userProfileService.fetchUserProfile(user).getLname().equals("Gardner"));
+        assertEquals(userProfileService.fetchUserProfile(user).getLname(), userProfile.getLname());
+        assertEquals("Gardner", userProfileService.fetchUserProfile(user).getLname());
 
     }
 
@@ -160,8 +160,8 @@ class UserProfileServiceImplTest {
         userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
         userProfileService.fetchUserProfile(user);
-        assertFalse(userProfileService.fetchUserProfile(user).getLname().equals(userProfile.getFname()));
-        assertTrue(userProfileService.fetchUserProfile(user).getLname().equals("Gardner"));
+        assertNotEquals(userProfileService.fetchUserProfile(user).getLname(), userProfile.getFname());
+        assertEquals("Gardner", userProfileService.fetchUserProfile(user).getLname());
 
     }
 
@@ -179,8 +179,8 @@ class UserProfileServiceImplTest {
         userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
         userProfileService.fetchUserProfile(user);
-        assertTrue(userProfileService.fetchUserProfile(user).getLname().equals(userProfile.getLname()));
-        assertFalse(userProfileService.fetchUserProfile(user).getLname().equals("Dustin"));
+        assertEquals(userProfileService.fetchUserProfile(user).getLname(), userProfile.getLname());
+        assertNotEquals("Dustin", userProfileService.fetchUserProfile(user).getLname());
 
     }
 
@@ -198,8 +198,8 @@ class UserProfileServiceImplTest {
         userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
         userProfileService.fetchUserProfile(user);
-        assertFalse(userProfileService.fetchUserProfile(user).getLname().equals(userProfile.getPhone()));
-        assertTrue(userProfileService.fetchUserProfile(user).getLname().equals("Gardner"));
+        assertNotEquals(userProfileService.fetchUserProfile(user).getLname(), userProfile.getPhone());
+        assertEquals("Gardner", userProfileService.fetchUserProfile(user).getLname());
 
     }
 
@@ -217,8 +217,8 @@ class UserProfileServiceImplTest {
         userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
         userProfileService.fetchUserProfile(user);
-        assertFalse(userProfileService.fetchUserProfile(user).getLname().equals(userProfile.getPhone()));
-        assertFalse(userProfileService.fetchUserProfile(user).getLname().equals("Dustin"));
+        assertNotEquals(userProfileService.fetchUserProfile(user).getLname(), userProfile.getPhone());
+        assertNotEquals("Dustin", userProfileService.fetchUserProfile(user).getLname());
 
     }
 
@@ -236,8 +236,8 @@ class UserProfileServiceImplTest {
         userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
         userProfileService.fetchUserProfile(user);
-        assertTrue(userProfileService.fetchUserProfile(user).getPhone().equals(userProfile.getPhone()));
-        assertTrue(userProfileService.fetchUserProfile(user).getPhone().equals("406-980-0947"));
+        assertEquals(userProfileService.fetchUserProfile(user).getPhone(), userProfile.getPhone());
+        assertEquals("406-980-0947", userProfileService.fetchUserProfile(user).getPhone());
 
     }
 
@@ -255,8 +255,8 @@ class UserProfileServiceImplTest {
         userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
         userProfileService.fetchUserProfile(user);
-        assertFalse(userProfileService.fetchUserProfile(user).getPhone().equals(userProfile.getFname()));
-        assertTrue(userProfileService.fetchUserProfile(user).getPhone().equals("406-980-0947"));
+        assertNotEquals(userProfileService.fetchUserProfile(user).getPhone(), userProfile.getFname());
+        assertEquals("406-980-0947", userProfileService.fetchUserProfile(user).getPhone());
 
     }
 
@@ -274,8 +274,8 @@ class UserProfileServiceImplTest {
         userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
         userProfileService.fetchUserProfile(user);
-        assertTrue(userProfileService.fetchUserProfile(user).getPhone().equals(userProfile.getPhone()));
-        assertFalse(userProfileService.fetchUserProfile(user).getPhone().equals("Dustin"));
+        assertEquals(userProfileService.fetchUserProfile(user).getPhone(), userProfile.getPhone());
+        assertNotEquals("Dustin", userProfileService.fetchUserProfile(user).getPhone());
 
     }
 
@@ -293,8 +293,8 @@ class UserProfileServiceImplTest {
         userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
         userProfileService.fetchUserProfile(user);
-        assertFalse(userProfileService.fetchUserProfile(user).getPhone().equals(userProfile.getFname()));
-        assertTrue(userProfileService.fetchUserProfile(user).getPhone().equals("406-980-0947"));
+        assertNotEquals(userProfileService.fetchUserProfile(user).getPhone(), userProfile.getFname());
+        assertEquals("406-980-0947", userProfileService.fetchUserProfile(user).getPhone());
 
     }
 
@@ -312,8 +312,8 @@ class UserProfileServiceImplTest {
         userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setProfile(userProfile);
         userProfileService.fetchUserProfile(user);
-        assertFalse(userProfileService.fetchUserProfile(user).getPhone().equals(userProfile.getLogin()));
-        assertFalse(userProfileService.fetchUserProfile(user).getPhone().equals("Dustin"));
+        assertNotEquals(userProfileService.fetchUserProfile(user).getPhone(), userProfile.getLogin());
+        assertNotEquals("Dustin", userProfileService.fetchUserProfile(user).getPhone());
 
     }
 
