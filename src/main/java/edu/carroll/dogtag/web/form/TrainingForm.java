@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class TrainingForm {
-    private static final Logger log = LoggerFactory.getLogger(TrainingForm.class);
 
     @NotNull(message = "Enter a Date")
     @NotBlank(message = "Enter a Date")

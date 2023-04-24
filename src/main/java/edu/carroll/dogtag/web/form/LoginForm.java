@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class LoginForm {
-    private static final Logger log = LoggerFactory.getLogger(LoginForm.class);
     @NotNull
     @Size(min = 6, message = "Username must be at least 6 characters long")
     @Size(max = 16, message = "Username must be less than 16 character long")
