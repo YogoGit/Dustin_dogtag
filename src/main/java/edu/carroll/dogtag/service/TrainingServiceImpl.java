@@ -36,6 +36,11 @@ public class TrainingServiceImpl implements TrainingService {
 
     @Override
     public boolean saveLog(Training trainingLog) {
+        Login  blank = new Login();
+        if (trainingLog == null||trainingLog.equals(blank)){
+            log.error("Traininglog can not be passed as null");
+            return false;
+        }
         if (trainingLog.getDate() == null || trainingLog.getDate().isBlank()) {
             log.error("Traininglog date field was null or blank {}", trainingLog.getDate());
             return false;
@@ -51,7 +56,12 @@ public class TrainingServiceImpl implements TrainingService {
         if (trainingLog.getComments() == null || trainingLog.getComments().isBlank()) {
             log.error("Traininglog comment was null or black {} ", trainingLog.getComments());
             return false;
-        } else {
+        }
+        if (trainingLog.getLogin() == null||trainingLog.equals(blank)) {
+            log.error("Traininglog comment was null or black {} ", trainingLog.getComments());
+            return false;
+        }
+        else {
             log.info("Traininglog {} was saved successfully", trainingLog);
             trainingRepository.save(trainingLog);
             return true;

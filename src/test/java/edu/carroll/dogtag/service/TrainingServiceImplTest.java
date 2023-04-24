@@ -43,6 +43,15 @@ class TrainingServiceImplTest {
         assertNull("User has no training that is returned and is null", userTraining);
     }
     @Test
+    void saveLogNoLogNullCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        assertNull("User has no training that is returned and is null", trainingService.fetchUserTraining(null));
+    }
+    @Test
     void saveLogNoUser(){
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
@@ -53,6 +62,17 @@ class TrainingServiceImplTest {
         trainingService.saveLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining("LookingForNoUser");
         assertNull("User does not exist and will be null", userTraining);
+    }
+
+    @Test
+    void saveLogNoUserNullCrazy(){
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(loginService.findLogin("LookingForNoUser"));
+        assertFalse("Training log not saved because of Null", trainingService.saveLog(null));
     }
 
     @Test
@@ -75,7 +95,7 @@ class TrainingServiceImplTest {
         assertTrue("One entry for traininglog", userTraining.size() == 1);
     }
     @Test
-    void saveLogCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveLogDateCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -93,6 +113,281 @@ class TrainingServiceImplTest {
         assertFalse("User training setDate is wrong", userTraining.get(0).getDate().equals("2023-04-13"));
         assertTrue("One entry for traininglog", userTraining.size() == 1);
     }
+
+    @Test
+    void saveLogLocationCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog);
+        List<Training> userTraining = trainingService.fetchUserTraining(user);
+        assertNotNull("User has training that is returned", userTraining);
+        assertFalse("User training setLocation is wrong", userTraining.get(0).getLocation().equals("Carroll2"));
+        assertTrue("One entry for traininglog", userTraining.size() == 1);
+    }
+    @Test
+    void saveLogTrainingCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog);
+        List<Training> userTraining = trainingService.fetchUserTraining(user);
+        assertNotNull("User has training that is returned", userTraining);
+        assertFalse("User training is wrong", userTraining.get(0).getTraining().equals("Walking2"));
+        assertTrue("One entry for traininglog", userTraining.size() == 1);
+    }
+
+    @Test
+    void saveLogCommentsCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog);
+        List<Training> userTraining = trainingService.fetchUserTraining(user);
+        assertNotNull("User has training that is returned", userTraining);
+        assertFalse("User training setComments is wrong", userTraining.get(0).getComments().equals("Good2"));
+        assertTrue("One entry for traininglog", userTraining.size() == 1);
+    }
+
+    @Test
+    void saveLogSetLoginCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog);
+        List<Training> userTraining = trainingService.fetchUserTraining(user);
+        assertNotNull("User has training that is returned", userTraining);
+        assertFalse("User training user is wrong", userTraining.get(0).getLogin().equals("usertest2"));
+        assertTrue("One entry for traininglog", userTraining.size() == 1);
+    }
+    @Test
+    void saveLogCrazyNullDate() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate(null);
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog);
+        List<Training> userTraining = trainingService.fetchUserTraining(user);
+        assertNull("User has training not saved due to null date", userTraining);
+    }
+    @Test
+    void saveLogCrazyBlankDate() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate("");
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog);
+        List<Training> userTraining = trainingService.fetchUserTraining(user);
+        assertNull("User has training not saved due to null date", userTraining);
+    }
+
+    @Test
+    void saveLogCrazyNullLocation() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation(null);
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog);
+        List<Training> userTraining = trainingService.fetchUserTraining(user);
+        assertNull("User has training not saved due to null date", userTraining);
+    }
+
+    @Test
+    void saveLogCrazyBlankLocation() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation("");
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog);
+        List<Training> userTraining = trainingService.fetchUserTraining(user);
+        assertNull("User has training not saved due to null date", userTraining);
+    }
+
+    @Test
+    void saveLogCrazyNullTraining() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining(null);
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog);
+        List<Training> userTraining = trainingService.fetchUserTraining(user);
+        assertNull("User has training not saved due to null date", userTraining);
+    }
+
+    @Test
+    void saveLogCrazyBlankTraining() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining("");
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog);
+        List<Training> userTraining = trainingService.fetchUserTraining(user);
+        assertNull("User has training not saved due to null date", userTraining);
+    }
+
+    @Test
+    void saveLogCrazyNullComments() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments(null);
+        trainingLog.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog);
+        List<Training> userTraining = trainingService.fetchUserTraining(user);
+        assertNull("User has training not saved due to null date", userTraining);
+    }
+
+    @Test
+    void saveLogCrazyBlankComments() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments("");
+        trainingLog.setLogin(loginService.findLogin(user));
+        trainingService.saveLog(trainingLog);
+        List<Training> userTraining = trainingService.fetchUserTraining(user);
+        assertNull("User has training not saved due to null date", userTraining);
+    }
+
+    @Test
+    void saveLogCrazyNullSetLogin() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(null);
+        trainingService.saveLog(trainingLog);
+        List<Training> userTraining = trainingService.fetchUserTraining(user);
+        assertNull("User has training not saved due to null date", userTraining);
+    }
+
+    @Test
+    void saveLogCrazyBlankSetLogin() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate("2023-04-12");
+        trainingLog.setLocation("Carroll");
+        trainingLog.setTraining("Walking");
+        trainingLog.setComments("Good");
+        trainingLog.setLogin(loginService.findLogin(""));
+        trainingService.saveLog(trainingLog);
+        List<Training> userTraining = trainingService.fetchUserTraining(user);
+        assertNull("User has training not saved due to null date", userTraining);
+    }
+    @Test
+    void saveLogCrazyAllNull() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Login createUser = new Login();
+        createUser.setPassword(password);
+        createUser.setUser(user);
+        createUser.setEmail(email);
+        registerService.register(createUser);
+        Training trainingLog = new Training();
+        trainingLog.setDate(null);
+        trainingLog.setLocation(null);
+        trainingLog.setTraining(null);
+        trainingLog.setComments(null);
+        trainingLog.setLogin(null);
+        trainingService.saveLog(trainingLog);
+        List<Training> userTraining = trainingService.fetchUserTraining(user);
+        assertNull("User has training not saved due to null date", userTraining);
+    }
+
     @Test
     void saveLog2() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
