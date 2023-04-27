@@ -14,7 +14,7 @@ template to continue-->
 
 <!-- Template that is the first page that the local:8080 takes you to and
  is supplied by the login button that forwards you to the login template-->
-
+<p>Dog Tag Login</p>
 <form action="#" method="post" th:action="@{/login}" th:object="${loginForm}">
     <span th:errors="*{global}" th:if="${#fields.hasGlobalErrors()}">Global error</span><br/>  <!-- Add this line -->
     <input placeholder="User" th:field="*{user}" th:maxlength="16" th:min="6" type="text"/>
