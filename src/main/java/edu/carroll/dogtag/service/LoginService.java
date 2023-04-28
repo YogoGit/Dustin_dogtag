@@ -13,6 +13,8 @@ public interface LoginService {
 
     boolean validateUser(LoginForm loginForm);
 
+    boolean hashCheck(String user, String rawPassword);
+
     /**
      * This is used to find the Login for a user with multiple services using them to
      * check if user is in the system before methods send back information
