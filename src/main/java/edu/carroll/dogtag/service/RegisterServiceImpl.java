@@ -23,7 +23,6 @@ public class RegisterServiceImpl implements RegisterService {
     private final SecureRandom secureRandom = new SecureRandom();
 
 
-
     public RegisterServiceImpl(RegisterRepository registerRepo) {
         this.registerRepo = registerRepo;
     }
@@ -96,14 +95,15 @@ public class RegisterServiceImpl implements RegisterService {
         }
     }
 
-    private String[] hashString(String rawPassword){
+    private String[] hashString(String rawPassword) {
         String[] result = new String[2];
 
         byte[] salt = secureRandom.generateSeed(12);
         PBEKeySpec pbeKeySpec = new PBEKeySpec(rawPassword.toCharArray(), salt, 10, 512);
 
         try {
-            SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");;
+            SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
+            ;
             byte[] hash = skf.generateSecret(pbeKeySpec).getEncoded();
             //converting to string to store into database
             result[0] = Base64.getMimeEncoder().encodeToString(hash);

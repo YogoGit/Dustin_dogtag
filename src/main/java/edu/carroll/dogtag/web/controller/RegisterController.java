@@ -15,9 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-
 @Controller
 public class RegisterController {
     private static final Logger log = LoggerFactory.getLogger(RegisterController.class);
@@ -86,13 +83,7 @@ public class RegisterController {
         userRegister.setUser(registerForm.getUser());
         userRegister.setEmail(registerForm.getEmail());
         userRegister.setPassword(registerForm.getPassword());
-        try {
-            registerService.register(userRegister);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        } catch (InvalidKeySpecException e) {
-            throw new RuntimeException(e);
-        }
+        registerService.register(userRegister);
         attrs.addAttribute("user", registerForm.getUser());
         log.info("User {} was able to register", registerForm.getUser());
         log.info("List of info in registerForm user and email{}", registerForm.getUser() + "" + registerForm.getEmail());

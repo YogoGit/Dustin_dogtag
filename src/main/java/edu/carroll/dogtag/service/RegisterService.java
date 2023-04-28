@@ -2,9 +2,6 @@ package edu.carroll.dogtag.service;
 
 import edu.carroll.dogtag.jpa.model.Login;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-
 public interface RegisterService {
 
     /**

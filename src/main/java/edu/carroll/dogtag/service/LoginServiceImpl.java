@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Base64;
 import java.util.List;
@@ -23,7 +24,6 @@ public class LoginServiceImpl implements LoginService {
         this.loginRepo = loginRepo;
     }
 
-
     /**
      * Given a loginForm, determine if the information provided is valid, and the user exists in the system.
      *
@@ -31,7 +31,7 @@ public class LoginServiceImpl implements LoginService {
      * @return true if data exists and matches what's on record, false otherwise
      */
     @Override
-    public boolean validateUser(LoginForm loginForm) throws InvalidKeySpecException, NoSuchAlgorithmException {
+    public boolean validateUser(LoginForm loginForm){
         log.info("validateUser: {} attempted login", loginForm.getUser());
         if (loginForm.getUser() == null || loginForm.getUser().isBlank()) {
             log.error("loginForm User was null or blank {}", loginForm.getUser());
@@ -41,6 +41,7 @@ public class LoginServiceImpl implements LoginService {
             log.error("loginForm Password was null or blank for user {}", loginForm.getUser());
             return false;
         }
+        log.info("validateUser: {} attempted login", loginForm.getUser());
         // Always do the lookup in a case-insensitive manner (lower-casing the data).
         List<Login> user = loginRepo.findByUserIgnoreCase(loginForm.getUser());
 
@@ -48,36 +49,41 @@ public class LoginServiceImpl implements LoginService {
             log.info("validateUser:{} users not found", user.size());
             return false;
         }
-
         Login u = user.get(0);
         final String userProvided = loginForm.getPassword();
         byte[] salt = Base64.getMimeDecoder().decode(u.getSalt());
         PBEKeySpec pbeKeySpec = new PBEKeySpec(userProvided.toCharArray(), salt, 10, 512);
-        SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
-        byte[] hash = skf.generateSecret(pbeKeySpec).getEncoded();
-
-        //converting to string to store into database
+        SecretKeyFactory skf = null;
+        try {
+            skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+        byte[] hash = new byte[0];
+        try {
+            hash = skf.generateSecret(pbeKeySpec).getEncoded();
+        } catch (InvalidKeySpecException e) {
+            throw new RuntimeException(e);
+        }
         String base64Hash = Base64.getMimeEncoder().encodeToString(hash);
-        //Here, you obtain the salt from the database
         String hash2 = u.getPassword();
         if (!hash2.equals(base64Hash)) {
             log.info("validateUser: {} password does not match", loginForm.getUser());
             return false;
         }
-
         log.info("validateUser: {} successful login", loginForm.getUser());
         return true;
     }
 
-    /**
-     * This is used to find the Login for a user with multiple services using them to
-     * check if user is in the system before methods send back information
-     *
-     * @param user is what person is trying to log in this information is used to
-     *             find all information pertaining to their login.
-     * @return a Login object that can be used then to call methods.
-     */
 
+    /**
+             * This is used to find the Login for a user with multiple services using them to
+             * check if user is in the system before methods send back information
+             *
+             * @param user is what person is trying to log in this information is used to
+             *             find all information pertaining to their login.
+             * @return a Login object that can be used then to call methods.
+             **/
     @Override
     public Login findLogin(String user) {
         List<Login> logins = loginRepo.findByUserIgnoreCase(user);

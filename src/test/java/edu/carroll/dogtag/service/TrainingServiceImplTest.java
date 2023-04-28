@@ -4,8 +4,6 @@ import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.model.Training;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -61,7 +59,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin("LookingForNoUser"));
-        assertTrue("",trainingService.saveLog(trainingLog));
+        assertTrue("", trainingService.saveLog(trainingLog));
         List<Training> userTraining = trainingService.fetchUserTraining("LookingForNoUser");
         assertNull("User does not exist and will be null", userTraining);
     }
