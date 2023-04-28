@@ -13,18 +13,28 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Base64;
+import java.util.Collections;
 import java.util.List;
 
+/**
+ * RegisterService is used as the business logic for the RegisterController. It checks if the user or
+ * email or both already exist in the database in which they will not be able to register with those
+ * entry's to verify there is not a user with that name in the database by returning a list of users and email
+ * which should return and empty list. The service then hashes what the user has entered the
+ * password field then is saves the salt and hash for that user.
+ */
 @Service
 @Transactional
 public class RegisterServiceImpl implements RegisterService {
     private static final Logger log = LoggerFactory.getLogger(RegisterServiceImpl.class);
     private final RegisterRepository registerRepo;
     private final SecureRandom secureRandom = new SecureRandom();
+    private final LoginService loginService;
 
 
-    public RegisterServiceImpl(RegisterRepository registerRepo) {
+    public RegisterServiceImpl(RegisterRepository registerRepo, LoginService loginService) {
         this.registerRepo = registerRepo;
+        this.loginService = loginService;
     }
 
     /**
@@ -76,16 +86,17 @@ public class RegisterServiceImpl implements RegisterService {
      *                 information from the register form.
      * @return true if was successful in registering.
      */
-
     @Override
     public boolean register(Login register) {
         if (register.getUser() != null && !register.getUser().isBlank()
                 && register.getPassword() != null && register.getPassword() != ""
                 && register.getEmail() != null && register.getEmail() != "") {
+            if (!loginService.findLogin(register.getUser()).equals(Collections.EMPTY_LIST)) {
+                return false;
+            }
             String passSalt[] = hashString(register.getPassword());
             register.setPassword(passSalt[0]);
             register.setSalt(passSalt[1]);
-
             registerRepo.save(register);
             log.info("Register Info for {} sent to login table", register.getUser());
             return true;

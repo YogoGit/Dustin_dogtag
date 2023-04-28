@@ -3,6 +3,9 @@ package edu.carroll.dogtag.web.form;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+/**
+ *
+ */
 public class TrainingForm {
 
 

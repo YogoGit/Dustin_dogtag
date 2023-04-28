@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ *
+ */
 @Service
 public class TrainingServiceImpl implements TrainingService {
 
@@ -86,11 +89,11 @@ public class TrainingServiceImpl implements TrainingService {
         }
         List<Login> fetchUser = loginRepository.findByUserIgnoreCase(user);
         if (user == null || user.isBlank()) {
-            return null;
+            return Collections.EMPTY_LIST;
         }
         if (fetchUser.isEmpty()) {
             log.debug("fetchUser List was empty with size 0 for user: {}", user);
-            return null;
+            return Collections.EMPTY_LIST;
         }
         List<Training> trainings = trainingRepository.findByLogin_Id(fetchUser.get(0).getId());
         if (trainings.isEmpty()) {

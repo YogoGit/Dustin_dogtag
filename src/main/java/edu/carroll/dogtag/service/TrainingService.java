@@ -4,6 +4,9 @@ import edu.carroll.dogtag.jpa.model.Training;
 
 import java.util.List;
 
+/**
+ *
+ */
 public interface TrainingService {
 
     /**

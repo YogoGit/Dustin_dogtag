@@ -9,8 +9,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
+/**
+ *
+ */
 @Service
 public class UserProfileServiceImpl implements UserProfileService {
 
@@ -36,17 +40,17 @@ public class UserProfileServiceImpl implements UserProfileService {
     @Override
     public UserProfile fetchUserProfile(String user) {
         if (user == null || user.isBlank()) {
-            return null;
+            return (UserProfile) Collections.EMPTY_LIST;
         }
         List<Login> fetchUser = loginRepository.findByUserIgnoreCase(user);
         if (fetchUser.isEmpty()) {
             log.debug("fetchUser List was empty with size 0 for user: {}", user);
-            return null;
+            return (UserProfile) Collections.EMPTY_LIST;
         }
         List<UserProfile> profiles = userProfileRepository.findByLogin(fetchUser.get(0));
         if (profiles.isEmpty()) {
             log.debug("fetchUser List was empty with size 0 for user: {}", user);
-            return null;
+            return (UserProfile) Collections.EMPTY_LIST;
         }
         return profiles.get(0);
     }
