@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /**
- *
+ * The UserProfileController handles the information that is entered in the html pages to the UserProfileForm
+ * and allows the user to enter information for themselves into the database that is attached to
+ * their username that was registered. If not errors are found the information is sent to the registerService
+ * to handle the business logic before saving to the database.
  */
 @Controller
 public class UserProfileController {

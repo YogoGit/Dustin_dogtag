@@ -20,7 +20,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
 
 /**
- *
+ * The TrainingController handles the information that is entered in the html pages to the LoginForm
+ * and calls methods to check if there are training logs in the database for the user that is logged in
+ * and then adds the list to the model to be passed back to the html page to be displayed.  When a new log
+ * is saved and the page is reloaded the training logs are fetched again in a list format, and it is then updated
+ * on the html page.
  */
 @Controller
 public class TrainingController {
