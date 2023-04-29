@@ -31,5 +31,4 @@ public interface LoginService {
      * @return a Login object that can be used then to call methods.
      */
     Login findLogin(String user);
-
 }

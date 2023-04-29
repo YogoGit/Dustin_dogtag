@@ -40,6 +40,4 @@ public interface RegisterService {
      * @return true if was successful in registering.
      */
     boolean register(Login register);
-
-
 }

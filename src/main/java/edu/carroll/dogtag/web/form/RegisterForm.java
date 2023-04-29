@@ -3,7 +3,6 @@ package edu.carroll.dogtag.web.form;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-
 /**
  * The RegisterForm is used to take the information from the controller that the html page
  * posted and organized it in way that is usable for java. This form also has set min and
@@ -27,7 +26,6 @@ public class RegisterForm {
     @Size(max = 50, message = "Email must be less than 50 character long")
     private String email;
 
-
     public RegisterForm() {
     }
 
@@ -35,7 +33,6 @@ public class RegisterForm {
         this.user = user;
         this.password = password;
         this.email = email;
-
     }
 
     /**
@@ -50,7 +47,6 @@ public class RegisterForm {
      */
     public void setUser(String user) {
         this.user = user;
-
     }
 
     /**
@@ -65,7 +61,6 @@ public class RegisterForm {
      */
     public void setPassword(String password) {
         this.password = password;
-
     }
 
     /**
@@ -80,8 +75,6 @@ public class RegisterForm {
      */
     public void setEmail(String email) {
         this.email = email;
-
     }
-
 }
 

@@ -1,7 +1,6 @@
 package edu.carroll.dogtag.web.controller;
 
 import edu.carroll.dogtag.jpa.model.Training;
-import edu.carroll.dogtag.jpa.repo.TrainingRepository;
 import edu.carroll.dogtag.service.LoginService;
 import edu.carroll.dogtag.service.TrainingService;
 import edu.carroll.dogtag.service.UserProfileService;
@@ -28,25 +27,15 @@ import java.util.List;
  */
 @Controller
 public class TrainingController {
-
     private static final Logger log = LoggerFactory.getLogger(TrainingController.class);
     private final TrainingService trainingService;
-
     private final LoginService loginService;
-
     private final UserProfileService userProfileService;
 
-    private final TrainingRepository trainingRepository;
-
-    public TrainingController(TrainingService trainingService, LoginService loginService, UserProfileService userProfileService, TrainingRepository trainingRepository) {
+    public TrainingController(TrainingService trainingService, LoginService loginService, UserProfileService userProfileService) {
         this.trainingService = trainingService;
-
         this.loginService = loginService;
-
-
         this.userProfileService = userProfileService;
-
-        this.trainingRepository = trainingRepository;
     }
 
     /**
@@ -59,7 +48,6 @@ public class TrainingController {
      * the intended user that is being passed to fetchUserTraining(user).  This allows the
      * template to immediately display the new information that has been entered.
      */
-
     @GetMapping("/traininglog")
     public String trainingForm(HttpSession session, Model model) {
         final String user = (String) session.getAttribute("user");
@@ -86,7 +74,6 @@ public class TrainingController {
      * Once the checks are complete it allows the controller to submit the
      * information to the TrainingService.
      */
-
     @PostMapping("/traininglog")
     // Order matters with paramiter that are being passed The BindingResult must come right after the
     // model object that is validated or else Spring will fail to validate the object and throw an exception.
@@ -113,5 +100,4 @@ public class TrainingController {
         trainingService.saveLog(userTraining);
         return "redirect:/traininglog";
     }
-
 }

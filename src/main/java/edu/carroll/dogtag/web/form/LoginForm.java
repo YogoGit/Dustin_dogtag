@@ -28,7 +28,6 @@ public class LoginForm {
         this.password = password;
     }
 
-
     /**
      * @return the user that is stored in the database.
      */
@@ -41,14 +40,12 @@ public class LoginForm {
      */
     public void setUser(String user) {
         this.user = user;
-
     }
 
     /**
      * @return password to compare with what the user entered in LoginForm
      */
     public String getPassword() {
-
         return password;
     }
 
@@ -57,6 +54,5 @@ public class LoginForm {
      */
     public void setPassword(String password) {
         this.password = password;
-
     }
 }

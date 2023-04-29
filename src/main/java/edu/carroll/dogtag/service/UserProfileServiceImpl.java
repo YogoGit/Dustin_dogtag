@@ -20,10 +20,8 @@ import java.util.List;
  */
 @Service
 public class UserProfileServiceImpl implements UserProfileService {
-
     private static final Logger log = LoggerFactory.getLogger(UserProfileServiceImpl.class);
     private final UserProfileRepository userProfileRepository;
-
     private final LoginRepository loginRepository;
 
     public UserProfileServiceImpl(UserProfileRepository userProfileRepository, RegisterRepository registerRepository, LoginRepository loginRepository) {

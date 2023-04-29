@@ -12,16 +12,14 @@ import jakarta.validation.constraints.Size;
  */
 public class TrainingForm {
 
-
     @NotBlank(message = "Enter a Date")
     private String date;
-
 
     @NotBlank
     @Size(min = 2, message = "Location must be at least 2 character long: Example CA")
     @Size(max = 15, message = "Location Name must be less than 15 character long")
     private String location;
-    //    @NotNull
+
     @NotBlank
     @Size(min = 3, message = "Training must be at least 3 character long")
     @Size(max = 15, message = "Training must be less than 15 character long")
@@ -55,9 +53,7 @@ public class TrainingForm {
      */
     public void setDate(String date) {
         this.date = date;
-
     }
-
 
     /**
      * @return the location that the training took place for that entry.
@@ -71,7 +67,6 @@ public class TrainingForm {
      */
     public void setLocation(String location) {
         this.location = location;
-
     }
 
     /**
@@ -86,7 +81,6 @@ public class TrainingForm {
      */
     public void setTraining(String training) {
         this.training = training;
-
     }
 
     /**
@@ -101,6 +95,5 @@ public class TrainingForm {
      */
     public void setComments(String comments) {
         this.comments = comments;
-
     }
 }

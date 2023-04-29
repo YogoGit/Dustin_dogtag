@@ -19,10 +19,8 @@ import java.util.List;
  */
 @Service
 public class TrainingServiceImpl implements TrainingService {
-
     private static final Logger log = LoggerFactory.getLogger(TrainingServiceImpl.class);
     private final TrainingRepository trainingRepository;
-
     private final LoginRepository loginRepository;
 
     public TrainingServiceImpl(TrainingRepository trainingRepository, LoginRepository loginRepository) {
@@ -72,7 +70,6 @@ public class TrainingServiceImpl implements TrainingService {
             trainingRepository.save(trainingLog);
             return true;
         }
-
     }
 
     /**

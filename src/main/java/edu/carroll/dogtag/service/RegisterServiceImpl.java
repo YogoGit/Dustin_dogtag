@@ -31,7 +31,6 @@ public class RegisterServiceImpl implements RegisterService {
     private final SecureRandom secureRandom = new SecureRandom();
     private final LoginService loginService;
 
-
     public RegisterServiceImpl(RegisterRepository registerRepo, LoginService loginService) {
         this.registerRepo = registerRepo;
         this.loginService = loginService;
@@ -133,7 +132,6 @@ public class RegisterServiceImpl implements RegisterService {
         }
         return result;
     }
-
 }
 
 

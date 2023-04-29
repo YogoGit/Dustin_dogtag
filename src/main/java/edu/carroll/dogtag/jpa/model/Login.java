@@ -39,7 +39,6 @@ public class Login {
 
     //This creates a linking database table between Login and Training
     //Table and is connected through the "training_id"
-
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "training_id")
     private List<Training> training;
 
@@ -166,7 +165,9 @@ public class Login {
     /**
      * @param email sets the email entry into the database
      */
-    public void setEmail(String email) {this.email = email;}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     /**
      * @return the toString method for logs and debugging.

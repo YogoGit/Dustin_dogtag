@@ -1,6 +1,5 @@
 package edu.carroll.dogtag.jpa.model;
 
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -28,8 +27,8 @@ public class Training {
     private Long training_id;
 
     /**
-    This creates a linking database table between Training and Login
-    Table and is connected through the "login_id"
+     * This creates a linking database table between Training and Login
+     * Table and is connected through the "login_id"
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "login_id")

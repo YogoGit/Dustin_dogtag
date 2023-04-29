@@ -27,7 +27,6 @@ public class UserProfileController {
     private final UserProfileService userProfileService;
     private final LoginService loginService;
 
-
     public UserProfileController(UserProfileService userProfileService, LoginService loginService) {
         this.userProfileService = userProfileService;
         this.loginService = loginService;
