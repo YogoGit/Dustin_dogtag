@@ -41,7 +41,6 @@ public class TrainingServiceImpl implements TrainingService {
      * to be saved in the database. TrainingLogs are then sent back to the TrainingController
      * to be listed in the template traininglog.html.
      */
-
     @Override
     public boolean saveLog(Training trainingLog) {
         Login blank = new Login();

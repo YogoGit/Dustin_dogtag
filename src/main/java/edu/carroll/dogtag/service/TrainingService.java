@@ -18,7 +18,6 @@ public interface TrainingService {
      *
      * @param trainingLog is the Users information that has been set by using the form information.
      */
-
     boolean saveLog(Training trainingLog);
 
     /**
@@ -29,6 +28,5 @@ public interface TrainingService {
      * @param user the training user that is being looked for
      * @return List of Trainings that are for that user
      */
-
     List<Training> fetchUserTraining(String user);
 }
