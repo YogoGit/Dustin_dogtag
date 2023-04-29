@@ -16,18 +16,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /**
- *
+ * The RegisterController handles the information that is entered in the html pages to the RegisterForm
+ * and calls methods to check if the user or email is already contained in the
+ * database. Depending on the results the user will be able to register or not if
+ * the information is already being used by another person. Then information is then saved
+ * or error messages returned to the html page and not redirected to the registerSuccess page.
  */
 @Controller
 public class RegisterController {
     private static final Logger log = LoggerFactory.getLogger(RegisterController.class);
     private final RegisterService registerService;
 
-    private final LoginService loginService;
-
-    public RegisterController(RegisterService registerService, LoginService loginService) {
+    public RegisterController(RegisterService registerService) {
         this.registerService = registerService;
-        this.loginService = loginService;
     }
 
     /**

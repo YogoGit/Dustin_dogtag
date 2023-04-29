@@ -4,7 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- *
+ * First page that is reached once the web app is started and the user goes to the
+ * local:8080.
  */
 @Controller
 public class IndexController {
