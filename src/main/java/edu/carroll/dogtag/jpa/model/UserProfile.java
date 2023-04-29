@@ -11,7 +11,6 @@ import jakarta.validation.constraints.Size;
  * Columns: fname = first name, lname = lastname,and phone.
  * This model is used to set a users information and link it to their username that they have created.d
  */
-
 @Entity
 @Table(name = "userinfo")
 public class UserProfile {
@@ -25,7 +24,7 @@ public class UserProfile {
     @GeneratedValue
     private Long userProfile_id;
 
-    /*
+    /**
     This creates a linking database table between Training and Login
     Table and is connected through the "login_id"
      */
@@ -77,20 +76,16 @@ public class UserProfile {
     /**
      * This allows to set the login id for the training tables foreigner key
      *
-     * @param login
+     * @param login takes the login model that is passed to the model
+     *              and sets it to be saved.
      */
     public void setLogin(Login login) {
         this.login = login;
     }
 
     /**
-     * @return unique Long number entry in this case the primary key
-     */
-
-    /**
      * @return the users First Name in their profile.
      */
-
     public String getFname() {
         return fname;
     }
@@ -98,7 +93,6 @@ public class UserProfile {
     /**
      * @param fName this sets the users First Name for the profile being created.
      */
-
     public void setFname(String fName) {
         this.fname = fName;
     }
@@ -106,7 +100,6 @@ public class UserProfile {
     /**
      * @return the users Last Name in their profile.
      */
-
     public String getLname() {
         return lname;
     }
@@ -114,7 +107,6 @@ public class UserProfile {
     /**
      * @param lName this sets the users First Name for the profile being created.
      */
-
     public void setLname(String lName) {
         this.lname = lName;
     }
@@ -122,7 +114,6 @@ public class UserProfile {
     /**
      * @return the users Phone Number in their profile.
      */
-
     public String getPhone() {
         return phone;
     }
@@ -130,7 +121,6 @@ public class UserProfile {
     /**
      * @param phone this sets the users First Name for the profile being created.
      */
-
     public void setPhone(String phone) {
         this.phone = phone;
     }
