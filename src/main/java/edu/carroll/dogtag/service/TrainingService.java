@@ -5,7 +5,10 @@ import edu.carroll.dogtag.jpa.model.Training;
 import java.util.List;
 
 /**
- *
+ * TrainingService is used as the business logic for the TrainingController. It checks if the trainingLog
+ * is correctly entered before saved to the database. The service then
+ * saves the users trainingLog. The fetchUserTraining is used to find the trainings that have been
+ * entered already for that user.
  */
 public interface TrainingService {
 

@@ -66,6 +66,17 @@ public class LoginServiceImpl implements LoginService {
         return true;
     }
 
+    /**
+     * @param user        when the hash is checked the user is passed from the loginForm and is used to
+     *                    find if there is a user and return false if not or continue with verifying the passwords
+     *                    match.
+     * @param rawPassword when the hash is checked the rawPassword is passed from the loginForm and is used to
+     *                    hash the rawPassword  entered with the same hash
+     *                    and then check the database for the same password as a string.
+     *                    match.
+     * @return true is returned if the passwords match and sent to the validate user method. If is false
+     * with is sent back but then validate user is not correct and is dealt with accordingly.
+     */
     private boolean hashCheck(String user, String rawPassword) {
         if (findLogin(user).equals(Collections.EMPTY_LIST)) {
             return false;

@@ -13,7 +13,10 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- *
+ * This is used to find the all user profiles in the database that have been
+ * entered already for that user. setProfile is used once all the information is correct information has
+ * being given to been handed to the method and saves the information in the
+ * database using the UserProfileRepository.
  */
 @Service
 public class UserProfileServiceImpl implements UserProfileService {

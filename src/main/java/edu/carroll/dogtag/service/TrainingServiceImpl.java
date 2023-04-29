@@ -12,7 +12,10 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- *
+ * TrainingService is used as the business logic for the TrainingController. It checks if the trainingLog
+ * is correctly entered before saved to the database. The service then
+ * saves the users trainingLog. The fetchUserTraining is used to find the trainings that have been
+ * entered already for that user.
  */
 @Service
 public class TrainingServiceImpl implements TrainingService {
@@ -35,7 +38,8 @@ public class TrainingServiceImpl implements TrainingService {
      * @return a boolean is returned to give feedback. If any of the trainingLog being
      * passed to the saveLog method is null or blank a false is returned.  Only a true
      * is returned if no null or blank entries are on the trainingLog that is trying
-     * to be saved in the database.
+     * to be saved in the database. TrainingLogs are then sent back to the TrainingController
+     * to be listed in the template traininglog.html.
      */
 
     @Override

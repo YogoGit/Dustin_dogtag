@@ -106,6 +106,13 @@ public class RegisterServiceImpl implements RegisterService {
         }
     }
 
+    /**
+     * @param rawPassword Takes the rawPassword that is passed from the registerForm and is used to
+     *                    hash the rawPassword with a salt and both are saved into the database for
+     *                    that user.
+     * @return Sends result to register as a String array to be parsed out and set for the users
+     * password and salt.
+     */
     private String[] hashString(String rawPassword) {
         String[] result = new String[2];
 
