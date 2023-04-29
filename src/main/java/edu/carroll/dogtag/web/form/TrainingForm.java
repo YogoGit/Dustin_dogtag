@@ -4,7 +4,11 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 /**
- *
+ * The TrainingForm is used to take the information from the controller that the html page
+ * posted and organized it in way that is usable for java. This form also has set min and
+ * max for the three variables that can be used.  Once the correct information is added to the form
+ * it can then be used to set attributes in the Training model which is then sent to the TrainingService
+ * to be verified before saving it in the database.
  */
 public class TrainingForm {
 

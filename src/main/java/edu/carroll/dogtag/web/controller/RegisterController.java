@@ -1,7 +1,6 @@
 package edu.carroll.dogtag.web.controller;
 
 import edu.carroll.dogtag.jpa.model.Login;
-import edu.carroll.dogtag.service.LoginService;
 import edu.carroll.dogtag.service.RegisterService;
 import edu.carroll.dogtag.web.form.RegisterForm;
 import jakarta.validation.Valid;

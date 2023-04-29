@@ -4,7 +4,10 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 /**
- *
+ * The LoginForm is used to take the information from the controller that the html page
+ * posted and organized it in way that is usable for java. This form also has set min and
+ * max for the two variables that can be used.  Once the correct information is added to the form
+ * it can then be used to validate the user in the database for logging in.
  */
 public class LoginForm {
     @NotBlank
