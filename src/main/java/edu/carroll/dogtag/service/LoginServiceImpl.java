@@ -119,7 +119,6 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public Login findLogin(String user) {
         List<Login> logins = loginRepo.findByUserIgnoreCase(user);
-
         if (logins.isEmpty()) {
             log.info("findLogin: loging List was empty {}", logins.size());
             return null;

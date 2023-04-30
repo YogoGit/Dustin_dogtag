@@ -1,5 +1,4 @@
 package edu.carroll.dogtag.service;
-
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.repo.RegisterRepository;
 import edu.carroll.dogtag.web.form.LoginForm;
@@ -9,14 +8,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.List;
-
 import static org.springframework.test.util.AssertionErrors.assertFalse;
 import static org.springframework.test.util.AssertionErrors.assertTrue;
 
+/**
+ * Unit test to pass happy, crappy and crazy inputs to the RegisterService, and
+ * it should handle all situation that are tested and return the expected results.
+ * A login must be checked to verify the user had been successfully saved into the database
+ * If no user is present in the database it will always come back with null for returning
+ * a Login object. This indicates that the user was not able to register and is not in the
+ * database
+ */
 @SpringBootTest
 @Transactional
 class RegisterServiceImplTest {

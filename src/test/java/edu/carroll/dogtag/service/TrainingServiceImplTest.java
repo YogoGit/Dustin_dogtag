@@ -1,18 +1,23 @@
 package edu.carroll.dogtag.service;
-
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.model.Training;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.List;
-
 import static org.springframework.test.util.AssertionErrors.*;
 
+/**
+ * Unit test to pass happy, crappy and crazy inputs to the TrainingService, and
+ * it should handle all situation that are tested and return the expected results
+ * a user must be registered to be in the database so that a login can be attempted
+ * If no user is present in the database it will always come back with null for returning
+ * a Login object. This will not allow trainingLogs to be saved into the database if no
+ * user exist.
+ */
 @SpringBootTest
 @Transactional
 class TrainingServiceImplTest {

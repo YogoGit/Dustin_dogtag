@@ -1,5 +1,4 @@
 package edu.carroll.dogtag.service;
-
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.model.UserProfile;
 import edu.carroll.dogtag.jpa.repo.LoginRepository;
@@ -9,12 +8,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit test to pass happy, crappy and crazy inputs to the UserProfileService, and
+ * it should handle all situation that are tested and return the expected results
+ * a user must be registered to be in the database so that a login can be attempted
+ * If no user is present in the database it will always come back with null for returning
+ * a Login object. This will not allow a UserProfile to be saved into the database if no
+ * user exist.
+ */
 @SpringBootTest
 @Transactional
 class UserProfileServiceImplTest {
