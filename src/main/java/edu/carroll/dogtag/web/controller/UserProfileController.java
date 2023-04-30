@@ -78,7 +78,7 @@ public class UserProfileController {
         userProfile.setLname(userProfileForm.getLname());
         userProfile.setPhone(userProfileForm.getPhone());
         userProfile.setLogin(loginService.findLogin(user));
-        userProfileService.setProfile(userProfile);
+        userProfileService.setUserProfile(userProfile);
         model.addAttribute("fname", userProfileService.fetchUserProfile(user).getFname());
         model.addAttribute("lname", userProfileService.fetchUserProfile(user).getLname());
         log.info("Registration post was successful");

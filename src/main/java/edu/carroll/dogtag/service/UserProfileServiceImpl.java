@@ -63,7 +63,7 @@ public class UserProfileServiceImpl implements UserProfileService {
      * fields are null or empty being passed.
      */
     @Override
-    public boolean setProfile(UserProfile profile) {
+    public boolean setUserProfile(UserProfile profile) {
         if (profile.getPhone() == null || profile.getPhone().isBlank()) {
             log.error("profile phone field was null or blank {}", profile.getPhone());
             return false;

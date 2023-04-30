@@ -40,7 +40,7 @@ public class TrainingServiceImpl implements TrainingService {
      * to be listed in the template traininglog.html.
      */
     @Override
-    public boolean saveLog(Training trainingLog) {
+    public boolean saveTrainingLog(Training trainingLog) {
         Login blank = new Login();
         if (trainingLog == null || trainingLog.equals(blank)) {
             log.error("Traininglog can not be passed as null");

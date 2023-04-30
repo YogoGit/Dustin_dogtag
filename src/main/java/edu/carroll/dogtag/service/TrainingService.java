@@ -18,7 +18,7 @@ public interface TrainingService {
      *
      * @param trainingLog is the Users information that has been set by using the form information.
      */
-    boolean saveLog(Training trainingLog);
+    boolean saveTrainingLog(Training trainingLog);
 
     /**
      * This is used to find the trainings that have been

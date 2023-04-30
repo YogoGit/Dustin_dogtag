@@ -97,7 +97,7 @@ public class TrainingController {
         userTraining.setLocation(trainingForm.getLocation());
         userTraining.setComments(trainingForm.getComments());
         userTraining.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(userTraining);
+        trainingService.saveTrainingLog(userTraining);
         return "redirect:/traininglog";
     }
 }
