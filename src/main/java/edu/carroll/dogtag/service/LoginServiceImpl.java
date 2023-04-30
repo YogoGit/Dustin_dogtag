@@ -12,6 +12,7 @@ import javax.crypto.spec.PBEKeySpec;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Base64;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -52,7 +53,7 @@ public class LoginServiceImpl implements LoginService {
         }
         log.info("validateUser: {} attempted login", loginForm.getUser());
         // Always do the lookup in a case-insensitive manner (lower-casing the data).
-        if (findLogin(loginForm.getUser()).equals(Collections.EMPTY_LIST)) {
+        if (findLogin(loginForm.getUser())==null) {
             return false;
         }
         final String userProvidedPass = loginForm.getPassword();
@@ -118,9 +119,10 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public Login findLogin(String user) {
         List<Login> logins = loginRepo.findByUserIgnoreCase(user);
+
         if (logins.isEmpty()) {
             log.info("findLogin: loging List was empty {}", logins.size());
-            return (Login) Collections.EMPTY_LIST;
+            return null;
         }
         log.info("Returning Login user {}", logins.get(0).getUser());
         return logins.get(0);

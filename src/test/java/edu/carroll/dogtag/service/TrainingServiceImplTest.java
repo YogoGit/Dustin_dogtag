@@ -31,7 +31,7 @@ class TrainingServiceImplTest {
     private LoginService loginService;
 
     @Test
-    void saveLogNoLog() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogNoLog() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -42,7 +42,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLogNoLogNullCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogNoLogNullCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -52,31 +52,31 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLogNoUser() {
+    void saveTrainingLogNoUser() {
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin("LookingForNoUser"));
-        assertTrue("", trainingService.saveLog(trainingLog));
+        assertTrue("", trainingService.saveTrainingLog(trainingLog));
         List<Training> userTraining = trainingService.fetchUserTraining("LookingForNoUser");
         assertNull("User does not exist and will be null", userTraining);
     }
 
     @Test
-    void saveLogNoUserNullCrazy() {
+    void saveTrainingLogNoUserNullCrazy() {
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin("LookingForNoUser"));
-        assertFalse("Training log not saved because of Null", trainingService.saveLog(null));
+        assertFalse("Training log not saved because of Null", trainingService.saveTrainingLog(null));
     }
 
     @Test
-    void saveLog() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -88,7 +88,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNotNull("User has training that is returned", userTraining);
         assertTrue("User training setDate is correct", userTraining.get(0).getDate().equals("2023-04-12"));
@@ -96,7 +96,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLogCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -108,13 +108,13 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user + "2");
         assertNull("User has training that is returned", userTraining);
     }
 
     @Test
-    void saveLogCrazyNull() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyNull() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -126,13 +126,13 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(null);
+        trainingService.saveTrainingLog(null);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNull("User has training that is returned", userTraining);
     }
 
     @Test
-    void saveLogCrazyBlank() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyBlank() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -145,14 +145,14 @@ class TrainingServiceImplTest {
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
         Training trainingLog2 = new Training();
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNull("User has training that is returned", userTraining);
-        assertFalse("Cant send blank training log to service", trainingService.saveLog(trainingLog2));
+        assertFalse("Cant send blank training log to service", trainingService.saveTrainingLog(trainingLog2));
     }
 
     @Test
-    void saveLogDateCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogDateCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -164,7 +164,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNotNull("User has training that is returned", userTraining);
         assertFalse("User training setDate is wrong", userTraining.get(0).getDate().equals("2023-04-13"));
@@ -172,7 +172,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLogLocationCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogLocationCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -184,7 +184,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNotNull("User has training that is returned", userTraining);
         assertFalse("User training setLocation is wrong", userTraining.get(0).getLocation().equals("Carroll2"));
@@ -192,7 +192,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLogTrainingCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogTrainingCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -204,7 +204,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNotNull("User has training that is returned", userTraining);
         assertFalse("User training is wrong", userTraining.get(0).getTraining().equals("Walking2"));
@@ -212,7 +212,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLogCommentsCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCommentsCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -224,7 +224,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNotNull("User has training that is returned", userTraining);
         assertFalse("User training setComments is wrong", userTraining.get(0).getComments().equals("Good2"));
@@ -232,7 +232,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLogSetLoginCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogSetLoginCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -244,7 +244,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNotNull("User has training that is returned", userTraining);
         assertFalse("User training user is wrong", userTraining.get(0).getLogin().equals("usertest2"));
@@ -252,7 +252,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLogCrazyNullDate() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyNullDate() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -264,13 +264,13 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNull("User has training not saved due to null date", userTraining);
     }
 
     @Test
-    void saveLogCrazyBlankDate() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyBlankDate() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -282,13 +282,13 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNull("User has training not saved due to null date", userTraining);
     }
 
     @Test
-    void saveLogCrazyNullLocation() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyNullLocation() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -300,13 +300,13 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNull("User has training not saved due to null date", userTraining);
     }
 
     @Test
-    void saveLogCrazyBlankLocation() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyBlankLocation() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -318,13 +318,13 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNull("User has training not saved due to null date", userTraining);
     }
 
     @Test
-    void saveLogCrazyNullTraining() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyNullTraining() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -336,13 +336,13 @@ class TrainingServiceImplTest {
         trainingLog.setTraining(null);
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNull("User has training not saved due to null date", userTraining);
     }
 
     @Test
-    void saveLogCrazyBlankTraining() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyBlankTraining() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -354,13 +354,13 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNull("User has training not saved due to null date", userTraining);
     }
 
     @Test
-    void saveLogCrazyNullComments() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyNullComments() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -372,13 +372,13 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments(null);
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNull("User has training not saved due to null date", userTraining);
     }
 
     @Test
-    void saveLogCrazyBlankComments() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyBlankComments() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -390,13 +390,13 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNull("User has training not saved due to null date", userTraining);
     }
 
     @Test
-    void saveLogCrazyNullSetLogin() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyNullSetLogin() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -408,13 +408,13 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(null);
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNull("User has training not saved due to null date", userTraining);
     }
 
     @Test
-    void saveLogCrazyBlankSetLogin() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyBlankSetLogin() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -426,13 +426,13 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(""));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNull("User has training not saved due to null date", userTraining);
     }
 
     @Test
-    void saveLogCrazyAllNull() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyAllNull() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -444,13 +444,13 @@ class TrainingServiceImplTest {
         trainingLog.setTraining(null);
         trainingLog.setComments(null);
         trainingLog.setLogin(null);
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNull("User has training not saved due to null date", userTraining);
     }
 
     @Test
-    void saveLogCrazyAllBlank() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyAllBlank() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -462,15 +462,15 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("");
         trainingLog.setComments("");
         trainingLog.setLogin(loginService.findLogin(""));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         List<Training> userTraining = trainingService.fetchUserTraining(user);
-        assertFalse("cant passed blank log to service", trainingService.saveLog(trainingLog2));
+        assertFalse("cant passed blank log to service", trainingService.saveTrainingLog(trainingLog2));
         assertNull("User has training not saved due to null date", userTraining);
     }
 
     @Test
-    void saveLog2() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -482,14 +482,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining2 = trainingService.fetchUserTraining(user);
         assertNotNull("User has training that is returned", userTraining2);
         assertTrue("User training setDate is correct", userTraining2.get(0).getDate().equals("2023-04-12"));
@@ -498,7 +498,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLog2OneHappyOneCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2OneHappyOneCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -510,14 +510,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining2 = trainingService.fetchUserTraining(user);
         assertNotNull("User has training that is returned", userTraining2);
         assertTrue("User training setDate is correct", userTraining2.get(0).getDate().equals("2023-04-12"));
@@ -526,7 +526,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLog2Crazy1Null1Blank() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2Crazy1Null1Blank() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -538,26 +538,26 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(null);
+        trainingService.saveTrainingLog(null);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         Training trainingLog3 = new Training();
         List<Training> userTraining2 = trainingService.fetchUserTraining(user);
         assertNotNull("User has training that is returned", userTraining2);
-        assertFalse("Cant send a null log to service", trainingService.saveLog(null));
-        assertFalse("Cant send blank log to service", trainingService.saveLog(trainingLog3));
+        assertFalse("Cant send a null log to service", trainingService.saveTrainingLog(null));
+        assertFalse("Cant send blank log to service", trainingService.saveTrainingLog(trainingLog3));
         assertFalse("User training setDate is correct", userTraining2.get(0).getDate().equals("2023-04-12"));
         assertTrue("User training2 setDate is correct", userTraining2.get(0).getDate().equals("2023-04-13"));
         assertTrue("Two entry for traininglog", userTraining2.size() == 1);
     }
 
     @Test
-    void saveLog4TwoHappyTwoCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog4TwoHappyTwoCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -569,28 +569,28 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         Training trainingLog3 = new Training();
         trainingLog3.setDate("2023-04-14");
         trainingLog3.setLocation("Carroll3");
         trainingLog3.setTraining("Walking3");
         trainingLog3.setComments("Good3");
         trainingLog3.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog3);
+        trainingService.saveTrainingLog(trainingLog3);
         Training trainingLog4 = new Training();
         trainingLog4.setDate("2023-04-15");
         trainingLog4.setLocation("Carroll4");
         trainingLog4.setTraining("Walking4");
         trainingLog4.setComments("Good4");
         trainingLog4.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog4);
+        trainingService.saveTrainingLog(trainingLog4);
         List<Training> userTraining4 = trainingService.fetchUserTraining(user);
         assertNotNull("User has training that is returned", userTraining4);
         assertTrue("User training setDate is correct", userTraining4.get(0).getDate().equals("2023-04-12"));
@@ -601,7 +601,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLog4() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog4() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -613,28 +613,28 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         Training trainingLog3 = new Training();
         trainingLog3.setDate("2023-04-14");
         trainingLog3.setLocation("Carroll3");
         trainingLog3.setTraining("Walking3");
         trainingLog3.setComments("Good3");
         trainingLog3.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog3);
+        trainingService.saveTrainingLog(trainingLog3);
         Training trainingLog4 = new Training();
         trainingLog4.setDate("2023-04-15");
         trainingLog4.setLocation("Carroll4");
         trainingLog4.setTraining("Walking4");
         trainingLog4.setComments("Good4");
         trainingLog4.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog4);
+        trainingService.saveTrainingLog(trainingLog4);
         List<Training> userTraining4 = trainingService.fetchUserTraining(user);
         assertNotNull("User has training that is returned", userTraining4);
         assertTrue("User training setDate is correct", userTraining4.get(0).getDate().equals("2023-04-12"));
@@ -645,7 +645,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLog4TwoCrappyTwoHappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog4TwoCrappyTwoHappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -657,28 +657,28 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         Training trainingLog3 = new Training();
         trainingLog3.setDate("2023-04-14");
         trainingLog3.setLocation("Carroll3");
         trainingLog3.setTraining("Walking3");
         trainingLog3.setComments("Good3");
         trainingLog3.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog3);
+        trainingService.saveTrainingLog(trainingLog3);
         Training trainingLog4 = new Training();
         trainingLog4.setDate("2023-04-15");
         trainingLog4.setLocation("Carroll4");
         trainingLog4.setTraining("Walking4");
         trainingLog4.setComments("Good4");
         trainingLog4.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog4);
+        trainingService.saveTrainingLog(trainingLog4);
         List<Training> userTraining4 = trainingService.fetchUserTraining(user);
         assertNotNull("User has training that is returned", userTraining4);
         assertTrue("User training setDate is correct", userTraining4.get(0).getDate().equals("2023-04-12"));
@@ -689,7 +689,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLog4Crazy2Null2Blank() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog4Crazy2Null2Blank() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -701,14 +701,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(null);
+        trainingService.saveTrainingLog(null);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(null);
+        trainingService.saveTrainingLog(null);
         Training trainingLog3 = new Training();
         trainingLog3.setDate("2023-04-14");
         trainingLog3.setLocation("Carroll3");
@@ -716,22 +716,22 @@ class TrainingServiceImplTest {
         trainingLog3.setComments("Good3");
         trainingLog3.setLogin(loginService.findLogin(user));
         Training blank = new Training();
-        trainingService.saveLog(blank);
+        trainingService.saveTrainingLog(blank);
         Training trainingLog4 = new Training();
         trainingLog4.setDate("2023-04-15");
         trainingLog4.setLocation("Carroll4");
         trainingLog4.setTraining("Walking4");
         trainingLog4.setComments("Good4");
         trainingLog4.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(blank);
+        trainingService.saveTrainingLog(blank);
         List<Training> userTraining4 = trainingService.fetchUserTraining(user);
         assertNull("User has training that is returned", userTraining4);
-        assertFalse("Cant send a null log to service", trainingService.saveLog(null));
-        assertFalse("Cant send blank log to service", trainingService.saveLog(blank));
+        assertFalse("Cant send a null log to service", trainingService.saveTrainingLog(null));
+        assertFalse("Cant send blank log to service", trainingService.saveTrainingLog(blank));
     }
 
     @Test
-    void saveLog2UsersReturn1() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2UsersReturn1() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -748,14 +748,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user + "2"));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         List<Training> userTraining2 = trainingService.fetchUserTraining(user + "2");
         assertNotNull("User has training that is returned", userTraining);
@@ -767,7 +767,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLog2UsersReturn1Crappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2UsersReturn1Crappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -784,14 +784,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user + "2"));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         List<Training> userTraining2 = trainingService.fetchUserTraining(user + "2");
         assertNotNull("User has training that is returned", userTraining);
@@ -803,7 +803,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLog2UsersReturn1Good1NullDateCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2UsersReturn1Good1NullDateCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -820,14 +820,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate(null);
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user + "2"));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         List<Training> userTraining2 = trainingService.fetchUserTraining(user + "2");
         assertNotNull("User has training that is returned", userTraining);
@@ -837,7 +837,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLog2UsersReturn1Good1LocationCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2UsersReturn1Good1LocationCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -854,14 +854,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation(null);
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user + "2"));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         List<Training> userTraining2 = trainingService.fetchUserTraining(user + "2");
         assertNotNull("User has training that is returned", userTraining);
@@ -871,7 +871,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLog2UsersReturn1Good1TrainingCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2UsersReturn1Good1TrainingCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -888,14 +888,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining(null);
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user + "2"));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         List<Training> userTraining2 = trainingService.fetchUserTraining(user + "2");
         assertNotNull("User has training that is returned", userTraining);
@@ -905,7 +905,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLog2UsersReturn1Good1CommentsCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2UsersReturn1Good1CommentsCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -922,14 +922,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments(null);
         trainingLog2.setLogin(loginService.findLogin(user + "2"));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         List<Training> userTraining2 = trainingService.fetchUserTraining(user + "2");
         assertNotNull("User has training that is returned", userTraining);
@@ -939,7 +939,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLog2UsersReturn1Good1NullCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2UsersReturn1Good1NullCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -956,14 +956,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user + "2"));
-        trainingService.saveLog(null);
+        trainingService.saveTrainingLog(null);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         List<Training> userTraining2 = trainingService.fetchUserTraining(user + "2");
         assertNotNull("User has training that is returned", userTraining);
@@ -973,7 +973,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveLog2UsersReturn1Good1BlankCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2UsersReturn1Good1BlankCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -990,7 +990,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
@@ -998,7 +998,7 @@ class TrainingServiceImplTest {
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user + "2"));
         Training blank = new Training();
-        trainingService.saveLog(blank);
+        trainingService.saveTrainingLog(blank);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         List<Training> userTraining2 = trainingService.fetchUserTraining(user + "2");
         assertNotNull("User has training that is returned", userTraining);
@@ -1079,7 +1079,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNotNull("User has training that is returned", userTraining);
         assertTrue("One entry for traininglog", userTraining.size() == 1);
@@ -1098,14 +1098,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNotNull("Has training that is returned", userTraining);
         assertTrue("Two entry for traininglog", userTraining.size() == 2);
@@ -1124,28 +1124,28 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         Training trainingLog3 = new Training();
         trainingLog3.setDate("2023-04-14");
         trainingLog3.setLocation("Carroll3");
         trainingLog3.setTraining("Walking3");
         trainingLog3.setComments("Good3");
         trainingLog3.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog3);
+        trainingService.saveTrainingLog(trainingLog3);
         Training trainingLog4 = new Training();
         trainingLog4.setDate("2023-04-15");
         trainingLog4.setLocation("Carroll4");
         trainingLog4.setTraining("Walking4");
         trainingLog4.setComments("Good4");
         trainingLog4.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog4);
+        trainingService.saveTrainingLog(trainingLog4);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNotNull("Has training that is returned", userTraining);
         assertTrue("Two entry for traininglog", userTraining.size() == 4);
@@ -1164,7 +1164,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("Training user fetched had correct value for Dated", trainingService.fetchUserTraining(user).get(0).getDate().equals("2023-04-12"));
@@ -1184,14 +1184,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("Training user fetched had correct value for Date on the first entry", trainingService.fetchUserTraining(user).get(0).getDate().equals("2023-04-12"));
@@ -1212,28 +1212,28 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         Training trainingLog3 = new Training();
         trainingLog3.setDate("2023-04-14");
         trainingLog3.setLocation("Carroll3");
         trainingLog3.setTraining("Walking3");
         trainingLog3.setComments("Good3");
         trainingLog3.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog3);
+        trainingService.saveTrainingLog(trainingLog3);
         Training trainingLog4 = new Training();
         trainingLog4.setDate("2023-04-15");
         trainingLog4.setLocation("Carroll4");
         trainingLog4.setTraining("Walking4");
         trainingLog4.setComments("Good4");
         trainingLog4.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog4);
+        trainingService.saveTrainingLog(trainingLog4);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("Training user fetched had correct value for Date on the first entry", trainingService.fetchUserTraining(user).get(0).getDate().equals("2023-04-12"));
@@ -1255,7 +1255,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for users trainingLog", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getLocation().equals("Carroll"));
@@ -1275,14 +1275,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getLocation().equals("Carroll"));
@@ -1303,28 +1303,28 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         Training trainingLog3 = new Training();
         trainingLog3.setDate("2023-04-14");
         trainingLog3.setLocation("Carroll3");
         trainingLog3.setTraining("Walking3");
         trainingLog3.setComments("Good3");
         trainingLog3.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog3);
+        trainingService.saveTrainingLog(trainingLog3);
         Training trainingLog4 = new Training();
         trainingLog4.setDate("2023-04-15");
         trainingLog4.setLocation("Carroll4");
         trainingLog4.setTraining("Walking4");
         trainingLog4.setComments("Good4");
         trainingLog4.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog4);
+        trainingService.saveTrainingLog(trainingLog4);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getLocation().equals("Carroll"));
@@ -1346,7 +1346,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getTraining().equals("Walking"));
@@ -1366,14 +1366,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getTraining().equals("Walking"));
@@ -1394,28 +1394,28 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         Training trainingLog3 = new Training();
         trainingLog3.setDate("2023-04-14");
         trainingLog3.setLocation("Carroll3");
         trainingLog3.setTraining("Walking3");
         trainingLog3.setComments("Good3");
         trainingLog3.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog3);
+        trainingService.saveTrainingLog(trainingLog3);
         Training trainingLog4 = new Training();
         trainingLog4.setDate("2023-04-15");
         trainingLog4.setLocation("Carroll4");
         trainingLog4.setTraining("Walking4");
         trainingLog4.setComments("Good4");
         trainingLog4.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog4);
+        trainingService.saveTrainingLog(trainingLog4);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getTraining().equals("Walking"));
@@ -1437,7 +1437,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getComments().equals("Good"));
@@ -1457,14 +1457,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getComments().equals("Good"));
@@ -1485,28 +1485,28 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         Training trainingLog3 = new Training();
         trainingLog3.setDate("2023-04-14");
         trainingLog3.setLocation("Carroll3");
         trainingLog3.setTraining("Walking3");
         trainingLog3.setComments("Good3");
         trainingLog3.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog3);
+        trainingService.saveTrainingLog(trainingLog3);
         Training trainingLog4 = new Training();
         trainingLog4.setDate("2023-04-15");
         trainingLog4.setLocation("Carroll4");
         trainingLog4.setTraining("Walking4");
         trainingLog4.setComments("Good4");
         trainingLog4.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog4);
+        trainingService.saveTrainingLog(trainingLog4);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getComments().equals("Good"));
@@ -1528,7 +1528,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
 
         Login createUser2 = new Login();
         createUser2.setPassword(password + "2");
@@ -1541,7 +1541,7 @@ class TrainingServiceImplTest {
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user + "2"));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
 
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         List<Training> userTraining2 = trainingService.fetchUserTraining(user + "2");
@@ -1564,7 +1564,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
 
         Login createUser2 = new Login();
         createUser2.setPassword(password + "2");
@@ -1577,7 +1577,7 @@ class TrainingServiceImplTest {
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user + "2"));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
 
         List<Training> userTraining = trainingService.fetchUserTraining(null);
         List<Training> userTraining2 = trainingService.fetchUserTraining(user + "2");
@@ -1602,14 +1602,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
 
         Login createUser2 = new Login();
         createUser2.setPassword(password + "2");
@@ -1622,14 +1622,14 @@ class TrainingServiceImplTest {
         trainingLog3.setTraining("Walking3");
         trainingLog3.setComments("Good3");
         trainingLog3.setLogin(loginService.findLogin(user + "2"));
-        trainingService.saveLog(trainingLog3);
+        trainingService.saveTrainingLog(trainingLog3);
         Training trainingLog4 = new Training();
         trainingLog4.setDate("2023-04-15");
         trainingLog4.setLocation("Carroll4");
         trainingLog4.setTraining("Walking4");
         trainingLog4.setComments("Good4");
         trainingLog4.setLogin(loginService.findLogin(user + "2"));
-        trainingService.saveLog(trainingLog4);
+        trainingService.saveTrainingLog(trainingLog4);
         List<Training> userTraining = trainingService.fetchUserTraining(user + "2");
         assertNotNull("", userTraining);
         assertFalse("Two entry for createUser", userTraining.size() == 4);
@@ -1648,14 +1648,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
 
         Login createUser2 = new Login();
         createUser2.setPassword(password + "2");
@@ -1668,14 +1668,14 @@ class TrainingServiceImplTest {
         trainingLog3.setTraining("Walking3");
         trainingLog3.setComments("Good3");
         trainingLog3.setLogin(loginService.findLogin(user + "2"));
-        trainingService.saveLog(trainingLog3);
+        trainingService.saveTrainingLog(trainingLog3);
         Training trainingLog4 = new Training();
         trainingLog4.setDate("2023-04-15");
         trainingLog4.setLocation("Carroll4");
         trainingLog4.setTraining("Walking4");
         trainingLog4.setComments("Good4");
         trainingLog4.setLogin(loginService.findLogin(user + "2"));
-        trainingService.saveLog(trainingLog4);
+        trainingService.saveTrainingLog(trainingLog4);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         List<Training> userTraining2 = trainingService.fetchUserTraining(null);
 
@@ -1697,7 +1697,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertFalse("", trainingService.fetchUserTraining(user).get(0).getDate().equals("2023-04-13"));
@@ -1717,7 +1717,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNull("", userTraining);
     }
@@ -1735,14 +1735,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertFalse("", trainingService.fetchUserTraining(user).get(0).getDate().equals("2023-04-13"));
@@ -1764,19 +1764,19 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate(null);
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getDate().equals("2023-04-12"));
         assertTrue("", userTraining.size() == 1);
-        assertFalse("", trainingService.saveLog(trainingLog2));
+        assertFalse("", trainingService.saveTrainingLog(trainingLog2));
 
     }
 
@@ -1794,14 +1794,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
 
 
         Training trainingLog3 = new Training();
@@ -1810,14 +1810,14 @@ class TrainingServiceImplTest {
         trainingLog3.setTraining("Walking3");
         trainingLog3.setComments("Good3");
         trainingLog3.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog3);
+        trainingService.saveTrainingLog(trainingLog3);
         Training trainingLog4 = new Training();
         trainingLog4.setDate("2023-04-15");
         trainingLog4.setLocation("Carroll4");
         trainingLog4.setTraining("Walking4");
         trainingLog4.setComments("Good4");
         trainingLog4.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog4);
+        trainingService.saveTrainingLog(trainingLog4);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertFalse("", trainingService.fetchUserTraining(user).get(0).getDate().equals("2023-04-13"));
@@ -1841,14 +1841,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
 
 
         Training trainingLog3 = new Training();
@@ -1857,21 +1857,21 @@ class TrainingServiceImplTest {
         trainingLog3.setTraining("Walking3");
         trainingLog3.setComments("Good3");
         trainingLog3.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog3);
+        trainingService.saveTrainingLog(trainingLog3);
         Training trainingLog4 = new Training();
         trainingLog4.setDate(null);
         trainingLog4.setLocation("Carroll4");
         trainingLog4.setTraining("Walking4");
         trainingLog4.setComments("Good4");
         trainingLog4.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog4);
+        trainingService.saveTrainingLog(trainingLog4);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getDate().equals("2023-04-12"));
         assertTrue("", trainingService.fetchUserTraining(user).get(1).getDate().equals("2023-04-13"));
         assertTrue("", userTraining.size() == 2);
-        assertFalse("", trainingService.saveLog(trainingLog3));
-        assertFalse("", trainingService.saveLog(trainingLog4));
+        assertFalse("", trainingService.saveTrainingLog(trainingLog3));
+        assertFalse("", trainingService.saveTrainingLog(trainingLog4));
     }
 
     @Test
@@ -1887,7 +1887,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getLocation().equals("Carroll"));
@@ -1907,7 +1907,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNull("", userTraining);
     }
@@ -1925,14 +1925,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getLocation().equals("Carroll"));
@@ -1953,14 +1953,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-12");
         trainingLog2.setLocation(null);
         trainingLog2.setTraining("Walking");
         trainingLog2.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertNotNull("", userTraining);
         assertTrue("", userTraining.size() == 1);
@@ -1979,28 +1979,28 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         Training trainingLog3 = new Training();
         trainingLog3.setDate("2023-04-14");
         trainingLog3.setLocation("Carroll3");
         trainingLog3.setTraining("Walking3");
         trainingLog3.setComments("Good3");
         trainingLog3.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog3);
+        trainingService.saveTrainingLog(trainingLog3);
         Training trainingLog4 = new Training();
         trainingLog4.setDate("2023-04-15");
         trainingLog4.setLocation("Carroll4");
         trainingLog4.setTraining("Walking4");
         trainingLog4.setComments("Good4");
         trainingLog4.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog4);
+        trainingService.saveTrainingLog(trainingLog4);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getLocation().equals("Carroll"));
@@ -2022,7 +2022,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getTraining().equals("Walking"));
@@ -2042,14 +2042,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getTraining().equals("Walking"));
@@ -2070,28 +2070,28 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         Training trainingLog3 = new Training();
         trainingLog3.setDate("2023-04-14");
         trainingLog3.setLocation("Carroll3");
         trainingLog3.setTraining("Walking3");
         trainingLog3.setComments("Good3");
         trainingLog3.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog3);
+        trainingService.saveTrainingLog(trainingLog3);
         Training trainingLog4 = new Training();
         trainingLog4.setDate("2023-04-15");
         trainingLog4.setLocation("Carroll4");
         trainingLog4.setTraining("Walking4");
         trainingLog4.setComments("Good4");
         trainingLog4.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog4);
+        trainingService.saveTrainingLog(trainingLog4);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getTraining().equals("Walking"));
@@ -2113,7 +2113,7 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getComments().equals("Good"));
@@ -2133,14 +2133,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getComments().equals("Good"));
@@ -2161,28 +2161,28 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog);
+        trainingService.saveTrainingLog(trainingLog);
         Training trainingLog2 = new Training();
         trainingLog2.setDate("2023-04-13");
         trainingLog2.setLocation("Carroll2");
         trainingLog2.setTraining("Walking2");
         trainingLog2.setComments("Good2");
         trainingLog2.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog2);
+        trainingService.saveTrainingLog(trainingLog2);
         Training trainingLog3 = new Training();
         trainingLog3.setDate("2023-04-14");
         trainingLog3.setLocation("Carroll3");
         trainingLog3.setTraining("Walking3");
         trainingLog3.setComments("Good3");
         trainingLog3.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog3);
+        trainingService.saveTrainingLog(trainingLog3);
         Training trainingLog4 = new Training();
         trainingLog4.setDate("2023-04-15");
         trainingLog4.setLocation("Carroll4");
         trainingLog4.setTraining("Walking4");
         trainingLog4.setComments("Good4");
         trainingLog4.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(trainingLog4);
+        trainingService.saveTrainingLog(trainingLog4);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertTrue("Training user fetched correct entry's for userTraining", trainingService.fetchUserTraining(user).equals(userTraining));
         assertTrue("", trainingService.fetchUserTraining(user).get(0).getComments().equals("Good"));

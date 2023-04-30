@@ -90,15 +90,18 @@ public class RegisterServiceImpl implements RegisterService {
         if (register.getUser() != null && !register.getUser().isBlank()
                 && register.getPassword() != null && register.getPassword() != ""
                 && register.getEmail() != null && register.getEmail() != "") {
-            if (!loginService.findLogin(register.getUser()).equals(Collections.EMPTY_LIST)) {
+            if (loginService.findLogin(register.getUser())==null) {
+                String passSalt[] = hashString(register.getPassword());
+                register.setPassword(passSalt[0]);
+                register.setSalt(passSalt[1]);
+                registerRepo.save(register);
+                log.info("Register Info for {} sent to login table", register.getUser());
+                return true;
+            }
+            else {
+                log.info("Register can not be done {}",loginService.findLogin(register.getUser()));
                 return false;
             }
-            String passSalt[] = hashString(register.getPassword());
-            register.setPassword(passSalt[0]);
-            register.setSalt(passSalt[1]);
-            registerRepo.save(register);
-            log.info("Register Info for {} sent to login table", register.getUser());
-            return true;
         } else {
             log.info("Can can not be null or blank {}", register.getUser());
             return false;

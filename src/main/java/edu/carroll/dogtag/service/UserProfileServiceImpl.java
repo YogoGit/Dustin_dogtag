@@ -41,17 +41,17 @@ public class UserProfileServiceImpl implements UserProfileService {
     @Override
     public UserProfile fetchUserProfile(String user) {
         if (user == null || user.isBlank()) {
-            return (UserProfile) Collections.EMPTY_LIST;
+            return null;
         }
         List<Login> fetchUser = loginRepository.findByUserIgnoreCase(user);
         if (fetchUser.isEmpty()) {
             log.debug("fetchUser List was empty with size 0 for user: {}", user);
-            return (UserProfile) Collections.EMPTY_LIST;
+            return null;
         }
         List<UserProfile> profiles = userProfileRepository.findByLogin(fetchUser.get(0));
         if (profiles.isEmpty()) {
             log.debug("fetchUser List was empty with size 0 for user: {}", user);
-            return (UserProfile) Collections.EMPTY_LIST;
+            return null;
         }
         return profiles.get(0);
     }
