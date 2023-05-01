@@ -1,7 +1,6 @@
 package edu.carroll.dogtag.web.controller;
 
 import edu.carroll.dogtag.jpa.model.Training;
-import edu.carroll.dogtag.jpa.repo.TrainingRepository;
 import edu.carroll.dogtag.service.LoginService;
 import edu.carroll.dogtag.service.TrainingService;
 import edu.carroll.dogtag.service.UserProfileService;
@@ -19,27 +18,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
+/**
+ * The TrainingController handles the information that is entered in the html pages to the LoginForm
+ * and calls methods to check if there are training logs in the database for the user that is logged in
+ * and then adds the list to the model to be passed back to the html page to be displayed.  When a new log
+ * is saved and the page is reloaded the training logs are fetched again in a list format, and it is then updated
+ * on the html page.
+ */
 @Controller
 public class TrainingController {
-
     private static final Logger log = LoggerFactory.getLogger(TrainingController.class);
     private final TrainingService trainingService;
-
     private final LoginService loginService;
-
     private final UserProfileService userProfileService;
 
-    private final TrainingRepository trainingRepository;
-
-    public TrainingController(TrainingService trainingService, LoginService loginService, UserProfileService userProfileService, TrainingRepository trainingRepository) {
+    public TrainingController(TrainingService trainingService, LoginService loginService, UserProfileService userProfileService) {
         this.trainingService = trainingService;
-
         this.loginService = loginService;
-
-
         this.userProfileService = userProfileService;
-
-        this.trainingRepository = trainingRepository;
     }
 
     /**
@@ -52,7 +48,6 @@ public class TrainingController {
      * the intended user that is being passed to fetchUserTraining(user).  This allows the
      * template to immediately display the new information that has been entered.
      */
-
     @GetMapping("/traininglog")
     public String trainingForm(HttpSession session, Model model) {
         final String user = (String) session.getAttribute("user");
@@ -79,7 +74,6 @@ public class TrainingController {
      * Once the checks are complete it allows the controller to submit the
      * information to the TrainingService.
      */
-
     @PostMapping("/traininglog")
     // Order matters with paramiter that are being passed The BindingResult must come right after the
     // model object that is validated or else Spring will fail to validate the object and throw an exception.
@@ -103,8 +97,7 @@ public class TrainingController {
         userTraining.setLocation(trainingForm.getLocation());
         userTraining.setComments(trainingForm.getComments());
         userTraining.setLogin(loginService.findLogin(user));
-        trainingService.saveLog(userTraining);
+        trainingService.saveTrainingLog(userTraining);
         return "redirect:/traininglog";
     }
-
 }

@@ -8,14 +8,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
+/**
+ * TrainingService is used as the business logic for the TrainingController. It checks if the trainingLog
+ * is correctly entered before saved to the database. The service then
+ * saves the users trainingLog. The fetchUserTraining is used to find the trainings that have been
+ * entered already for that user.
+ */
 @Service
 public class TrainingServiceImpl implements TrainingService {
-
     private static final Logger log = LoggerFactory.getLogger(TrainingServiceImpl.class);
     private final TrainingRepository trainingRepository;
-
     private final LoginRepository loginRepository;
 
     public TrainingServiceImpl(TrainingRepository trainingRepository, LoginRepository loginRepository) {
@@ -31,11 +36,11 @@ public class TrainingServiceImpl implements TrainingService {
      * @return a boolean is returned to give feedback. If any of the trainingLog being
      * passed to the saveLog method is null or blank a false is returned.  Only a true
      * is returned if no null or blank entries are on the trainingLog that is trying
-     * to be saved in the database.
+     * to be saved in the database. TrainingLogs are then sent back to the TrainingController
+     * to be listed in the template traininglog.html.
      */
-
     @Override
-    public boolean saveLog(Training trainingLog) {
+    public boolean saveTrainingLog(Training trainingLog) {
         Login blank = new Login();
         if (trainingLog == null || trainingLog.equals(blank)) {
             log.error("Traininglog can not be passed as null");
@@ -65,7 +70,6 @@ public class TrainingServiceImpl implements TrainingService {
             trainingRepository.save(trainingLog);
             return true;
         }
-
     }
 
     /**
@@ -81,22 +85,22 @@ public class TrainingServiceImpl implements TrainingService {
     @Override
     public List<Training> fetchUserTraining(String user) {
         if (user == null || user.isBlank()) {
-            return null;
+            return Collections.EMPTY_LIST;
         }
         List<Login> fetchUser = loginRepository.findByUserIgnoreCase(user);
         if (user == null || user.isBlank()) {
-            return null;
+            return Collections.EMPTY_LIST;
         }
         if (fetchUser.isEmpty()) {
             log.debug("fetchUser List was empty with size 0 for user: {}", user);
-            return null;
+            return Collections.EMPTY_LIST;
         }
         List<Training> trainings = trainingRepository.findByLogin_Id(fetchUser.get(0).getId());
         if (trainings.isEmpty()) {
             log.debug("trainings List was empty with size 0 for user: {}", user);
-            return null;
+        } else {
+            log.info("fetchUser List was successfully found {}", user);
         }
-        log.info("fetchUser List was successfully found {}", user);
         return trainings;
     }
 }

@@ -15,12 +15,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+/**
+ * The UserProfileController handles the information that is entered in the html pages to the UserProfileForm
+ * and allows the user to enter information for themselves into the database that is attached to
+ * their username that was registered. If not errors are found the information is sent to the registerService
+ * to handle the business logic before saving to the database.
+ */
 @Controller
 public class UserProfileController {
     private static final Logger log = LoggerFactory.getLogger(UserProfileController.class);
     private final UserProfileService userProfileService;
     private final LoginService loginService;
-
 
     public UserProfileController(UserProfileService userProfileService, LoginService loginService) {
         this.userProfileService = userProfileService;
@@ -73,7 +78,7 @@ public class UserProfileController {
         userProfile.setLname(userProfileForm.getLname());
         userProfile.setPhone(userProfileForm.getPhone());
         userProfile.setLogin(loginService.findLogin(user));
-        userProfileService.setProfile(userProfile);
+        userProfileService.setUserProfile(userProfile);
         model.addAttribute("fname", userProfileService.fetchUserProfile(user).getFname());
         model.addAttribute("lname", userProfileService.fetchUserProfile(user).getLname());
         log.info("Registration post was successful");

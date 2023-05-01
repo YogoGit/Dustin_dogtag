@@ -1,6 +1,5 @@
 package edu.carroll.dogtag.jpa.model;
 
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -14,7 +13,6 @@ import jakarta.validation.constraints.Size;
  * training: What training was done such as Loose Leash Walking
  * Comments: How the training went such as bad and as why.
  */
-
 @Entity
 @Table(name = "training")
 public class Training {
@@ -28,9 +26,9 @@ public class Training {
     @GeneratedValue
     private Long training_id;
 
-    /*
-    This creates a linking database table between Training and Login
-    Table and is connected through the "login_id"
+    /**
+     * This creates a linking database table between Training and Login
+     * Table and is connected through the "login_id"
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "login_id")
@@ -89,15 +87,9 @@ public class Training {
         this.login = login;
     }
 
-
-    /**
-     * @return unique Long number entry in this case the primary key
-     */
-
     /**
      * @return the date that the training took place for that entry.
      */
-
     public String getDate() {
         return date;
     }
@@ -112,7 +104,6 @@ public class Training {
     /**
      * @return the location that the training took place for that entry.
      */
-
     public String getLocation() {
         return location;
     }
@@ -134,7 +125,6 @@ public class Training {
     /**
      * @param training sets the training that took place for the log entry.
      */
-
     public void setTraining(String training) {
         this.training = training;
     }

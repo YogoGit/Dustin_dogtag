@@ -39,7 +39,6 @@ public class Login {
 
     //This creates a linking database table between Login and Training
     //Table and is connected through the "training_id"
-
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "training_id")
     private List<Training> training;
 
@@ -123,7 +122,6 @@ public class Login {
      * @param id sets the unique Long number id. This is auto generated with the above
      *           springboot implementation.
      */
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -131,7 +129,6 @@ public class Login {
     /**
      * @return the user that is stored in the database.
      */
-
     public String getUser() {
         return user;
     }
@@ -139,7 +136,6 @@ public class Login {
     /**
      * @param user sets the user in the database.
      */
-
     public void setUser(String user) {
         this.user = user;
     }
@@ -147,7 +143,6 @@ public class Login {
     /**
      * @return password in hashed form to compare with what the user entered in LoginForm
      */
-
     public String getPassword() {
         return password;
     }
@@ -155,7 +150,6 @@ public class Login {
     /**
      * @param password sets the password in the database
      */
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -164,7 +158,6 @@ public class Login {
      * @return email is returned from the database and
      * is used to check if email is already in use
      */
-
     public String getEmail() {
         return email;
     }
@@ -172,17 +165,13 @@ public class Login {
     /**
      * @param email sets the email entry into the database
      */
-
     public void setEmail(String email) {
-
         this.email = email;
-
     }
 
     /**
      * @return the toString method for logs and debugging.
      */
-
     @Override
     public String toString() {
         String builder = "Login @ " + super.toString() + "[" + EOL +

@@ -9,14 +9,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
+/**
+ * This is used to find the all user profiles in the database that have been
+ * entered already for that user. setProfile is used once all the information is correct information has
+ * being given to been handed to the method and saves the information in the
+ * database using the UserProfileRepository.
+ */
 @Service
 public class UserProfileServiceImpl implements UserProfileService {
-
     private static final Logger log = LoggerFactory.getLogger(UserProfileServiceImpl.class);
     private final UserProfileRepository userProfileRepository;
-
     private final LoginRepository loginRepository;
 
     public UserProfileServiceImpl(UserProfileRepository userProfileRepository, RegisterRepository registerRepository, LoginRepository loginRepository) {
@@ -58,7 +63,7 @@ public class UserProfileServiceImpl implements UserProfileService {
      * fields are null or empty being passed.
      */
     @Override
-    public boolean setProfile(UserProfile profile) {
+    public boolean setUserProfile(UserProfile profile) {
         if (profile.getPhone() == null || profile.getPhone().isBlank()) {
             log.error("profile phone field was null or blank {}", profile.getPhone());
             return false;

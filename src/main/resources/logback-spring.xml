@@ -34,8 +34,7 @@
       children packages.
     -->
     <!-- Overwrite level for a internal code - Commented out for now  -->
-    <logger name="edu.carroll.cs389" level="INFO"/> <!-- Fatal or error warn info debug trace-->  <!-- Trace -->
-
+    <logger name="edu.carroll.dogtag " level="INFO"/> <!-- Fatal or error warn info debug trace-->  <!-- Trace -->
 
     <!-- Reduce DB startup chatter -->
     <logger name="org.hibernate" level="INFO"/>

@@ -12,8 +12,19 @@ import javax.crypto.spec.PBEKeySpec;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Base64;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
+/**
+ * LoginService is used as the business logic for the LoginController. It uses the findLogin
+ * to verify there is a user with that name in the database by returning a list of users that match
+ * which should only return 1. This service takes care of validating a user that is attempting to log into the
+ * application. It uses the methods to ensure the user has entered correct information and
+ * that they are in the database. The service checks what the user has entered by creating a
+ * hash of the password the same way that it does when the user registers. Then compares the password
+ * in the database with the hashed user entry in the form.
+ */
 @Service
 public class LoginServiceImpl implements LoginService {
     private static final Logger log = LoggerFactory.getLogger(LoginServiceImpl.class);
@@ -23,7 +34,6 @@ public class LoginServiceImpl implements LoginService {
         this.loginRepo = loginRepo;
     }
 
-
     /**
      * Given a loginForm, determine if the information provided is valid, and the user exists in the system.
      *
@@ -31,7 +41,7 @@ public class LoginServiceImpl implements LoginService {
      * @return true if data exists and matches what's on record, false otherwise
      */
     @Override
-    public boolean validateUser(LoginForm loginForm) throws InvalidKeySpecException, NoSuchAlgorithmException {
+    public boolean validateUser(LoginForm loginForm) {
         log.info("validateUser: {} attempted login", loginForm.getUser());
         if (loginForm.getUser() == null || loginForm.getUser().isBlank()) {
             log.error("loginForm User was null or blank {}", loginForm.getUser());
@@ -43,33 +53,58 @@ public class LoginServiceImpl implements LoginService {
         }
         log.info("validateUser: {} attempted login", loginForm.getUser());
         // Always do the lookup in a case-insensitive manner (lower-casing the data).
-        List<Login> user = loginRepo.findByUserIgnoreCase(loginForm.getUser());
-
-        if (user.size() != 1) {
-            log.info("validateUser:{} users not found", user.size());
+        if (findLogin(loginForm.getUser())==null) {
             return false;
         }
-
-        Login u = user.get(0);
-        final String userProvided = loginForm.getPassword();
-        byte[] salt = Base64.getMimeDecoder().decode(u.getSalt());
-        PBEKeySpec pbeKeySpec = new PBEKeySpec(userProvided.toCharArray(), salt, 10, 512);
-        SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
-        byte[] hash = skf.generateSecret(pbeKeySpec).getEncoded();
-
-        //converting to string to store into database
-        String base64Hash = Base64.getMimeEncoder().encodeToString(hash);
-        //Here, you obtain the salt from the database
-        log.info("check if hashes match, result: {}", base64Hash.equals(hash));
-        String hash2 = u.getPassword();
-        log.info(hash2);
-        log.info(base64Hash);
-        if (!hash2.equals(base64Hash)) {
+        final String userProvidedPass = loginForm.getPassword();
+        final String userProvidedLogin = loginForm.getUser();
+        boolean comparedHash = hashCheck(userProvidedLogin, userProvidedPass);
+        if (!comparedHash) {
             log.info("validateUser: {} password does not match", loginForm.getUser());
             return false;
         }
-
         log.info("validateUser: {} successful login", loginForm.getUser());
+        return true;
+    }
+
+    /**
+     * @param user        when the hash is checked the user is passed from the loginForm and is used to
+     *                    find if there is a user and return false if not or continue with verifying the passwords
+     *                    match.
+     * @param rawPassword when the hash is checked the rawPassword is passed from the loginForm and is used to
+     *                    hash the rawPassword  entered with the same hash
+     *                    and then check the database for the same password as a string.
+     *                    match.
+     * @return true is returned if the passwords match and sent to the validate user method. If is false
+     * with is sent back but then validate user is not correct and is dealt with accordingly.
+     */
+    private boolean hashCheck(String user, String rawPassword) {
+        if (findLogin(user).equals(Collections.EMPTY_LIST)) {
+            return false;
+        }
+        Login u = findLogin(user);
+        final String userProvided = rawPassword;
+        byte[] salt = Base64.getMimeDecoder().decode(u.getSalt());
+        PBEKeySpec pbeKeySpec = new PBEKeySpec(userProvided.toCharArray(), salt, 10, 512);
+        SecretKeyFactory skf = null;
+        try {
+            skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+        byte[] hash = new byte[0];
+        try {
+            hash = skf.generateSecret(pbeKeySpec).getEncoded();
+        } catch (InvalidKeySpecException e) {
+            throw new RuntimeException(e);
+        }
+        String base64Hash = Base64.getMimeEncoder().encodeToString(hash);
+        String hash2 = u.getPassword();
+        if (!hash2.equals(base64Hash)) {
+            log.info("validateUser: {} password does not match", user);
+            return false;
+        }
+        log.info("validateUser: {} successful login", user);
         return true;
     }
 
@@ -80,8 +115,7 @@ public class LoginServiceImpl implements LoginService {
      * @param user is what person is trying to log in this information is used to
      *             find all information pertaining to their login.
      * @return a Login object that can be used then to call methods.
-     */
-
+     **/
     @Override
     public Login findLogin(String user) {
         List<Login> logins = loginRepo.findByUserIgnoreCase(user);
