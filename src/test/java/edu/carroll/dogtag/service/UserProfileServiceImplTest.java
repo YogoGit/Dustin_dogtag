@@ -31,8 +31,6 @@ class UserProfileServiceImplTest {
     @Autowired
     private LoginService loginService;
     @Autowired
-    private LoginRepository loginRepository;
-    @Autowired
     private UserProfileService userProfileService;
 
     @Autowired
