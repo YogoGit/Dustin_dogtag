@@ -86,8 +86,9 @@ public class RegisterController {
         userRegister.setUser(registerForm.getUser());
         userRegister.setEmail(registerForm.getEmail());
         userRegister.setPassword(registerForm.getPassword());
-        if(!registerService.register(userRegister)){
-            return "redirect:/register"; }
+        if (!registerService.register(userRegister)) {
+            return "redirect:/register";
+        }
         registerService.register(userRegister);
         attrs.addAttribute("user", registerForm.getUser());
         log.info("User {} was able to register", registerForm.getUser());

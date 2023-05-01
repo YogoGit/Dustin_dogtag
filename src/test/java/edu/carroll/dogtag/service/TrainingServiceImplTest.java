@@ -1,12 +1,15 @@
 package edu.carroll.dogtag.service;
+
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.model.Training;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
 import java.util.Collections;
 import java.util.List;
+
 import static org.springframework.test.util.AssertionErrors.*;
 
 /**
@@ -35,24 +38,24 @@ class TrainingServiceImplTest {
     private LoginService loginService;
 
     @Test
-    void saveTrainingLogNoLog()  {
+    void saveTrainingLogNoLog() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        assertTrue("Register should return true {}",registerService.register(createUser));
+        assertTrue("Register should return true {}", registerService.register(createUser));
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertEquals("User has no training that is returned and is null", userTraining, Collections.EMPTY_LIST);
     }
 
     @Test
-    void saveTrainingLogNoLogNullCrazy()  {
+    void saveTrainingLogNoLogNullCrazy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        assertTrue("Register should return true {}",registerService.register(createUser));
-        assertEquals("User has no training that is returned and is null", trainingService.fetchUserTraining(null),Collections.EMPTY_LIST);
+        assertTrue("Register should return true {}", registerService.register(createUser));
+        assertEquals("User has no training that is returned and is null", trainingService.fetchUserTraining(null), Collections.EMPTY_LIST);
     }
 
     @Test
@@ -82,12 +85,12 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog()  {
+    void saveTrainingLog() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        assertTrue("Register should return true {}",registerService.register(createUser));
+        assertTrue("Register should return true {}", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -96,13 +99,13 @@ class TrainingServiceImplTest {
         trainingLog.setLogin(loginService.findLogin(user));
         assertTrue("SaveTraining Log should return true {}", trainingService.saveTrainingLog(trainingLog));
         List<Training> userTraining = trainingService.fetchUserTraining(user);
-        assertNotEquals("User has training that is returned", userTraining,Collections.EMPTY_LIST);
+        assertNotEquals("User has training that is returned", userTraining, Collections.EMPTY_LIST);
         assertTrue("User training setDate is correct", userTraining.get(0).getDate().equals("2023-04-12"));
         assertTrue("One entry for traininglog", userTraining.size() == 1);
     }
 
     @Test
-    void saveTrainingLogCrappy()  {
+    void saveTrainingLogCrappy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -120,7 +123,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyNull()  {
+    void saveTrainingLogCrazyNull() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -138,7 +141,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyBlank()  {
+    void saveTrainingLogCrazyBlank() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -158,7 +161,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogDateCrappy()  {
+    void saveTrainingLogDateCrappy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -178,7 +181,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogLocationCrappy()  {
+    void saveTrainingLogLocationCrappy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -198,7 +201,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogTrainingCrappy()  {
+    void saveTrainingLogTrainingCrappy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -218,7 +221,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCommentsCrappy()  {
+    void saveTrainingLogCommentsCrappy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -238,7 +241,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogSetLoginCrappy()  {
+    void saveTrainingLogSetLoginCrappy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -258,7 +261,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyNullDate()  {
+    void saveTrainingLogCrazyNullDate() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -276,7 +279,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyBlankDate()  {
+    void saveTrainingLogCrazyBlankDate() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -294,7 +297,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyNullLocation()  {
+    void saveTrainingLogCrazyNullLocation() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -312,7 +315,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyBlankLocation()  {
+    void saveTrainingLogCrazyBlankLocation() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -330,7 +333,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyNullTraining()  {
+    void saveTrainingLogCrazyNullTraining() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -348,7 +351,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyBlankTraining()  {
+    void saveTrainingLogCrazyBlankTraining() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -360,13 +363,14 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        assertFalse("SaveTraining Log should return true {}", trainingService.saveTrainingLog(trainingLog));;
+        assertFalse("SaveTraining Log should return true {}", trainingService.saveTrainingLog(trainingLog));
+        ;
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertEquals("User has training not saved due to null date", userTraining, Collections.EMPTY_LIST);
     }
 
     @Test
-    void saveTrainingLogCrazyNullComments()  {
+    void saveTrainingLogCrazyNullComments() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -384,7 +388,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyBlankComments()  {
+    void saveTrainingLogCrazyBlankComments() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -402,7 +406,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyNullSetLogin()  {
+    void saveTrainingLogCrazyNullSetLogin() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -420,7 +424,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyBlankSetLogin()  {
+    void saveTrainingLogCrazyBlankSetLogin() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -438,7 +442,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyAllNull()  {
+    void saveTrainingLogCrazyAllNull() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -456,7 +460,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyAllBlank()  {
+    void saveTrainingLogCrazyAllBlank() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -472,11 +476,11 @@ class TrainingServiceImplTest {
         Training trainingLog2 = new Training();
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertFalse("cant passed blank log to service", trainingService.saveTrainingLog(trainingLog2));
-        assertEquals("User has training not saved due to null date", userTraining,Collections.EMPTY_LIST);
+        assertEquals("User has training not saved due to null date", userTraining, Collections.EMPTY_LIST);
     }
 
     @Test
-    void saveTrainingLog2()  {
+    void saveTrainingLog2() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -504,7 +508,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2OneHappyOneCrappy()  {
+    void saveTrainingLog2OneHappyOneCrappy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -532,7 +536,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2Crazy1Null1Blank()  {
+    void saveTrainingLog2Crazy1Null1Blank() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -562,7 +566,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog4TwoHappyTwoCrappy()  {
+    void saveTrainingLog4TwoHappyTwoCrappy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -606,7 +610,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog4()  {
+    void saveTrainingLog4() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -650,7 +654,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog4TwoCrappyTwoHappy()  {
+    void saveTrainingLog4TwoCrappyTwoHappy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -694,7 +698,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog4Crazy2Null2Blank()  {
+    void saveTrainingLog4Crazy2Null2Blank() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -734,7 +738,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2UsersReturn1()  {
+    void saveTrainingLog2UsersReturn1() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -770,7 +774,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2UsersReturn1Crappy()  {
+    void saveTrainingLog2UsersReturn1Crappy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -807,7 +811,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2UsersReturn1Good1NullDateCrazy()  {
+    void saveTrainingLog2UsersReturn1Good1NullDateCrazy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -841,7 +845,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2UsersReturn1Good1LocationCrazy()  {
+    void saveTrainingLog2UsersReturn1Good1LocationCrazy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -875,7 +879,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2UsersReturn1Good1TrainingCrazy()  {
+    void saveTrainingLog2UsersReturn1Good1TrainingCrazy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -909,7 +913,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2UsersReturn1Good1CommentsCrazy()  {
+    void saveTrainingLog2UsersReturn1Good1CommentsCrazy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -943,7 +947,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2UsersReturn1Good1NullCrazy()  {
+    void saveTrainingLog2UsersReturn1Good1NullCrazy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -977,7 +981,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2UsersReturn1Good1BlankCrazy()  {
+    void saveTrainingLog2UsersReturn1Good1BlankCrazy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1019,7 +1023,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappy()  {
+    void fetchUserTrainingCrappy() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1036,7 +1040,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazyUserCreatePassedNull()  {
+    void fetchUserTrainingCrazyUserCreatePassedNull() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1048,7 +1052,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazyUserCreatePassedBlank()  {
+    void fetchUserTrainingCrazyUserCreatePassedBlank() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1061,7 +1065,7 @@ class TrainingServiceImplTest {
 
 
     @Test
-    void fetchUserTrainingHappy1()  {
+    void fetchUserTrainingHappy1() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1072,7 +1076,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappy2()  {
+    void fetchUserTrainingHappy2() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1091,7 +1095,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappy3()  {
+    void fetchUserTrainingHappy3() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1118,7 +1122,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappy4()  {
+    void fetchUserTrainingHappy4() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1158,7 +1162,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyDate()  {
+    void fetchUserTrainingHappyDate() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1178,7 +1182,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyDate2()  {
+    void fetchUserTrainingHappyDate2() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1206,7 +1210,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyDate4()  {
+    void fetchUserTrainingHappyDate4() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1249,7 +1253,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyLocation()  {
+    void fetchUserTrainingHappyLocation() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1269,7 +1273,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyLocation2()  {
+    void fetchUserTrainingHappyLocation2() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1297,7 +1301,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyLocation4()  {
+    void fetchUserTrainingHappyLocation4() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1340,7 +1344,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyTraining()  {
+    void fetchUserTrainingHappyTraining() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1360,7 +1364,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyTraining2()  {
+    void fetchUserTrainingHappyTraining2() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1388,7 +1392,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyTraining4()  {
+    void fetchUserTrainingHappyTraining4() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1431,7 +1435,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyComments()  {
+    void fetchUserTrainingHappyComments() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1451,7 +1455,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyComments2()  {
+    void fetchUserTrainingHappyComments2() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1479,7 +1483,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyComments4()  {
+    void fetchUserTrainingHappyComments4() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1522,7 +1526,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappy1()  {
+    void fetchUserTrainingCrappy1() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1558,7 +1562,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazyOneGoodOneNull()  {
+    void fetchUserTrainingCrazyOneGoodOneNull() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1587,7 +1591,7 @@ class TrainingServiceImplTest {
 
         List<Training> userTraining = trainingService.fetchUserTraining(null);
         List<Training> userTraining2 = trainingService.fetchUserTraining(user + "2");
-        assertEquals("", userTraining,Collections.EMPTY_LIST);
+        assertEquals("", userTraining, Collections.EMPTY_LIST);
         assertNotNull("", userTraining2);
         assertTrue("One entry for traininglog and not for both", userTraining2.size() == 1);
         assertTrue("Should not return the first user training = the second user training",
@@ -1596,7 +1600,7 @@ class TrainingServiceImplTest {
 
 
     @Test
-    void fetchUserTrainingCrappy2()  {
+    void fetchUserTrainingCrappy2() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1642,7 +1646,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazyTwoGoodTwoNull()  {
+    void fetchUserTrainingCrazyTwoGoodTwoNull() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1687,11 +1691,11 @@ class TrainingServiceImplTest {
 
         assertNotNull("", userTraining);
         assertTrue("Two entry for createUser", userTraining.size() == 2);
-        assertEquals("Passed Null for listing userTraining2", userTraining2,Collections.EMPTY_LIST);
+        assertEquals("Passed Null for listing userTraining2", userTraining2, Collections.EMPTY_LIST);
     }
 
     @Test
-    void fetchUserTrainingCrappyDate()  {
+    void fetchUserTrainingCrappyDate() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1711,7 +1715,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazyDate()  {
+    void fetchUserTrainingCrazyDate() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1729,7 +1733,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyDate2()  {
+    void fetchUserTrainingCrappyDate2() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1758,7 +1762,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazeOneGoodOneNull()  {
+    void fetchUserTrainingCrazeOneGoodOneNull() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1788,7 +1792,7 @@ class TrainingServiceImplTest {
 
 
     @Test
-    void fetchUserTrainingCrappyDate4()  {
+    void fetchUserTrainingCrappyDate4() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1835,7 +1839,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazyTwoGoodTwoNullDate4()  {
+    void fetchUserTrainingCrazyTwoGoodTwoNullDate4() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1881,7 +1885,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyLocation()  {
+    void fetchUserTrainingCrappyLocation() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1901,7 +1905,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazyLocation()  {
+    void fetchUserTrainingCrazyLocation() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1919,7 +1923,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyLocation2()  {
+    void fetchUserTrainingCrappyLocation2() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1947,7 +1951,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazyLocationOneGoodOneNull()  {
+    void fetchUserTrainingCrazyLocationOneGoodOneNull() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1973,7 +1977,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyLocation3()  {
+    void fetchUserTrainingCrappyLocation3() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -2016,7 +2020,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyTraining()  {
+    void fetchUserTrainingCrappyTraining() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -2036,7 +2040,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyTraining2()  {
+    void fetchUserTrainingCrappyTraining2() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -2064,7 +2068,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyTraining3()  {
+    void fetchUserTrainingCrappyTraining3() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -2107,7 +2111,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyComments()  {
+    void fetchUserTrainingCrappyComments() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -2127,7 +2131,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyComments2()  {
+    void fetchUserTrainingCrappyComments2() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -2155,7 +2159,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyComments3()  {
+    void fetchUserTrainingCrappyComments3() {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);

@@ -13,7 +13,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Base64;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -90,16 +89,18 @@ public class RegisterServiceImpl implements RegisterService {
         if (register.getUser() != null && !register.getUser().isBlank()
                 && register.getPassword() != null && register.getPassword() != ""
                 && register.getEmail() != null && register.getEmail() != "") {
-            if (loginService.findLogin(register.getUser())==null) {
+            if (emailExists(register.getEmail()) || userExists(register.getUser())) {
+                return false;
+            }
+            if (loginService.findLogin(register.getUser()) == null) {
                 String passSalt[] = hashString(register.getPassword());
                 register.setPassword(passSalt[0]);
                 register.setSalt(passSalt[1]);
                 registerRepo.save(register);
                 log.info("Register Info for {} sent to login table", register.getUser());
                 return true;
-            }
-            else {
-                log.info("Register can not be done {}",loginService.findLogin(register.getUser()));
+            } else {
+                log.info("Register can not be done {}", loginService.findLogin(register.getUser()));
                 return false;
             }
         } else {
