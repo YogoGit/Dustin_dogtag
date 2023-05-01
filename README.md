@@ -64,7 +64,8 @@ To start the application a command prompt needs to be open in the root directory
 
  
 
- 
+ <img width="341" alt="Screen Shot 2023-05-01 at 5 46 48 AM" src="https://user-images.githubusercontent.com/77804262/235452424-5f542e69-6c6f-4810-a6b1-15f5bb422449.png">
+
 
  
 
@@ -83,7 +84,9 @@ Open the IDE and before running the application allow it to build and make sure 
 
 Then press the play button:
 
- 
+ <img width="850" alt="Screen Shot 2023-05-01 at 5 42 43 AM" src="https://user-images.githubusercontent.com/77804262/235452329-a480f34a-f65a-4ea7-bdba-9d3f22c0fb66.png">
+
+<img width="201" alt="Screen Shot 2023-05-01 at 5 50 48 AM" src="https://user-images.githubusercontent.com/77804262/235452350-43268687-afe2-4eb2-8125-daf38cda0ee5.png">
 
 
  
