@@ -62,29 +62,36 @@ GitHub application cloning:
 
 To start the application a command prompt needs to be open in the root directory for the program and will look like this where you saved the project.
 
- 
+<img width="468" alt="image" src="https://user-images.githubusercontent.com/77804262/235456101-d7b07aac-ac25-48c2-9688-39d1a4e052a9.png">
+
+<img width="201" alt="image" src="https://user-images.githubusercontent.com/77804262/235456073-9639e303-dbc5-414a-9055-6bb8fa75ceed.png">
 
  
+<img width="201" alt="image" src="https://user-images.githubusercontent.com/77804262/235456061-651bd3f6-3088-4246-881b-de30ee051f65.png">
 
  
 
 	Note: If test units wish to be ran: replace the above code with ./gradlew test
 
+<img width="468" alt="image" src="https://user-images.githubusercontent.com/77804262/235456022-fe8d03c5-3141-44bb-8056-d24f785f8713.png">
+
  
- 
+
 	Note: Do not close window until the application needs to be stopped.
 
 ### Starting the application Command Prompt:
 
 Open the IDE and before running the application allow it to build and make sure that the selected Class is the DogtagAppApplication:
 
+<img width="230" alt="image" src="https://user-images.githubusercontent.com/77804262/235455947-bd247708-4694-45ac-a035-6c56e8b6ae23.png">
 
  
-
 Then press the play button:
 
- 
+ <img width="388" alt="image" src="https://user-images.githubusercontent.com/77804262/235455869-acd0220a-2c42-4b95-b323-0491aa9e3112.png">
 
+
+<img width="468" alt="image" src="https://user-images.githubusercontent.com/77804262/235455848-39602a74-3dbe-46f1-9921-aa9a4705c3c3.png">
 
  
 
