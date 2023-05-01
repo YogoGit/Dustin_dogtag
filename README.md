@@ -1,7 +1,5 @@
 # dogtag-app
 
-# dogtag-app
-
 Dustin Gardner
 CS-389
 4/28/2023
