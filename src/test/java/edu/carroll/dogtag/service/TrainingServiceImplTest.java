@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.Collections;
 import java.util.List;
 import static org.springframework.test.util.AssertionErrors.*;
 
@@ -36,24 +37,24 @@ class TrainingServiceImplTest {
     private LoginService loginService;
 
     @Test
-    void saveTrainingLogNoLog() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogNoLog()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
         List<Training> userTraining = trainingService.fetchUserTraining(user);
-        assertNull("User has no training that is returned and is null", userTraining);
+        assertTrue("Register should return true {}",registerService.register(createUser));
+        assertEquals("User has no training that is returned and is null", userTraining, Collections.EMPTY_LIST);
     }
 
     @Test
-    void saveTrainingLogNoLogNullCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogNoLogNullCrazy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
-        assertNull("User has no training that is returned and is null", trainingService.fetchUserTraining(null));
+        assertTrue("Register should return true {}",registerService.register(createUser));
+        assertEquals("User has no training that is returned and is null", trainingService.fetchUserTraining(null),Collections.EMPTY_LIST);
     }
 
     @Test
@@ -64,9 +65,9 @@ class TrainingServiceImplTest {
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin("LookingForNoUser"));
-        assertTrue("", trainingService.saveTrainingLog(trainingLog));
+        assertFalse("Training log saved", trainingService.saveTrainingLog(trainingLog));
         List<Training> userTraining = trainingService.fetchUserTraining("LookingForNoUser");
-        assertNull("User does not exist and will be null", userTraining);
+        assertEquals("User does not exist and will be a empty list", userTraining, Collections.EMPTY_LIST);
     }
 
     @Test
@@ -78,30 +79,32 @@ class TrainingServiceImplTest {
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin("LookingForNoUser"));
         assertFalse("Training log not saved because of Null", trainingService.saveTrainingLog(null));
+        List<Training> userTraining = trainingService.fetchUserTraining("LookingForNoUser");
+        assertEquals("User does not exist and will be a empty list", userTraining, Collections.EMPTY_LIST);
     }
 
     @Test
-    void saveTrainingLog() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("Register should return true {}",registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
         trainingLog.setTraining("Walking");
         trainingLog.setComments("Good");
         trainingLog.setLogin(loginService.findLogin(user));
-        trainingService.saveTrainingLog(trainingLog);
+        assertTrue("Register should return true {}", trainingService.saveTrainingLog(trainingLog));
         List<Training> userTraining = trainingService.fetchUserTraining(user);
-        assertNotNull("User has training that is returned", userTraining);
+        assertNotEquals("User has training that is returned", userTraining,Collections.EMPTY_LIST);
         assertTrue("User training setDate is correct", userTraining.get(0).getDate().equals("2023-04-12"));
         assertTrue("One entry for traininglog", userTraining.size() == 1);
     }
 
     @Test
-    void saveTrainingLogCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrappy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -119,7 +122,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyNull() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyNull()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -137,7 +140,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyBlank() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyBlank()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -157,7 +160,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogDateCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogDateCrappy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -177,7 +180,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogLocationCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogLocationCrappy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -197,7 +200,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogTrainingCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogTrainingCrappy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -217,7 +220,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCommentsCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCommentsCrappy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -237,7 +240,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogSetLoginCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogSetLoginCrappy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -257,7 +260,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyNullDate() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyNullDate()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -275,7 +278,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyBlankDate() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyBlankDate()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -293,7 +296,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyNullLocation() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyNullLocation()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -311,7 +314,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyBlankLocation() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyBlankLocation()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -329,7 +332,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyNullTraining() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyNullTraining()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -347,7 +350,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyBlankTraining() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyBlankTraining()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -365,7 +368,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyNullComments() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyNullComments()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -383,7 +386,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyBlankComments() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyBlankComments()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -401,7 +404,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyNullSetLogin() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyNullSetLogin()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -419,7 +422,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyBlankSetLogin() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyBlankSetLogin()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -437,7 +440,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyAllNull() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyAllNull()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -455,7 +458,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLogCrazyAllBlank() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLogCrazyAllBlank()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -475,7 +478,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -503,7 +506,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2OneHappyOneCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2OneHappyOneCrappy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -531,7 +534,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2Crazy1Null1Blank() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2Crazy1Null1Blank()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -562,7 +565,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog4TwoHappyTwoCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog4TwoHappyTwoCrappy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -606,7 +609,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog4() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog4()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -650,7 +653,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog4TwoCrappyTwoHappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog4TwoCrappyTwoHappy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -694,7 +697,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog4Crazy2Null2Blank() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog4Crazy2Null2Blank()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -736,7 +739,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2UsersReturn1() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2UsersReturn1()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -772,7 +775,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2UsersReturn1Crappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2UsersReturn1Crappy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -808,7 +811,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2UsersReturn1Good1NullDateCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2UsersReturn1Good1NullDateCrazy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -842,7 +845,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2UsersReturn1Good1LocationCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2UsersReturn1Good1LocationCrazy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -876,7 +879,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2UsersReturn1Good1TrainingCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2UsersReturn1Good1TrainingCrazy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -910,7 +913,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2UsersReturn1Good1CommentsCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2UsersReturn1Good1CommentsCrazy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -944,7 +947,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2UsersReturn1Good1NullCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2UsersReturn1Good1NullCrazy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -978,7 +981,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void saveTrainingLog2UsersReturn1Good1BlankCrazy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTrainingLog2UsersReturn1Good1BlankCrazy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1019,7 +1022,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrappy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1036,7 +1039,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazyUserCreatePassedNull() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrazyUserCreatePassedNull()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1048,7 +1051,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazyUserCreatePassedBlank() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrazyUserCreatePassedBlank()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1061,7 +1064,7 @@ class TrainingServiceImplTest {
 
 
     @Test
-    void fetchUserTrainingHappy1() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingHappy1()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1072,7 +1075,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappy2() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingHappy2()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1091,7 +1094,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappy3() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingHappy3()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1117,7 +1120,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappy4() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingHappy4()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1157,7 +1160,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyDate() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingHappyDate()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1177,7 +1180,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyDate2() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingHappyDate2()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1205,7 +1208,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyDate4() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingHappyDate4()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1248,7 +1251,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyLocation() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingHappyLocation()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1268,7 +1271,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyLocation2() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingHappyLocation2()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1296,7 +1299,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyLocation4() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingHappyLocation4()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1339,7 +1342,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyTraining() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingHappyTraining()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1359,7 +1362,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyTraining2() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingHappyTraining2()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1387,7 +1390,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyTraining4() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingHappyTraining4()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1430,7 +1433,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyComments() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingHappyComments()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1450,7 +1453,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyComments2() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingHappyComments2()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1478,7 +1481,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingHappyComments4() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingHappyComments4()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1521,7 +1524,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappy1() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrappy1()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1557,7 +1560,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazyOneGoodOneNull() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrazyOneGoodOneNull()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1595,7 +1598,7 @@ class TrainingServiceImplTest {
 
 
     @Test
-    void fetchUserTrainingCrappy2() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrappy2()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1641,7 +1644,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazyTwoGoodTwoNull() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrazyTwoGoodTwoNull()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1690,7 +1693,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyDate() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrappyDate()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1710,7 +1713,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazyDate() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrazyDate()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1728,7 +1731,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyDate2() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrappyDate2()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1757,7 +1760,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazeOneGoodOneNull() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrazeOneGoodOneNull()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1787,7 +1790,7 @@ class TrainingServiceImplTest {
 
 
     @Test
-    void fetchUserTrainingCrappyDate4() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrappyDate4()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1834,7 +1837,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazyTwoGoodTwoNullDate4() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrazyTwoGoodTwoNullDate4()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1880,7 +1883,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyLocation() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrappyLocation()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1900,7 +1903,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazyLocation() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrazyLocation()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1918,7 +1921,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyLocation2() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrappyLocation2()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1946,7 +1949,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrazyLocationOneGoodOneNull() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrazyLocationOneGoodOneNull()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -1972,7 +1975,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyLocation3() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrappyLocation3()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -2015,7 +2018,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyTraining() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrappyTraining()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -2035,7 +2038,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyTraining2() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrappyTraining2()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -2063,7 +2066,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyTraining3() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrappyTraining3()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -2106,7 +2109,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyComments() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrappyComments()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -2126,7 +2129,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyComments2() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrappyComments2()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
@@ -2154,7 +2157,7 @@ class TrainingServiceImplTest {
     }
 
     @Test
-    void fetchUserTrainingCrappyComments3() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserTrainingCrappyComments3()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
