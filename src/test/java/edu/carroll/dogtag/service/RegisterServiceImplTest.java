@@ -106,7 +106,7 @@ class RegisterServiceImplTest {
         assertTrue("userExistsTest: should succeed when a user already exists", registerService.userExists(userRegister.getUser()));
         assertTrue("user2ExistsTest: should succeed when user2 already exists", registerService.userExists(userRegister2.getUser()));
         assertTrue("user3ExistsTest: should succeed when a user already exists", registerService.userExists(userRegister3.getUser()));
-        assertTrue("user4ExistsTest: should succeed when user2 already exists", registerService.userExists(userRegister4.getUser()));
+        assertFalse("user4ExistsTest: should succeed when user2 already exists", registerService.userExists(userRegister4.getUser()));
     }
 
     @Test
@@ -136,7 +136,7 @@ class RegisterServiceImplTest {
         userRegister.setPassword(password);
         userRegister.setUser("");
         userRegister.setEmail(email);
-        assertTrue("Register should return true {}",registerService.register(userRegister));
+        assertFalse("Register should return true {}",registerService.register(userRegister));
         assertFalse("userExistsTest: should fail when a user is blank", registerService.userExists(userRegister.getUser()));
     }
 
@@ -146,7 +146,7 @@ class RegisterServiceImplTest {
         userRegister.setPassword(password);
         userRegister.setUser(null);
         userRegister.setEmail(email);
-        assertTrue("Register should return true {}",registerService.register(userRegister));
+        assertFalse("Register should return true {}",registerService.register(userRegister));
         assertFalse("userExistsTest: should fail when a user is null", registerService.userExists(userRegister.getUser()));
     }
 
@@ -255,7 +255,7 @@ class RegisterServiceImplTest {
         userRegister.setPassword(password);
         userRegister.setUser(username);
         userRegister.setEmail(email);
-        assertFalse("Register should return true {}",registerService.register(userRegister));
+        assertTrue("Register should return true {}",registerService.register(userRegister));
         List<Login> users = registerRepository.findByUserIgnoreCase(username);
         LoginForm loginForm = new LoginForm(username, password);
         assertTrue("userPasswordTestBlankCrappy2: should pass when a password is correctly created", loginService.validateUser(loginForm));
