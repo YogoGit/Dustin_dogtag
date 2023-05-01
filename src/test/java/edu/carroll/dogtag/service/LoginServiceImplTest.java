@@ -512,7 +512,7 @@ public class LoginServiceImplTest {
         createUser2.setEmail(email + "2");
         final LoginForm form2 = new LoginForm(user + "2", password + "2");
         assertTrue("Register should return true {}",registerService.register(createUser));
-        assertTrue("Register should return true {}",registerService.register(createUser2));
+        assertTrue("Register2 should return true {}",registerService.register(createUser2));
         assertFalse("Should fail when looking at the form2 user and comparing it to the wrong login", loginService.findLogin(form2.getUser()).equals(createUser));
         assertFalse("When looking at the form user and comparing it to the wrong login", loginService.findLogin(form.getUser()).equals(createUser2));
     }
@@ -540,9 +540,9 @@ public class LoginServiceImplTest {
         createUser4.setEmail(email + "4");
         final LoginForm form4 = new LoginForm(user + "4", password + "4");
         assertTrue("Register should return true {}",registerService.register(createUser));
-        assertTrue("Register should return true {}",registerService.register(createUser2));
-        assertTrue("Register should return true {}",registerService.register(createUser3));
-        assertTrue("Register should return true {}",registerService.register(createUser4));
+        assertTrue("Register2 should return true {}",registerService.register(createUser2));
+        assertTrue("Register3 should return true {}",registerService.register(createUser3));
+        assertTrue("Register4 should return true {}",registerService.register(createUser4));
         assertFalse("Should fail when looking at the form4 user and comparing it to the wrong login", loginService.findLogin(form4.getUser()).equals(createUser));
         assertFalse("Should fail when looking at the form3 user and comparing it to the wrong login", loginService.findLogin(form3.getUser()).equals(createUser2));
         assertFalse("Should fail when looking at the form2 user and comparing it to the wrong login", loginService.findLogin(form2.getUser()).equals(createUser3));
