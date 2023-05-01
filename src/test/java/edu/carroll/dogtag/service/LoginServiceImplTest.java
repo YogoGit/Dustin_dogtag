@@ -517,6 +517,8 @@ public class LoginServiceImplTest {
         assertFalse("When looking at the form user and comparing it to the wrong login", loginService.findLogin(form.getUser()).equals(createUser2));
     }
 
+
+
     @Test
     public void findLoginCrappy4()  {
         Login createUser = new Login();
@@ -548,4 +550,5 @@ public class LoginServiceImplTest {
         assertFalse("Should fail when looking at the form2 user and comparing it to the wrong login", loginService.findLogin(form2.getUser()).equals(createUser3));
         assertFalse("Should fail when looking at the form1 user and comparing it to the wrong login", loginService.findLogin(form.getUser()).equals(createUser4));
     }
+
 }

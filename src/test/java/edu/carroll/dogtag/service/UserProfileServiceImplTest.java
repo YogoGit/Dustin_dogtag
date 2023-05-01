@@ -1,16 +1,16 @@
 package edu.carroll.dogtag.service;
 import edu.carroll.dogtag.jpa.model.Login;
 import edu.carroll.dogtag.jpa.model.UserProfile;
-import edu.carroll.dogtag.jpa.repo.LoginRepository;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
+
+import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.util.AssertionErrors.assertTrue;
 
 /**
  * Unit test to pass happy, crappy and crazy inputs to the UserProfileService, and
@@ -44,24 +44,24 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileHappy1() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserProfileHappy1()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile noUser = userProfileService.fetchUserProfile(user);
         assertNull(noUser);
 
     }
 
     @Test
-    void fetchUserProfileHappy2() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserProfileHappy2()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -74,12 +74,12 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileHappyFname1() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserProfileHappyFname1()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -93,12 +93,12 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyFname1() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserProfileCrappyFname1()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -112,12 +112,12 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyFname2() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserProfileCrappyFname2()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -131,12 +131,12 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileHappyLname1() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserProfileHappyLname1()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -150,12 +150,12 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyLname1() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserProfileCrappyLname1()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -169,12 +169,12 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyLname2() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserProfileCrappyLname2()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -188,12 +188,12 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyLname3() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserProfileCrappyLname3()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -207,12 +207,12 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyLname4() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserProfileCrappyLname4()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -226,12 +226,12 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileHappyPhone1() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserProfileHappyPhone1()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -245,12 +245,12 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyPhone1() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserProfileCrappyPhone1()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -264,12 +264,12 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyPhone2() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserProfileCrappyPhone2()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -283,12 +283,12 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyPhone3() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserProfileCrappyPhone3()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -302,12 +302,12 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void fetchUserProfileCrappyPhone4() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void fetchUserProfileCrappyPhone4()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -316,32 +316,31 @@ class UserProfileServiceImplTest {
         userProfileService.setUserProfile(userProfile);
         userProfileService.fetchUserProfile(user);
         assertNotEquals(userProfileService.fetchUserProfile(user).getPhone(), userProfile.getLogin());
-        assertNotEquals("Dustin", userProfileService.fetchUserProfile(user).getPhone());
 
     }
 
     @Test
-    void setProfileHappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void setProfileHappy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
         userProfile.setPhone("406-980-0947");
         userProfile.setLogin(loginService.findLogin(user));
-        assertTrue(userProfileService.setUserProfile(userProfile));
+        assertTrue("User has set profile",userProfileService.setUserProfile(userProfile));
     }
 
     @Test
-    void setProfileBlankFormPassedCrappy() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void setProfileBlankFormPassedCrappy()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfile.setLname("Gardner");
@@ -354,12 +353,12 @@ class UserProfileServiceImplTest {
     }
 
     @Test
-    void setProfileOnlyFnameFormPassedCrappy2() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void setProfileOnlyFnameFormPassedCrappy2()  {
         Login createUser = new Login();
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfileService.setUserProfile(userProfile);

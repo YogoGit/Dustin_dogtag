@@ -5,8 +5,6 @@ import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import java.util.Collections;
 import java.util.List;
 import static org.springframework.test.util.AssertionErrors.*;
@@ -109,7 +107,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -127,7 +125,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -145,7 +143,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -165,7 +163,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -185,7 +183,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -205,7 +203,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -225,7 +223,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -245,7 +243,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -265,7 +263,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate(null);
         trainingLog.setLocation("Carroll");
@@ -283,7 +281,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("");
         trainingLog.setLocation("Carroll");
@@ -301,7 +299,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation(null);
@@ -319,7 +317,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("");
@@ -337,7 +335,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -355,7 +353,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -373,7 +371,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -391,7 +389,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -409,7 +407,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -427,7 +425,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -445,7 +443,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate(null);
         trainingLog.setLocation(null);
@@ -463,7 +461,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("");
         trainingLog.setLocation("");
@@ -483,7 +481,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -511,7 +509,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -539,7 +537,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -569,7 +567,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -613,7 +611,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -657,7 +655,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -701,7 +699,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -741,7 +739,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Login createUser2 = new Login();
         createUser2.setPassword(password + "2");
         createUser2.setUser(user + "2");
@@ -777,7 +775,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Login createUser2 = new Login();
         createUser2.setPassword(password + "2");
         createUser2.setUser(user + "2");
@@ -814,7 +812,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Login createUser2 = new Login();
         createUser2.setPassword(password + "2");
         createUser2.setUser(user + "2");
@@ -848,7 +846,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Login createUser2 = new Login();
         createUser2.setPassword(password + "2");
         createUser2.setUser(user + "2");
@@ -882,7 +880,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Login createUser2 = new Login();
         createUser2.setPassword(password + "2");
         createUser2.setUser(user + "2");
@@ -916,7 +914,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Login createUser2 = new Login();
         createUser2.setPassword(password + "2");
         createUser2.setUser(user + "2");
@@ -950,7 +948,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Login createUser2 = new Login();
         createUser2.setPassword(password + "2");
         createUser2.setUser(user + "2");
@@ -984,7 +982,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Login createUser2 = new Login();
         createUser2.setPassword(password + "2");
         createUser2.setUser(user + "2");
@@ -1026,7 +1024,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         List<Training> noUser = trainingService.fetchUserTraining(user + "2");
         assertEquals("Return null for a list of trainings for a user that doesnt exist", noUser, Collections.EMPTY_LIST);
     }
@@ -1043,7 +1041,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         List<Training> noUser = trainingService.fetchUserTraining(null);
         assertTrue("User created successfully", loginService.findLogin(user).equals(createUser));
         assertEquals("Location passed as null and should return an empty list", noUser, Collections.EMPTY_LIST);
@@ -1055,7 +1053,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         List<Training> noUser = trainingService.fetchUserTraining("");
         assertTrue("User created successfully", loginService.findLogin(user).equals(createUser));
         assertEquals("Return null for a list of trainings for a user that doesnt exist", noUser, Collections.EMPTY_LIST);
@@ -1068,7 +1066,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         List<Training> userTraining = trainingService.fetchUserTraining(user);
         assertEquals("User has no training", userTraining, Collections.EMPTY_LIST);
     }
@@ -1079,7 +1077,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1098,7 +1096,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1125,7 +1123,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1165,7 +1163,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1185,7 +1183,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1213,7 +1211,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1256,7 +1254,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1276,7 +1274,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1304,7 +1302,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1347,7 +1345,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1367,7 +1365,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1395,7 +1393,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1438,7 +1436,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1458,7 +1456,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1486,7 +1484,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1529,7 +1527,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1565,7 +1563,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1603,7 +1601,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1649,7 +1647,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1698,7 +1696,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1718,7 +1716,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate(null);
         trainingLog.setLocation("Carroll");
@@ -1736,7 +1734,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1765,7 +1763,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1795,7 +1793,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1842,7 +1840,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1888,7 +1886,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1908,7 +1906,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation(null);
@@ -1926,7 +1924,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1954,7 +1952,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -1980,7 +1978,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -2023,7 +2021,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -2043,7 +2041,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -2071,7 +2069,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -2114,7 +2112,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -2134,7 +2132,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
@@ -2162,7 +2160,7 @@ class TrainingServiceImplTest {
         createUser.setPassword(password);
         createUser.setUser(user);
         createUser.setEmail(email);
-        registerService.register(createUser);
+        assertTrue("User is register", registerService.register(createUser));
         Training trainingLog = new Training();
         trainingLog.setDate("2023-04-12");
         trainingLog.setLocation("Carroll");
