@@ -316,7 +316,7 @@ class UserProfileServiceImplTest {
         userProfile.setLogin(loginService.findLogin(user));
         userProfileService.setUserProfile(userProfile);
         userProfileService.fetchUserProfile(user);
-        assertNotEquals(userProfileService.fetchUserProfile(user).getPhone(), userProfile.getLogin());
+        assertNotEquals("Profile does not equal using phone and email",userProfileService.fetchUserProfile(user).getPhone(), userProfile.getLogin().getUser());
 
     }
 
@@ -350,7 +350,7 @@ class UserProfileServiceImplTest {
         userProfileService.setUserProfile(userProfile);
         userProfileService.fetchUserProfile(user);
         UserProfile userProfile2 = new UserProfile();
-        assertFalse(userProfileService.setUserProfile(userProfile2));
+        assertFalse(userProfileService.setUserProfile(userProfile2), "User Profile not setup");
     }
 
     @Test
@@ -363,6 +363,6 @@ class UserProfileServiceImplTest {
         UserProfile userProfile = new UserProfile();
         userProfile.setFname("Dustin");
         userProfileService.setUserProfile(userProfile);
-        assertFalse(userProfileService.setUserProfile(userProfile));
+        assertFalse(userProfileService.setUserProfile(userProfile), "User Profile not setup");
     }
 }

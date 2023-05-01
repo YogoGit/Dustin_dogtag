@@ -208,9 +208,9 @@ class RegisterServiceImplTest {
         assertTrue("Register4 should return true {}", registerService.register(emailRegister4));
 
         assertTrue("emailExistsTest: should succeed when a email already exists", registerService.emailExists(emailRegister.getEmail()));
-        assertTrue("emailExistsTest: should succeed when a email already exists", registerService.emailExists(emailRegister2.getEmail()));
-        assertTrue("emailExistsTest: should succeed when a email already exists", registerService.emailExists(emailRegister3.getEmail()));
-        assertTrue("emailExistsTest: should succeed when a email already exists", registerService.emailExists(emailRegister4.getEmail()));
+        assertTrue("emailExistsTest: should succeed when a email2 already exists", registerService.emailExists(emailRegister2.getEmail()));
+        assertTrue("emailExistsTest: should succeed when a email3 already exists", registerService.emailExists(emailRegister3.getEmail()));
+        assertTrue("emailExistsTest: should succeed when a email4 already exists", registerService.emailExists(emailRegister4.getEmail()));
     }
 
     @Test
