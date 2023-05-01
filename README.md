@@ -98,4 +98,5 @@ Then press the play button:
 
 ## Checking DATABASE:
 
+<img width="471" alt="Screen Shot 2023-05-01 at 6 18 34 AM" src="https://user-images.githubusercontent.com/77804262/235452099-3a05800e-f63d-406d-9b40-7da944881400.png">
 
