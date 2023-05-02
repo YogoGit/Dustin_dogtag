@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+
+<!-- Register page that allows the user to save their
+credentials to the Login database. Once entered and correct parameter are met
+the user is allowed to then login. When register button is clicked the template
+forwards the user to the register success page which has a login hyperlink to
+forward back to the login page-->
+
+<h1>Registration</h1>
+<form action="#" method="post" th:action="@{/register}" th:object="${registerForm}">
+    <span th:errors="*{global}" th:if="${#fields.hasGlobalErrors()}">Global error</span><br/>  <!-- Add this line -->
+    <input placeholder="User" th:field="*{user}" th:maxlength="16" th:min="6" type="text"/>
+    <span th:errors="*{user}" th:if="${#fields.hasErrors('user')}">User error</span><br/>
+    <input placeholder="Password" th:field="*{password}" th:maxlength="16" th:min="8" type="password"/>
+    <span th:errors="*{password}" th:if="${#fields.hasErrors('password')}">Password error</span><br/>
+    <input placeholder="email" th:field="*{email}" th:maxlength="50" th:min="6" type="email"/>
+    <span th:errors="*{email}" th:if="${#fields.hasErrors('email')}">email error</span><br/>
+    <button type="submit">Register</button>
+</form>
+</body>
+</html>

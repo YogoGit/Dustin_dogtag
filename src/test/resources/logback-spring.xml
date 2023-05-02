@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date - [%level] - from %logger in %thread %n%message%n%xException%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Reduce DB startup chatter -->
+    <logger name="org.hibernate" level="INFO"/>
+    <logger name="com.zaxxer.hikari" level="INFO"/>
+
+    <!--- Spring boot has a lot of startup noise as well -->
+    <logger name="org.springframework" level="INFO"/>
+
+    <!-- Increase verbosity for local classes during testing -->
+    <logger name="edu.carroll.cs389" level="INFO"/>
+
+    <!-- Default level is INFO -->
+    <root level="INFO">
+        <appender-ref ref="Console"/>
+    </root>
+</configuration>

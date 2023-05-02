@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Registration Complete</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+
+<!-- Register success page that. When register button is clicked the template
+forwards the user to the register success page which has a login hyperlink to
+forward back to the login page-->
+
+<form action="#" method="post" th:action="@{/registerSuccess}">
+    <h1>Successfully Registration</h1>
+    <p th:text="'Welcome are you ready to login '"/>
+    <button type="submit">Login</button>
+</form>
+</body>
+</html>
